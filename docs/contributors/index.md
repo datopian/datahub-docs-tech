@@ -5,7 +5,7 @@ This section of the Datapackage Registry documentation is for data contributors.
 - [Getting started](#getting-started)
 - [Prepare](prepare/)
 - [Package](package/)
-- [Load](load/)
+- [Upoad](upload/)
 - [Use](use/)
 
 # Getting started
