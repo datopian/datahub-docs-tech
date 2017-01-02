@@ -31,6 +31,7 @@ is_allowed(user, entity, action)
 
 For this user: what roles do they have related to this entity and the system?
 Given those roles: what actions do they have: UNIONrole
+
 Note: it would get more complex if some roles deny access. E.g. Role: Spammer might mean you are denied action to posting etc. Right now we don’t have that issue.
 
 Is the desired action in that set?
