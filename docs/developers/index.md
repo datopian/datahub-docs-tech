@@ -31,6 +31,10 @@ The Datapackage Registry API offers a rich suite of methods to query the databas
 - [API docs](api/)
 - [API code](https://github.com/frictionlessdata/dpr-api)
 
+### Authorization
+The authorization set up enables system to restricts user permission to execute.
+
+- [Authorization docs](authorization/)
 
 ### CLI
 
@@ -38,4 +42,3 @@ The Datapackage Registry CLI (dpmpy) is a Python lib and command line interface 
 
 - [CLI docs](cli/)
 - [CLI code](https://github.com/openspending/dpm-py)
-
