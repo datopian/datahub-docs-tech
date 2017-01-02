@@ -1,15 +1,15 @@
 site_name: Datapackage Registry
 site_description: Datapackage Registry is a web service for hosting datapackages.
-repo_url: https://github.com/frictionlessdata/dpr-api
+repo_url: https://github.com/frictionlessdata/dpr-docs
 pages:
-- Home:
-  - Start: index.md
+- Home: 'index.md'
 - Developers:
   - 'Getting started': developers/index.md
   - Platform: developers/platform.md
   - Datastore: developers/datastore.md
   - API: developers/api.md
   - CLI: developers/cli.md
+  - Authorization: developers/authorization.md
 - Contributors:
   - 'Getting started': contributors/index.md
   - Prepare: contributors/prepare.md
