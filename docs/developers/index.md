@@ -7,6 +7,8 @@ This section of the Datapackage Registry documentation is for developers. Here y
 - [Datastore](datastore/)
 - [API](api/)
 - [CLI](cli/)
+- [Authorization](authorization/)
+- [Authentication](authentication/)
 
 # Getting started
 
@@ -35,6 +37,12 @@ The Datapackage Registry API offers a rich suite of methods to query the databas
 The authorization set up enables system to restricts user permission to execute.
 
 - [Authorization docs](authorization/)
+
+### Authentication
+
+Some Datapackage Registry API methods require client to provide user identity. API Client can use jwt token to perform authenticated requests.
+
+- [Authentication docs](authentication/)
 
 ### CLI
 
