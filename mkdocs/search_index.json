@@ -1,0 +1,214 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Datapackage Registry Documentation\n\n\nWelcome to the Datapackage Registry documentation. Choose the appropriate section and dive right in!\n\n\nSections\n\n\n\n\nDatapackage Registry for developers\n: \n3 Python, Javascript and open data? Start here.\n\n\nDatapackage Registry for contributors\n: Do you want to add your data to Datapackage Registry? Start here.\n\n\nDatapackage Registry for users\n: Do you want to use Datapackage Registry data and views? Start here.\n\n\n\n\nLinks\n\n\n\n\nFrictionlessdata chat",
+            "title": "Home"
+        },
+        {
+            "location": "/#datapackage-registry-documentation",
+            "text": "Welcome to the Datapackage Registry documentation. Choose the appropriate section and dive right in!",
+            "title": "Datapackage Registry Documentation"
+        },
+        {
+            "location": "/#sections",
+            "text": "Datapackage Registry for developers :  3 Python, Javascript and open data? Start here.  Datapackage Registry for contributors : Do you want to add your data to Datapackage Registry? Start here.  Datapackage Registry for users : Do you want to use Datapackage Registry data and views? Start here.",
+            "title": "Sections"
+        },
+        {
+            "location": "/#links",
+            "text": "Frictionlessdata chat",
+            "title": "Links"
+        },
+        {
+            "location": "/developers/",
+            "text": "Table of Contents\n\n\nThis section of the Datapackage Registry documentation is for developers. Here you can learn about the design of the platform, and how to get Datapackage Registry running locally or on your own servers, and the process for contributing enhancements and bug fixes to the code.\n\n\n\n\nGetting started\n\n\nPlatform\n\n\nDatastore\n\n\nAPI\n\n\nCLI\n\n\n\n\nGetting started\n\n\nLet's get started then! If you want to get the whole Datapackage Registry platform running locally, or deployed to your own servers, then go straight to the \nplatform\n section of the documentation. For details on distinct components, go to the appropriate section from the list below.\n\n\nPlatform\n\n\nDatapackage Registry as a complete platform is run as a service on amazon. Configurations are available to get running quickly on a local machine, or a remote server for production use.\n\n\n\n\nPlatform docs\n\n\n\n\nDatastore\n\n\nThe Datapackage Registry Datastore is a flat file datastore with source data stored in \nData Packages\n.\n\n\n\n\nDatastore docs\n\n\n\n\nAPI\n\n\nThe Datapackage Registry API offers a rich suite of methods to query the database.\n\n\n\n\nAPI docs\n\n\nAPI code\n\n\n\n\nAuthorization\n\n\nThe authorization set up enables system to restricts user permission to execute.\n\n\n\n\nAuthorization docs\n\n\n\n\nCLI\n\n\nThe Datapackage Registry CLI (dpmpy) is a Python lib and command line interface to interact with an Datapackage Registry instance.\n\n\n\n\nCLI docs\n\n\nCLI code",
+            "title": "Getting started"
+        },
+        {
+            "location": "/developers/#table-of-contents",
+            "text": "This section of the Datapackage Registry documentation is for developers. Here you can learn about the design of the platform, and how to get Datapackage Registry running locally or on your own servers, and the process for contributing enhancements and bug fixes to the code.   Getting started  Platform  Datastore  API  CLI",
+            "title": "Table of Contents"
+        },
+        {
+            "location": "/developers/#getting-started",
+            "text": "Let's get started then! If you want to get the whole Datapackage Registry platform running locally, or deployed to your own servers, then go straight to the  platform  section of the documentation. For details on distinct components, go to the appropriate section from the list below.",
+            "title": "Getting started"
+        },
+        {
+            "location": "/developers/#platform",
+            "text": "Datapackage Registry as a complete platform is run as a service on amazon. Configurations are available to get running quickly on a local machine, or a remote server for production use.   Platform docs",
+            "title": "Platform"
+        },
+        {
+            "location": "/developers/#datastore",
+            "text": "The Datapackage Registry Datastore is a flat file datastore with source data stored in  Data Packages .   Datastore docs",
+            "title": "Datastore"
+        },
+        {
+            "location": "/developers/#api",
+            "text": "The Datapackage Registry API offers a rich suite of methods to query the database.   API docs  API code",
+            "title": "API"
+        },
+        {
+            "location": "/developers/#authorization",
+            "text": "The authorization set up enables system to restricts user permission to execute.   Authorization docs",
+            "title": "Authorization"
+        },
+        {
+            "location": "/developers/#cli",
+            "text": "The Datapackage Registry CLI (dpmpy) is a Python lib and command line interface to interact with an Datapackage Registry instance.   CLI docs  CLI code",
+            "title": "CLI"
+        },
+        {
+            "location": "/developers/platform/",
+            "text": "",
+            "title": "Platform"
+        },
+        {
+            "location": "/developers/datastore/",
+            "text": "",
+            "title": "Datastore"
+        },
+        {
+            "location": "/developers/api/",
+            "text": "",
+            "title": "API"
+        },
+        {
+            "location": "/developers/cli/",
+            "text": "",
+            "title": "CLI"
+        },
+        {
+            "location": "/developers/authorization/",
+            "text": "Authorization Set up\n\n\nAuthorization is the process of giving someone permission to do or have something. In multi-user systems, a system administrator defines for the system which users are allowed access to the system and what privileges of use.\n\n\nWe have a standard access control matrix with 3 axes:\n\n\n\n\nActions: CREATE, READ, WRITE, DELETE, PURGE etc. these can vary among different entities\n\n\nEntities (object): User, Publisher, Package, Package Resource, \u2026\n\n\nUsers: a user or type of user\n\n\n\n\nPermission is a tuple of \n(Users, Entities, Actions)\n\n\nIntroducing Roles\n\n\nIt can be tiresome and inefficient to list for every object all the users permitted to perform a given action. For example:\n\n\n\n\nMany users in an organization get same set of privileges because of their position in the organization.\n\n\nWe want to change the permissions associated with a certain level in the organization and to have those permissions changed for all people in that level\n\n\nA user may change level frequently (ex. user may get promoted)\n\n\n\n\nSo we create roles\n\n\n\n\nPer object roles e.g. Package Owner\n\n\nPer system roles e.g. System Administrator\n\n\nA list or algorithm for assigning Users =\n Roles\n\n\n\n\nAccess control algorithm:\n\n\nis_allowed(user, entity, action)\n\n\n\n\nFor this user: what roles do they have related to this entity and the system?\nGiven those roles: what actions do they have: UNIONrole\n\n\nNote: it would get more complex if some roles deny access. E.g. Role: Spammer might mean you are denied action to posting etc. Right now we don\u2019t have that issue.\n\n\nIs the desired action in that set?\n\n\nRoles\n\n\nThe example roles are given below.\n\n\n\n\nPackage\n\n\nOwner  =\n all actions\n\n\nEditor\n\n\nRead\n\n\nCreate\n\n\nDelete\n\n\nUndelete\n\n\nUpdate\n\n\nTag\n\n\n\n\n\n\nViewer  =\n Only read\n\n\n\n\n\n\nPublisher\n\n\nOwner =\n all actions on Publisher\n\n\nEditor\n\n\nViewMemberList\n\n\nAddMember\n\n\nRemoveMember\n\n\nRead\n\n\n\n\n\n\nViewer =\n Only Read\n\n\n\n\n\n\nSystem\n\n\nLoggedIn\n\n\nPackage::Create\n\n\nPublisher::Create\n\n\n\n\n\n\nAll =\n Package::Read on public packages\n\n\nSysadmin =\n all actions\n\n\n\n\n\n\n\n\nThis\n contains the current roles.\n\n\nBusiness roles\n\n\n\n\nPublisher Owner\n\n\nPublisher::Owner\n\n\n\n\n\n\nPublisher Member\n\n\nPublisher::Editor\n\n\n\n\n\n\n(Logged in) User\n\n\nSystem::LoggedIn\n\n\n\n\n\n\nSys Admin\n\n\nSystem::Sysadmin\n\n\n\n\n\n\nVisitor\n\n\nSystem::Anonymous\n\n\n\n\n\n\n\n\n\n\nNOTE: business roles and authorization roles are distinct. Of course, in implementing access control we will use the business logic inherent in business roles. However, business roles are not explicitly present in the access control system.\n\n\n\n\nActions\n\n\n\n\nNote: not an exhaustive list. \nThis\n contains the current Actions.\n\n\n\n\n\n\nPackage:\n\n\nPackage::Read\n\n\nPackage::Create\n\n\nPackage::Delete\n\n\nPackage::Undelete\n\n\nPackage::Purge\n\n\nPackage::Update\n\n\nPackage::Tag\n\n\n\n\n\n\nPublisher:\n\n\nPublisher::Create\n\n\nPublisher::AddMember\n\n\nPublisher::RemoveMember\n\n\nPublisher::Read\n\n\nPublisher::Delete\n\n\nPublisher::Update\n\n\nPublisher::ViewMemberList\n\n\n\n\n\n\n\n\nExamples\n\n\nFirst time visitor or not logged in:\n\n\nThe business role will be \nSystem::Anonymous\n. So the user can only has the action permission of \nPackage::Read\n.\nSo the user can only view the public data packages.\n\n\nLogged in user:\n\n\nThe business role will be \nSystem::LoggedIn\n . So the user will have permission of :\n\n\n\n\nPublisher::Create\n : The user can create new publisher.\n\n\nPackage::Create\n : The user can create new data package.\n\n\nPackage::Read\n : Can read public data packages",
+            "title": "Authorization"
+        },
+        {
+            "location": "/developers/authorization/#authorization-set-up",
+            "text": "Authorization is the process of giving someone permission to do or have something. In multi-user systems, a system administrator defines for the system which users are allowed access to the system and what privileges of use.  We have a standard access control matrix with 3 axes:   Actions: CREATE, READ, WRITE, DELETE, PURGE etc. these can vary among different entities  Entities (object): User, Publisher, Package, Package Resource, \u2026  Users: a user or type of user   Permission is a tuple of  (Users, Entities, Actions)",
+            "title": "Authorization Set up"
+        },
+        {
+            "location": "/developers/authorization/#introducing-roles",
+            "text": "It can be tiresome and inefficient to list for every object all the users permitted to perform a given action. For example:   Many users in an organization get same set of privileges because of their position in the organization.  We want to change the permissions associated with a certain level in the organization and to have those permissions changed for all people in that level  A user may change level frequently (ex. user may get promoted)   So we create roles   Per object roles e.g. Package Owner  Per system roles e.g. System Administrator  A list or algorithm for assigning Users =  Roles   Access control algorithm:  is_allowed(user, entity, action)  For this user: what roles do they have related to this entity and the system?\nGiven those roles: what actions do they have: UNIONrole  Note: it would get more complex if some roles deny access. E.g. Role: Spammer might mean you are denied action to posting etc. Right now we don\u2019t have that issue.  Is the desired action in that set?",
+            "title": "Introducing Roles"
+        },
+        {
+            "location": "/developers/authorization/#roles",
+            "text": "The example roles are given below.   Package  Owner  =  all actions  Editor  Read  Create  Delete  Undelete  Update  Tag    Viewer  =  Only read    Publisher  Owner =  all actions on Publisher  Editor  ViewMemberList  AddMember  RemoveMember  Read    Viewer =  Only Read    System  LoggedIn  Package::Create  Publisher::Create    All =  Package::Read on public packages  Sysadmin =  all actions     This  contains the current roles.",
+            "title": "Roles"
+        },
+        {
+            "location": "/developers/authorization/#business-roles",
+            "text": "Publisher Owner  Publisher::Owner    Publisher Member  Publisher::Editor    (Logged in) User  System::LoggedIn    Sys Admin  System::Sysadmin    Visitor  System::Anonymous      NOTE: business roles and authorization roles are distinct. Of course, in implementing access control we will use the business logic inherent in business roles. However, business roles are not explicitly present in the access control system.",
+            "title": "Business roles"
+        },
+        {
+            "location": "/developers/authorization/#actions",
+            "text": "Note: not an exhaustive list.  This  contains the current Actions.    Package:  Package::Read  Package::Create  Package::Delete  Package::Undelete  Package::Purge  Package::Update  Package::Tag    Publisher:  Publisher::Create  Publisher::AddMember  Publisher::RemoveMember  Publisher::Read  Publisher::Delete  Publisher::Update  Publisher::ViewMemberList",
+            "title": "Actions"
+        },
+        {
+            "location": "/developers/authorization/#examples",
+            "text": "",
+            "title": "Examples"
+        },
+        {
+            "location": "/developers/authorization/#first-time-visitor-or-not-logged-in",
+            "text": "The business role will be  System::Anonymous . So the user can only has the action permission of  Package::Read .\nSo the user can only view the public data packages.",
+            "title": "First time visitor or not logged in:"
+        },
+        {
+            "location": "/developers/authorization/#logged-in-user",
+            "text": "The business role will be  System::LoggedIn  . So the user will have permission of :   Publisher::Create  : The user can create new publisher.  Package::Create  : The user can create new data package.  Package::Read  : Can read public data packages",
+            "title": "Logged in user:"
+        },
+        {
+            "location": "/contributors/",
+            "text": "Table of Contents\n\n\nThis section of the Datapackage Registry documentation is for data contributors. Here you can learn about getting your data ready for loading into Datapackage Registry, and how you can interact with your data once it is loaded.\n\n\n\n\nGetting started\n\n\nPrepare\n\n\nPackage\n\n\nLoad\n\n\nUse\n\n\n\n\nGetting started\n\n\nLet's get started then!\n\n\nGetting data in\n\n\nPrepare\n\n\nDatapackage Registry loads and stores data in common tabular data formats such as CSV and Excel. Read this section of the documentation to learn how to ensure your data is ready to add to Datapackage Registry.\n\n\n\n\nPrepare docs\n\n\n\n\nPackage\n\n\nDatapackage Registry \"understands\" the contents of a source data file via another \"descriptor\" called a \nData Package\n. Learn about packaging your data as a Data Package.\n\n\n\n\nPackage docs\n\n\n\n\nUpload\n\n\nIt is possible to upload Data Packages into Datapackage Registry via a web site and CLI.\n\n\n\n\nUpoad docs\n\n\n\n\nUsing the loaded data\n\n\nUse\n\n\nOnce your data is loaded into Datapackage Registry, you can interact with the data in a number of ways, including via API, raw files from the Datastore, and various views on the data.\n\n\n\n\nUsage docs",
+            "title": "Getting started"
+        },
+        {
+            "location": "/contributors/#table-of-contents",
+            "text": "This section of the Datapackage Registry documentation is for data contributors. Here you can learn about getting your data ready for loading into Datapackage Registry, and how you can interact with your data once it is loaded.   Getting started  Prepare  Package  Load  Use",
+            "title": "Table of Contents"
+        },
+        {
+            "location": "/contributors/#getting-started",
+            "text": "Let's get started then!",
+            "title": "Getting started"
+        },
+        {
+            "location": "/contributors/#getting-data-in",
+            "text": "",
+            "title": "Getting data in"
+        },
+        {
+            "location": "/contributors/#prepare",
+            "text": "Datapackage Registry loads and stores data in common tabular data formats such as CSV and Excel. Read this section of the documentation to learn how to ensure your data is ready to add to Datapackage Registry.   Prepare docs",
+            "title": "Prepare"
+        },
+        {
+            "location": "/contributors/#package",
+            "text": "Datapackage Registry \"understands\" the contents of a source data file via another \"descriptor\" called a  Data Package . Learn about packaging your data as a Data Package.   Package docs",
+            "title": "Package"
+        },
+        {
+            "location": "/contributors/#upload",
+            "text": "It is possible to upload Data Packages into Datapackage Registry via a web site and CLI.   Upoad docs",
+            "title": "Upload"
+        },
+        {
+            "location": "/contributors/#using-the-loaded-data",
+            "text": "",
+            "title": "Using the loaded data"
+        },
+        {
+            "location": "/contributors/#use",
+            "text": "Once your data is loaded into Datapackage Registry, you can interact with the data in a number of ways, including via API, raw files from the Datastore, and various views on the data.   Usage docs",
+            "title": "Use"
+        },
+        {
+            "location": "/contributors/prepare/",
+            "text": "",
+            "title": "Prepare"
+        },
+        {
+            "location": "/contributors/package/",
+            "text": "",
+            "title": "Package"
+        },
+        {
+            "location": "/contributors/upload/",
+            "text": "",
+            "title": "Upload"
+        },
+        {
+            "location": "/contributors/use/",
+            "text": "",
+            "title": "Use"
+        },
+        {
+            "location": "/users/",
+            "text": "Table of Contents\n\n\nThis section of the Datapackage Registry documentation is for end users. Here you can learn about how to find and interact with data in Datapackage Registry, and how to use the data elsewhere.\n\n\n\n\nGetting started\n\n\n\n\nGetting started\n\n\nLet's get started then! To use Datapackage Registry, at a minimum you need to know the basic features of many websites: search, menus and categories, and how to read simple visualisations.\n\n\nUsing Datapackage Registry",
+            "title": "Getting started"
+        },
+        {
+            "location": "/users/#table-of-contents",
+            "text": "This section of the Datapackage Registry documentation is for end users. Here you can learn about how to find and interact with data in Datapackage Registry, and how to use the data elsewhere.   Getting started",
+            "title": "Table of Contents"
+        },
+        {
+            "location": "/users/#getting-started",
+            "text": "Let's get started then! To use Datapackage Registry, at a minimum you need to know the basic features of many websites: search, menus and categories, and how to read simple visualisations.",
+            "title": "Getting started"
+        },
+        {
+            "location": "/users/#using-datapackage-registry",
+            "text": "",
+            "title": "Using Datapackage Registry"
+        }
+    ]
+}
