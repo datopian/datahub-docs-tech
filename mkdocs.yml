@@ -11,6 +11,7 @@ pages:
   - CLI: developers/cli.md
   - Authorization: developers/authorization.md
   - Authentication: developers/authentication.md
+  - Infrastructure: developers/infrastructure.md
 - Contributors:
   - 'Getting started': contributors/index.md
   - Prepare: contributors/prepare.md
