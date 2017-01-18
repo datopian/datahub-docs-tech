@@ -77,6 +77,8 @@
                 
                     <li><a class="toctree-l4" href="#authorization">Authorization</a></li>
                 
+                    <li><a class="toctree-l4" href="#authentication">Authentication</a></li>
+                
                     <li><a class="toctree-l4" href="#cli">CLI</a></li>
                 
             
@@ -116,6 +118,20 @@
             
     <li class="toctree-l1 ">
         <a class="" href="authorization/">Authorization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="authentication/">Authentication</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="infrastructure/">Infrastructure</a>
         
     </li>
 
@@ -228,6 +244,8 @@
 <li><a href="./datastore/">Datastore</a></li>
 <li><a href="./api/">API</a></li>
 <li><a href="./cli/">CLI</a></li>
+<li><a href="./authorization/">Authorization</a></li>
+<li><a href="./authentication/">Authentication</a></li>
 </ul>
 <h1 id="getting-started">Getting started</h1>
 <p>Let's get started then! If you want to get the whole Datapackage Registry platform running locally, or deployed to your own servers, then go straight to the <a href="./platform/">platform</a> section of the documentation. For details on distinct components, go to the appropriate section from the list below.</p>
@@ -251,6 +269,11 @@
 <p>The authorization set up enables system to restricts user permission to execute.</p>
 <ul>
 <li><a href="./authorization/">Authorization docs</a></li>
+</ul>
+<h3 id="authentication">Authentication</h3>
+<p>Some Datapackage Registry API methods require client to provide user identity. API Client can use jwt token to perform authenticated requests.</p>
+<ul>
+<li><a href="./authentication/">Authentication docs</a></li>
 </ul>
 <h3 id="cli">CLI</h3>
 <p>The Datapackage Registry CLI (dpmpy) is a Python lib and command line interface to interact with an Datapackage Registry instance.</p>

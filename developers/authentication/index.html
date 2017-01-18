@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>API - Datapackage Registry</title>
+  <title>Authentication - Datapackage Registry</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "API";
-    var mkdocs_page_input_path = "developers/api.md";
-    var mkdocs_page_url = "/developers/api/";
+    var mkdocs_page_name = "Authentication";
+    var mkdocs_page_input_path = "developers/authentication.md";
+    var mkdocs_page_url = "/developers/authentication/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -80,21 +80,8 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">API</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#datapackage-registry-api">Datapackage Registry API</a></li>
-                
-                    <li><a class="toctree-l4" href="#features">Features</a></li>
-                
-                    <li><a class="toctree-l4" href="#requirements">Requirements</a></li>
-                
-                    <li><a class="toctree-l4" href="#installation">Installation</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../api/">API</a>
         
     </li>
 
@@ -114,8 +101,17 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../authentication/">Authentication</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Authentication</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#datapackage-registry-authentication">Datapackage Registry Authentication</a></li>
+                
+                    <li><a class="toctree-l4" href="#api-authentication">API authentication</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -214,10 +210,10 @@
         
       
     
-    <li>API</li>
+    <li>Authentication</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/frictionlessdata/dpr-docs/edit/master/docs/developers/api.md"
+        <a href="https://github.com/frictionlessdata/dpr-docs/edit/master/docs/developers/authentication.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -227,18 +223,24 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="datapackage-registry-api">Datapackage Registry API</h1>
-<p>The Datapackage Registry API is a Python app that provides a range of API endpoints to query an Datapackage Registry database.</p>
-<p>The API is available for general use, and also powers all of the core components of Datapackage Registry.</p>
-<h2 id="features">Features</h2>
-<ul>
-<li>A search API to access package-level meta data</li>
-<li>...</li>
-</ul>
-<h2 id="requirements">Requirements</h2>
-<p>You need to have Python 2.7.x or Python 3 (not yet supported) to run the API. The API itself is a set of Flask blueprints.</p>
-<h2 id="installation">Installation</h2>
-<p>...</p>
+                <h1 id="datapackage-registry-authentication">Datapackage Registry Authentication</h1>
+<p>This page describes authentication of Datapackage Registry users. The details provided can be used by developers, willing to contribute to the existing <a href="https://github.com/frictionlessdata/dpm-py">dpm-py</a> API client or implement custom client for The Datapackage Registry API.</p>
+<p>The Datapackage Registry Frontend allows users to be registered via <a href="https://auth0.com/">auth0 platform</a> using the web browser. After a successful registration, user will be given unique API-KEY to authenticate with Datapackage Registry API server.</p>
+<h2 id="api-authentication">API authentication</h2>
+<p>Some Datapackage Registry API methods require client to provide identity of a registered user. To prove its identity, client first has to obtain temporal jwt token, providing permanent API-KEY of a registered user. After that client can pass this token ih the header of a request to the API.</p>
+<p>To obtain a temporal jwt token, client should send POST request to <code>/api/auth/token</code>. Request should have json-encoded body with 'username' and 'secret' keys, where 'secret' is an API-KEY of the user:</p>
+<pre><code>response = requests.post(
+        url='https://datapackaged.com/api/auth/token',
+        {'username': 'my_username', 'secret': '1dd5f984bc'}))
+</code></pre>
+
+<p>If the username and API-KEY are valid, server will return json response with jwt token: <code>{'token': 'a6d8b887'}</code></p>
+<pre><code>auth_token = response.json().get('token')
+</code></pre>
+
+<p>This token should be temporarily stored by the client. To access any api method with authentication, client should include this token in the "Authorization" header.</p>
+<pre><code>requests.post(api_url, headers={'Authorization', 'Bearer %s' % auth_token})
+</code></pre>
               
             </div>
           </div>
@@ -246,10 +248,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../cli/" class="btn btn-neutral float-right" title="CLI">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../infrastructure/" class="btn btn-neutral float-right" title="Infrastructure">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../datastore/" class="btn btn-neutral" title="Datastore"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../authorization/" class="btn btn-neutral" title="Authorization"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -277,10 +279,10 @@
           <a href="https://github.com/frictionlessdata/dpr-docs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../datastore/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../authorization/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../cli/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../infrastructure/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
