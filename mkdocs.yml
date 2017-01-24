@@ -12,12 +12,10 @@ pages:
   - Authorization: developers/authorization.md
   - Authentication: developers/authentication.md
   - Infrastructure: developers/infrastructure.md
-- Contributors:
-  - 'Getting started': contributors/index.md
-  - Prepare: contributors/prepare.md
-  - Package: contributors/package.md
-  - Upload: contributors/upload.md
-  - Use: contributors/use.md
-- Users:
-  - 'Getting started': users/index.md
+- Publishers:
+  - 'Getting started': publishers/index.md
+  - Prepare: publishers/prepare.md
+  - Package: publishers/package.md
+  - Upload: publishers/upload.md
+  - Use: publishers/use.md
 theme: readthedocs

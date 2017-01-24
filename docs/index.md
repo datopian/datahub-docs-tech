@@ -5,8 +5,7 @@ Welcome to the Datapackage Registry documentation. Choose the appropriate sectio
 ## Sections
 
 * [Datapackage Registry for developers](developers/): <3 Python, Javascript and open data? Start here.
-* [Datapackage Registry for contributors](contributors/): Do you want to add your data to Datapackage Registry? Start here.
-* [Datapackage Registry for users](users/): Do you want to use Datapackage Registry data and views? Start here.
+* [Datapackage Registry for publishers](publishers/): Do you want to add your data to Datapackage Registry? Start here.
 
 ## Links
 

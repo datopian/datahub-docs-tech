@@ -1,11 +1,11 @@
 # Table of Contents
 
-This section of the Datapackage Registry documentation is for data contributors. Here you can learn about getting your data ready for loading into Datapackage Registry, and how you can interact with your data once it is loaded.
+This section of the Datapackage Registry documentation is for data publishers. Here you can learn about getting your data ready for loading into Datapackage Registry, and how you can interact with your data once it is loaded.
 
 - [Getting started](#getting-started)
 - [Prepare](prepare/)
 - [Package](package/)
-- [Upoad](upload/)
+- [Upload](upload/)
 - [Use](use/)
 
 # Getting started
@@ -16,7 +16,7 @@ Let's get started then!
 
 ### Prepare
 
-Datapackage Registry loads and stores data in common tabular data formats such as CSV and Excel. Read this section of the documentation to learn how to ensure your data is ready to add to Datapackage Registry.
+Datapackage Registry loads and stores data in various formats according to the [Data Package specification](http://specs.frictionlessdata.io/), incluing common data formats such as CSV and JSON. Read this section of the documentation to learn how to ensure your data is ready to add to Datapackage Registry.
 
 - [Prepare docs](prepare/)
 
@@ -28,9 +28,9 @@ Datapackage Registry "understands" the contents of a source data file via anothe
 
 ### Upload
 
-It is possible to upload Data Packages into Datapackage Registry via a web site and CLI.
+It is possible to upload Data Packages into Datapackage Registry with dpm-py CLI. (or via a web site - in the future)
 
-* [Upoad docs](upload/)
+* [Upload docs](upload/)
 
 ## Using the loaded data
 
