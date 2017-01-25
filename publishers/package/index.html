@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Use - Datapackage Registry</title>
+  <title>Package - Datapackage Registry</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Use";
-    var mkdocs_page_input_path = "contributors/use.md";
-    var mkdocs_page_url = "/contributors/use/";
+    var mkdocs_page_name = "Package";
+    var mkdocs_page_input_path = "publishers/package.md";
+    var mkdocs_page_url = "/publishers/package/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -119,7 +119,7 @@
           
             <li>
     <ul class="subnav">
-    <li><span>Contributors</span></li>
+    <li><span>Publishers</span></li>
 
         
             
@@ -137,8 +137,21 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../package/">Package</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Package</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#package-data-for-datapackage-registry">Package data for Datapackage Registry</a></li>
+                
+                    <li><a class="toctree-l4" href="#creating-a-data-package">Creating a Data Package</a></li>
+                
+                    <li><a class="toctree-l4" href="#validating-a-data-package">Validating a Data Package</a></li>
+                
+                    <li><a class="toctree-l4" href="#walkthroughs">Walkthroughs</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -151,30 +164,8 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Use</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#use-your-data-in-datapackage-registry">Use your data in Datapackage Registry</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>Users</span></li>
-
-        
-            
     <li class="toctree-l1 ">
-        <a class="" href="../../users/">Getting started</a>
+        <a class="" href="../use/">Use</a>
         
     </li>
 
@@ -204,14 +195,14 @@
     
       
         
-          <li>Contributors &raquo;</li>
+          <li>Publishers &raquo;</li>
         
       
     
-    <li>Use</li>
+    <li>Package</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/frictionlessdata/dpr-docs/edit/master/docs/contributors/use.md"
+        <a href="https://github.com/frictionlessdata/dpr-docs/edit/master/docs/publishers/package.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -221,9 +212,22 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="use-your-data-in-datapackage-registry">Use your data in Datapackage Registry</h1>
-<p>TODO</p>
-<p>Once your data is loaded into Datapackage Registry, you can interact with the data in a number of ways, including via API, raw files from the Datastore, and various views on the data.</p>
+                <h1 id="package-data-for-datapackage-registry">Package data for Datapackage Registry</h1>
+<p>Datapackage Registry "understands" the contents of a source data file via another "descriptor" called a <a href="http://specs.frictionlessdata.io/">Data Package</a>.</p>
+<p>In fact, the Datapackage Registry Datastore does not strictly store any old data file, but rather, it stores Data Packages, being a collection of data sources and a <code>datapackage.json</code> descriptor file.</p>
+<h2 id="creating-a-data-package">Creating a Data Package</h2>
+<p>At this stage, there is only one method for creating Data Packages:</p>
+<ul>
+<li>Manually</li>
+</ul>
+<h2 id="validating-a-data-package">Validating a Data Package</h2>
+<p>Data Packages can be validated using the following tools:</p>
+<ul>
+<li><a href="https://github.com/frictionlessdata/dpm-py">DPM CLI</a></li>
+<li><a href="https://github.com/frictionlessdata/datapackage-py">DataPackage Lib</a></li>
+</ul>
+<h2 id="walkthroughs">Walkthroughs</h2>
+<h3 id="packaging-data-manually">Packaging data Manually</h3>
               
             </div>
           </div>
@@ -231,10 +235,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../users/" class="btn btn-neutral float-right" title="Getting started">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../upload/" class="btn btn-neutral float-right" title="Upload">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../upload/" class="btn btn-neutral" title="Upload"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../prepare/" class="btn btn-neutral" title="Prepare"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -262,10 +266,10 @@
           <a href="https://github.com/frictionlessdata/dpr-docs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../upload/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../prepare/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../users/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../upload/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Upload - Datapackage Registry</title>
+  <title>Prepare - Datapackage Registry</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Upload";
-    var mkdocs_page_input_path = "contributors/upload.md";
-    var mkdocs_page_url = "/contributors/upload/";
+    var mkdocs_page_name = "Prepare";
+    var mkdocs_page_input_path = "publishers/prepare.md";
+    var mkdocs_page_url = "/publishers/prepare/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -119,7 +119,7 @@
           
             <li>
     <ul class="subnav">
-    <li><span>Contributors</span></li>
+    <li><span>Publishers</span></li>
 
         
             
@@ -130,8 +130,23 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../prepare/">Prepare</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Prepare</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#prepare-data-for-datapackage-registry">Prepare data for Datapackage Registry</a></li>
+                
+                    <li><a class="toctree-l4" href="#minimum-quality-requirements">Minimum quality requirements</a></li>
+                
+                    <li><a class="toctree-l4" href="#ensuring-quality">Ensuring quality</a></li>
+                
+                    <li><a class="toctree-l4" href="#why-is-this-important">Why is this important?</a></li>
+                
+                    <li><a class="toctree-l4" href="#walkthroughs">Walkthroughs</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -144,19 +159,8 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Upload</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#upload-data-into-datapackage-registry">Upload data into Datapackage Registry</a></li>
-                
-                    <li><a class="toctree-l4" href="#using-the-cli">Using the CLI</a></li>
-                
-                    <li><a class="toctree-l4" href="#walkthroughs">Walkthroughs</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../upload/">Upload</a>
         
     </li>
 
@@ -164,21 +168,6 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../use/">Use</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>Users</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../users/">Getting started</a>
         
     </li>
 
@@ -208,14 +197,14 @@
     
       
         
-          <li>Contributors &raquo;</li>
+          <li>Publishers &raquo;</li>
         
       
     
-    <li>Upload</li>
+    <li>Prepare</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/frictionlessdata/dpr-docs/edit/master/docs/contributors/upload.md"
+        <a href="https://github.com/frictionlessdata/dpr-docs/edit/master/docs/publishers/prepare.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -225,24 +214,40 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="upload-data-into-datapackage-registry">Upload data into Datapackage Registry</h1>
-<p>It is possible to upload Data Packages into Datapackage Registry via a CLI.</p>
-<h2 id="using-the-cli">Using the CLI</h2>
+                <h1 id="prepare-data-for-datapackage-registry">Prepare data for Datapackage Registry</h1>
+<p>Datapackage Registry loads and stores data in common tabular data formats such as CSV and Excel. While the system can work with a range of data structures in these files, due to the flexible modeling scheme of <a href="http://specs.frictionlessdata.io/">Data Package</a>, a minimum set of quality requirements must be met.</p>
+<h2 id="minimum-quality-requirements">Minimum quality requirements</h2>
+<p>[TODO] Essentially, the minimum quality requirements are as follows:</p>
 <ul>
-<li><a href="https://github.com/frictionlessdata/dpm-py">Code repo</a></li>
-<li><a href="../../en/latest/developers/cli/">CLI docs</a></li>
+<li>The file must have headers on the first row.</li>
+<li>There must not be any blank rows.</li>
+<li>There must not be any mismatch between the length of a row, and the length of the headers.</li>
+<li>Each column must have a consistent "data type" (date columns should contain dates, amount columns should contain numbers without currency signs or names).</li>
 </ul>
-<p>The CLI provides a simple command line interface to interact with a Datapackage Registry instance. Using the CLI, you can authenticate with a Datapackage Registry instance and then push data directly to the datastore.</p>
+<h2 id="ensuring-quality">Ensuring quality</h2>
+<p>Files added to Datapackage Registry need to meet a certain quality level in the structure of the file, and the schema.</p>
+<p>If you use the <a href="https://github.com/frictionlessdata/dpm-py">CLI</a> to upload files via the command line, the data sources will be checked using the <a href="https://github.com/frictionlessdata/goodtables">GoodTables data validator</a>.</p>
+<p>Using these tools, you'll not only be told that the data sources are valid (or not), you'll also get hints on how to address issues in the case of invalid files.</p>
+<p>If you have a custom data processing pipeline, or in general, would like to validate your files without using the Packager and CLI, that is entirely possible by using GoodTables directly in your own setup.</p>
+<h2 id="why-is-this-important">Why is this important?</h2>
+<p>Datapackage Registry uses a flat file datastore to store the raw data provided by users, with additional information on how to understand that raw data via the Data Package descriptor. From the datastore, other databases are derived, to provide the Datapackage Registry APIs and other related data services. The data quality checks ensure that the ecosystem that reads data out of the datastore can expect the data to be of a reliable quality.</p>
 <h2 id="walkthroughs">Walkthroughs</h2>
-<h3 id="load-data-via-the-cli">Load data via the CLI</h3>
-<p>[TODO]
-{
-pre. start with two data sources, one good one bad, both already have a DP.
-1. check, validate, etc etc.
-2. authenticate with the service.
-3. Push files up.
-4. Ping for API load status
-}</p>
+<h3 id="checking-data-quality-with-the-cli">Checking data quality with the CLI</h3>
+<p>[TODO]</p>
+<ol>
+<li>
+<p>Download the goodtables library, which is a Python package, and can be used as a command line tool. It runs on Python 2 or 3:<code>pip install goodtables</code></p>
+</li>
+<li>
+<p>Ensure goodtables is installed correctly by typing <code>goodtables</code> in your shell. You should see something like the following:
+<img alt="Image 6" src="https://raw.githubusercontent.com/openspending/docs/master/images/Picture1.png" /></p>
+</li>
+<li>
+<p>We want to check the structure of our CSV file. This is done with the following command: <code>goodtables structure {PATH_TO_FILE}</code>. See two screenshots below, one with a check that returned structural errors, and one with a check that found the file valid.
+<img alt="Image 7" src="https://raw.githubusercontent.com/openspending/docs/master/images/Picture2.png" />
+<img alt="Image 8" src="https://raw.githubusercontent.com/openspending/docs/master/images/Picture3.png" /></p>
+</li>
+</ol>
               
             </div>
           </div>
@@ -250,10 +255,10 @@ pre. start with two data sources, one good one bad, both already have a DP.
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../use/" class="btn btn-neutral float-right" title="Use">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../package/" class="btn btn-neutral float-right" title="Package">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../package/" class="btn btn-neutral" title="Package"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../" class="btn btn-neutral" title="Getting started"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -281,10 +286,10 @@ pre. start with two data sources, one good one bad, both already have a DP.
           <a href="https://github.com/frictionlessdata/dpr-docs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../package/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../use/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../package/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

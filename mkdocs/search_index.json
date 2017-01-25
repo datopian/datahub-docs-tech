@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Datapackage Registry Documentation\n\n\nWelcome to the Datapackage Registry documentation. Choose the appropriate section and dive right in!\n\n\nSections\n\n\n\n\nDatapackage Registry for developers\n: \n3 Python, Javascript and open data? Start here.\n\n\nDatapackage Registry for contributors\n: Do you want to add your data to Datapackage Registry? Start here.\n\n\nDatapackage Registry for users\n: Do you want to use Datapackage Registry data and views? Start here.\n\n\n\n\nLinks\n\n\n\n\nFrictionlessdata chat", 
+            "text": "Datapackage Registry Documentation\n\n\nWelcome to the Datapackage Registry documentation. Choose the appropriate section and dive right in!\n\n\nSections\n\n\n\n\nDatapackage Registry for developers\n: \n3 Python, Javascript and open data? Start here.\n\n\nDatapackage Registry for publishers\n: Do you want to add your data to Datapackage Registry? Start here.\n\n\n\n\nLinks\n\n\n\n\nFrictionlessdata chat", 
             "title": "Home"
         }, 
         {
@@ -12,7 +12,7 @@
         }, 
         {
             "location": "/#sections", 
-            "text": "Datapackage Registry for developers :  3 Python, Javascript and open data? Start here.  Datapackage Registry for contributors : Do you want to add your data to Datapackage Registry? Start here.  Datapackage Registry for users : Do you want to use Datapackage Registry data and views? Start here.", 
+            "text": "Datapackage Registry for developers :  3 Python, Javascript and open data? Start here.  Datapackage Registry for publishers : Do you want to add your data to Datapackage Registry? Start here.", 
             "title": "Sections"
         }, 
         {
@@ -67,7 +67,7 @@
         }, 
         {
             "location": "/developers/platform/", 
-            "text": "Datapackage Registry platform\n\n\n[TODO]\n\n\nThe Datapackage Registry platform has been designed as a set of loosely coupled components, each performing distinct functions related to the platform as a whole. For an overview of the platform components, \nsee here\n.\n\n\nResources\n\n\n[TODO]\n\n\nInstallation\n\n\n[TODO]\n\n\nTroubleshooting\n\n\n[TODO]\n\n\nContributing code\n\n\nFound a bug? Got neat way to refactor an existing code path? Bursting with ideas to make Datapackage Registry more awesome?\n\n\nWe \ncan't wait\n to see your contributions. Here are a few things that will help:\n\n\n\n\nAll open issues \ncan be found here\n. If you are working on an existing issue, please let us know by commenting on an issue. Likewise, if you are working on something new, open an issue to let us know.\n\n\nWe follow a set of \ncoding standards\n, and we have simple examples of those coding standards implemented for \nPython\n and \nJavascript\n. Please do read before starting.\n\n\n\n\nIf anything is unclear, or you just want to talk with other people working on Datapackage Registry, then catch us on \nGitter.im\n.", 
+            "text": "Datapackage Registry platform\n\n\n[TODO]\n\n\nThe Datapackage Registry platform has been designed as a set of loosely coupled components, each performing distinct functions related to the platform as a whole. For an overview of the platform components, \nsee here\n.\n\n\nInstallation\n\n\ncreate\npostgres://127.0.0.1:5432/dpr_db\n\n\nTroubleshooting\n\n\n[TODO]\n\n\nContributing code\n\n\nFound a bug? Got neat way to refactor an existing code path? Bursting with ideas to make Datapackage Registry more awesome?\n\n\nWe \ncan't wait\n to see your contributions. Here are a few things that will help:\n\n\n\n\nAll open issues \ncan be found here\n. If you are working on an existing issue, please let us know by commenting on an issue. Likewise, if you are working on something new, open an issue to let us know.\n\n\nWe follow a set of \ncoding standards\n, and we have simple examples of those coding standards implemented for \nPython\n and \nJavascript\n. Please do read before starting.\n\n\n\n\nIf anything is unclear, or you just want to talk with other people working on Datapackage Registry, then catch us on \nGitter.im\n.", 
             "title": "Platform"
         }, 
         {
@@ -76,13 +76,8 @@
             "title": "Datapackage Registry platform"
         }, 
         {
-            "location": "/developers/platform/#resources", 
-            "text": "[TODO]", 
-            "title": "Resources"
-        }, 
-        {
             "location": "/developers/platform/#installation", 
-            "text": "[TODO]", 
+            "text": "create\npostgres://127.0.0.1:5432/dpr_db", 
             "title": "Installation"
         }, 
         {
@@ -256,169 +251,149 @@
             "title": "Building Cloudfront:"
         }, 
         {
-            "location": "/contributors/", 
-            "text": "Table of Contents\n\n\nThis section of the Datapackage Registry documentation is for data contributors. Here you can learn about getting your data ready for loading into Datapackage Registry, and how you can interact with your data once it is loaded.\n\n\n\n\nGetting started\n\n\nPrepare\n\n\nPackage\n\n\nUpoad\n\n\nUse\n\n\n\n\nGetting started\n\n\nLet's get started then!\n\n\nGetting data in\n\n\nPrepare\n\n\nDatapackage Registry loads and stores data in common tabular data formats such as CSV and Excel. Read this section of the documentation to learn how to ensure your data is ready to add to Datapackage Registry.\n\n\n\n\nPrepare docs\n\n\n\n\nPackage\n\n\nDatapackage Registry \"understands\" the contents of a source data file via another \"descriptor\" called a \nData Package\n. Learn about packaging your data as a Data Package.\n\n\n\n\nPackage docs\n\n\n\n\nUpload\n\n\nIt is possible to upload Data Packages into Datapackage Registry via a web site and CLI.\n\n\n\n\nUpoad docs\n\n\n\n\nUsing the loaded data\n\n\nUse\n\n\nOnce your data is loaded into Datapackage Registry, you can interact with the data in a number of ways, including via API, raw files from the Datastore, and various views on the data.\n\n\n\n\nUsage docs", 
+            "location": "/publishers/", 
+            "text": "Table of Contents\n\n\nThis section of the Datapackage Registry documentation is for data publishers. Here you can learn about getting your data ready for loading into Datapackage Registry, and how you can interact with your data once it is loaded.\n\n\n\n\nGetting started\n\n\nPrepare\n\n\nPackage\n\n\nUpload\n\n\nUse\n\n\n\n\nGetting started\n\n\nLet's get started then!\n\n\nGetting data in\n\n\nPrepare\n\n\nDatapackage Registry loads and stores data in various formats according to the \nData Package specification\n, incluing common data formats such as CSV and JSON. Read this section of the documentation to learn how to ensure your data is ready to add to Datapackage Registry.\n\n\n\n\nPrepare docs\n\n\n\n\nPackage\n\n\nDatapackage Registry \"understands\" the contents of a source data file via another \"descriptor\" called a \nData Package\n. Learn about packaging your data as a Data Package.\n\n\n\n\nPackage docs\n\n\n\n\nUpload\n\n\nIt is possible to upload Data Packages into Datapackage Registry with dpm-py CLI. (or via a web site - in the future)\n\n\n\n\nUpload docs\n\n\n\n\nUsing the loaded data\n\n\nUse\n\n\nOnce your data is loaded into Datapackage Registry, you can interact with the data in a number of ways, including via API, raw files from the Datastore, and various views on the data.\n\n\n\n\nUsage docs", 
             "title": "Getting started"
         }, 
         {
-            "location": "/contributors/#table-of-contents", 
-            "text": "This section of the Datapackage Registry documentation is for data contributors. Here you can learn about getting your data ready for loading into Datapackage Registry, and how you can interact with your data once it is loaded.   Getting started  Prepare  Package  Upoad  Use", 
+            "location": "/publishers/#table-of-contents", 
+            "text": "This section of the Datapackage Registry documentation is for data publishers. Here you can learn about getting your data ready for loading into Datapackage Registry, and how you can interact with your data once it is loaded.   Getting started  Prepare  Package  Upload  Use", 
             "title": "Table of Contents"
         }, 
         {
-            "location": "/contributors/#getting-started", 
+            "location": "/publishers/#getting-started", 
             "text": "Let's get started then!", 
             "title": "Getting started"
         }, 
         {
-            "location": "/contributors/#getting-data-in", 
+            "location": "/publishers/#getting-data-in", 
             "text": "", 
             "title": "Getting data in"
         }, 
         {
-            "location": "/contributors/#prepare", 
-            "text": "Datapackage Registry loads and stores data in common tabular data formats such as CSV and Excel. Read this section of the documentation to learn how to ensure your data is ready to add to Datapackage Registry.   Prepare docs", 
+            "location": "/publishers/#prepare", 
+            "text": "Datapackage Registry loads and stores data in various formats according to the  Data Package specification , incluing common data formats such as CSV and JSON. Read this section of the documentation to learn how to ensure your data is ready to add to Datapackage Registry.   Prepare docs", 
             "title": "Prepare"
         }, 
         {
-            "location": "/contributors/#package", 
+            "location": "/publishers/#package", 
             "text": "Datapackage Registry \"understands\" the contents of a source data file via another \"descriptor\" called a  Data Package . Learn about packaging your data as a Data Package.   Package docs", 
             "title": "Package"
         }, 
         {
-            "location": "/contributors/#upload", 
-            "text": "It is possible to upload Data Packages into Datapackage Registry via a web site and CLI.   Upoad docs", 
+            "location": "/publishers/#upload", 
+            "text": "It is possible to upload Data Packages into Datapackage Registry with dpm-py CLI. (or via a web site - in the future)   Upload docs", 
             "title": "Upload"
         }, 
         {
-            "location": "/contributors/#using-the-loaded-data", 
+            "location": "/publishers/#using-the-loaded-data", 
             "text": "", 
             "title": "Using the loaded data"
         }, 
         {
-            "location": "/contributors/#use", 
+            "location": "/publishers/#use", 
             "text": "Once your data is loaded into Datapackage Registry, you can interact with the data in a number of ways, including via API, raw files from the Datastore, and various views on the data.   Usage docs", 
             "title": "Use"
         }, 
         {
-            "location": "/contributors/prepare/", 
+            "location": "/publishers/prepare/", 
             "text": "Prepare data for Datapackage Registry\n\n\nDatapackage Registry loads and stores data in common tabular data formats such as CSV and Excel. While the system can work with a range of data structures in these files, due to the flexible modeling scheme of \nData Package\n, a minimum set of quality requirements must be met.\n\n\nMinimum quality requirements\n\n\n[TODO] Essentially, the minimum quality requirements are as follows:\n\n\n\n\nThe file must have headers on the first row.\n\n\nThere must not be any blank rows.\n\n\nThere must not be any mismatch between the length of a row, and the length of the headers.\n\n\nEach column must have a consistent \"data type\" (date columns should contain dates, amount columns should contain numbers without currency signs or names).\n\n\n\n\nEnsuring quality\n\n\nFiles added to Datapackage Registry need to meet a certain quality level in the structure of the file, and the schema.\n\n\nIf you use the \nCLI\n to upload files via the command line, the data sources will be checked using the \nGoodTables data validator\n.\n\n\nUsing these tools, you'll not only be told that the data sources are valid (or not), you'll also get hints on how to address issues in the case of invalid files.\n\n\nIf you have a custom data processing pipeline, or in general, would like to validate your files without using the Packager and CLI, that is entirely possible by using GoodTables directly in your own setup.\n\n\nWhy is this important?\n\n\nDatapackage Registry uses a flat file datastore to store the raw data provided by users, with additional information on how to understand that raw data via the Data Package descriptor. From the datastore, other databases are derived, to provide the Datapackage Registry APIs and other related data services. The data quality checks ensure that the ecosystem that reads data out of the datastore can expect the data to be of a reliable quality.\n\n\nWalkthroughs\n\n\nChecking data quality with the CLI\n\n\n[TODO]\n\n\n\n\n\n\nDownload the goodtables library, which is a Python package, and can be used as a command line tool. It runs on Python 2 or 3:\npip install goodtables\n\n\n\n\n\n\nEnsure goodtables is installed correctly by typing \ngoodtables\n in your shell. You should see something like the following:\n\n\n\n\n\n\n\nWe want to check the structure of our CSV file. This is done with the following command: \ngoodtables structure {PATH_TO_FILE}\n. See two screenshots below, one with a check that returned structural errors, and one with a check that found the file valid.", 
             "title": "Prepare"
         }, 
         {
-            "location": "/contributors/prepare/#prepare-data-for-datapackage-registry", 
+            "location": "/publishers/prepare/#prepare-data-for-datapackage-registry", 
             "text": "Datapackage Registry loads and stores data in common tabular data formats such as CSV and Excel. While the system can work with a range of data structures in these files, due to the flexible modeling scheme of  Data Package , a minimum set of quality requirements must be met.", 
             "title": "Prepare data for Datapackage Registry"
         }, 
         {
-            "location": "/contributors/prepare/#minimum-quality-requirements", 
+            "location": "/publishers/prepare/#minimum-quality-requirements", 
             "text": "[TODO] Essentially, the minimum quality requirements are as follows:   The file must have headers on the first row.  There must not be any blank rows.  There must not be any mismatch between the length of a row, and the length of the headers.  Each column must have a consistent \"data type\" (date columns should contain dates, amount columns should contain numbers without currency signs or names).", 
             "title": "Minimum quality requirements"
         }, 
         {
-            "location": "/contributors/prepare/#ensuring-quality", 
+            "location": "/publishers/prepare/#ensuring-quality", 
             "text": "Files added to Datapackage Registry need to meet a certain quality level in the structure of the file, and the schema.  If you use the  CLI  to upload files via the command line, the data sources will be checked using the  GoodTables data validator .  Using these tools, you'll not only be told that the data sources are valid (or not), you'll also get hints on how to address issues in the case of invalid files.  If you have a custom data processing pipeline, or in general, would like to validate your files without using the Packager and CLI, that is entirely possible by using GoodTables directly in your own setup.", 
             "title": "Ensuring quality"
         }, 
         {
-            "location": "/contributors/prepare/#why-is-this-important", 
+            "location": "/publishers/prepare/#why-is-this-important", 
             "text": "Datapackage Registry uses a flat file datastore to store the raw data provided by users, with additional information on how to understand that raw data via the Data Package descriptor. From the datastore, other databases are derived, to provide the Datapackage Registry APIs and other related data services. The data quality checks ensure that the ecosystem that reads data out of the datastore can expect the data to be of a reliable quality.", 
             "title": "Why is this important?"
         }, 
         {
-            "location": "/contributors/prepare/#walkthroughs", 
+            "location": "/publishers/prepare/#walkthroughs", 
             "text": "", 
             "title": "Walkthroughs"
         }, 
         {
-            "location": "/contributors/prepare/#checking-data-quality-with-the-cli", 
+            "location": "/publishers/prepare/#checking-data-quality-with-the-cli", 
             "text": "[TODO]    Download the goodtables library, which is a Python package, and can be used as a command line tool. It runs on Python 2 or 3: pip install goodtables    Ensure goodtables is installed correctly by typing  goodtables  in your shell. You should see something like the following:    We want to check the structure of our CSV file. This is done with the following command:  goodtables structure {PATH_TO_FILE} . See two screenshots below, one with a check that returned structural errors, and one with a check that found the file valid.", 
             "title": "Checking data quality with the CLI"
         }, 
         {
-            "location": "/contributors/package/", 
+            "location": "/publishers/package/", 
             "text": "Package data for Datapackage Registry\n\n\nDatapackage Registry \"understands\" the contents of a source data file via another \"descriptor\" called a \nData Package\n.\n\n\nIn fact, the Datapackage Registry Datastore does not strictly store any old data file, but rather, it stores Data Packages, being a collection of data sources and a \ndatapackage.json\n descriptor file.\n\n\nCreating a Data Package\n\n\nAt this stage, there is only one method for creating Data Packages:\n\n\n\n\nManually\n\n\n\n\nValidating a Data Package\n\n\nData Packages can be validated using the following tools:\n\n\n\n\nDPM CLI\n\n\nDataPackage Lib\n\n\n\n\nWalkthroughs\n\n\nPackaging data Manually", 
             "title": "Package"
         }, 
         {
-            "location": "/contributors/package/#package-data-for-datapackage-registry", 
+            "location": "/publishers/package/#package-data-for-datapackage-registry", 
             "text": "Datapackage Registry \"understands\" the contents of a source data file via another \"descriptor\" called a  Data Package .  In fact, the Datapackage Registry Datastore does not strictly store any old data file, but rather, it stores Data Packages, being a collection of data sources and a  datapackage.json  descriptor file.", 
             "title": "Package data for Datapackage Registry"
         }, 
         {
-            "location": "/contributors/package/#creating-a-data-package", 
+            "location": "/publishers/package/#creating-a-data-package", 
             "text": "At this stage, there is only one method for creating Data Packages:   Manually", 
             "title": "Creating a Data Package"
         }, 
         {
-            "location": "/contributors/package/#validating-a-data-package", 
+            "location": "/publishers/package/#validating-a-data-package", 
             "text": "Data Packages can be validated using the following tools:   DPM CLI  DataPackage Lib", 
             "title": "Validating a Data Package"
         }, 
         {
-            "location": "/contributors/package/#walkthroughs", 
+            "location": "/publishers/package/#walkthroughs", 
             "text": "", 
             "title": "Walkthroughs"
         }, 
         {
-            "location": "/contributors/package/#packaging-data-manually", 
+            "location": "/publishers/package/#packaging-data-manually", 
             "text": "", 
             "title": "Packaging data Manually"
         }, 
         {
-            "location": "/contributors/upload/", 
+            "location": "/publishers/upload/", 
             "text": "Upload data into Datapackage Registry\n\n\nIt is possible to upload Data Packages into Datapackage Registry via a CLI.\n\n\nUsing the CLI\n\n\n\n\nCode repo\n\n\nCLI docs\n\n\n\n\nThe CLI provides a simple command line interface to interact with a Datapackage Registry instance. Using the CLI, you can authenticate with a Datapackage Registry instance and then push data directly to the datastore.\n\n\nWalkthroughs\n\n\nLoad data via the CLI\n\n\n[TODO]\n{\npre. start with two data sources, one good one bad, both already have a DP.\n1. check, validate, etc etc.\n2. authenticate with the service.\n3. Push files up.\n4. Ping for API load status\n}", 
             "title": "Upload"
         }, 
         {
-            "location": "/contributors/upload/#upload-data-into-datapackage-registry", 
+            "location": "/publishers/upload/#upload-data-into-datapackage-registry", 
             "text": "It is possible to upload Data Packages into Datapackage Registry via a CLI.", 
             "title": "Upload data into Datapackage Registry"
         }, 
         {
-            "location": "/contributors/upload/#using-the-cli", 
+            "location": "/publishers/upload/#using-the-cli", 
             "text": "Code repo  CLI docs   The CLI provides a simple command line interface to interact with a Datapackage Registry instance. Using the CLI, you can authenticate with a Datapackage Registry instance and then push data directly to the datastore.", 
             "title": "Using the CLI"
         }, 
         {
-            "location": "/contributors/upload/#walkthroughs", 
+            "location": "/publishers/upload/#walkthroughs", 
             "text": "", 
             "title": "Walkthroughs"
         }, 
         {
-            "location": "/contributors/upload/#load-data-via-the-cli", 
+            "location": "/publishers/upload/#load-data-via-the-cli", 
             "text": "[TODO]\n{\npre. start with two data sources, one good one bad, both already have a DP.\n1. check, validate, etc etc.\n2. authenticate with the service.\n3. Push files up.\n4. Ping for API load status\n}", 
             "title": "Load data via the CLI"
         }, 
         {
-            "location": "/contributors/use/", 
+            "location": "/publishers/use/", 
             "text": "Use your data in Datapackage Registry\n\n\nTODO\n\n\nOnce your data is loaded into Datapackage Registry, you can interact with the data in a number of ways, including via API, raw files from the Datastore, and various views on the data.", 
             "title": "Use"
         }, 
         {
-            "location": "/contributors/use/#use-your-data-in-datapackage-registry", 
+            "location": "/publishers/use/#use-your-data-in-datapackage-registry", 
             "text": "TODO  Once your data is loaded into Datapackage Registry, you can interact with the data in a number of ways, including via API, raw files from the Datastore, and various views on the data.", 
             "title": "Use your data in Datapackage Registry"
-        }, 
-        {
-            "location": "/users/", 
-            "text": "Table of Contents\n\n\nThis section of the Datapackage Registry documentation is for end users. Here you can learn about how to find and interact with data in Datapackage Registry, and how to use the data elsewhere.\n\n\n\n\nGetting started\n\n\n\n\nGetting started\n\n\nLet's get started then! To use Datapackage Registry, at a minimum you need to know the basic features of many websites: search, menus and categories, and how to read simple visualisations.\n\n\nUsing Datapackage Registry", 
-            "title": "Getting started"
-        }, 
-        {
-            "location": "/users/#table-of-contents", 
-            "text": "This section of the Datapackage Registry documentation is for end users. Here you can learn about how to find and interact with data in Datapackage Registry, and how to use the data elsewhere.   Getting started", 
-            "title": "Table of Contents"
-        }, 
-        {
-            "location": "/users/#getting-started", 
-            "text": "Let's get started then! To use Datapackage Registry, at a minimum you need to know the basic features of many websites: search, menus and categories, and how to read simple visualisations.", 
-            "title": "Getting started"
-        }, 
-        {
-            "location": "/users/#using-datapackage-registry", 
-            "text": "", 
-            "title": "Using Datapackage Registry"
         }
     ]
 }
