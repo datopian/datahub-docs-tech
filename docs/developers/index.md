@@ -22,7 +22,7 @@ Datapackage Registry as a complete platform is run as a service on amazon. Confi
 
 ### Datastore
 
-The Datapackage Registry Datastore is a flat file datastore with source data stored in [Data Packages](http://specs.frictionlessdata.io/).
+The Datapackage Registry uses flat file datastore to store uploaded [Data Packages](http://specs.frictionlessdata.io/). Follow this instructions to set it up.
 
 - [Datastore docs](datastore/)
 
