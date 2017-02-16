@@ -115,7 +115,7 @@
             
                 <li class="toctree-l3"><a href="#infrastructure-setup">Infrastructure Setup</a></li>
                 
-                    <li><a class="toctree-l4" href="#domain-and-certificate-setup">Domain and certificate setup:</a></li>
+                    <li><a class="toctree-l4" href="#domain-and-certificate-setup">Domain and certificate setup</a></li>
                 
             
             </ul>
@@ -210,45 +210,43 @@
               
                 <h1 id="infrastructure-setup">Infrastructure Setup</h1>
 <p>The whole infrastructure of Data Package Registry is built on AWS services.</p>
-<h2 id="domain-and-certificate-setup">Domain and certificate setup:</h2>
-<p>The external domain: <strong>datapackaged.com</strong></p>
-<p>We mainly have 2 parts:
-- ApiGateWay [Custom domain]
-- S3
-    - Static Files [static.datapackages.com]
-    - Data File [bits.datapackaged.com]</p>
+<h2 id="domain-and-certificate-setup">Domain and certificate setup</h2>
+<p>Suppose you want to use this primary domain: <strong>datapackaged.com</strong></p>
+<p>We mainly have 2 parts:</p>
+<ul>
+<li>AWS API Gateway [Custom domain]</li>
+<li>S3</li>
+<li>Static Files [static.datapackaged.com]</li>
+<li>Data File [bits.datapackaged.com]</li>
+</ul>
 <h3 id="api-gateway">Api Gateway:</h3>
-<p>For api gateway having custom domain we have to add generated certificates
-- Certificate body
-- Certificate private key
-- Certificate chain
-We use <code>zerossl</code> to generate SSL certificate.
+<p>For API Gateway to have a custom domain we have to add generated certificates:</p>
+<ul>
+<li>Certificate body</li>
+<li>Certificate private key</li>
+<li>Certificate chain</li>
+</ul>
+<p>We use <code>zerossl</code> to generate SSL certificate.
 The full process is described here:
-https://www.pandastrike.com/posts/20160613-ssl-cert-aws-api-gateway-zerossl-letsencrypt</p>
-<p>Once we add the certs in ApiGateway it will generate cloudfront distribution.
-We need to add the <code>cloudfront domain</code> as CNAME of the external domain provider.</p>
-<h3 id="s3">S3:</h3>
+<a href="https://www.pandastrike.com/posts/20160613-ssl-cert-aws-api-gateway-zerossl-letsencrypt">https://www.pandastrike.com/posts/20160613-ssl-cert-aws-api-gateway-zerossl-letsencrypt</a></p>
+<p>Once we add the certs in API Gateway it will generate a cloudfront distribution.</p>
+<p>We need to add the <code>cloudfront domain</code> as CNAME of the external domain provider.</p>
+<h3 id="s3">S3</h3>
 <ul>
 <li>External domain name([bits.staging.datapackaged.com)</li>
 <li>This external domain resolves to cloudfront [*.cloudfront.com]</li>
 <li>Cloudfront resolves to "S3 Bucket (*.s3.amazonaws.com)</li>
 </ul>
 <p>In cloud front we can use AWS generated certificates.</p>
-<blockquote>
-<p>NOTE: One point to mention. <code>You can use a certificate stored in AWS Certificate Manager (ACM) in the US East
-(N. Virginia) Region, or you can use a certificate stored in IAM.</code></p>
-</blockquote>
-<h4 id="building-cloudfront">Building Cloudfront:</h4>
+<p>NOTE: One point to mention: You can use a certificate stored in AWS Certificate Manager (ACM) in the US East
+(N. Virginia) Region, or you can use a certificate stored in IAM.</p>
+<h4 id="building-cloudfront">Building Cloudfront</h4>
 <ul>
-<li>
-<p>Origin Domain Name= <bucketname>.s3.amazonaws.com</p>
-<blockquote>
+<li>Origin Domain Name= <bucketname>.s3.amazonaws.com</li>
+</ul>
 <p>Note: Bucket name can not have "." in it, e.g. abc.bcd.mybucket</p>
-</blockquote>
-</li>
-<li>
-<p>Cname= {The custom domain name you want to implement}</p>
-</li>
+<ul>
+<li>CNAME= {The custom domain name you want to implement}</li>
 <li>Certificate= {Cert generated in AWS Certificate manager in US East(N. Virginia)}</li>
 </ul>
               
