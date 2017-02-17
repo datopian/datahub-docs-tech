@@ -36,7 +36,7 @@ We need to add the ```cloudfront domain``` as CNAME of the external domain provi
 - This external domain resolves to cloudfront [*.cloudfront.com]
 - Cloudfront resolves to "S3 Bucket (*.s3.amazonaws.com)
 
-In cloud front we can use AWS generated certificates.
+In CloudFront we can use AWS generated certificates.
 
 NOTE: One point to mention: You can use a certificate stored in AWS Certificate Manager (ACM) in the US East
 (N. Virginia) Region, or you can use a certificate stored in IAM.
@@ -45,7 +45,7 @@ NOTE: One point to mention: You can use a certificate stored in AWS Certificate 
 
 - Origin Domain Name= <bucketname>.s3.amazonaws.com
 
-Note: Bucket name can not have "." in it, e.g. abc.bcd.mybucket
+  Note: Bucket name can not have "." in it, e.g. abc.bcd.mybucket
 
 - CNAME= {The custom domain name you want to implement}
 - Certificate= {Cert generated in AWS Certificate manager in US East(N. Virginia)}
