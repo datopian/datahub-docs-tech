@@ -9,4 +9,4 @@ install:
 script: echo skipping test
 deploy:
   provider: script
-  script: mkdocs gh-deploy
+  script: bash .travis.sh
