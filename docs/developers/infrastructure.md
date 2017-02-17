@@ -11,8 +11,8 @@ We mainly have 2 parts:
 - AWS API Gateway - primary domain [datapackaged.com]
 - S3 - for BitStore and static files
 
-  - Static Files [static.datapackaged.com]
-  - BitStore for raw Data Packages [bits.datapackaged.com]
+    - Static Files [static.datapackaged.com]
+    - BitStore for raw Data Packages [bits.datapackaged.com]
 
 ### Api Gateway:
 
