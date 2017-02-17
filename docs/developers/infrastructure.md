@@ -8,10 +8,11 @@ Suppose you want to use this primary domain: **datapackaged.com**
 
 We mainly have 2 parts:
 
-- AWS API Gateway [Custom domain]
-- S3
+- AWS API Gateway - primary domain [datapackaged.com]
+- S3 - for BitStore and static files
+
   - Static Files [static.datapackaged.com]
-  - Data File [bits.datapackaged.com]
+  - BitStore for raw Data Packages [bits.datapackaged.com]
 
 ### Api Gateway:
 
