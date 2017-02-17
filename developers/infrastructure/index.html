@@ -214,10 +214,14 @@
 <p>Suppose you want to use this primary domain: <strong>datapackaged.com</strong></p>
 <p>We mainly have 2 parts:</p>
 <ul>
-<li>AWS API Gateway [Custom domain]</li>
-<li>S3</li>
-<li>Static Files [static.datapackaged.com]</li>
-<li>Data File [bits.datapackaged.com]</li>
+<li>AWS API Gateway - primary domain [datapackaged.com]</li>
+<li>
+<p>S3 - for BitStore and static files</p>
+</li>
+<li>
+<p>Static Files [static.datapackaged.com]</p>
+</li>
+<li>BitStore for raw Data Packages [bits.datapackaged.com]</li>
 </ul>
 <h3 id="api-gateway">Api Gateway:</h3>
 <p>For API Gateway to have a custom domain we have to add generated certificates:</p>
