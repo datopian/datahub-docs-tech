@@ -18,4 +18,5 @@ pages:
   - Package: publishers/package.md
   - Upload: publishers/upload.md
   - Use: publishers/use.md
+  - CLI: publishers/cli.md
 theme: readthedocs
