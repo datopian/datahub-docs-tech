@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Upload - Datapackage Registry</title>
+  <title>CLI - Datapackage Registry</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Upload";
-    var mkdocs_page_input_path = "publishers/upload.md";
-    var mkdocs_page_url = "/publishers/upload/";
+    var mkdocs_page_name = "CLI";
+    var mkdocs_page_input_path = "publishers/cli.md";
+    var mkdocs_page_url = "/publishers/cli/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -144,19 +144,8 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Upload</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#upload-data-into-datapackage-registry">Upload data into Datapackage Registry</a></li>
-                
-                    <li><a class="toctree-l4" href="#using-the-cli">Using the CLI</a></li>
-                
-                    <li><a class="toctree-l4" href="#walkthroughs">Walkthroughs</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../upload/">Upload</a>
         
     </li>
 
@@ -169,8 +158,25 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../cli/">CLI</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">CLI</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#dpm-the-data-package-manger-cli">DPM: The Data Package Manger CLI</a></li>
+                
+                    <li><a class="toctree-l4" href="#installation">Installation</a></li>
+                
+                    <li><a class="toctree-l4" href="#commands">Commands</a></li>
+                
+                    <li><a class="toctree-l4" href="#configuration">Configuration</a></li>
+                
+                    <li><a class="toctree-l4" href="#usage">Usage</a></li>
+                
+                    <li><a class="toctree-l4" href="#links">Links</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -204,10 +210,10 @@
         
       
     
-    <li>Upload</li>
+    <li>CLI</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/frictionlessdata/dpr-docs/edit/master/docs/publishers/upload.md"
+        <a href="https://github.com/frictionlessdata/dpr-docs/edit/master/docs/publishers/cli.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -217,24 +223,83 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="upload-data-into-datapackage-registry">Upload data into Datapackage Registry</h1>
-<p>It is possible to upload Data Packages into Datapackage Registry via a CLI.</p>
-<h2 id="using-the-cli">Using the CLI</h2>
+                <h1 id="dpm-the-data-package-manger-cli">DPM: The Data Package Manger CLI</h1>
+<p>The dpm is a command-line tool aimed to help publishers to prepare and upload data to the Data Package Registry. With dpm you will be able to:</p>
+<ul>
+<li>Validate your data to ensure its quality</li>
+<li>Publish Data Package</li>
+<li>Tag uploaded Data Package to create historical snapshot</li>
+<li>Remove uploaded Data Package that is no longer needed</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<p>You can install unstable version directly from the code repository:</p>
+<pre><code>[sudo] pip install git+https://github.com/frictionlessdata/dpm-py.git
+</code></pre>
+
+<h2 id="commands">Commands</h2>
+<p>You can see the latest commands and get help by doing:</p>
+<pre><code>dpmpy --help
+</code></pre>
+
+<p>You will see output like this:</p>
+<pre><code>Usage: dpmpy [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  --version      Show the version and exit.
+  --config TEXT  Use custom config file. Default /home/u1/.dpm/config
+  --debug        Show debug messages
+  --help         Show this message and exit.
+
+Commands:
+  configure     Update configuration options.
+  datavalidate  Validate csv file data, given its path.
+  delete        Delete datapackage from the registry server.
+  publish       Publish datapackage to the registry server.
+  purge         Purge datapackage from the registry server.
+  tag           Tag datapackage on the server.
+  undelete      Undelete datapackage from the registry...
+  validate      Validate datapackage in the current dir.
+</code></pre>
+
+<h2 id="configuration">Configuration</h2>
+<p>Dpm can be configured using <code>dpmpy configure</code> command. It will ask you
+to provide username, access_token and server address of Data Package Registry.</p>
+<p>The config is stored in <code>~/.dpm/config</code>, you can edit it with text editor.
+Simple example config file can look like this:</p>
+<pre><code>username = myname
+access_token = mykey
+server = https://staging.datapackaged.com
+</code></pre>
+
+<h2 id="usage">Usage</h2>
+<h3 id="publish">Publish</h3>
+<p>To publish a Data Package, go to the Data Package directory (with <code>datapackage.json</code>) and
+run:</p>
+<pre><code>dpmpy publish
+</code></pre>
+
+<p>If your configured <em>username</em> and <em>access_token</em> are correct, dpm will
+upload datapackage.json and all relevant resources to the registry server.</p>
+<p>[TODO] add details in the <a href="../upload/">upload</a> section</p>
+<h3 id="tag">Tag</h3>
+<p>To create historical snapshot of your data, you can tag previously uploaded datapackage on the server. Use <code>dpmpy tag</code> command:</p>
+<pre><code>cd datapackage-dir
+dpmpy tag v1.1
+</code></pre>
+
+<p>This will copy the latest version of the Data Package to a separate location in the BitStore. This way you will be able keep a copy of your Data Package at this particular point in time.</p>
+<h3 id="delete">Delete</h3>
+<p>You have two choices: delete datapackage completely from the server (<code>purge</code>) or make the datapackage invisible to everyone except you (<code>delete</code>). You can use <code>dpmpy purge</code> and <code>dpmpy delete</code> accordingly:</p>
+<pre><code>cd datapackage-dir
+dpmpy delete
+# or purge it completely
+dpmpy purge
+</code></pre>
+
+<h2 id="links">Links</h2>
 <ul>
 <li><a href="https://github.com/frictionlessdata/dpm-py">Code repo</a></li>
-<li><a href="../../en/latest/developers/cli/">CLI docs</a></li>
 </ul>
-<p>The CLI provides a simple command line interface to interact with a Datapackage Registry instance. Using the CLI, you can authenticate with a Datapackage Registry instance and then push data directly to the datastore.</p>
-<h2 id="walkthroughs">Walkthroughs</h2>
-<h3 id="load-data-via-the-cli">Load data via the CLI</h3>
-<p>[TODO]
-{
-pre. start with two data sources, one good one bad, both already have a DP.
-1. check, validate, etc etc.
-2. authenticate with the service.
-3. Push files up.
-4. Ping for API load status
-}</p>
               
             </div>
           </div>
@@ -242,10 +307,8 @@ pre. start with two data sources, one good one bad, both already have a DP.
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../use/" class="btn btn-neutral float-right" title="Use">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../package/" class="btn btn-neutral" title="Package"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../use/" class="btn btn-neutral" title="Use"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -273,10 +336,8 @@ pre. start with two data sources, one good one bad, both already have a DP.
           <a href="https://github.com/frictionlessdata/dpr-docs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../package/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../use/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../use/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
