@@ -19,3 +19,5 @@ pages:
   - Upload: publishers/upload.md
   - Use: publishers/use.md
 theme: readthedocs
+markdown_extensions:
+  - pymdownx.github
