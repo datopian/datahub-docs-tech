@@ -20,3 +20,5 @@ pages:
   - Use: publishers/use.md
   - CLI: publishers/cli.md
 theme: readthedocs
+markdown_extensions:
+  - pymdownx.github
