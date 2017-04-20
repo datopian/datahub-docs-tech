@@ -2,53 +2,28 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Datapackage Registry Documentation\n\n\nWelcome to the Datapackage Registry documentation. Choose the appropriate section and dive right in!\n\n\nSections\n\n\n\n\nDatapackage Registry for developers\n: \n3 Python, Javascript and open data? Start here.\n\n\nDatapackage Registry for publishers\n: Do you want to add your data to Datapackage Registry? Start here.\n\n\n\n\nLinks\n\n\n\n\nFrictionlessdata chat", 
+            "text": "DataHub Documentation\n\n\nWelcome to the DataHub documentation. Choose the appropriate section and dive right in!\n\n\nSections\n\n\n\n\nDataHub for developers\n: \n3 Python, Javascript and open data? Start here.\n\n\nDataHub for publishers\n: Do you want to add your data to DataHub? Start here.", 
             "title": "Home"
         }, 
         {
-            "location": "/#datapackage-registry-documentation", 
-            "text": "Welcome to the Datapackage Registry documentation. Choose the appropriate section and dive right in!", 
-            "title": "Datapackage Registry Documentation"
+            "location": "/#datahub-documentation", 
+            "text": "Welcome to the DataHub documentation. Choose the appropriate section and dive right in!", 
+            "title": "DataHub Documentation"
         }, 
         {
             "location": "/#sections", 
-            "text": "Datapackage Registry for developers :  3 Python, Javascript and open data? Start here.  Datapackage Registry for publishers : Do you want to add your data to Datapackage Registry? Start here.", 
+            "text": "DataHub for developers :  3 Python, Javascript and open data? Start here.  DataHub for publishers : Do you want to add your data to DataHub? Start here.", 
             "title": "Sections"
         }, 
         {
-            "location": "/#links", 
-            "text": "Frictionlessdata chat", 
-            "title": "Links"
-        }, 
-        {
             "location": "/developers/", 
-            "text": "Table of Contents\n\n\nThis section of the Datapackage Registry documentation is for developers. Here you can learn about the design of the platform, and how to get Datapackage Registry running locally or on your own servers, and the process for contributing enhancements and bug fixes to the code.\n\n\n\n\nGetting started\n\n\nPlatform\n\n\nDatastore\n\n\nAPI\n\n\nCLI\n\n\nAuthorization\n\n\nAuthentication\n\n\n\n\nGetting started\n\n\nLet's get started then! If you want to get the whole Datapackage Registry platform running locally, or deployed to your own servers, then go straight to the \nplatform\n section of the documentation. For details on distinct components, go to the appropriate section from the list below.\n\n\nPlatform\n\n\nDatapackage Registry as a complete platform is run as a service on amazon. Configurations are available to get running quickly on a local machine, or a remote server for production use.\n\n\n\n\nPlatform docs\n\n\n\n\nDatastore\n\n\nThe Datapackage Registry uses flat file datastore to store uploaded \nData Packages\n. Follow this instructions to set it up.\n\n\n\n\nDatastore docs\n\n\n\n\nAPI\n\n\nThe Datapackage Registry API offers a rich suite of methods to query the database.\n\n\n\n\nAPI docs\n\n\nAPI code\n\n\n\n\nAuthorization\n\n\nThe authorization set up enables system to restricts user permission to execute.\n\n\n\n\nAuthorization docs\n\n\n\n\nAuthentication\n\n\nSome Datapackage Registry API methods require client to provide user identity. API Client can use jwt token to perform authenticated requests.\n\n\n\n\nAuthentication docs\n\n\n\n\nCLI\n\n\nThe Datapackage Registry CLI (dpmpy) is a Python lib and command line interface to interact with an Datapackage Registry instance.\n\n\n\n\nCLI docs\n\n\nCLI code", 
+            "text": "Developers\n\n\nThis section of the DataHub documentation is for developers. Here you can learn about the design of the platform and how to get DataHub running locally or on your own servers, and the process for contributing enhancements and bug fixes to the code.\n\n\n\n\nAuthorization\n\n\nThe authorization set up enables system to restricts user permission to execute.\n\n\n\n\nAuthorization docs\n\n\n\n\nAuthentication\n\n\nSome DataHub API methods require client to provide user identity. API Client can use JWT token to perform authenticated requests.\n\n\n\n\nAuthentication docs\n\n\n\n\nCLI\n\n\nThe DataHub CLI (dpm) is a Python lib and command line interface to interact with an DataHub instance.\n\n\n\n\nCLI code", 
             "title": "Getting started"
         }, 
         {
-            "location": "/developers/#table-of-contents", 
-            "text": "This section of the Datapackage Registry documentation is for developers. Here you can learn about the design of the platform, and how to get Datapackage Registry running locally or on your own servers, and the process for contributing enhancements and bug fixes to the code.   Getting started  Platform  Datastore  API  CLI  Authorization  Authentication", 
-            "title": "Table of Contents"
-        }, 
-        {
-            "location": "/developers/#getting-started", 
-            "text": "Let's get started then! If you want to get the whole Datapackage Registry platform running locally, or deployed to your own servers, then go straight to the  platform  section of the documentation. For details on distinct components, go to the appropriate section from the list below.", 
-            "title": "Getting started"
-        }, 
-        {
-            "location": "/developers/#platform", 
-            "text": "Datapackage Registry as a complete platform is run as a service on amazon. Configurations are available to get running quickly on a local machine, or a remote server for production use.   Platform docs", 
-            "title": "Platform"
-        }, 
-        {
-            "location": "/developers/#datastore", 
-            "text": "The Datapackage Registry uses flat file datastore to store uploaded  Data Packages . Follow this instructions to set it up.   Datastore docs", 
-            "title": "Datastore"
-        }, 
-        {
-            "location": "/developers/#api", 
-            "text": "The Datapackage Registry API offers a rich suite of methods to query the database.   API docs  API code", 
-            "title": "API"
+            "location": "/developers/#developers", 
+            "text": "This section of the DataHub documentation is for developers. Here you can learn about the design of the platform and how to get DataHub running locally or on your own servers, and the process for contributing enhancements and bug fixes to the code.", 
+            "title": "Developers"
         }, 
         {
             "location": "/developers/#authorization", 
@@ -57,122 +32,17 @@
         }, 
         {
             "location": "/developers/#authentication", 
-            "text": "Some Datapackage Registry API methods require client to provide user identity. API Client can use jwt token to perform authenticated requests.   Authentication docs", 
+            "text": "Some DataHub API methods require client to provide user identity. API Client can use JWT token to perform authenticated requests.   Authentication docs", 
             "title": "Authentication"
         }, 
         {
             "location": "/developers/#cli", 
-            "text": "The Datapackage Registry CLI (dpmpy) is a Python lib and command line interface to interact with an Datapackage Registry instance.   CLI docs  CLI code", 
+            "text": "The DataHub CLI (dpm) is a Python lib and command line interface to interact with an DataHub instance.   CLI code", 
             "title": "CLI"
-        }, 
-        {
-            "location": "/developers/platform/", 
-            "text": "Datapackage Registry platform\n\n\n[TODO]\n\n\nThe Datapackage Registry platform has been designed as a set of loosely coupled components, each performing distinct functions related to the platform as a whole. For an overview of the platform components, \nsee here\n.\n\n\nResources\n\n\n[TODO]\n\n\nInstallation\n\n\n[TODO]\n\n\nTroubleshooting\n\n\n[TODO]\n\n\nContributing code\n\n\nFound a bug? Got neat way to refactor an existing code path? Bursting with ideas to make Datapackage Registry more awesome?\n\n\nWe \ncan't wait\n to see your contributions. Here are a few things that will help:\n\n\n\n\nAll open issues \ncan be found here\n. If you are working on an existing issue, please let us know by commenting on an issue. Likewise, if you are working on something new, open an issue to let us know.\n\n\nWe follow a set of \ncoding standards\n, and we have simple examples of those coding standards implemented for \nPython\n and \nJavascript\n. Please do read before starting.\n\n\n\n\nIf anything is unclear, or you just want to talk with other people working on Datapackage Registry, then catch us on \nGitter.im\n.", 
-            "title": "Platform"
-        }, 
-        {
-            "location": "/developers/platform/#datapackage-registry-platform", 
-            "text": "[TODO]  The Datapackage Registry platform has been designed as a set of loosely coupled components, each performing distinct functions related to the platform as a whole. For an overview of the platform components,  see here .", 
-            "title": "Datapackage Registry platform"
-        }, 
-        {
-            "location": "/developers/platform/#resources", 
-            "text": "[TODO]", 
-            "title": "Resources"
-        }, 
-        {
-            "location": "/developers/platform/#installation", 
-            "text": "[TODO]", 
-            "title": "Installation"
-        }, 
-        {
-            "location": "/developers/platform/#troubleshooting", 
-            "text": "[TODO]", 
-            "title": "Troubleshooting"
-        }, 
-        {
-            "location": "/developers/platform/#contributing-code", 
-            "text": "Found a bug? Got neat way to refactor an existing code path? Bursting with ideas to make Datapackage Registry more awesome?  We  can't wait  to see your contributions. Here are a few things that will help:   All open issues  can be found here . If you are working on an existing issue, please let us know by commenting on an issue. Likewise, if you are working on something new, open an issue to let us know.  We follow a set of  coding standards , and we have simple examples of those coding standards implemented for  Python  and  Javascript . Please do read before starting.   If anything is unclear, or you just want to talk with other people working on Datapackage Registry, then catch us on  Gitter.im .", 
-            "title": "Contributing code"
-        }, 
-        {
-            "location": "/developers/datastore/", 
-            "text": "Datapackage Registry Datastore\n\n\nThe Datapackage Registry uses flat file datastore to store uploaded \nData Packages\n.\n\n\n\n\nThe Datastore runs from S3, or, an object storage which supports the S3 API.\n\n\nThe Datastore is the point of truth for data, holding the raw data sources, and the \nData Package\n that describes the sources.\n\n\nAll data coming into Datapackage Registry first hits the Datastore. From the Datastore, various services read this data and create derived databases to represent the data in certain ways. \n\n\n\n\nConfiguration\n\n\nIn order to use the Datastore, a number of Datapackage Registry components need to be able to read and write from it. In order to do this, we suggest the following setup (those familiar with AWS and S3 may modify aspects of this as desired, as long as the user with the access keys can read and write to the bucket that provides the Datastore).\n\n\nAWS account\n\n\nSetup an AWS account.\n\n\nAWS user\n\n\nYou need a user that has permissions to read and write to the bucket. It is best practice to not employ an actual user account for this task, but, rather, set up some user that you use for deployed services, who has only the actual access levels required to perform the needed actions. An example setup is:\n\n\n\n\nGo to \nAWS identity and access management console (IAM)\n and create a new user. Make sure to enable \"Programmatic access\" Access type - this will create access key ID and secret access key for the AWS API.\n\n\nGo to that user's permissions and attach an \nAmazonS3FullAccess\n policy (great place for fine-tuning if you are familiar with AWS)\n\n\nGet this user's access key, secret key. The access key and secret key are used in the \nAWS_ACCESS_KEY\n and \nAWS_SECRET_ACCESS_KEY\n environment variables respectively. Make sure to copy these values to .env file\n\n\n\n\nS3 Bucket\n\n\n\n\nGo to S3 management console and create a bucket that you will use as the Registry Datastore. The name of the bucket is used in the \nS3_BUCKET_NAME\n environment variable. Make sure to set this variable in the .env file\n\n\nSet the region name (identifier) of the created bucket in the \nAWS_REGION\n environment variable or .env file. This region name should be an identifier without spaces, for ex. \neu-central-1\n. See the table of available regons and their identifiers here: http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region\n\n\nWith the S3 bucket created, go to its 'Properties', then 'Permissions', then 'Edit Bucket Policy'. The policy should allow GET access to anyone, like:\n\n\n\n\n{\n  \nVersion\n: \n2012-10-17\n,\n  \nStatement\n: [\n    {\n      \nSid\n: \nAddPerm\n,\n      \nEffect\n: \nAllow\n,\n      \nPrincipal\n: \n*\n,\n      \nAction\n: \ns3:GetObject\n,\n      \nResource\n: \narn:aws:s3:::{YOUR_BUCKET_NAME}/*\n\n    }\n  ]\n}\n\n\n\n\n\n\nAlso in the 'Permissions' section, choose 'Edit CORS Configuration' and use this configuration:\n\n\n\n\n?xml version=\n1.0\n encoding=\nUTF-8\n?\n\n\nCORSConfiguration xmlns=\nhttp://s3.amazonaws.com/doc/2006-03-01/\n\n  \nCORSRule\n\n    \nAllowedOrigin\n*\n/AllowedOrigin\n\n    \nAllowedMethod\nGET\n/AllowedMethod\n\n    \nAllowedMethod\nPUT\n/AllowedMethod\n\n    \nAllowedMethod\nPOST\n/AllowedMethod\n\n    \nExposeHeader\nContent-Range\n/ExposeHeader\n\n    \nAllowedHeader\n*\n/AllowedHeader\n\n  \n/CORSRule\n\n\n/CORSConfiguration\n\n\n\n\n\nContributing code\n\n\nFound a bug? Got neat way to refactor an existing code path? Bursting with ideas to make Datapackage Registry more awesome?\n\n\nWe \ncan't wait\n to see your contributions. Here are a few things that will help:\n\n\n\n\nAll open issues \ncan be found here\n. If you are working on an existing issue, please let us know by commenting on an issue. Likewise, if you are working on something new, open an issue to let us know.\n\n\nWe follow a set of \ncoding standards\n, and we have simple examples of those coding standards implemented for \nPython\n and \nJavascript\n. Please do read before starting.\n\n\n\n\nIf anything is unclear, or you just want to talk with other people working on Datapackage Registry, then catch us on \nGitter.im\n.", 
-            "title": "Datastore"
-        }, 
-        {
-            "location": "/developers/datastore/#datapackage-registry-datastore", 
-            "text": "The Datapackage Registry uses flat file datastore to store uploaded  Data Packages .   The Datastore runs from S3, or, an object storage which supports the S3 API.  The Datastore is the point of truth for data, holding the raw data sources, and the  Data Package  that describes the sources.  All data coming into Datapackage Registry first hits the Datastore. From the Datastore, various services read this data and create derived databases to represent the data in certain ways.", 
-            "title": "Datapackage Registry Datastore"
-        }, 
-        {
-            "location": "/developers/datastore/#configuration", 
-            "text": "In order to use the Datastore, a number of Datapackage Registry components need to be able to read and write from it. In order to do this, we suggest the following setup (those familiar with AWS and S3 may modify aspects of this as desired, as long as the user with the access keys can read and write to the bucket that provides the Datastore).", 
-            "title": "Configuration"
-        }, 
-        {
-            "location": "/developers/datastore/#aws-account", 
-            "text": "Setup an AWS account.", 
-            "title": "AWS account"
-        }, 
-        {
-            "location": "/developers/datastore/#aws-user", 
-            "text": "You need a user that has permissions to read and write to the bucket. It is best practice to not employ an actual user account for this task, but, rather, set up some user that you use for deployed services, who has only the actual access levels required to perform the needed actions. An example setup is:   Go to  AWS identity and access management console (IAM)  and create a new user. Make sure to enable \"Programmatic access\" Access type - this will create access key ID and secret access key for the AWS API.  Go to that user's permissions and attach an  AmazonS3FullAccess  policy (great place for fine-tuning if you are familiar with AWS)  Get this user's access key, secret key. The access key and secret key are used in the  AWS_ACCESS_KEY  and  AWS_SECRET_ACCESS_KEY  environment variables respectively. Make sure to copy these values to .env file", 
-            "title": "AWS user"
-        }, 
-        {
-            "location": "/developers/datastore/#s3-bucket", 
-            "text": "Go to S3 management console and create a bucket that you will use as the Registry Datastore. The name of the bucket is used in the  S3_BUCKET_NAME  environment variable. Make sure to set this variable in the .env file  Set the region name (identifier) of the created bucket in the  AWS_REGION  environment variable or .env file. This region name should be an identifier without spaces, for ex.  eu-central-1 . See the table of available regons and their identifiers here: http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region  With the S3 bucket created, go to its 'Properties', then 'Permissions', then 'Edit Bucket Policy'. The policy should allow GET access to anyone, like:   {\n   Version :  2012-10-17 ,\n   Statement : [\n    {\n       Sid :  AddPerm ,\n       Effect :  Allow ,\n       Principal :  * ,\n       Action :  s3:GetObject ,\n       Resource :  arn:aws:s3:::{YOUR_BUCKET_NAME}/* \n    }\n  ]\n}   Also in the 'Permissions' section, choose 'Edit CORS Configuration' and use this configuration:   ?xml version= 1.0  encoding= UTF-8 ?  CORSConfiguration xmlns= http://s3.amazonaws.com/doc/2006-03-01/ \n   CORSRule \n     AllowedOrigin * /AllowedOrigin \n     AllowedMethod GET /AllowedMethod \n     AllowedMethod PUT /AllowedMethod \n     AllowedMethod POST /AllowedMethod \n     ExposeHeader Content-Range /ExposeHeader \n     AllowedHeader * /AllowedHeader \n   /CORSRule  /CORSConfiguration", 
-            "title": "S3 Bucket"
-        }, 
-        {
-            "location": "/developers/datastore/#contributing-code", 
-            "text": "Found a bug? Got neat way to refactor an existing code path? Bursting with ideas to make Datapackage Registry more awesome?  We  can't wait  to see your contributions. Here are a few things that will help:   All open issues  can be found here . If you are working on an existing issue, please let us know by commenting on an issue. Likewise, if you are working on something new, open an issue to let us know.  We follow a set of  coding standards , and we have simple examples of those coding standards implemented for  Python  and  Javascript . Please do read before starting.   If anything is unclear, or you just want to talk with other people working on Datapackage Registry, then catch us on  Gitter.im .", 
-            "title": "Contributing code"
-        }, 
-        {
-            "location": "/developers/api/", 
-            "text": "Datapackage Registry API\n\n\nThe Datapackage Registry API is a Python app that provides a range of API endpoints to query an Datapackage Registry database.\n\n\nThe API is available for general use, and also powers all of the core components of Datapackage Registry.\n\n\nFeatures\n\n\n\n\nA search API to access package-level meta data\n\n\n...\n\n\n\n\nRequirements\n\n\nYou need to have Python 2.7.x or Python 3 (not yet supported) to run the API. The API itself is a set of Flask blueprints.\n\n\nInstallation\n\n\n...", 
-            "title": "API"
-        }, 
-        {
-            "location": "/developers/api/#datapackage-registry-api", 
-            "text": "The Datapackage Registry API is a Python app that provides a range of API endpoints to query an Datapackage Registry database.  The API is available for general use, and also powers all of the core components of Datapackage Registry.", 
-            "title": "Datapackage Registry API"
-        }, 
-        {
-            "location": "/developers/api/#features", 
-            "text": "A search API to access package-level meta data  ...", 
-            "title": "Features"
-        }, 
-        {
-            "location": "/developers/api/#requirements", 
-            "text": "You need to have Python 2.7.x or Python 3 (not yet supported) to run the API. The API itself is a set of Flask blueprints.", 
-            "title": "Requirements"
-        }, 
-        {
-            "location": "/developers/api/#installation", 
-            "text": "...", 
-            "title": "Installation"
-        }, 
-        {
-            "location": "/developers/cli/", 
-            "text": "Datapackage Registry CLI (dpmpy)\n\n\nA minimal, command line interface to load data into an Datapackage Registry flat file datastore.\n\n\nInstallation\n\n\nEnsure you have \nPython 2.7, 3.3 or 3.4\n installed system-wide or using virtualenv.\n\n\n[TODO]", 
-            "title": "CLI"
-        }, 
-        {
-            "location": "/developers/cli/#datapackage-registry-cli-dpmpy", 
-            "text": "A minimal, command line interface to load data into an Datapackage Registry flat file datastore.", 
-            "title": "Datapackage Registry CLI (dpmpy)"
-        }, 
-        {
-            "location": "/developers/cli/#installation", 
-            "text": "Ensure you have  Python 2.7, 3.3 or 3.4  installed system-wide or using virtualenv.  [TODO]", 
-            "title": "Installation"
         }, 
         {
             "location": "/developers/authorization/", 
-            "text": "Authorization Set up\n\n\nAuthorization is the process of giving someone permission to do or have something. In multi-user systems, a system administrator defines for the system which users are allowed access to the system and what privileges of use.\n\n\nWe have a standard access control matrix with 3 axes:\n\n\n\n\nActions: CREATE, READ, WRITE, DELETE, PURGE etc. these can vary among different entities\n\n\nEntities (object): User, Publisher, Package, Package Resource, \u2026\n\n\nUsers: a user or type of user\n\n\n\n\nPermission is a tuple of \n(Users, Entities, Actions)\n\n\nIntroducing Roles\n\n\nIt can be tiresome and inefficient to list for every object all the users permitted to perform a given action. For example:\n\n\n\n\nMany users in an organization get same set of privileges because of their position in the organization.\n\n\nWe want to change the permissions associated with a certain level in the organization and to have those permissions changed for all people in that level\n\n\nA user may change level frequently (ex. user may get promoted)\n\n\n\n\nSo we create roles\n\n\n\n\nPer object roles e.g. Package Owner\n\n\nPer system roles e.g. System Administrator\n\n\nA list or algorithm for assigning Users =\n Roles\n\n\n\n\nAccess control algorithm:\n\n\nis_allowed(user, entity, action)\n\n\n\n\nFor this user: what roles do they have related to this entity and the system?\nGiven those roles: what actions do they have: UNIONrole\n\n\nNote: it would get more complex if some roles deny access. E.g. Role: Spammer might mean you are denied action to posting etc. Right now we don\u2019t have that issue.\n\n\nIs the desired action in that set?\n\n\nRoles\n\n\nThe example roles are given below.\n\n\n\n\nPackage\n\n\nOwner  =\n all actions\n\n\nEditor\n\n\nRead\n\n\nCreate\n\n\nDelete\n\n\nUndelete\n\n\nUpdate\n\n\nTag\n\n\n\n\n\n\nViewer  =\n Only read\n\n\n\n\n\n\nPublisher\n\n\nOwner =\n all actions on Publisher\n\n\nEditor\n\n\nViewMemberList\n\n\nAddMember\n\n\nRemoveMember\n\n\nRead\n\n\n\n\n\n\nViewer =\n Only Read\n\n\n\n\n\n\nSystem\n\n\nLoggedIn\n\n\nPackage::Create\n\n\nPublisher::Create\n\n\n\n\n\n\nAll =\n Package::Read on public packages\n\n\nSysadmin =\n all actions\n\n\n\n\n\n\n\n\nThis\n contains the current roles.\n\n\nBusiness roles\n\n\n\n\nPublisher Owner\n\n\nPublisher::Owner\n\n\n\n\n\n\nPublisher Member\n\n\nPublisher::Editor\n\n\n\n\n\n\n(Logged in) User\n\n\nSystem::LoggedIn\n\n\n\n\n\n\nSys Admin\n\n\nSystem::Sysadmin\n\n\n\n\n\n\nVisitor\n\n\nSystem::Anonymous\n\n\n\n\n\n\n\n\n\n\nNOTE: business roles and authorization roles are distinct. Of course, in implementing access control we will use the business logic inherent in business roles. However, business roles are not explicitly present in the access control system.\n\n\n\n\nActions\n\n\n\n\nNote: not an exhaustive list. \nThis\n contains the current Actions.\n\n\n\n\n\n\nPackage:\n\n\nPackage::Read\n\n\nPackage::Create\n\n\nPackage::Delete\n\n\nPackage::Undelete\n\n\nPackage::Purge\n\n\nPackage::Update\n\n\nPackage::Tag\n\n\n\n\n\n\nPublisher:\n\n\nPublisher::Create\n\n\nPublisher::AddMember\n\n\nPublisher::RemoveMember\n\n\nPublisher::Read\n\n\nPublisher::Delete\n\n\nPublisher::Update\n\n\nPublisher::ViewMemberList\n\n\n\n\n\n\n\n\nExamples\n\n\nFirst time visitor or not logged in:\n\n\nThe business role will be \nSystem::Anonymous\n. So the user can only has the action permission of \nPackage::Read\n.\nSo the user can only view the public data packages.\n\n\nLogged in user:\n\n\nThe business role will be \nSystem::LoggedIn\n . So the user will have permission of :\n\n\n\n\nPublisher::Create\n : The user can create new publisher.\n\n\nPackage::Create\n : The user can create new data package.\n\n\nPackage::Read\n : Can read public data packages", 
+            "text": "Authorization Set up\n\n\nAuthorization is the process of giving someone permission to do or have something. In multi-user systems, a system administrator defines for the system which users are allowed access to the system and what privileges of use.\n\n\nWe have a standard access control matrix with 3 axes:\n\n\n\n\nActions: CREATE, READ, WRITE, DELETE, PURGE etc. these can vary among different entities\n\n\nEntities (object): User, Publisher, Package, Package Resource, \u2026\n\n\nUsers: a user or type of user\n\n\n\n\nPermission is a tuple of \n(Users, Entities, Actions)\n\n\nIntroducing Roles\n\n\nIt can be tiresome and inefficient to list for every object all the users permitted to perform a given action. For example:\n\n\n\n\nMany users in an organization get same set of privileges because of their position in the organization.\n\n\nWe want to change the permissions associated with a certain level in the organization and to have those permissions changed for all people in that level\n\n\nA user may change level frequently (ex. user may get promoted)\n\n\n\n\nSo we create roles\n\n\n\n\nPer object roles e.g. Package Owner\n\n\nPer system roles e.g. System Administrator\n\n\nA list or algorithm for assigning Users =\n Roles\n\n\n\n\nAccess control algorithm:\n\nis_allowed(user, entity, action)\n\n\nFor this user: what roles do they have related to this entity and the system?\nGiven those roles: what actions do they have: UNIONrole\n\n\nNote: it would get more complex if some roles deny access. E.g. Role: Spammer might mean you are denied action to posting etc. Right now we don\u2019t have that issue.\n\n\nIs the desired action in that set?\n\n\nRoles\n\n\nThe example roles are given below.\n\n\n\n\nPackage\n\n\nOwner  =\n all actions\n\n\nEditor\n\n\nRead\n\n\nCreate\n\n\nDelete\n\n\nUndelete\n\n\nUpdate\n\n\nTag\n\n\n\n\n\n\nViewer  =\n Only read\n\n\n\n\n\n\nPublisher\n\n\nOwner =\n all actions on Publisher\n\n\nEditor\n\n\nViewMemberList\n\n\nAddMember\n\n\nRemoveMember\n\n\nRead\n\n\n\n\n\n\nViewer =\n Only Read\n\n\n\n\n\n\nSystem\n\n\nLoggedIn\n\n\nPackage::Create\n\n\nPublisher::Create\n\n\n\n\n\n\nAll =\n Package::Read on public packages\n\n\nSysadmin =\n all actions\n\n\n\n\n\n\n\n\nThis\n contains the current roles.\n\n\nBusiness roles\n\n\n\n\nPublisher Owner\n\n\nPublisher::Owner\n\n\n\n\n\n\nPublisher Member\n\n\nPublisher::Editor\n\n\n\n\n\n\n(Logged in) User\n\n\nSystem::LoggedIn\n\n\n\n\n\n\nSys Admin\n\n\nSystem::Sysadmin\n\n\n\n\n\n\nVisitor\n\n\nSystem::Anonymous\n\n\n\n\n\n\n\n\n\n\nNOTE: business roles and authorization roles are distinct. Of course, in implementing access control we will use the business logic inherent in business roles. However, business roles are not explicitly present in the access control system.\n\n\n\n\nActions\n\n\n\n\nNote: not an exhaustive list. \nThis\n contains the current Actions.\n\n\n\n\n\n\nPackage:\n\n\nPackage::Read\n\n\nPackage::Create\n\n\nPackage::Delete\n\n\nPackage::Undelete\n\n\nPackage::Purge\n\n\nPackage::Update\n\n\nPackage::Tag\n\n\n\n\n\n\nPublisher:\n\n\nPublisher::Create\n\n\nPublisher::AddMember\n\n\nPublisher::RemoveMember\n\n\nPublisher::Read\n\n\nPublisher::Delete\n\n\nPublisher::Update\n\n\nPublisher::ViewMemberList\n\n\n\n\n\n\n\n\nExamples\n\n\nFirst time visitor or not logged in:\n\n\nThe business role will be \nSystem::Anonymous\n. So the user can only has the action permission of \nPackage::Read\n.\nSo the user can only view the public data packages.\n\n\nLogged in user:\n\n\nThe business role will be \nSystem::LoggedIn\n . So the user will have permission of :\n\n\n\n\nPublisher::Create\n : The user can create new publisher.\n\n\nPackage::Create\n : The user can create new data package.\n\n\nPackage::Read\n : Can read public data packages", 
             "title": "Authorization"
         }, 
         {
@@ -182,7 +52,7 @@
         }, 
         {
             "location": "/developers/authorization/#introducing-roles", 
-            "text": "It can be tiresome and inefficient to list for every object all the users permitted to perform a given action. For example:   Many users in an organization get same set of privileges because of their position in the organization.  We want to change the permissions associated with a certain level in the organization and to have those permissions changed for all people in that level  A user may change level frequently (ex. user may get promoted)   So we create roles   Per object roles e.g. Package Owner  Per system roles e.g. System Administrator  A list or algorithm for assigning Users =  Roles   Access control algorithm:  is_allowed(user, entity, action)  For this user: what roles do they have related to this entity and the system?\nGiven those roles: what actions do they have: UNIONrole  Note: it would get more complex if some roles deny access. E.g. Role: Spammer might mean you are denied action to posting etc. Right now we don\u2019t have that issue.  Is the desired action in that set?", 
+            "text": "It can be tiresome and inefficient to list for every object all the users permitted to perform a given action. For example:   Many users in an organization get same set of privileges because of their position in the organization.  We want to change the permissions associated with a certain level in the organization and to have those permissions changed for all people in that level  A user may change level frequently (ex. user may get promoted)   So we create roles   Per object roles e.g. Package Owner  Per system roles e.g. System Administrator  A list or algorithm for assigning Users =  Roles   Access control algorithm: is_allowed(user, entity, action)  For this user: what roles do they have related to this entity and the system?\nGiven those roles: what actions do they have: UNIONrole  Note: it would get more complex if some roles deny access. E.g. Role: Spammer might mean you are denied action to posting etc. Right now we don\u2019t have that issue.  Is the desired action in that set?", 
             "title": "Introducing Roles"
         }, 
         {
@@ -217,63 +87,28 @@
         }, 
         {
             "location": "/developers/authentication/", 
-            "text": "Datapackage Registry Authentication\n\n\nThis page describes authentication of Datapackage Registry users. The details provided can be used by developers, willing to contribute to the existing \ndpm-py\n API client or implement custom client for The Datapackage Registry API.\n\n\nThe Datapackage Registry Frontend allows users to be registered via \nauth0 platform\n using the web browser. After a successful registration, user will be given unique API-KEY to authenticate with Datapackage Registry API server.\n\n\nAPI authentication\n\n\nSome Datapackage Registry API methods require client to provide identity of a registered user. To prove its identity, client first has to obtain temporal jwt token, providing permanent API-KEY of a registered user. After that client can pass this token ih the header of a request to the API.\n\n\nTo obtain a temporal jwt token, client should send POST request to \n/api/auth/token\n. Request should have json-encoded body with 'username' and 'secret' keys, where 'secret' is an API-KEY of the user:\n\n\nresponse = requests.post(\n        url='https://datapackaged.com/api/auth/token',\n        {'username': 'my_username', 'secret': '1dd5f984bc'}))\n\n\n\n\nIf the username and API-KEY are valid, server will return json response with jwt token: \n{'token': 'a6d8b887'}\n\n\nauth_token = response.json().get('token')\n\n\n\n\nThis token should be temporarily stored by the client. To access any api method with authentication, client should include this token in the \"Authorization\" header.\n\n\nrequests.post(api_url, headers={'Authorization', 'Bearer %s' % auth_token})", 
+            "text": "DataHub Authentication\n\n\nThis page describes authentication of DataHub users. The details provided can be used by developers, willing to contribute to the existing \ndpm\n API client or implement custom client for The DataHub API.\n\n\nThe DataHub Frontend allows users to be registered via \ngithub\n using the web browser. After a successful registration, user will be given unique API-KEY to authenticate with DataHub API server.\n\n\nAPI authentication\n\n\nSome DataHub API methods require client to provide identity of a registered user. To prove its identity, client first has to obtain temporal JWT token, providing permanent API-KEY of a registered user. After that client can pass this token in the header of a request to the API.\n\n\nTo obtain a temporal JWT token, client should send POST request to \n/api/auth/token\n. Request should have json-encoded body with 'username' and 'secret' keys, where 'secret' is an API-KEY of the user:\n\n\nresponse = requests.post(\n        url='https://datapackaged.com/api/auth/token',\n        {'username': 'my_username', 'secret': '1dd5f984bc'}))\n\n\n\nIf the username and API-KEY are valid, server will return json response with JWT token: \n{'token': 'a6d8b887'}\n\n\nauth_token = response.json().get('token')\n\n\n\nThis token should be temporarily stored by the client. To access any API method with authentication, client should include this token in the \"Authorization\" header.\n\n\nrequests.post(api_url, headers={'Authorization', 'Bearer %s' % auth_token})", 
             "title": "Authentication"
         }, 
         {
-            "location": "/developers/authentication/#datapackage-registry-authentication", 
-            "text": "This page describes authentication of Datapackage Registry users. The details provided can be used by developers, willing to contribute to the existing  dpm-py  API client or implement custom client for The Datapackage Registry API.  The Datapackage Registry Frontend allows users to be registered via  auth0 platform  using the web browser. After a successful registration, user will be given unique API-KEY to authenticate with Datapackage Registry API server.", 
-            "title": "Datapackage Registry Authentication"
+            "location": "/developers/authentication/#datahub-authentication", 
+            "text": "This page describes authentication of DataHub users. The details provided can be used by developers, willing to contribute to the existing  dpm  API client or implement custom client for The DataHub API.  The DataHub Frontend allows users to be registered via  github  using the web browser. After a successful registration, user will be given unique API-KEY to authenticate with DataHub API server.", 
+            "title": "DataHub Authentication"
         }, 
         {
             "location": "/developers/authentication/#api-authentication", 
-            "text": "Some Datapackage Registry API methods require client to provide identity of a registered user. To prove its identity, client first has to obtain temporal jwt token, providing permanent API-KEY of a registered user. After that client can pass this token ih the header of a request to the API.  To obtain a temporal jwt token, client should send POST request to  /api/auth/token . Request should have json-encoded body with 'username' and 'secret' keys, where 'secret' is an API-KEY of the user:  response = requests.post(\n        url='https://datapackaged.com/api/auth/token',\n        {'username': 'my_username', 'secret': '1dd5f984bc'}))  If the username and API-KEY are valid, server will return json response with jwt token:  {'token': 'a6d8b887'}  auth_token = response.json().get('token')  This token should be temporarily stored by the client. To access any api method with authentication, client should include this token in the \"Authorization\" header.  requests.post(api_url, headers={'Authorization', 'Bearer %s' % auth_token})", 
+            "text": "Some DataHub API methods require client to provide identity of a registered user. To prove its identity, client first has to obtain temporal JWT token, providing permanent API-KEY of a registered user. After that client can pass this token in the header of a request to the API.  To obtain a temporal JWT token, client should send POST request to  /api/auth/token . Request should have json-encoded body with 'username' and 'secret' keys, where 'secret' is an API-KEY of the user:  response = requests.post(\n        url='https://datapackaged.com/api/auth/token',\n        {'username': 'my_username', 'secret': '1dd5f984bc'}))  If the username and API-KEY are valid, server will return json response with JWT token:  {'token': 'a6d8b887'}  auth_token = response.json().get('token')  This token should be temporarily stored by the client. To access any API method with authentication, client should include this token in the \"Authorization\" header.  requests.post(api_url, headers={'Authorization', 'Bearer %s' % auth_token})", 
             "title": "API authentication"
         }, 
         {
-            "location": "/developers/infrastructure/", 
-            "text": "Infrastructure Setup\n\n\nThe whole infrastructure of Data Package Registry is built on AWS services.\n\n\nDomain and certificate setup\n\n\nSuppose you want to use this primary domain: \ndatapackaged.com\n\n\nWe mainly have 2 parts:\n\n\n\n\nAWS API Gateway - primary domain [datapackaged.com]\n\n\n\n\nS3 - for BitStore and static files\n\n\n\n\nStatic Files [static.datapackaged.com]\n\n\nBitStore for raw Data Packages [bits.datapackaged.com]\n\n\n\n\n\n\n\n\nApi Gateway:\n\n\nFor API Gateway to have a custom domain we have to add generated certificates:\n\n\n\n\nCertificate body\n\n\nCertificate private key\n\n\nCertificate chain\n\n\n\n\nWe use \nzerossl\n to generate SSL certificate.\nThe full process is described here:\n\nhttps://www.pandastrike.com/posts/20160613-ssl-cert-aws-api-gateway-zerossl-letsencrypt\n\n\nOnce we add the certs in API Gateway it will generate a cloudfront distribution.\n\n\nWe need to add the \ncloudfront domain\n as CNAME of the external domain provider.\n\n\nS3\n\n\n\n\nExternal domain name([bits.staging.datapackaged.com)\n\n\nThis external domain resolves to cloudfront [*.cloudfront.com]\n\n\nCloudfront resolves to \"S3 Bucket (*.s3.amazonaws.com)\n\n\n\n\nIn CloudFront we can use AWS generated certificates.\n\n\nNOTE: One point to mention: You can use a certificate stored in AWS Certificate Manager (ACM) in the US East\n(N. Virginia) Region, or you can use a certificate stored in IAM.\n\n\nBuilding Cloudfront\n\n\n\n\nOrigin Domain Name= \n.s3.amazonaws.com\n\n\n\n\nNote: Bucket name can not have \".\" in it, e.g. abc.bcd.mybucket\n\n\n\n\nCNAME= {The custom domain name you want to implement}\n\n\nCertificate= {Cert generated in AWS Certificate manager in US East(N. Virginia)}", 
-            "title": "Infrastructure"
-        }, 
-        {
-            "location": "/developers/infrastructure/#infrastructure-setup", 
-            "text": "The whole infrastructure of Data Package Registry is built on AWS services.", 
-            "title": "Infrastructure Setup"
-        }, 
-        {
-            "location": "/developers/infrastructure/#domain-and-certificate-setup", 
-            "text": "Suppose you want to use this primary domain:  datapackaged.com  We mainly have 2 parts:   AWS API Gateway - primary domain [datapackaged.com]   S3 - for BitStore and static files   Static Files [static.datapackaged.com]  BitStore for raw Data Packages [bits.datapackaged.com]", 
-            "title": "Domain and certificate setup"
-        }, 
-        {
-            "location": "/developers/infrastructure/#api-gateway", 
-            "text": "For API Gateway to have a custom domain we have to add generated certificates:   Certificate body  Certificate private key  Certificate chain   We use  zerossl  to generate SSL certificate.\nThe full process is described here: https://www.pandastrike.com/posts/20160613-ssl-cert-aws-api-gateway-zerossl-letsencrypt  Once we add the certs in API Gateway it will generate a cloudfront distribution.  We need to add the  cloudfront domain  as CNAME of the external domain provider.", 
-            "title": "Api Gateway:"
-        }, 
-        {
-            "location": "/developers/infrastructure/#s3", 
-            "text": "External domain name([bits.staging.datapackaged.com)  This external domain resolves to cloudfront [*.cloudfront.com]  Cloudfront resolves to \"S3 Bucket (*.s3.amazonaws.com)   In CloudFront we can use AWS generated certificates.  NOTE: One point to mention: You can use a certificate stored in AWS Certificate Manager (ACM) in the US East\n(N. Virginia) Region, or you can use a certificate stored in IAM.", 
-            "title": "S3"
-        }, 
-        {
-            "location": "/developers/infrastructure/#building-cloudfront", 
-            "text": "Origin Domain Name=  .s3.amazonaws.com   Note: Bucket name can not have \".\" in it, e.g. abc.bcd.mybucket   CNAME= {The custom domain name you want to implement}  Certificate= {Cert generated in AWS Certificate manager in US East(N. Virginia)}", 
-            "title": "Building Cloudfront"
-        }, 
-        {
             "location": "/publishers/", 
-            "text": "Table of Contents\n\n\nThis section of the Data Package Registry documentation is for data publishers. Here you can learn about getting your data ready for loading into Data Package Registry, and how you can interact with your data once it is loaded.\n\n\n\n\nGetting started\n\n\nPrepare\n\n\nPackage\n\n\nUpload\n\n\nUse\n\n\n\n\nGetting started\n\n\nLet's get started then!\n\n\nGetting data in\n\n\nPrepare\n\n\nData Package Registry loads and stores data in various formats according to the \nData Package specification\n, incluing common data formats such as CSV and JSON. Read this section of the documentation to learn how to ensure your data is ready to add to Data Package Registry.\n\n\n\n\nPrepare docs\n\n\n\n\nPackage\n\n\nData Package Registry \"understands\" the contents of a source data file via another \"descriptor\" called a \nData Package\n. Learn about packaging your data as a Data Package.\n\n\n\n\nPackage docs\n\n\n\n\nUpload\n\n\nIt is possible to upload Data Packages into the Data Package Registry with dpm-py CLI. (or via a web site - in the future)\n\n\n\n\nUpload docs\n\n\n\n\nUsing the loaded data\n\n\nUse\n\n\nOnce your data is loaded into Data Package Registry, you can interact with the data in a number of ways, including via API, raw files from the Datastore, and various views on the data.\n\n\n\n\nUsage docs\n\n\n\n\nCLI\n\n\nThe dpm is a command-line tool aimed to help publishers to prepare and upload data to the Data Package Registry.\n\n\n\n\nCLI docs", 
+            "text": "Publishers\n\n\nThis section of the DataHub documentation is for data publishers. Here you can learn about getting your data ready for loading into DataHub, and how you can interact with your data once it is loaded.\n\n\n\n\nGetting data in\n\n\nPrepare\n\n\nPackage\n\n\nUpload\n\n\nUse\n\n\n\n\n\n\nCLI\n\n\nInstallation\n\n\nCommands\n\n\nConfiguration\n\n\nUsage\n\n\nPublish\n\n\nTag\n\n\nDelete\n\n\n\n\n\n\n\n\n\n\nLinks\n\n\n\n\nGetting data in\n\n\nPrepare\n\n\nDataHub loads and stores data in various formats according to the \nData Package specification\n, including common data formats such as CSV and JSON.\n\n\nPackage\n\n\nDataHub \"understands\" the contents of a source data file via another \"descriptor\" called a \nData Package\n. In fact, the DataHub Datastore does not strictly store any old data file, but rather, it stores Data Packages, being a collection of data sources and a \ndatapackage.json\n descriptor file.\n\n\nUpload\n\n\nIt is possible to upload Data Packages into the DataHub with dpm CLI (or via a web site - in the future). See \nsection below\n to learn more.\n\n\nUse\n\n\nOnce your data is loaded into DataHub, you can interact with the data in a number of ways, including via API, raw files from the Datastore, and various views on the data.\n\n\nDPM: The Data Package Manager CLI\n\n\nThe dpm is a command-line tool aimed to help publishers to prepare and upload data to the DataHub. With dpm you will be able to:\n\n\n\n\nValidate your data to ensure its quality\n\n\nPublish Data Package\n\n\nTag uploaded Data Package to create historical snapshot\n\n\nRemove uploaded Data Package that is no longer needed\n\n\n\n\nInstallation\n\n\nYou can install unstable version directly from the code repository:\n\n\n[sudo] pip install git+https://github.com/frictionlessdata/dpm-py.git\n\n\n\nCommands\n\n\nYou can see the latest commands and get help by doing:\n\ndpm --help\n\nYou will see output like this:\n\nUsage: dpm [OPTIONS] COMMAND [ARGS]...\n\nOptions:\n  --version      Show the version and exit.\n  --config TEXT  Use custom config file. Default /home/u1/.dpm/config\n  --debug        Show debug messages\n  --help         Show this message and exit.\n\nCommands:\n  configure     Update configuration options.\n  datavalidate  Validate csv file data, given its path.\n  delete        Delete datapackage from the registry server.\n  publish       Publish datapackage to the registry server.\n  purge         Purge datapackage from the registry server.\n  tag           Tag datapackage on the server.\n  undelete      Undelete datapackage from the registry...\n  validate      Validate datapackage in the current dir.\n\n\nConfiguration\n\n\nDpm can be configured using \ndpm configure\n command. It will ask you\nto provide username, access_token and server address of DataHub.\n\n\nThe config is stored in \n~/.dpm/config\n, you can edit it with text editor.\nSimple example config file can look like this:\n\n\nusername = myname\naccess_token = mykey\nserver = https://staging.datapackaged.com\n\n\n\nUsage\n\n\nPublish\n\n\nTo publish a Data Package, go to the Data Package directory (with \ndatapackage.json\n) and\nrun:\n\ndpm publish\n\nIf your configured \nusername\n and \naccess_token\n are correct, dpm will\nupload datapackage.json and all relevant resources to the registry server.\n\n\n[TODO] add details in the \nupload\n section\n\n\nTag\n\n\nTo create historical snapshot of your data, you can tag previously uploaded datapackage on the server. Use \ndpm tag\n command:\n\ncd datapackage-dir\ndpm tag v1.1\n\nThis will copy the latest version of the Data Package to a separate location in the BitStore. This way you will be able keep a copy of your Data Package at this particular point in time.\n\n\nDelete\n\n\nYou have two choices: delete datapackage completely from the server (\npurge\n) or make the datapackage invisible to everyone except you (\ndelete\n). You can use \ndpm purge\n and \ndpm delete\n accordingly:\n\ncd datapackage-dir\ndpm delete\n# or purge it completely\ndpm purge\n\n\nLinks\n\n\n\n\nCode repo", 
             "title": "Getting started"
         }, 
         {
-            "location": "/publishers/#table-of-contents", 
-            "text": "This section of the Data Package Registry documentation is for data publishers. Here you can learn about getting your data ready for loading into Data Package Registry, and how you can interact with your data once it is loaded.   Getting started  Prepare  Package  Upload  Use", 
-            "title": "Table of Contents"
-        }, 
-        {
-            "location": "/publishers/#getting-started", 
-            "text": "Let's get started then!", 
-            "title": "Getting started"
+            "location": "/publishers/#publishers", 
+            "text": "This section of the DataHub documentation is for data publishers. Here you can learn about getting your data ready for loading into DataHub, and how you can interact with your data once it is loaded.   Getting data in  Prepare  Package  Upload  Use    CLI  Installation  Commands  Configuration  Usage  Publish  Tag  Delete      Links", 
+            "title": "Publishers"
         }, 
         {
             "location": "/publishers/#getting-data-in", 
@@ -282,171 +117,66 @@
         }, 
         {
             "location": "/publishers/#prepare", 
-            "text": "Data Package Registry loads and stores data in various formats according to the  Data Package specification , incluing common data formats such as CSV and JSON. Read this section of the documentation to learn how to ensure your data is ready to add to Data Package Registry.   Prepare docs", 
+            "text": "DataHub loads and stores data in various formats according to the  Data Package specification , including common data formats such as CSV and JSON.", 
             "title": "Prepare"
         }, 
         {
             "location": "/publishers/#package", 
-            "text": "Data Package Registry \"understands\" the contents of a source data file via another \"descriptor\" called a  Data Package . Learn about packaging your data as a Data Package.   Package docs", 
+            "text": "DataHub \"understands\" the contents of a source data file via another \"descriptor\" called a  Data Package . In fact, the DataHub Datastore does not strictly store any old data file, but rather, it stores Data Packages, being a collection of data sources and a  datapackage.json  descriptor file.", 
             "title": "Package"
         }, 
         {
             "location": "/publishers/#upload", 
-            "text": "It is possible to upload Data Packages into the Data Package Registry with dpm-py CLI. (or via a web site - in the future)   Upload docs", 
+            "text": "It is possible to upload Data Packages into the DataHub with dpm CLI (or via a web site - in the future). See  section below  to learn more.", 
             "title": "Upload"
-        }, 
-        {
-            "location": "/publishers/#using-the-loaded-data", 
-            "text": "", 
-            "title": "Using the loaded data"
         }, 
         {
             "location": "/publishers/#use", 
-            "text": "Once your data is loaded into Data Package Registry, you can interact with the data in a number of ways, including via API, raw files from the Datastore, and various views on the data.   Usage docs", 
+            "text": "Once your data is loaded into DataHub, you can interact with the data in a number of ways, including via API, raw files from the Datastore, and various views on the data.", 
             "title": "Use"
         }, 
         {
-            "location": "/publishers/#cli", 
-            "text": "The dpm is a command-line tool aimed to help publishers to prepare and upload data to the Data Package Registry.   CLI docs", 
-            "title": "CLI"
+            "location": "/publishers/#dpm-the-data-package-manager-cli", 
+            "text": "The dpm is a command-line tool aimed to help publishers to prepare and upload data to the DataHub. With dpm you will be able to:   Validate your data to ensure its quality  Publish Data Package  Tag uploaded Data Package to create historical snapshot  Remove uploaded Data Package that is no longer needed", 
+            "title": "DPM: The Data Package Manager CLI"
         }, 
         {
-            "location": "/publishers/prepare/", 
-            "text": "Prepare data for Data Package Registry\n\n\nData Package Registry loads and stores data in CSV format. While the system can work with a range of data structures in these files, due to the flexible modeling scheme of \nData Package\n, a minimum set of quality requirements must be met.\n\n\nWhy is this important?\n\n\nData Package Registry uses a flat file datastore to store the raw data provided by users, with additional information on how to understand that raw data via the Data Package descriptor. From the datastore, other databases are derived, to provide the Data Package Registry APIs and other related data services. The data quality checks ensure that the ecosystem that reads data out of the datastore can expect the data to be of a reliable quality.\n\n\nEnsuring quality\n\n\nFiles added to Data Package Registry need to meet a certain quality level in the structure of the file, and the schema.\n\n\nIf you use the \ndpmpy\n to upload files via the command line, the data sources will be checked using the \nGoodTables data validator\n before being published. Also you can explicitly validate any Data Package or csv file with \ndpmpy datavalidate\n command:\n\n\n# validate single file\ndpmpy datavalidate data/file.csv\n\n# validate whole Data Package\ncd datapackage-dir\ndpmpy datavalidate\n\n\n\n\nIf you have a custom data processing pipeline, or in general, would like to validate your files without using the CLI, that is entirely possible by using GoodTables directly in your own setup.\n\n\nUsing these tools, you'll not only be told that the data sources are valid (or not), you'll also get hints on how to address issues in the case of invalid files.\n\n\nMinimum quality requirements\n\n\n[TODO] Essentially, the minimum quality requirements are as follows:\n\n\n\n\nThe file must have headers on the first row.\n\n\nThere must not be any blank rows.\n\n\nThere must not be any mismatch between the length of a row, and the length of the headers.\n\n\nEach column must have a consistent \"data type\" (date columns should contain dates, amount columns should contain numbers without currency signs or names).", 
-            "title": "Prepare"
-        }, 
-        {
-            "location": "/publishers/prepare/#prepare-data-for-data-package-registry", 
-            "text": "Data Package Registry loads and stores data in CSV format. While the system can work with a range of data structures in these files, due to the flexible modeling scheme of  Data Package , a minimum set of quality requirements must be met.", 
-            "title": "Prepare data for Data Package Registry"
-        }, 
-        {
-            "location": "/publishers/prepare/#why-is-this-important", 
-            "text": "Data Package Registry uses a flat file datastore to store the raw data provided by users, with additional information on how to understand that raw data via the Data Package descriptor. From the datastore, other databases are derived, to provide the Data Package Registry APIs and other related data services. The data quality checks ensure that the ecosystem that reads data out of the datastore can expect the data to be of a reliable quality.", 
-            "title": "Why is this important?"
-        }, 
-        {
-            "location": "/publishers/prepare/#ensuring-quality", 
-            "text": "Files added to Data Package Registry need to meet a certain quality level in the structure of the file, and the schema.  If you use the  dpmpy  to upload files via the command line, the data sources will be checked using the  GoodTables data validator  before being published. Also you can explicitly validate any Data Package or csv file with  dpmpy datavalidate  command:  # validate single file\ndpmpy datavalidate data/file.csv\n\n# validate whole Data Package\ncd datapackage-dir\ndpmpy datavalidate  If you have a custom data processing pipeline, or in general, would like to validate your files without using the CLI, that is entirely possible by using GoodTables directly in your own setup.  Using these tools, you'll not only be told that the data sources are valid (or not), you'll also get hints on how to address issues in the case of invalid files.", 
-            "title": "Ensuring quality"
-        }, 
-        {
-            "location": "/publishers/prepare/#minimum-quality-requirements", 
-            "text": "[TODO] Essentially, the minimum quality requirements are as follows:   The file must have headers on the first row.  There must not be any blank rows.  There must not be any mismatch between the length of a row, and the length of the headers.  Each column must have a consistent \"data type\" (date columns should contain dates, amount columns should contain numbers without currency signs or names).", 
-            "title": "Minimum quality requirements"
-        }, 
-        {
-            "location": "/publishers/package/", 
-            "text": "Package data for Datapackage Registry\n\n\nDatapackage Registry \"understands\" the contents of a source data file via another \"descriptor\" called a \nData Package\n.\n\n\nIn fact, the Datapackage Registry Datastore does not strictly store any old data file, but rather, it stores Data Packages, being a collection of data sources and a \ndatapackage.json\n descriptor file.\n\n\nCreating a Data Package\n\n\nAt this stage, there is only one method for creating Data Packages:\n\n\n\n\nManually\n\n\n\n\nValidating a Data Package\n\n\nData Packages can be validated using the following tools:\n\n\n\n\nDPM CLI\n\n\nDataPackage Lib\n\n\n\n\nWalkthroughs\n\n\nPackaging data Manually", 
-            "title": "Package"
-        }, 
-        {
-            "location": "/publishers/package/#package-data-for-datapackage-registry", 
-            "text": "Datapackage Registry \"understands\" the contents of a source data file via another \"descriptor\" called a  Data Package .  In fact, the Datapackage Registry Datastore does not strictly store any old data file, but rather, it stores Data Packages, being a collection of data sources and a  datapackage.json  descriptor file.", 
-            "title": "Package data for Datapackage Registry"
-        }, 
-        {
-            "location": "/publishers/package/#creating-a-data-package", 
-            "text": "At this stage, there is only one method for creating Data Packages:   Manually", 
-            "title": "Creating a Data Package"
-        }, 
-        {
-            "location": "/publishers/package/#validating-a-data-package", 
-            "text": "Data Packages can be validated using the following tools:   DPM CLI  DataPackage Lib", 
-            "title": "Validating a Data Package"
-        }, 
-        {
-            "location": "/publishers/package/#walkthroughs", 
-            "text": "", 
-            "title": "Walkthroughs"
-        }, 
-        {
-            "location": "/publishers/package/#packaging-data-manually", 
-            "text": "", 
-            "title": "Packaging data Manually"
-        }, 
-        {
-            "location": "/publishers/upload/", 
-            "text": "Upload data into Datapackage Registry\n\n\nIt is possible to upload Data Packages into Datapackage Registry via a CLI.\n\n\nUsing the CLI\n\n\n\n\nCode repo\n\n\nCLI docs\n\n\n\n\nThe CLI provides a simple command line interface to interact with a Datapackage Registry instance. Using the CLI, you can authenticate with a Datapackage Registry instance and then push data directly to the datastore.\n\n\nWalkthroughs\n\n\nLoad data via the CLI\n\n\n[TODO]\n{\npre. start with two data sources, one good one bad, both already have a DP.\n1. check, validate, etc etc.\n2. authenticate with the service.\n3. Push files up.\n4. Ping for API load status\n}", 
-            "title": "Upload"
-        }, 
-        {
-            "location": "/publishers/upload/#upload-data-into-datapackage-registry", 
-            "text": "It is possible to upload Data Packages into Datapackage Registry via a CLI.", 
-            "title": "Upload data into Datapackage Registry"
-        }, 
-        {
-            "location": "/publishers/upload/#using-the-cli", 
-            "text": "Code repo  CLI docs   The CLI provides a simple command line interface to interact with a Datapackage Registry instance. Using the CLI, you can authenticate with a Datapackage Registry instance and then push data directly to the datastore.", 
-            "title": "Using the CLI"
-        }, 
-        {
-            "location": "/publishers/upload/#walkthroughs", 
-            "text": "", 
-            "title": "Walkthroughs"
-        }, 
-        {
-            "location": "/publishers/upload/#load-data-via-the-cli", 
-            "text": "[TODO]\n{\npre. start with two data sources, one good one bad, both already have a DP.\n1. check, validate, etc etc.\n2. authenticate with the service.\n3. Push files up.\n4. Ping for API load status\n}", 
-            "title": "Load data via the CLI"
-        }, 
-        {
-            "location": "/publishers/use/", 
-            "text": "Use your data in Datapackage Registry\n\n\nTODO\n\n\nOnce your data is loaded into Datapackage Registry, you can interact with the data in a number of ways, including via API, raw files from the Datastore, and various views on the data.", 
-            "title": "Use"
-        }, 
-        {
-            "location": "/publishers/use/#use-your-data-in-datapackage-registry", 
-            "text": "TODO  Once your data is loaded into Datapackage Registry, you can interact with the data in a number of ways, including via API, raw files from the Datastore, and various views on the data.", 
-            "title": "Use your data in Datapackage Registry"
-        }, 
-        {
-            "location": "/publishers/cli/", 
-            "text": "DPM: The Data Package Manger CLI\n\n\nThe dpm is a command-line tool aimed to help publishers to prepare and upload data to the Data Package Registry. With dpm you will be able to:\n\n\n\n\nValidate your data to ensure its quality\n\n\nPublish Data Package\n\n\nTag uploaded Data Package to create historical snapshot\n\n\nRemove uploaded Data Package that is no longer needed\n\n\n\n\nInstallation\n\n\nYou can install unstable version directly from the code repository:\n\n\n[sudo] pip install git+https://github.com/frictionlessdata/dpm-py.git\n\n\n\n\nCommands\n\n\nYou can see the latest commands and get help by doing:\n\n\ndpmpy --help\n\n\n\n\nYou will see output like this:\n\n\nUsage: dpmpy [OPTIONS] COMMAND [ARGS]...\n\nOptions:\n  --version      Show the version and exit.\n  --config TEXT  Use custom config file. Default /home/u1/.dpm/config\n  --debug        Show debug messages\n  --help         Show this message and exit.\n\nCommands:\n  configure     Update configuration options.\n  datavalidate  Validate csv file data, given its path.\n  delete        Delete datapackage from the registry server.\n  publish       Publish datapackage to the registry server.\n  purge         Purge datapackage from the registry server.\n  tag           Tag datapackage on the server.\n  undelete      Undelete datapackage from the registry...\n  validate      Validate datapackage in the current dir.\n\n\n\n\nConfiguration\n\n\nDpm can be configured using \ndpmpy configure\n command. It will ask you\nto provide username, access_token and server address of Data Package Registry.\n\n\nThe config is stored in \n~/.dpm/config\n, you can edit it with text editor.\nSimple example config file can look like this:\n\n\nusername = myname\naccess_token = mykey\nserver = https://staging.datapackaged.com\n\n\n\n\nUsage\n\n\nPublish\n\n\nTo publish a Data Package, go to the Data Package directory (with \ndatapackage.json\n) and\nrun:\n\n\ndpmpy publish\n\n\n\n\nIf your configured \nusername\n and \naccess_token\n are correct, dpm will\nupload datapackage.json and all relevant resources to the registry server.\n\n\n[TODO] add details in the \nupload\n section\n\n\nTag\n\n\nTo create historical snapshot of your data, you can tag previously uploaded datapackage on the server. Use \ndpmpy tag\n command:\n\n\ncd datapackage-dir\ndpmpy tag v1.1\n\n\n\n\nThis will copy the latest version of the Data Package to a separate location in the BitStore. This way you will be able keep a copy of your Data Package at this particular point in time.\n\n\nDelete\n\n\nYou have two choices: delete datapackage completely from the server (\npurge\n) or make the datapackage invisible to everyone except you (\ndelete\n). You can use \ndpmpy purge\n and \ndpmpy delete\n accordingly:\n\n\ncd datapackage-dir\ndpmpy delete\n# or purge it completely\ndpmpy purge\n\n\n\n\nLinks\n\n\n\n\nCode repo", 
-            "title": "CLI"
-        }, 
-        {
-            "location": "/publishers/cli/#dpm-the-data-package-manger-cli", 
-            "text": "The dpm is a command-line tool aimed to help publishers to prepare and upload data to the Data Package Registry. With dpm you will be able to:   Validate your data to ensure its quality  Publish Data Package  Tag uploaded Data Package to create historical snapshot  Remove uploaded Data Package that is no longer needed", 
-            "title": "DPM: The Data Package Manger CLI"
-        }, 
-        {
-            "location": "/publishers/cli/#installation", 
+            "location": "/publishers/#installation", 
             "text": "You can install unstable version directly from the code repository:  [sudo] pip install git+https://github.com/frictionlessdata/dpm-py.git", 
             "title": "Installation"
         }, 
         {
-            "location": "/publishers/cli/#commands", 
-            "text": "You can see the latest commands and get help by doing:  dpmpy --help  You will see output like this:  Usage: dpmpy [OPTIONS] COMMAND [ARGS]...\n\nOptions:\n  --version      Show the version and exit.\n  --config TEXT  Use custom config file. Default /home/u1/.dpm/config\n  --debug        Show debug messages\n  --help         Show this message and exit.\n\nCommands:\n  configure     Update configuration options.\n  datavalidate  Validate csv file data, given its path.\n  delete        Delete datapackage from the registry server.\n  publish       Publish datapackage to the registry server.\n  purge         Purge datapackage from the registry server.\n  tag           Tag datapackage on the server.\n  undelete      Undelete datapackage from the registry...\n  validate      Validate datapackage in the current dir.", 
+            "location": "/publishers/#commands", 
+            "text": "You can see the latest commands and get help by doing: dpm --help \nYou will see output like this: Usage: dpm [OPTIONS] COMMAND [ARGS]...\n\nOptions:\n  --version      Show the version and exit.\n  --config TEXT  Use custom config file. Default /home/u1/.dpm/config\n  --debug        Show debug messages\n  --help         Show this message and exit.\n\nCommands:\n  configure     Update configuration options.\n  datavalidate  Validate csv file data, given its path.\n  delete        Delete datapackage from the registry server.\n  publish       Publish datapackage to the registry server.\n  purge         Purge datapackage from the registry server.\n  tag           Tag datapackage on the server.\n  undelete      Undelete datapackage from the registry...\n  validate      Validate datapackage in the current dir.", 
             "title": "Commands"
         }, 
         {
-            "location": "/publishers/cli/#configuration", 
-            "text": "Dpm can be configured using  dpmpy configure  command. It will ask you\nto provide username, access_token and server address of Data Package Registry.  The config is stored in  ~/.dpm/config , you can edit it with text editor.\nSimple example config file can look like this:  username = myname\naccess_token = mykey\nserver = https://staging.datapackaged.com", 
+            "location": "/publishers/#configuration", 
+            "text": "Dpm can be configured using  dpm configure  command. It will ask you\nto provide username, access_token and server address of DataHub.  The config is stored in  ~/.dpm/config , you can edit it with text editor.\nSimple example config file can look like this:  username = myname\naccess_token = mykey\nserver = https://staging.datapackaged.com", 
             "title": "Configuration"
         }, 
         {
-            "location": "/publishers/cli/#usage", 
+            "location": "/publishers/#usage", 
             "text": "", 
             "title": "Usage"
         }, 
         {
-            "location": "/publishers/cli/#publish", 
-            "text": "To publish a Data Package, go to the Data Package directory (with  datapackage.json ) and\nrun:  dpmpy publish  If your configured  username  and  access_token  are correct, dpm will\nupload datapackage.json and all relevant resources to the registry server.  [TODO] add details in the  upload  section", 
+            "location": "/publishers/#publish", 
+            "text": "To publish a Data Package, go to the Data Package directory (with  datapackage.json ) and\nrun: dpm publish \nIf your configured  username  and  access_token  are correct, dpm will\nupload datapackage.json and all relevant resources to the registry server.  [TODO] add details in the  upload  section", 
             "title": "Publish"
         }, 
         {
-            "location": "/publishers/cli/#tag", 
-            "text": "To create historical snapshot of your data, you can tag previously uploaded datapackage on the server. Use  dpmpy tag  command:  cd datapackage-dir\ndpmpy tag v1.1  This will copy the latest version of the Data Package to a separate location in the BitStore. This way you will be able keep a copy of your Data Package at this particular point in time.", 
+            "location": "/publishers/#tag", 
+            "text": "To create historical snapshot of your data, you can tag previously uploaded datapackage on the server. Use  dpm tag  command: cd datapackage-dir\ndpm tag v1.1 \nThis will copy the latest version of the Data Package to a separate location in the BitStore. This way you will be able keep a copy of your Data Package at this particular point in time.", 
             "title": "Tag"
         }, 
         {
-            "location": "/publishers/cli/#delete", 
-            "text": "You have two choices: delete datapackage completely from the server ( purge ) or make the datapackage invisible to everyone except you ( delete ). You can use  dpmpy purge  and  dpmpy delete  accordingly:  cd datapackage-dir\ndpmpy delete\n# or purge it completely\ndpmpy purge", 
+            "location": "/publishers/#delete", 
+            "text": "You have two choices: delete datapackage completely from the server ( purge ) or make the datapackage invisible to everyone except you ( delete ). You can use  dpm purge  and  dpm delete  accordingly: cd datapackage-dir\ndpm delete\n# or purge it completely\ndpm purge", 
             "title": "Delete"
         }, 
         {
-            "location": "/publishers/cli/#links", 
+            "location": "/publishers/#links", 
             "text": "Code repo", 
             "title": "Links"
         }

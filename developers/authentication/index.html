@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Authentication - Datapackage Registry</title>
+  <title>Authentication - DataHub</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -35,7 +35,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> Datapackage Registry</a>
+        <a href="../.." class="icon icon-home"> DataHub</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -45,136 +45,54 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
 	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Developers</span>
     <ul class="subnav">
-    <li><span>Developers</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../">Getting started</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../platform/">Platform</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../datastore/">Datastore</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../api/">API</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../cli/">CLI</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../authorization/">Authorization</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Authentication</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#datapackage-registry-authentication">Datapackage Registry Authentication</a></li>
-                
-                    <li><a class="toctree-l4" href="#api-authentication">API authentication</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../infrastructure/">Infrastructure</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
-            <li>
+                <li class="">
+                    
+    <a class="" href="../">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../authorization/">Authorization</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Authentication</a>
     <ul class="subnav">
-    <li><span>Publishers</span></li>
-
-        
             
-    <li class="toctree-l1 ">
-        <a class="" href="../../publishers/">Getting started</a>
+    <li class="toctree-l3"><a href="#datahub-authentication">DataHub Authentication</a></li>
+    
+        <ul>
         
-    </li>
+            <li><a class="toctree-l4" href="#api-authentication">API authentication</a></li>
+        
+        </ul>
+    
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../publishers/prepare/">Prepare</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../publishers/package/">Package</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../publishers/upload/">Upload</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../publishers/use/">Use</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../publishers/cli/">CLI</a>
-        
-    </li>
-
-        
     </ul>
-<li>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Publishers</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../publishers/">Getting started</a>
+                </li>
+    </ul>
+	    </li>
           
         </ul>
       </div>
@@ -186,7 +104,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">Datapackage Registry</a>
+        <a href="../..">DataHub</a>
       </nav>
 
       
@@ -215,24 +133,21 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="datapackage-registry-authentication">Datapackage Registry Authentication</h1>
-<p>This page describes authentication of Datapackage Registry users. The details provided can be used by developers, willing to contribute to the existing <a href="https://github.com/frictionlessdata/dpm-py">dpm-py</a> API client or implement custom client for The Datapackage Registry API.</p>
-<p>The Datapackage Registry Frontend allows users to be registered via <a href="https://auth0.com/">auth0 platform</a> using the web browser. After a successful registration, user will be given unique API-KEY to authenticate with Datapackage Registry API server.</p>
+                <h1 id="datahub-authentication">DataHub Authentication</h1>
+<p>This page describes authentication of DataHub users. The details provided can be used by developers, willing to contribute to the existing <a href="https://github.com/frictionlessdata/dpm-py">dpm</a> API client or implement custom client for The DataHub API.</p>
+<p>The DataHub Frontend allows users to be registered via <a href="https://github.com">github</a> using the web browser. After a successful registration, user will be given unique API-KEY to authenticate with DataHub API server.</p>
 <h2 id="api-authentication">API authentication</h2>
-<p>Some Datapackage Registry API methods require client to provide identity of a registered user. To prove its identity, client first has to obtain temporal jwt token, providing permanent API-KEY of a registered user. After that client can pass this token ih the header of a request to the API.</p>
-<p>To obtain a temporal jwt token, client should send POST request to <code>/api/auth/token</code>. Request should have json-encoded body with 'username' and 'secret' keys, where 'secret' is an API-KEY of the user:</p>
-<pre><code>response = requests.post(
+<p>Some DataHub API methods require client to provide identity of a registered user. To prove its identity, client first has to obtain temporal JWT token, providing permanent API-KEY of a registered user. After that client can pass this token in the header of a request to the API.</p>
+<p>To obtain a temporal JWT token, client should send POST request to <code>/api/auth/token</code>. Request should have json-encoded body with 'username' and 'secret' keys, where 'secret' is an API-KEY of the user:</p>
+<pre class="highlight"><code class="linenums">response = requests.post(
         url='https://datapackaged.com/api/auth/token',
-        {'username': 'my_username', 'secret': '1dd5f984bc'}))
-</code></pre>
+        {'username': 'my_username', 'secret': '1dd5f984bc'}))</code></pre>
 
-<p>If the username and API-KEY are valid, server will return json response with jwt token: <code>{'token': 'a6d8b887'}</code></p>
-<pre><code>auth_token = response.json().get('token')
-</code></pre>
+<p>If the username and API-KEY are valid, server will return json response with JWT token: <code>{'token': 'a6d8b887'}</code></p>
+<pre class="highlight"><code class="linenums">auth_token = response.json().get('token')</code></pre>
 
-<p>This token should be temporarily stored by the client. To access any api method with authentication, client should include this token in the "Authorization" header.</p>
-<pre><code>requests.post(api_url, headers={'Authorization', 'Bearer %s' % auth_token})
-</code></pre>
+<p>This token should be temporarily stored by the client. To access any API method with authentication, client should include this token in the "Authorization" header.</p>
+<pre class="highlight"><code class="linenums">requests.post(api_url, headers={'Authorization', 'Bearer %s' % auth_token})</code></pre>
               
             </div>
           </div>
@@ -240,7 +155,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../infrastructure/" class="btn btn-neutral float-right" title="Infrastructure">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../publishers/" class="btn btn-neutral float-right" title="Getting started">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../authorization/" class="btn btn-neutral" title="Authorization"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -268,13 +183,13 @@
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/frictionlessdata/dpr-docs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/frictionlessdata/dpr-docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../authorization/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../infrastructure/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../publishers/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

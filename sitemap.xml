@@ -18,30 +18,6 @@
     </url>
         
     <url>
-     <loc>/developers/platform/</loc>
-     <lastmod>2017-04-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/developers/datastore/</loc>
-     <lastmod>2017-04-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/developers/api/</loc>
-     <lastmod>2017-04-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/developers/cli/</loc>
-     <lastmod>2017-04-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>/developers/authorization/</loc>
      <lastmod>2017-04-20</lastmod>
      <changefreq>daily</changefreq>
@@ -53,48 +29,12 @@
      <changefreq>daily</changefreq>
     </url>
         
-    <url>
-     <loc>/developers/infrastructure/</loc>
-     <lastmod>2017-04-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
     
 
     
         
     <url>
      <loc>/publishers/</loc>
-     <lastmod>2017-04-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/publishers/prepare/</loc>
-     <lastmod>2017-04-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/publishers/package/</loc>
-     <lastmod>2017-04-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/publishers/upload/</loc>
-     <lastmod>2017-04-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/publishers/use/</loc>
-     <lastmod>2017-04-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/publishers/cli/</loc>
      <lastmod>2017-04-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
