@@ -5,20 +5,10 @@ pages:
 - Home: 'index.md'
 - Developers:
   - 'Getting started': developers/index.md
-  - Platform: developers/platform.md
-  - Datastore: developers/datastore.md
-  - API: developers/api.md
-  - CLI: developers/cli.md
   - Authorization: developers/authorization.md
   - Authentication: developers/authentication.md
-  - Infrastructure: developers/infrastructure.md
 - Publishers:
   - 'Getting started': publishers/index.md
-  - Prepare: publishers/prepare.md
-  - Package: publishers/package.md
-  - Upload: publishers/upload.md
-  - Use: publishers/use.md
-  - CLI: publishers/cli.md
 theme: readthedocs
 markdown_extensions:
   - pymdownx.github
