@@ -1,5 +1,5 @@
-site_name: Datapackage Registry
-site_description: Datapackage Registry is a web service for hosting datapackages.
+site_name: DataHub
+site_description: DataHub is a web service for hosting datapackages.
 repo_url: https://github.com/frictionlessdata/dpr-docs
 pages:
 - Home: 'index.md'

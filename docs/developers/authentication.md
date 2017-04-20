@@ -1,12 +1,12 @@
-# Data Package Registry Authentication
+# DataHub Authentication
 
-This page describes authentication of Data Package Registry users. The details provided can be used by developers, willing to contribute to the existing [dpm](https://github.com/frictionlessdata/dpm-py) API client or implement custom client for The Data Package Registry API.
+This page describes authentication of DataHub users. The details provided can be used by developers, willing to contribute to the existing [dpm](https://github.com/frictionlessdata/dpm-py) API client or implement custom client for The DataHub API.
 
-The Data Package Registry Frontend allows users to be registered via [github](https://github.com) using the web browser. After a successful registration, user will be given unique API-KEY to authenticate with Data Package Registry API server.
+The DataHub Frontend allows users to be registered via [github](https://github.com) using the web browser. After a successful registration, user will be given unique API-KEY to authenticate with DataHub API server.
 
 ## API authentication
 
-Some Data Package Registry API methods require client to provide identity of a registered user. To prove its identity, client first has to obtain temporal JWT token, providing permanent API-KEY of a registered user. After that client can pass this token in the header of a request to the API.
+Some DataHub API methods require client to provide identity of a registered user. To prove its identity, client first has to obtain temporal JWT token, providing permanent API-KEY of a registered user. After that client can pass this token in the header of a request to the API.
 
 To obtain a temporal JWT token, client should send POST request to `/api/auth/token`. Request should have json-encoded body with 'username' and 'secret' keys, where 'secret' is an API-KEY of the user:
 

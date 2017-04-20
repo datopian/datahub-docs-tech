@@ -1,12 +1,8 @@
-# Datapackage Registry Documentation
+# DataHub Documentation
 
-Welcome to the Datapackage Registry documentation. Choose the appropriate section and dive right in!
+Welcome to the DataHub documentation. Choose the appropriate section and dive right in!
 
 ## Sections
 
-* [Datapackage Registry for developers](developers/): <3 Python, Javascript and open data? Start here.
-* [Datapackage Registry for publishers](publishers/): Do you want to add your data to Datapackage Registry? Start here.
-
-## Links
-
-* [Frictionlessdata chat](https://gitter.im/frictionlessdata/chat)
+* [DataHub for developers](developers/): <3 Python, Javascript and open data? Start here.
+* [DataHub for publishers](publishers/): Do you want to add your data to DataHub? Start here.
