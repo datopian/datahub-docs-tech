@@ -8,12 +8,13 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>CLI - Datapackage Registry</title>
+  <title>CLI - DataHub</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/marmaid.css" rel="stylesheet">
   
   <script>
     // Current page data
@@ -35,7 +36,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> Datapackage Registry</a>
+        <a href="../.." class="icon icon-home"> DataHub</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -45,144 +46,68 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
 	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Developers</span>
     <ul class="subnav">
-    <li><span>Developers</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../developers/">Getting started</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../developers/platform/">Platform</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../developers/datastore/">Datastore</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../developers/api/">API</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../developers/cli/">CLI</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../developers/authorization/">Authorization</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../developers/authentication/">Authentication</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../developers/infrastructure/">Infrastructure</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../../developers/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../developers/authorization/">Authorization</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../developers/authentication/">Authentication</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Publishers</span>
     <ul class="subnav">
-    <li><span>Publishers</span></li>
+                <li class="">
+                    
+    <a class="" href="../">Getting started</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">CLI</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#dpm-the-data-package-manager-cli">DPM: The Data Package Manager CLI</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#getting-started">Getting started</a></li>
+        
+            <li><a class="toctree-l4" href="#installation">Installation</a></li>
+        
+            <li><a class="toctree-l4" href="#commands">Commands</a></li>
+        
+            <li><a class="toctree-l4" href="#configuration">Configuration</a></li>
+        
+            <li><a class="toctree-l4" href="#usage">Usage</a></li>
+        
+            <li><a class="toctree-l4" href="#links">Links</a></li>
+        
+        </ul>
+    
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../">Getting started</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../prepare/">Prepare</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../package/">Package</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../upload/">Upload</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../use/">Use</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">CLI</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#dpm-the-data-package-manger-cli">DPM: The Data Package Manger CLI</a></li>
-                
-                    <li><a class="toctree-l4" href="#installation">Installation</a></li>
-                
-                    <li><a class="toctree-l4" href="#commands">Commands</a></li>
-                
-                    <li><a class="toctree-l4" href="#configuration">Configuration</a></li>
-                
-                    <li><a class="toctree-l4" href="#usage">Usage</a></li>
-                
-                    <li><a class="toctree-l4" href="#links">Links</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
     </ul>
-<li>
+                </li>
+    </ul>
+	    </li>
           
         </ul>
       </div>
@@ -194,7 +119,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">Datapackage Registry</a>
+        <a href="../..">DataHub</a>
       </nav>
 
       
@@ -223,8 +148,23 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="dpm-the-data-package-manger-cli">DPM: The Data Package Manger CLI</h1>
-<p>The dpm is a command-line tool aimed to help publishers to prepare and upload data to the Data Package Registry. With dpm you will be able to:</p>
+                <h1 id="dpm-the-data-package-manager-cli">DPM: The Data Package Manager CLI</h1>
+<ul>
+<li><a href="#getting-started">Getting started</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#commands">Commands</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#usage">Usage</a><ul>
+<li><a href="#publish">Publish</a></li>
+<li><a href="#tag">Tag</a></li>
+<li><a href="#delete">Delete</a></li>
+<li><a href="#undelete">Undelete</a></li>
+</ul>
+</li>
+<li><a href="#links">Links</a></li>
+</ul>
+<h2 id="getting-started">Getting started</h2>
+<p>The dpm is a command-line tool aimed to help publishers to prepare and upload data to the DataHub. With dpm you will be able to:</p>
 <ul>
 <li>Validate your data to ensure its quality</li>
 <li>Publish Data Package</li>
@@ -233,16 +173,14 @@
 </ul>
 <h2 id="installation">Installation</h2>
 <p>You can install unstable version directly from the code repository:</p>
-<pre><code>[sudo] pip install git+https://github.com/frictionlessdata/dpm-py.git
-</code></pre>
+<pre class="highlight"><code class="language-bash linenums">pip install git+https://github.com/frictionlessdata/dpm-py.git</code></pre>
 
 <h2 id="commands">Commands</h2>
 <p>You can see the latest commands and get help by doing:</p>
-<pre><code>dpmpy --help
-</code></pre>
+<pre class="highlight"><code class="language-bash linenums">dpm --help</code></pre>
 
 <p>You will see output like this:</p>
-<pre><code>Usage: dpmpy [OPTIONS] COMMAND [ARGS]...
+<pre class="highlight"><code class="language-bash linenums">Usage: dpm [OPTIONS] COMMAND [ARGS]...
 
 Options:
   --version      Show the version and exit.
@@ -253,49 +191,46 @@ Options:
 Commands:
   configure     Update configuration options.
   datavalidate  Validate csv file data, given its path.
-  delete        Delete datapackage from the registry server.
-  publish       Publish datapackage to the registry server.
-  purge         Purge datapackage from the registry server.
-  tag           Tag datapackage on the server.
-  undelete      Undelete datapackage from the registry...
-  validate      Validate datapackage in the current dir.
-</code></pre>
+  delete        Delete Data Package from the registry server.
+  publish       Publish Data Package to the registry server.
+  purge         Purge Data Package from the registry server.
+  tag           Tag Data Package on the server.
+  undelete      Undelete Data Package from the registry...
+  validate      Validate Data Package in the current dir.</code></pre>
 
 <h2 id="configuration">Configuration</h2>
-<p>Dpm can be configured using <code>dpmpy configure</code> command. It will ask you
-to provide username, access_token and server address of Data Package Registry.</p>
+<p>Dpm can be configured using <code>dpm configure</code> command. It will ask you
+to provide username, access_token and server address of DataHub.</p>
 <p>The config is stored in <code>~/.dpm/config</code>, you can edit it with text editor.
 Simple example config file can look like this:</p>
-<pre><code>username = myname
+<pre class="highlight"><code class="linenums">username = myname
 access_token = mykey
-server = https://staging.datapackaged.com
-</code></pre>
+server = server URL for publishing Eg: https://www.datapackaged.com</code></pre>
 
 <h2 id="usage">Usage</h2>
 <h3 id="publish">Publish</h3>
 <p>To publish a Data Package, go to the Data Package directory (with <code>datapackage.json</code>) and
 run:</p>
-<pre><code>dpmpy publish
-</code></pre>
+<pre class="highlight"><code class="language-bash linenums">dpm publish</code></pre>
 
 <p>If your configured <em>username</em> and <em>access_token</em> are correct, dpm will
 upload datapackage.json and all relevant resources to the registry server.</p>
-<p>[TODO] add details in the <a href="../upload/">upload</a> section</p>
 <h3 id="tag">Tag</h3>
-<p>To create historical snapshot of your data, you can tag previously uploaded datapackage on the server. Use <code>dpmpy tag</code> command:</p>
-<pre><code>cd datapackage-dir
-dpmpy tag v1.1
-</code></pre>
-
-<p>This will copy the latest version of the Data Package to a separate location in the BitStore. This way you will be able keep a copy of your Data Package at this particular point in time.</p>
+<p>To create historical snapshot of your data, you can tag previously uploaded datapackage on the server. Use <code>dpm tag</code> command:</p>
+<p><pre class="highlight"><code class="language-bash linenums">cd datapackage-dir
+dpm tag v1.1</code></pre>
+This will copy the latest version of the Data Package to a separate location in the BitStore. This way you will be able keep a copy of your Data Package at this particular point in time.</p>
 <h3 id="delete">Delete</h3>
-<p>You have two choices: delete datapackage completely from the server (<code>purge</code>) or make the datapackage invisible to everyone except you (<code>delete</code>). You can use <code>dpmpy purge</code> and <code>dpmpy delete</code> accordingly:</p>
-<pre><code>cd datapackage-dir
-dpmpy delete
+<p>You have two choices: delete Data Package completely from the server (<code>purge</code>) or make the datapackage invisible to everyone except you (<code>delete</code>). You can use <code>dpm purge</code> and <code>dpm delete</code> accordingly:</p>
+<pre class="highlight"><code class="language-bash linenums">cd datapackage-dir
+dpm delete
 # or purge it completely
-dpmpy purge
-</code></pre>
+dpm purge</code></pre>
 
+<h3 id="undelete">Undelete</h3>
+<p>You can restore your Data Package using <code>undelete</code> command.</p>
+<p><pre class="highlight"><code class="language-bash linenums">dpm undelete</code></pre>
+Note that this only works on packages with soft delete (<code>dpm delete</code>), you can not undelete ones with hard delete (<code>dpm purge</code>)</p>
 <h2 id="links">Links</h2>
 <ul>
 <li><a href="https://github.com/frictionlessdata/dpm-py">Code repo</a></li>
@@ -308,7 +243,7 @@ dpmpy purge
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../use/" class="btn btn-neutral" title="Use"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../" class="btn btn-neutral" title="Getting started"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -333,15 +268,16 @@ dpmpy purge
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/frictionlessdata/dpr-docs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/frictionlessdata/dpr-docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../use/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
     </span>
 </div>
     <script src="../../js/theme.js"></script>
+      <script src="../../js/mermaid.min.js"></script>
 
 </body>
 </html>

@@ -39,6 +39,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/publishers/cli/</loc>
+     <lastmod>2017-04-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>

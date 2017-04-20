@@ -102,81 +102,101 @@
         }, 
         {
             "location": "/publishers/", 
-            "text": "Publishers\n\n\nThis section of the DataHub documentation is for data publishers. Here you can learn about getting your data ready for loading into DataHub, and how you can interact with your data once it is loaded.\n\n\n\n\nGetting data in\n\n\nPrepare\n\n\nPackage\n\n\nUpload\n\n\nUse\n\n\n\n\n\n\nCLI\n\n\nInstallation\n\n\nCommands\n\n\nConfiguration\n\n\nUsage\n\n\nPublish\n\n\nTag\n\n\nDelete\n\n\n\n\n\n\n\n\n\n\nLinks\n\n\n\n\nGetting data in\n\n\nPrepare\n\n\nDataHub loads and stores data in various formats according to the \nData Package specification\n, including common data formats such as CSV and JSON.\n\n\nPackage\n\n\nDataHub \"understands\" the contents of a source data file via another \"descriptor\" called a \nData Package\n. In fact, the DataHub Datastore does not strictly store any old data file, but rather, it stores Data Packages, being a collection of data sources and a \ndatapackage.json\n descriptor file.\n\n\nUpload\n\n\nIt is possible to upload Data Packages into the DataHub with dpm CLI (or via a web site - in the future). See \nsection below\n to learn more.\n\n\nUse\n\n\nOnce your data is loaded into DataHub, you can interact with the data in a number of ways, including via API, raw files from the Datastore, and various views on the data.\n\n\nDPM: The Data Package Manager CLI\n\n\nThe dpm is a command-line tool aimed to help publishers to prepare and upload data to the DataHub. With dpm you will be able to:\n\n\n\n\nValidate your data to ensure its quality\n\n\nPublish Data Package\n\n\nTag uploaded Data Package to create historical snapshot\n\n\nRemove uploaded Data Package that is no longer needed\n\n\n\n\nInstallation\n\n\nYou can install unstable version directly from the code repository:\n\n\n[sudo] pip install git+https://github.com/frictionlessdata/dpm-py.git\n\n\n\nCommands\n\n\nYou can see the latest commands and get help by doing:\n\ndpm --help\n\nYou will see output like this:\n\nUsage: dpm [OPTIONS] COMMAND [ARGS]...\n\nOptions:\n  --version      Show the version and exit.\n  --config TEXT  Use custom config file. Default /home/u1/.dpm/config\n  --debug        Show debug messages\n  --help         Show this message and exit.\n\nCommands:\n  configure     Update configuration options.\n  datavalidate  Validate csv file data, given its path.\n  delete        Delete datapackage from the registry server.\n  publish       Publish datapackage to the registry server.\n  purge         Purge datapackage from the registry server.\n  tag           Tag datapackage on the server.\n  undelete      Undelete datapackage from the registry...\n  validate      Validate datapackage in the current dir.\n\n\nConfiguration\n\n\nDpm can be configured using \ndpm configure\n command. It will ask you\nto provide username, access_token and server address of DataHub.\n\n\nThe config is stored in \n~/.dpm/config\n, you can edit it with text editor.\nSimple example config file can look like this:\n\n\nusername = myname\naccess_token = mykey\nserver = https://staging.datapackaged.com\n\n\n\nUsage\n\n\nPublish\n\n\nTo publish a Data Package, go to the Data Package directory (with \ndatapackage.json\n) and\nrun:\n\ndpm publish\n\nIf your configured \nusername\n and \naccess_token\n are correct, dpm will\nupload datapackage.json and all relevant resources to the registry server.\n\n\n[TODO] add details in the \nupload\n section\n\n\nTag\n\n\nTo create historical snapshot of your data, you can tag previously uploaded datapackage on the server. Use \ndpm tag\n command:\n\ncd datapackage-dir\ndpm tag v1.1\n\nThis will copy the latest version of the Data Package to a separate location in the BitStore. This way you will be able keep a copy of your Data Package at this particular point in time.\n\n\nDelete\n\n\nYou have two choices: delete datapackage completely from the server (\npurge\n) or make the datapackage invisible to everyone except you (\ndelete\n). You can use \ndpm purge\n and \ndpm delete\n accordingly:\n\ncd datapackage-dir\ndpm delete\n# or purge it completely\ndpm purge\n\n\nLinks\n\n\n\n\nCode repo", 
+            "text": "Publishers\n\n\nThis section of the DataHub documentation is for data publishers. Here you can learn about getting your data ready for loading into DataHub, and how you can interact with your data once it is loaded.\n\n\n\n\nPublishing a Data Package\n\n\nSign up \n get a secret key\n\n\nInstall command line tool\n\n\nConfigure\n\n\nPublish a dataset\n\n\nView it online\n\n\n\n\n\n\n\n\nPublishing a Data Package\n\n\nSign up \n get a secret key\n\n\nYou can sign up using your GitHub account. Once you are signed in, you will be redirected to a dashboard, where you can find your secret key (access token).\n\n\nInstall command line tool\n\n\nNext you need to install \ndpm\n - the data package manager command line tool:\n\n\n$ [sudo] pip install git+https://github.com/frictionlessdata/dpm-py.git\n\n\n\nConfigure\n\n\nYou will need the secret key (access token) to set your configurations:\n\n\n$ dpm configure\n\n\n Username:  \n your user name \n\n\n Your access_token:  \n you secret key \n\n\n Server URL: https://www.datapackaged.com\n\n\n\nNote: server URL may vary depending on application development stag\n\n\nPublish a dataset\n\n\nWe assume you know what a \nData Package\n is.\n\n\nGo to a directory where your data package is located and publish it:\n\n\n$ cd your-data-package-directory/\n$ dpm publish\n\n\n\nView it online\n\n\nOnce your data package is successfully published, you will get an URL to your dataset on the website. Open the URL in your favourite browser and explore it.", 
             "title": "Getting started"
         }, 
         {
             "location": "/publishers/#publishers", 
-            "text": "This section of the DataHub documentation is for data publishers. Here you can learn about getting your data ready for loading into DataHub, and how you can interact with your data once it is loaded.   Getting data in  Prepare  Package  Upload  Use    CLI  Installation  Commands  Configuration  Usage  Publish  Tag  Delete      Links", 
+            "text": "This section of the DataHub documentation is for data publishers. Here you can learn about getting your data ready for loading into DataHub, and how you can interact with your data once it is loaded.   Publishing a Data Package  Sign up   get a secret key  Install command line tool  Configure  Publish a dataset  View it online", 
             "title": "Publishers"
         }, 
         {
-            "location": "/publishers/#getting-data-in", 
+            "location": "/publishers/#publishing-a-data-package", 
             "text": "", 
-            "title": "Getting data in"
+            "title": "Publishing a Data Package"
         }, 
         {
-            "location": "/publishers/#prepare", 
-            "text": "DataHub loads and stores data in various formats according to the  Data Package specification , including common data formats such as CSV and JSON.", 
-            "title": "Prepare"
+            "location": "/publishers/#sign-up-get-a-secret-key", 
+            "text": "You can sign up using your GitHub account. Once you are signed in, you will be redirected to a dashboard, where you can find your secret key (access token).", 
+            "title": "Sign up &amp; get a secret key"
         }, 
         {
-            "location": "/publishers/#package", 
-            "text": "DataHub \"understands\" the contents of a source data file via another \"descriptor\" called a  Data Package . In fact, the DataHub Datastore does not strictly store any old data file, but rather, it stores Data Packages, being a collection of data sources and a  datapackage.json  descriptor file.", 
-            "title": "Package"
+            "location": "/publishers/#install-command-line-tool", 
+            "text": "Next you need to install  dpm  - the data package manager command line tool:  $ [sudo] pip install git+https://github.com/frictionlessdata/dpm-py.git", 
+            "title": "Install command line tool"
         }, 
         {
-            "location": "/publishers/#upload", 
-            "text": "It is possible to upload Data Packages into the DataHub with dpm CLI (or via a web site - in the future). See  section below  to learn more.", 
-            "title": "Upload"
+            "location": "/publishers/#configure", 
+            "text": "You will need the secret key (access token) to set your configurations:  $ dpm configure  Username:    your user name    Your access_token:    you secret key    Server URL: https://www.datapackaged.com  Note: server URL may vary depending on application development stag", 
+            "title": "Configure"
         }, 
         {
-            "location": "/publishers/#use", 
-            "text": "Once your data is loaded into DataHub, you can interact with the data in a number of ways, including via API, raw files from the Datastore, and various views on the data.", 
-            "title": "Use"
+            "location": "/publishers/#publish-a-dataset", 
+            "text": "We assume you know what a  Data Package  is.  Go to a directory where your data package is located and publish it:  $ cd your-data-package-directory/\n$ dpm publish", 
+            "title": "Publish a dataset"
         }, 
         {
-            "location": "/publishers/#dpm-the-data-package-manager-cli", 
-            "text": "The dpm is a command-line tool aimed to help publishers to prepare and upload data to the DataHub. With dpm you will be able to:   Validate your data to ensure its quality  Publish Data Package  Tag uploaded Data Package to create historical snapshot  Remove uploaded Data Package that is no longer needed", 
+            "location": "/publishers/#view-it-online", 
+            "text": "Once your data package is successfully published, you will get an URL to your dataset on the website. Open the URL in your favourite browser and explore it.", 
+            "title": "View it online"
+        }, 
+        {
+            "location": "/publishers/cli/", 
+            "text": "DPM: The Data Package Manager CLI\n\n\n\n\nGetting started\n\n\nInstallation\n\n\nCommands\n\n\nConfiguration\n\n\nUsage\n\n\nPublish\n\n\nTag\n\n\nDelete\n\n\nUndelete\n\n\n\n\n\n\nLinks\n\n\n\n\nGetting started\n\n\nThe dpm is a command-line tool aimed to help publishers to prepare and upload data to the DataHub. With dpm you will be able to:\n\n\n\n\nValidate your data to ensure its quality\n\n\nPublish Data Package\n\n\nTag uploaded Data Package to create historical snapshot\n\n\nRemove uploaded Data Package that is no longer needed\n\n\n\n\nInstallation\n\n\nYou can install unstable version directly from the code repository:\n\n\npip install git+https://github.com/frictionlessdata/dpm-py.git\n\n\n\nCommands\n\n\nYou can see the latest commands and get help by doing:\n\n\ndpm --help\n\n\n\nYou will see output like this:\n\n\nUsage: dpm [OPTIONS] COMMAND [ARGS]...\n\nOptions:\n  --version      Show the version and exit.\n  --config TEXT  Use custom config file. Default /home/u1/.dpm/config\n  --debug        Show debug messages\n  --help         Show this message and exit.\n\nCommands:\n  configure     Update configuration options.\n  datavalidate  Validate csv file data, given its path.\n  delete        Delete Data Package from the registry server.\n  publish       Publish Data Package to the registry server.\n  purge         Purge Data Package from the registry server.\n  tag           Tag Data Package on the server.\n  undelete      Undelete Data Package from the registry...\n  validate      Validate Data Package in the current dir.\n\n\n\nConfiguration\n\n\nDpm can be configured using \ndpm configure\n command. It will ask you\nto provide username, access_token and server address of DataHub.\n\n\nThe config is stored in \n~/.dpm/config\n, you can edit it with text editor.\nSimple example config file can look like this:\n\n\nusername = myname\naccess_token = mykey\nserver = server URL for publishing Eg: https://www.datapackaged.com\n\n\n\nUsage\n\n\nPublish\n\n\nTo publish a Data Package, go to the Data Package directory (with \ndatapackage.json\n) and\nrun:\n\n\ndpm publish\n\n\n\nIf your configured \nusername\n and \naccess_token\n are correct, dpm will\nupload datapackage.json and all relevant resources to the registry server.\n\n\nTag\n\n\nTo create historical snapshot of your data, you can tag previously uploaded datapackage on the server. Use \ndpm tag\n command:\n\n\ncd datapackage-dir\ndpm tag v1.1\n\nThis will copy the latest version of the Data Package to a separate location in the BitStore. This way you will be able keep a copy of your Data Package at this particular point in time.\n\n\nDelete\n\n\nYou have two choices: delete Data Package completely from the server (\npurge\n) or make the datapackage invisible to everyone except you (\ndelete\n). You can use \ndpm purge\n and \ndpm delete\n accordingly:\n\n\ncd datapackage-dir\ndpm delete\n# or purge it completely\ndpm purge\n\n\n\nUndelete\n\n\nYou can restore your Data Package using \nundelete\n command.\n\n\ndpm undelete\n\nNote that this only works on packages with soft delete (\ndpm delete\n), you can not undelete ones with hard delete (\ndpm purge\n)\n\n\nLinks\n\n\n\n\nCode repo", 
+            "title": "CLI"
+        }, 
+        {
+            "location": "/publishers/cli/#dpm-the-data-package-manager-cli", 
+            "text": "Getting started  Installation  Commands  Configuration  Usage  Publish  Tag  Delete  Undelete    Links", 
             "title": "DPM: The Data Package Manager CLI"
         }, 
         {
-            "location": "/publishers/#installation", 
-            "text": "You can install unstable version directly from the code repository:  [sudo] pip install git+https://github.com/frictionlessdata/dpm-py.git", 
+            "location": "/publishers/cli/#getting-started", 
+            "text": "The dpm is a command-line tool aimed to help publishers to prepare and upload data to the DataHub. With dpm you will be able to:   Validate your data to ensure its quality  Publish Data Package  Tag uploaded Data Package to create historical snapshot  Remove uploaded Data Package that is no longer needed", 
+            "title": "Getting started"
+        }, 
+        {
+            "location": "/publishers/cli/#installation", 
+            "text": "You can install unstable version directly from the code repository:  pip install git+https://github.com/frictionlessdata/dpm-py.git", 
             "title": "Installation"
         }, 
         {
-            "location": "/publishers/#commands", 
-            "text": "You can see the latest commands and get help by doing: dpm --help \nYou will see output like this: Usage: dpm [OPTIONS] COMMAND [ARGS]...\n\nOptions:\n  --version      Show the version and exit.\n  --config TEXT  Use custom config file. Default /home/u1/.dpm/config\n  --debug        Show debug messages\n  --help         Show this message and exit.\n\nCommands:\n  configure     Update configuration options.\n  datavalidate  Validate csv file data, given its path.\n  delete        Delete datapackage from the registry server.\n  publish       Publish datapackage to the registry server.\n  purge         Purge datapackage from the registry server.\n  tag           Tag datapackage on the server.\n  undelete      Undelete datapackage from the registry...\n  validate      Validate datapackage in the current dir.", 
+            "location": "/publishers/cli/#commands", 
+            "text": "You can see the latest commands and get help by doing:  dpm --help  You will see output like this:  Usage: dpm [OPTIONS] COMMAND [ARGS]...\n\nOptions:\n  --version      Show the version and exit.\n  --config TEXT  Use custom config file. Default /home/u1/.dpm/config\n  --debug        Show debug messages\n  --help         Show this message and exit.\n\nCommands:\n  configure     Update configuration options.\n  datavalidate  Validate csv file data, given its path.\n  delete        Delete Data Package from the registry server.\n  publish       Publish Data Package to the registry server.\n  purge         Purge Data Package from the registry server.\n  tag           Tag Data Package on the server.\n  undelete      Undelete Data Package from the registry...\n  validate      Validate Data Package in the current dir.", 
             "title": "Commands"
         }, 
         {
-            "location": "/publishers/#configuration", 
-            "text": "Dpm can be configured using  dpm configure  command. It will ask you\nto provide username, access_token and server address of DataHub.  The config is stored in  ~/.dpm/config , you can edit it with text editor.\nSimple example config file can look like this:  username = myname\naccess_token = mykey\nserver = https://staging.datapackaged.com", 
+            "location": "/publishers/cli/#configuration", 
+            "text": "Dpm can be configured using  dpm configure  command. It will ask you\nto provide username, access_token and server address of DataHub.  The config is stored in  ~/.dpm/config , you can edit it with text editor.\nSimple example config file can look like this:  username = myname\naccess_token = mykey\nserver = server URL for publishing Eg: https://www.datapackaged.com", 
             "title": "Configuration"
         }, 
         {
-            "location": "/publishers/#usage", 
+            "location": "/publishers/cli/#usage", 
             "text": "", 
             "title": "Usage"
         }, 
         {
-            "location": "/publishers/#publish", 
-            "text": "To publish a Data Package, go to the Data Package directory (with  datapackage.json ) and\nrun: dpm publish \nIf your configured  username  and  access_token  are correct, dpm will\nupload datapackage.json and all relevant resources to the registry server.  [TODO] add details in the  upload  section", 
+            "location": "/publishers/cli/#publish", 
+            "text": "To publish a Data Package, go to the Data Package directory (with  datapackage.json ) and\nrun:  dpm publish  If your configured  username  and  access_token  are correct, dpm will\nupload datapackage.json and all relevant resources to the registry server.", 
             "title": "Publish"
         }, 
         {
-            "location": "/publishers/#tag", 
-            "text": "To create historical snapshot of your data, you can tag previously uploaded datapackage on the server. Use  dpm tag  command: cd datapackage-dir\ndpm tag v1.1 \nThis will copy the latest version of the Data Package to a separate location in the BitStore. This way you will be able keep a copy of your Data Package at this particular point in time.", 
+            "location": "/publishers/cli/#tag", 
+            "text": "To create historical snapshot of your data, you can tag previously uploaded datapackage on the server. Use  dpm tag  command:  cd datapackage-dir\ndpm tag v1.1 \nThis will copy the latest version of the Data Package to a separate location in the BitStore. This way you will be able keep a copy of your Data Package at this particular point in time.", 
             "title": "Tag"
         }, 
         {
-            "location": "/publishers/#delete", 
-            "text": "You have two choices: delete datapackage completely from the server ( purge ) or make the datapackage invisible to everyone except you ( delete ). You can use  dpm purge  and  dpm delete  accordingly: cd datapackage-dir\ndpm delete\n# or purge it completely\ndpm purge", 
+            "location": "/publishers/cli/#delete", 
+            "text": "You have two choices: delete Data Package completely from the server ( purge ) or make the datapackage invisible to everyone except you ( delete ). You can use  dpm purge  and  dpm delete  accordingly:  cd datapackage-dir\ndpm delete\n# or purge it completely\ndpm purge", 
             "title": "Delete"
         }, 
         {
-            "location": "/publishers/#links", 
+            "location": "/publishers/cli/#undelete", 
+            "text": "You can restore your Data Package using  undelete  command.  dpm undelete \nNote that this only works on packages with soft delete ( dpm delete ), you can not undelete ones with hard delete ( dpm purge )", 
+            "title": "Undelete"
+        }, 
+        {
+            "location": "/publishers/cli/#links", 
             "text": "Code repo", 
             "title": "Links"
         }
