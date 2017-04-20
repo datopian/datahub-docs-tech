@@ -36,7 +36,7 @@ $ dpm configure
 > Server URL: https://www.datapackaged.com
 ```
 
-Note: server URL may vary depending on application development stag
+Note: server URL may vary depending on application development stage
 
 ## Publish a dataset
 
