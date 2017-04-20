@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "DataHub Documentation\n\n\nWelcome to the DataHub documentation. Choose the appropriate section and dive right in!\n\n\nSections\n\n\n\n\nDataHub for developers\n: \n3 Python, Javascript and open data? Start here.\n\n\nDataHub for publishers\n: Do you want to add your data to DataHub? Start here.", 
+            "text": "DataHub Documentation\n\n\nWelcome to the DataHub documentation. Choose the appropriate section and dive right in!\n\n\nSections\n\n\n\n\nFor developers\n: \n3 Python, JavaScript and data pipelines? Start here!\n\n\nFor publishers\n: Want to store your data on DataHub? Start here!", 
             "title": "Home"
         }, 
         {
@@ -12,7 +12,7 @@
         }, 
         {
             "location": "/#sections", 
-            "text": "DataHub for developers :  3 Python, Javascript and open data? Start here.  DataHub for publishers : Do you want to add your data to DataHub? Start here.", 
+            "text": "For developers :  3 Python, JavaScript and data pipelines? Start here!  For publishers : Want to store your data on DataHub? Start here!", 
             "title": "Sections"
         }, 
         {
