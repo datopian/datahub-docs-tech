@@ -13,6 +13,7 @@ pages:
   - Authentication: developers/authentication.md
 - Publishers:
   - 'Getting started': publishers/index.md
+  - CLI: publishers/cli.md
 theme: readthedocs
 markdown_extensions:
   - pymdownx.github
