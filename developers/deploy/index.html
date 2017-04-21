@@ -5,27 +5,27 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="DataHub is a web service for hosting datapackages.">
   
-  <link rel="shortcut icon" href="./img/favicon.ico">
-  <title>Home - DataHub</title>
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Deploy - DataHub</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="./css/highlight.css">
-  <link href="./css/marmaid.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/marmaid.css" rel="stylesheet">
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Home";
-    var mkdocs_page_input_path = "index.md";
-    var mkdocs_page_url = "/";
+    var mkdocs_page_name = "Deploy";
+    var mkdocs_page_input_path = "developers/deploy.md";
+    var mkdocs_page_url = "/developers/deploy/";
   </script>
   
-  <script src="./js/jquery-2.1.1.min.js"></script>
-  <script src="./js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="./js/highlight.pack.js"></script> 
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -36,9 +36,9 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> DataHub</a>
+        <a href="../.." class="icon icon-home"> DataHub</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
   </form>
 </div>
@@ -48,21 +48,9 @@
 	<ul class="current">
 	  
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href=".">Home</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#datahub-documentation">DataHub Documentation</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#sections">Sections</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../..">Home</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -71,23 +59,29 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="developers/">Getting started</a>
+    <a class="" href="../">Getting started</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="developers/install/">Install</a>
+    <a class="" href="../install/">Install</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Deploy</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#deploy">Deploy</a></li>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="developers/deploy/">Deploy</a>
+    <a class="" href="../authorization/">Authorization</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="developers/authorization/">Authorization</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="developers/authentication/">Authentication</a>
+    <a class="" href="../authentication/">Authentication</a>
                 </li>
     </ul>
 	    </li>
@@ -98,11 +92,11 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="publishers/">Getting started</a>
+    <a class="" href="../../publishers/">Getting started</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="publishers/cli/">CLI</a>
+    <a class="" href="../../publishers/cli/">CLI</a>
                 </li>
     </ul>
 	    </li>
@@ -117,7 +111,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">DataHub</a>
+        <a href="../..">DataHub</a>
       </nav>
 
       
@@ -125,14 +119,18 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".">Docs</a> &raquo;</li>
+    <li><a href="../..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Developers &raquo;</li>
+        
+      
     
-    <li>Home</li>
+    <li>Deploy</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/frictionlessdata/dpr-docs/edit/master/docs/index.md"
+        <a href="https://github.com/frictionlessdata/dpr-docs/edit/master/docs/developers/deploy.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -142,13 +140,17 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="datahub-documentation">DataHub Documentation</h1>
-<p>Welcome to the DataHub documentation. Choose the appropriate section and dive right in!</p>
-<h2 id="sections">Sections</h2>
-<ul>
-<li><a href="./developers/">For developers</a>: &lt;3 Python, JavaScript and data pipelines? Start here!</li>
-<li><a href="./publishers/">For publishers</a>: Want to store your data on DataHub? Start here!</li>
-</ul>
+                <h1 id="deploy">Deploy</h1>
+<p>We use various cloud instances for DataHub application. We use AWS S3 and RDS for storing data and metadata, and the application runs on Heroku.</p>
+<div class="mermaid">
+graph TD
+
+  user[fa:fa-user User] --> frontend
+  frontend[Frontend] --> db[Database]
+  frontend --> bits[BitStore - S3]
+</div>
+
+<p>You can create all the instances and deploy app with one simple command, follow the instructions here: <a href="https://gitlab.com/datopian/datahub-deploy">https://gitlab.com/datopian/datahub-deploy</a></p>
               
             </div>
           </div>
@@ -156,8 +158,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="developers/" class="btn btn-neutral float-right" title="Getting started">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../authorization/" class="btn btn-neutral float-right" title="Authorization">Next <span class="icon icon-circle-arrow-right"></span></a>
       
+      
+        <a href="../install/" class="btn btn-neutral" title="Install"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -185,18 +189,15 @@
           <a href="https://github.com/frictionlessdata/dpr-docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
+        <span><a href="../install/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-        <span style="margin-left: 15px"><a href="developers/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+        <span style="margin-left: 15px"><a href="../authorization/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
-    <script src="./js/theme.js"></script>
-      <script src="./js/mermaid.min.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../js/mermaid.min.js"></script>
 
 </body>
 </html>
-
-<!--
-MkDocs version : 0.16.3
-Build Date UTC : 2017-04-21 05:28:02
--->
