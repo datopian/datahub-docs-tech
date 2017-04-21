@@ -17,13 +17,23 @@
         }, 
         {
             "location": "/developers/", 
-            "text": "Developers\n\n\nThis section of the DataHub documentation is for developers. Here you can learn about the design of the platform and how to get DataHub running locally or on your own servers, and the process for contributing enhancements and bug fixes to the code.\n\n\n\n\nAuthorization\n\n\nThe authorization set up enables system to restricts user permission to execute.\n\n\n\n\nAuthorization docs\n\n\n\n\nAuthentication\n\n\nSome DataHub API methods require client to provide user identity. API Client can use JWT token to perform authenticated requests.\n\n\n\n\nAuthentication docs\n\n\n\n\nCLI\n\n\nThe DataHub CLI (dpm) is a Python lib and command line interface to interact with an DataHub instance.\n\n\n\n\nCLI code", 
+            "text": "Developers\n\n\nThis section of the DataHub documentation is for developers. Here you can learn about the design of the platform and how to get DataHub running locally or on your own servers, and the process for contributing enhancements and bug fixes to the code.\n\n\n\n\nInstall\n\n\nTo install the platform locally for development purposes, please follow the instructions here:\n\n\nhttps://github.com/frictionlessdata/dpr-api\n\n\nDeploy\n\n\nFor deployment of the application in a production environment, please see \nthe deploy page\n.\n\n\nAuthorization\n\n\nThe authorization set up enables system to restricts user permission to execute.\n\n\n\n\nAuthorization docs\n\n\n\n\nAuthentication\n\n\nSome DataHub API methods require client to provide user identity. API Client can use JWT token to perform authenticated requests.\n\n\n\n\nAuthentication docs\n\n\n\n\nCLI\n\n\nThe DataHub CLI (dpm) is a Python lib and command line interface to interact with an DataHub instance.\n\n\n\n\nCLI code", 
             "title": "Getting started"
         }, 
         {
             "location": "/developers/#developers", 
             "text": "This section of the DataHub documentation is for developers. Here you can learn about the design of the platform and how to get DataHub running locally or on your own servers, and the process for contributing enhancements and bug fixes to the code.", 
             "title": "Developers"
+        }, 
+        {
+            "location": "/developers/#install", 
+            "text": "To install the platform locally for development purposes, please follow the instructions here:  https://github.com/frictionlessdata/dpr-api", 
+            "title": "Install"
+        }, 
+        {
+            "location": "/developers/#deploy", 
+            "text": "For deployment of the application in a production environment, please see  the deploy page .", 
+            "title": "Deploy"
         }, 
         {
             "location": "/developers/#authorization", 
@@ -41,24 +51,29 @@
             "title": "CLI"
         }, 
         {
-            "location": "/developers/install/", 
-            "text": "Local install\n\n\nTo install the App locally, please follow the instructions here:\n\nhttps://github.com/frictionlessdata/dpr-api", 
-            "title": "Install"
-        }, 
-        {
-            "location": "/developers/install/#local-install", 
-            "text": "To install the App locally, please follow the instructions here: https://github.com/frictionlessdata/dpr-api", 
-            "title": "Local install"
-        }, 
-        {
             "location": "/developers/deploy/", 
-            "text": "Deploy\n\n\nWe use various cloud instances for DataHub application. We use AWS S3 and RDS for storing data and metadata, and the application runs on Heroku.\n\n\n\ngraph TD\n\n  user[fa:fa-user User] --> frontend\n  frontend[Frontend] --> db[Database]\n  frontend --> bits[BitStore - S3]\n\n\n\n\nYou can create all the instances and deploy app with one simple command, follow the instructions here: \nhttps://gitlab.com/datopian/datahub-deploy", 
+            "text": "DevOps - Production Deployment\n\n\nWe use various cloud instances for DataHub application. We use AWS S3 and RDS for storing data and metadata, and the application runs on Heroku.\n\n\nYou can create all the instances and deploy app with one simple command, follow the instructions here: \nhttps://gitlab.com/datopian/datahub-deploy\n\n\nOutline - Conceptually\n\n\n\ngraph TD\n\n  user[fa:fa-user User] --> frontend\n  frontend[Frontend] --> db[Database]\n  frontend --> bits[BitStore - S3]\n\n\n\n\nCurrent Structure\n\n\nThis diagram shows the current deployment architecture.\n\n\n\ngraph TD\n\n  user[fa:fa-user User]\n  bits[BitStore]\n  cloudflare[Cloudflare]\n\n  user --> cloudflare\n  cloudflare --> heroku\n  cloudflare --> bits\n  heroku[Heroku - Flask] --> rds[RDS Database]\n  heroku --> bits\n\n\n\n\nAWS - Old Structure\n\n\nWe are no longer using AWS in this way. However, we have kept this for historical purposes and in case we return to AWS\n\n\n\ngraph TD\n\n  user[fa:fa-user User] --> cloudfront[Cloudfront]\n  cloudfront --> apigateway[API Gateway]\n  apigateway --> lambda[AWS Lambda - Flask via Zappa]\n  cloudfront --> s3assets[S3 Assets]\n  lambda --> rds[RDS Database]\n  lambda --> bits[BitStore]\n  cloudfront --> bits", 
             "title": "Deploy"
         }, 
         {
-            "location": "/developers/deploy/#deploy", 
-            "text": "We use various cloud instances for DataHub application. We use AWS S3 and RDS for storing data and metadata, and the application runs on Heroku.  \ngraph TD\n\n  user[fa:fa-user User] --> frontend\n  frontend[Frontend] --> db[Database]\n  frontend --> bits[BitStore - S3]  You can create all the instances and deploy app with one simple command, follow the instructions here:  https://gitlab.com/datopian/datahub-deploy", 
-            "title": "Deploy"
+            "location": "/developers/deploy/#devops-production-deployment", 
+            "text": "We use various cloud instances for DataHub application. We use AWS S3 and RDS for storing data and metadata, and the application runs on Heroku.  You can create all the instances and deploy app with one simple command, follow the instructions here:  https://gitlab.com/datopian/datahub-deploy", 
+            "title": "DevOps - Production Deployment"
+        }, 
+        {
+            "location": "/developers/deploy/#outline-conceptually", 
+            "text": "graph TD\n\n  user[fa:fa-user User] --> frontend\n  frontend[Frontend] --> db[Database]\n  frontend --> bits[BitStore - S3]", 
+            "title": "Outline - Conceptually"
+        }, 
+        {
+            "location": "/developers/deploy/#current-structure", 
+            "text": "This diagram shows the current deployment architecture.  \ngraph TD\n\n  user[fa:fa-user User]\n  bits[BitStore]\n  cloudflare[Cloudflare]\n\n  user --> cloudflare\n  cloudflare --> heroku\n  cloudflare --> bits\n  heroku[Heroku - Flask] --> rds[RDS Database]\n  heroku --> bits", 
+            "title": "Current Structure"
+        }, 
+        {
+            "location": "/developers/deploy/#aws-old-structure", 
+            "text": "We are no longer using AWS in this way. However, we have kept this for historical purposes and in case we return to AWS  \ngraph TD\n\n  user[fa:fa-user User] --> cloudfront[Cloudfront]\n  cloudfront --> apigateway[API Gateway]\n  apigateway --> lambda[AWS Lambda - Flask via Zappa]\n  cloudfront --> s3assets[S3 Assets]\n  lambda --> rds[RDS Database]\n  lambda --> bits[BitStore]\n  cloudfront --> bits", 
+            "title": "AWS - Old Structure"
         }, 
         {
             "location": "/developers/authorization/", 

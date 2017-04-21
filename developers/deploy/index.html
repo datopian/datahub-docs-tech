@@ -61,16 +61,22 @@
                     
     <a class="" href="../">Getting started</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../install/">Install</a>
-                </li>
                 <li class=" current">
                     
     <a class="current" href="./">Deploy</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#deploy">Deploy</a></li>
+    <li class="toctree-l3"><a href="#devops-production-deployment">DevOps - Production Deployment</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#outline-conceptually">Outline - Conceptually</a></li>
+        
+            <li><a class="toctree-l4" href="#current-structure">Current Structure</a></li>
+        
+            <li><a class="toctree-l4" href="#aws-old-structure">AWS - Old Structure</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -140,8 +146,10 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="deploy">Deploy</h1>
+                <h2 id="devops-production-deployment">DevOps - Production Deployment</h2>
 <p>We use various cloud instances for DataHub application. We use AWS S3 and RDS for storing data and metadata, and the application runs on Heroku.</p>
+<p>You can create all the instances and deploy app with one simple command, follow the instructions here: <a href="https://gitlab.com/datopian/datahub-deploy">https://gitlab.com/datopian/datahub-deploy</a></p>
+<h3 id="outline-conceptually">Outline - Conceptually</h3>
 <div class="mermaid">
 graph TD
 
@@ -150,7 +158,35 @@ graph TD
   frontend --> bits[BitStore - S3]
 </div>
 
-<p>You can create all the instances and deploy app with one simple command, follow the instructions here: <a href="https://gitlab.com/datopian/datahub-deploy">https://gitlab.com/datopian/datahub-deploy</a></p>
+<h3 id="current-structure">Current Structure</h3>
+<p>This diagram shows the current deployment architecture.</p>
+<div class="mermaid">
+graph TD
+
+  user[fa:fa-user User]
+  bits[BitStore]
+  cloudflare[Cloudflare]
+
+  user --> cloudflare
+  cloudflare --> heroku
+  cloudflare --> bits
+  heroku[Heroku - Flask] --> rds[RDS Database]
+  heroku --> bits
+</div>
+
+<h3 id="aws-old-structure">AWS - Old Structure</h3>
+<p>We are no longer using AWS in this way. However, we have kept this for historical purposes and in case we return to AWS</p>
+<div class="mermaid">
+graph TD
+
+  user[fa:fa-user User] --> cloudfront[Cloudfront]
+  cloudfront --> apigateway[API Gateway]
+  apigateway --> lambda[AWS Lambda - Flask via Zappa]
+  cloudfront --> s3assets[S3 Assets]
+  lambda --> rds[RDS Database]
+  lambda --> bits[BitStore]
+  cloudfront --> bits
+</div>
               
             </div>
           </div>
@@ -161,7 +197,7 @@ graph TD
         <a href="../authorization/" class="btn btn-neutral float-right" title="Authorization">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../install/" class="btn btn-neutral" title="Install"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../" class="btn btn-neutral" title="Getting started"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -189,7 +225,7 @@ graph TD
           <a href="https://github.com/frictionlessdata/dpr-docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../install/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../authorization/" style="color: #fcfcfc">Next &raquo;</a></span>
