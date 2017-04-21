@@ -4,7 +4,20 @@ This section of the DataHub documentation is for developers. Here you can learn 
 
 [![Gitter](https://img.shields.io/gitter/room/frictionlessdata/chat.svg)](https://gitter.im/frictionlessdata/chat)
 
+## Install
+
+To install the platform locally for development purposes, please follow the instructions here:
+
+https://github.com/frictionlessdata/dpr-api
+
+## Deploy
+
+For deployment of the application in a production environment, please see [the deploy page][deploy].
+
+[deploy]: deploy/
+
 ## Authorization
+
 The authorization set up enables system to restricts user permission to execute.
 
 - [Authorization docs](authorization/)

@@ -9,7 +9,6 @@ pages:
 - Home: 'index.md'
 - Developers:
   - 'Getting started': developers/index.md
-  - Install: developers/install.md
   - Deploy: developers/deploy.md
   - Authorization: developers/authorization.md
   - Authentication: developers/authentication.md
