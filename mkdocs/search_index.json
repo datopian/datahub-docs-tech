@@ -77,12 +77,12 @@
         }, 
         {
             "location": "/developers/api/", 
-            "text": "DataHub API\n\n\nThe DataHub API is a Python app that provides a range of API endpoints to query an DataHub database.\n\n\nTry out the API using the Swagger interactive interface.\n\n\n\n\n\n \n\n\n\n \n\n\n\n\nwindow.onload = function() {\n  // Build a system\n  const ui = SwaggerUIBundle({\n    url: \"https://staging.datapackaged.com/spec\",\n    dom_id: '#swagger-ui',\n    validatorUrl : null,\n    presets: [\n      SwaggerUIBundle.presets.apis,\n      SwaggerUIStandalonePreset\n    ],\n    plugins: [\n      SwaggerUIBundle.plugins.DownloadUrl\n    ],\n    layout: \"StandaloneLayout\"\n  })\n\n  window.ui = ui\n}", 
+            "text": "DataHub API\n\n\nThe API provides a range of endpoints to query and manage the platform.\n\n\nYou can explore the API via the docs below.\n\n\n\n\n\n \n\n\n\n \n\n\n\n\nwindow.onload = function() {\n  // Build a system\n  const ui = SwaggerUIBundle({\n    url: \"https://staging.datapackaged.com/api/swagger.json\",\n    dom_id: '#swagger-ui',\n    validatorUrl : null,\n    presets: [\n      SwaggerUIBundle.presets.apis,\n      SwaggerUIStandalonePreset\n    ],\n    plugins: [\n      SwaggerUIBundle.plugins.DownloadUrl\n    ],\n    layout: \"StandaloneLayout\"\n  })\n\n  window.ui = ui\n}", 
             "title": "API"
         }, 
         {
             "location": "/developers/api/#datahub-api", 
-            "text": "The DataHub API is a Python app that provides a range of API endpoints to query an DataHub database.  Try out the API using the Swagger interactive interface.         \nwindow.onload = function() {\n  // Build a system\n  const ui = SwaggerUIBundle({\n    url: \"https://staging.datapackaged.com/spec\",\n    dom_id: '#swagger-ui',\n    validatorUrl : null,\n    presets: [\n      SwaggerUIBundle.presets.apis,\n      SwaggerUIStandalonePreset\n    ],\n    plugins: [\n      SwaggerUIBundle.plugins.DownloadUrl\n    ],\n    layout: \"StandaloneLayout\"\n  })\n\n  window.ui = ui\n}", 
+            "text": "The API provides a range of endpoints to query and manage the platform.  You can explore the API via the docs below.         \nwindow.onload = function() {\n  // Build a system\n  const ui = SwaggerUIBundle({\n    url: \"https://staging.datapackaged.com/api/swagger.json\",\n    dom_id: '#swagger-ui',\n    validatorUrl : null,\n    presets: [\n      SwaggerUIBundle.presets.apis,\n      SwaggerUIStandalonePreset\n    ],\n    plugins: [\n      SwaggerUIBundle.plugins.DownloadUrl\n    ],\n    layout: \"StandaloneLayout\"\n  })\n\n  window.ui = ui\n}", 
             "title": "DataHub API"
         }, 
         {
