@@ -8,12 +8,14 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>API - Datapackage Registry</title>
+  <title>API - DataHub</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/marmaid.css" rel="stylesheet">
+  <link href="../../css/main.css" rel="stylesheet">
   
   <script>
     // Current page data
@@ -35,7 +37,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> Datapackage Registry</a>
+        <a href="../.." class="icon icon-home"> DataHub</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -45,140 +47,60 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
 	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Developers</span>
     <ul class="subnav">
-    <li><span>Developers</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../">Getting started</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../platform/">Platform</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../datastore/">Datastore</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">API</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#datapackage-registry-api">Datapackage Registry API</a></li>
-                
-                    <li><a class="toctree-l4" href="#features">Features</a></li>
-                
-                    <li><a class="toctree-l4" href="#requirements">Requirements</a></li>
-                
-                    <li><a class="toctree-l4" href="#installation">Installation</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../cli/">CLI</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../authorization/">Authorization</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../authentication/">Authentication</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../infrastructure/">Infrastructure</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
-            <li>
+                <li class="">
+                    
+    <a class="" href="../">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../deploy/">Deploy</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">API</a>
     <ul class="subnav">
-    <li><span>Publishers</span></li>
-
-        
             
-    <li class="toctree-l1 ">
-        <a class="" href="../../publishers/">Getting started</a>
-        
-    </li>
+    <li class="toctree-l3"><a href="#datahub-api">DataHub API</a></li>
+    
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../publishers/prepare/">Prepare</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../publishers/package/">Package</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../publishers/upload/">Upload</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../publishers/use/">Use</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../publishers/cli/">CLI</a>
-        
-    </li>
-
-        
     </ul>
-<li>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../authorization/">Authorization</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../authentication/">Authentication</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Publishers</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../publishers/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../publishers/cli/">CLI</a>
+                </li>
+    </ul>
+	    </li>
           
         </ul>
       </div>
@@ -190,7 +112,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">Datapackage Registry</a>
+        <a href="../..">DataHub</a>
       </nav>
 
       
@@ -219,18 +141,35 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="datapackage-registry-api">Datapackage Registry API</h1>
-<p>The Datapackage Registry API is a Python app that provides a range of API endpoints to query an Datapackage Registry database.</p>
-<p>The API is available for general use, and also powers all of the core components of Datapackage Registry.</p>
-<h2 id="features">Features</h2>
-<ul>
-<li>A search API to access package-level meta data</li>
-<li>...</li>
-</ul>
-<h2 id="requirements">Requirements</h2>
-<p>You need to have Python 2.7.x or Python 3 (not yet supported) to run the API. The API itself is a set of Flask blueprints.</p>
-<h2 id="installation">Installation</h2>
-<p>...</p>
+                <h1 id="datahub-api">DataHub API</h1>
+<p>The DataHub API is a Python app that provides a range of API endpoints to query an DataHub database.</p>
+<p>Try out the API using the Swagger interactive interface.</p>
+<div id="swagger-ui"></div>
+
+<script src="../../js/dist/swagger-ui-bundle.js"> </script>
+
+<script src="../../js/dist/swagger-ui-standalone-preset.js"> </script>
+
+<script>
+window.onload = function() {
+  // Build a system
+  const ui = SwaggerUIBundle({
+    url: "https://staging.datapackaged.com/spec",
+    dom_id: '#swagger-ui',
+    validatorUrl : null,
+    presets: [
+      SwaggerUIBundle.presets.apis,
+      SwaggerUIStandalonePreset
+    ],
+    plugins: [
+      SwaggerUIBundle.plugins.DownloadUrl
+    ],
+    layout: "StandaloneLayout"
+  })
+
+  window.ui = ui
+}
+</script>
               
             </div>
           </div>
@@ -238,10 +177,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../cli/" class="btn btn-neutral float-right" title="CLI">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../authorization/" class="btn btn-neutral float-right" title="Authorization">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../datastore/" class="btn btn-neutral" title="Datastore"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../deploy/" class="btn btn-neutral" title="Deploy"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -266,17 +205,18 @@
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/frictionlessdata/dpr-docs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/frictionlessdata/dpr-docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../datastore/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../deploy/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../cli/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../authorization/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
     <script src="../../js/theme.js"></script>
+      <script src="../../js/mermaid.min.js"></script>
 
 </body>
 </html>
