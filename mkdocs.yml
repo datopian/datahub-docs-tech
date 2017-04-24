@@ -3,6 +3,7 @@ site_description: DataHub is a web service for hosting datapackages.
 repo_url: https://github.com/frictionlessdata/dpr-docs
 extra_css:
     - css/marmaid.css
+    - css/main.css
 extra_javascript:
     - js/mermaid.min.js
 pages:
@@ -10,6 +11,7 @@ pages:
 - Developers:
   - 'Getting started': developers/index.md
   - Deploy: developers/deploy.md
+  - API: developers/api.md
   - Authorization: developers/authorization.md
   - Authentication: developers/authentication.md
 - Publishers:
