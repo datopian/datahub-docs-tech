@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-04-24</lastmod>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,31 +13,37 @@
         
     <url>
      <loc>/developers/</loc>
-     <lastmod>2017-04-24</lastmod>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/developers/deploy/</loc>
-     <lastmod>2017-04-24</lastmod>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/developers/api/</loc>
-     <lastmod>2017-04-24</lastmod>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/developers/authorization/</loc>
-     <lastmod>2017-04-24</lastmod>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/developers/authentication/</loc>
-     <lastmod>2017-04-24</lastmod>
+     <lastmod>2017-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/developers/publish/</loc>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -47,13 +53,13 @@
         
     <url>
      <loc>/publishers/</loc>
-     <lastmod>2017-04-24</lastmod>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/publishers/cli/</loc>
-     <lastmod>2017-04-24</lastmod>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

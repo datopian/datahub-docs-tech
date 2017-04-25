@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>API - DataHub</title>
+  <title>Pusblish - DataHub</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -19,9 +19,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "API";
-    var mkdocs_page_input_path = "developers/api.md";
-    var mkdocs_page_url = "/developers/api/";
+    var mkdocs_page_name = "Pusblish";
+    var mkdocs_page_input_path = "developers/publish.md";
+    var mkdocs_page_url = "/developers/publish/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -66,15 +66,9 @@
                     
     <a class="" href="../deploy/">Deploy</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">API</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#datahub-api">DataHub API</a></li>
-    
-
-    </ul>
+    <a class="" href="../api/">API</a>
                 </li>
                 <li class="">
                     
@@ -84,9 +78,23 @@
                     
     <a class="" href="../authentication/">Authentication</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../publish/">Pusblish</a>
+    <a class="current" href="./">Pusblish</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#publish">Publish</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#client-perspective">Client Perspective</a></li>
+        
+            <li><a class="toctree-l4" href="#back-end-perspective">Back-end perspective</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -132,10 +140,10 @@
         
       
     
-    <li>API</li>
+    <li>Pusblish</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/frictionlessdata/dpr-docs/edit/master/docs/developers/api.md"
+        <a href="https://github.com/frictionlessdata/dpr-docs/edit/master/docs/developers/publish.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -145,35 +153,76 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="datahub-api">DataHub API</h1>
-<p>The API provides a range of endpoints to query and manage the platform.</p>
-<p>You can explore the API via the docs below.</p>
-<div id="swagger-ui"></div>
+                <h1 id="publish">Publish</h1>
+<p>Explanation of DataHub system workflow from client and back-end perspectives.</p>
+<h2 id="client-perspective">Client Perspective</h2>
+<p>Publishing flow takes the following steps and processes to communicate with DataHub API:</p>
+<div class="mermaid">
+sequenceDiagram
+Upload Agent CLI->>Upload Agent CLI: Check Data Package valid
+Upload Agent CLI-->>Auth(SSO): Get Session Token (Sends base auth)
+Auth(SSO)-->>Upload Agent CLI: session token
+Upload Agent CLI->>BitStore Upload Auth: Get BitStore Upload token [send session token]
+BitStore Upload Auth->>Auth(SSO): Check key / token
+Auth(SSO)->>BitStore Upload Auth: OK / Not OK
+BitStore Upload Auth->>Upload Agent CLI: S3 auth Token
+Upload Agent CLI->>Data Storage (S3 Raw): Send file plus token
+Data Storage (S3 Raw)->>Upload Agent CLI: OK / Not OK
+Upload Agent CLI->>MetaData Storage API: Finalize (After all data uploaded)
+MetaData Storage API->>Upload Agent CLI: OK / Not OK
+</div>
 
-<script src="../../js/dist/swagger-ui-bundle.js"> </script>
+<p><br></p>
+<ul>
+<li><a href="https://staging.datapackaged.com/apidocs/index.html?url=/api/swagger.json#!/package/post_api_package_upload">Upload API</a></li>
+<li><a href="https://staging.datapackaged.com/apidocs/index.html?url=/api/swagger.json#!/auth/post_api_auth_token">Authentication API</a> - read more <a href="../../developers/authentication/">about authentication</a></li>
+<li><a href="https://staging.datapackaged.com/apidocs/index.html?url=/api/swagger.json#!/package/post_api_datastore_authorize">Authorization API</a> - read more <a href="../../developers/authorization/">about authorization</a></li>
+</ul>
+<p>See example <a href="https://github.com/frictionlessdata/dpm-py/blob/master/dpm/client/__init__.py#L120">code snippet in dpm-py</a></p>
+<p><br></p>
+<h2 id="back-end-perspective">Back-end perspective</h2>
+<p>DataHub Metadata and Data Flow</p>
+<ul>
+<li>Pink = service we build</li>
+<li>Blue = external service</li>
+<li>Dark gray = not yet implemented</li>
+</ul>
+<div class="mermaid">
+graph TD
 
-<script src="../../js/dist/swagger-ui-standalone-preset.js"> </script>
+user[Publisher fa:fa-user]
+upload-api["Upload API (S3 API)"]
+bitstore(Bitstore S3)
+metaingestor[Meta Ingestor]
+dataingestor[Data Ingestor]
+metastore("Metastore (RDS)")
+readapi[Read API]
+dataproxy["DataProxy (convert raw data to json on the fly)"]
+datastore["Datastore (RDS)"]
+s3readapi[S3 Get API]
+readuser[Consumer fa:fa-user]
 
-<script>
-window.onload = function() {
-  // Build a system
-  const ui = SwaggerUIBundle({
-    url: "https://staging.datapackaged.com/api/swagger.json",
-    dom_id: '#swagger-ui',
-    validatorUrl : null,
-    presets: [
-      SwaggerUIBundle.presets.apis,
-      SwaggerUIStandalonePreset
-    ],
-    plugins: [
-      SwaggerUIBundle.plugins.DownloadUrl
-    ],
-    layout: "StandaloneLayout"
-  })
+user --s3 signed upload url--> upload-api
+upload-api --> bitstore
+bitstore --> metaingestor
+metaingestor --> metastore
+metastore --> readapi
+bitstore -.-> dataproxy
+bitstore -.-> dataingestor
+dataingestor -.-> datastore
+datastore -.-> readapi
+bitstore --> s3readapi
+s3readapi --> readuser
+dataproxy -.-> readuser
+readapi --> readuser
 
-  window.ui = ui
-}
-</script>
+  classDef extservice fill:lightblue,stroke:#333,stroke-width:4px;
+  classDef notimplemented fill:darkgrey,stroke:#bbb,stroke-width:1px;
+  classDef service fill:pink,stroke:#333,stroke-width:4px;
+  class datastore,dataingestor,dataproxy notimplemented;
+  class bitstore,metastore,s3readapi extservice;
+  class readapi service;
+</div>
               
             </div>
           </div>
@@ -181,10 +230,10 @@ window.onload = function() {
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../authorization/" class="btn btn-neutral float-right" title="Authorization">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../publishers/" class="btn btn-neutral float-right" title="Getting started">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../deploy/" class="btn btn-neutral" title="Deploy"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../authentication/" class="btn btn-neutral" title="Authentication"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -212,10 +261,10 @@ window.onload = function() {
           <a href="https://github.com/frictionlessdata/dpr-docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../deploy/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../authentication/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../authorization/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../publishers/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
