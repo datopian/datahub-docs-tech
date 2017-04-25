@@ -82,3 +82,13 @@ readapi --> readuser
   class bitstore,metastore,s3readapi extservice;
   class readapi service;
 </div>
+
+* [Authentication][auth-docs]
+* [Authorization][authz-docs]
+* [Metastore][metastore] - TODO
+* [BitStore][bitstore] - TODO
+* [DataStore][datastore] - TODO
+
+[metastore]:
+[bitstore]:
+[datastore]:
