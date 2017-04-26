@@ -1,6 +1,6 @@
 # Publish
 
-Explanation of DataHub system workflow from client and back-end perspectives.
+Explanation of DataHub publishing flow from client and back-end perspectives.
 
 ## Client Perspective
 
@@ -22,18 +22,15 @@ MetaData Storage API->>Upload Agent CLI: OK / Not OK
 </div>
 <br>
 
-* [Upload API][finalize]
-* [Authentication API][auth] - read more [about authentication][auth-docs]
-* [Authorization API][authz] - read more [about authorization][authz-docs]
+* Upload API - see `POST /api/package/upload` in *package* section of [API][api]
+* Authentication API - see `POST /api/auth/token` in *auth* section of [API][api]. Read more [about authentication][auth-docs]
+* [Authorization API][authz] - see `POST /api/datastore/authorize` in *package* section of [API][api]. Read more [about authorization][authz-docs]
 
 See example [code snippet in dpm-py][publish-code]
 
-
-[auth]: https://staging.datapackaged.com/apidocs/index.html?url=/api/swagger.json#!/auth/post_api_auth_token
+[api]: /developers/api/
 [auth-docs]: /developers/authentication/
-[authz]: https://staging.datapackaged.com/apidocs/index.html?url=/api/swagger.json#!/package/post_api_datastore_authorize
 [authz-docs]: /developers/authorization/
-[finalize]: https://staging.datapackaged.com/apidocs/index.html?url=/api/swagger.json#!/package/post_api_package_upload
 [publish-code]: https://github.com/frictionlessdata/dpm-py/blob/master/dpm/client/__init__.py#L120
 
 <br>
@@ -85,10 +82,8 @@ readapi --> readuser
 
 * [Authentication][auth-docs]
 * [Authorization][authz-docs]
-* [Metastore][metastore] - TODO
-* [BitStore][bitstore] - TODO
-* [DataStore][datastore] - TODO
+* [Metastore][metastore] - page not yet implemented
+* [BitStore][bitstore] - page not yet implemented
 
 [metastore]:
 [bitstore]:
-[datastore]:
