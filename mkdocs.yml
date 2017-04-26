@@ -14,7 +14,7 @@ pages:
   - API: developers/api.md
   - Authorization: developers/authorization.md
   - Authentication: developers/authentication.md
-  - Pusblish: developers/publish.md
+  - Publish: developers/publish.md
 - Publishers:
   - 'Getting started': publishers/index.md
   - CLI: publishers/cli.md
