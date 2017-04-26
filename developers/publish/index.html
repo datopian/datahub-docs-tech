@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Pusblish - DataHub</title>
+  <title>Publish - DataHub</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -19,7 +19,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Pusblish";
+    var mkdocs_page_name = "Publish";
     var mkdocs_page_input_path = "developers/publish.md";
     var mkdocs_page_url = "/developers/publish/";
   </script>
@@ -80,7 +80,7 @@
                 </li>
                 <li class=" current">
                     
-    <a class="current" href="./">Pusblish</a>
+    <a class="current" href="./">Publish</a>
     <ul class="subnav">
             
     <li class="toctree-l3"><a href="#publish">Publish</a></li>
@@ -140,7 +140,7 @@
         
       
     
-    <li>Pusblish</li>
+    <li>Publish</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/frictionlessdata/dpr-docs/edit/master/docs/developers/publish.md"
@@ -154,7 +154,7 @@
             <div class="section">
               
                 <h1 id="publish">Publish</h1>
-<p>Explanation of DataHub system workflow from client and back-end perspectives.</p>
+<p>Explanation of DataHub publishing flow from client and back-end perspectives.</p>
 <h2 id="client-perspective">Client Perspective</h2>
 <p>Publishing flow takes the following steps and processes to communicate with DataHub API:</p>
 <div class="mermaid">
@@ -174,9 +174,9 @@ MetaData Storage API->>Upload Agent CLI: OK / Not OK
 
 <p><br></p>
 <ul>
-<li><a href="https://staging.datapackaged.com/apidocs/index.html?url=/api/swagger.json#!/package/post_api_package_upload">Upload API</a></li>
-<li><a href="https://staging.datapackaged.com/apidocs/index.html?url=/api/swagger.json#!/auth/post_api_auth_token">Authentication API</a> - read more <a href="../../developers/authentication/">about authentication</a></li>
-<li><a href="https://staging.datapackaged.com/apidocs/index.html?url=/api/swagger.json#!/package/post_api_datastore_authorize">Authorization API</a> - read more <a href="../../developers/authorization/">about authorization</a></li>
+<li>Upload API - see <code>POST /api/package/upload</code> in <em>package</em> section of <a href="../../developers/api/">API</a></li>
+<li>Authentication API - see <code>POST /api/auth/token</code> in <em>auth</em> section of <a href="../../developers/api/">API</a>. Read more <a href="../../developers/authentication/">about authentication</a></li>
+<li>[Authorization API][authz] - see <code>POST /api/datastore/authorize</code> in <em>package</em> section of <a href="../../developers/api/">API</a>. Read more <a href="../../developers/authorization/">about authorization</a></li>
 </ul>
 <p>See example <a href="https://github.com/frictionlessdata/dpm-py/blob/master/dpm/client/__init__.py#L120">code snippet in dpm-py</a></p>
 <p><br></p>
@@ -227,9 +227,8 @@ readapi --> readuser
 <ul>
 <li><a href="../../developers/authentication/">Authentication</a></li>
 <li><a href="../../developers/authorization/">Authorization</a></li>
-<li><a href="">Metastore</a> - TODO</li>
-<li><a href="">BitStore</a> - TODO</li>
-<li><a href="">DataStore</a> - TODO</li>
+<li><a href="">Metastore</a> - page not yet implemented</li>
+<li><a href="">BitStore</a> - page not yet implemented</li>
 </ul>
               
             </div>
