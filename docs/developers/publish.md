@@ -82,8 +82,8 @@ readapi --> readuser
 
 * [Authentication][auth-docs]
 * [Authorization][authz-docs]
+* [Metastore][metastore] - page not yet implemented
 * [BitStore][bitstore] - page not yet implemented
-* [DataStore][datastore] - page not yet implemented
 
+[metastore]:
 [bitstore]:
-[datastore]:
