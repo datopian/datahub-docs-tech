@@ -1,6 +1,6 @@
 # Publish
 
-Explanation of DataHub system workflow from client and back-end perspectives.
+Explanation of DataHub publishing flow from client and back-end perspectives.
 
 ## Client Perspective
 
