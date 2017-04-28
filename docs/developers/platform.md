@@ -21,7 +21,7 @@ We interpret Version as "Tag" concept. *Commit/Hash" is not supported
 
 User is an authenticated entity, that is member of Publisher organization.
 
-**Important:** Users to not have Data Packages, Publishers do. Users are *members* of Publishers.
+**Important:** Users do not have Data Packages, Publishers do. Users are *members* of Publishers.
 
 <div class="mermaid">
 graph TD
@@ -49,7 +49,7 @@ end
 
 Our platform architecture is built on several different components:
 
-* [CLI][dpm-py] - Command Line Interface for
+* [CLI][dpm-py] - Command Line Interface
 * [Front-end Web Application][dpr-api] - API, Login & Sign-Up and Browse & Search
 * [Views and Renderer][dpr-js] - Graphs, Charts, Tables and other visualization tools
 
