@@ -52,17 +52,17 @@
         }, 
         {
             "location": "/developers/deploy/", 
-            "text": "DevOps - Production Deployment\n\n\nWe use various cloud instances for DataHub application. We use AWS S3 and RDS for storing data and metadata, and the application runs on Heroku.\n\n\nYou can create all the instances and deploy app with one simple command, follow the instructions here: \nhttps://gitlab.com/datopian/datahub-deploy\n\n\nOutline - Conceptually\n\n\n\ngraph TD\n\n  user[fa:fa-user User] --> frontend\n  frontend[Frontend] --> db[Database]\n  frontend --> bits[BitStore - S3]\n\n\n\n\nCurrent Structure\n\n\nThis diagram shows the current deployment architecture.\n\n\n\ngraph TD\n\n  user[fa:fa-user User]\n  bits[BitStore]\n  cloudflare[Cloudflare]\n\n  user --> cloudflare\n  cloudflare --> heroku\n  cloudflare --> bits\n  heroku[Heroku - Flask] --> rds[RDS Database]\n  heroku --> bits\n\n\n\n\nAWS - Old Structure\n\n\nWe are no longer using AWS in this way. However, we have kept this for historical purposes and in case we return to AWS\n\n\n\ngraph TD\n\n  user[fa:fa-user User] --> cloudfront[Cloudfront]\n  cloudfront --> apigateway[API Gateway]\n  apigateway --> lambda[AWS Lambda - Flask via Zappa]\n  cloudfront --> s3assets[S3 Assets]\n  lambda --> rds[RDS Database]\n  lambda --> bits[BitStore]\n  cloudfront --> bits", 
+            "text": "DevOps - Production Deployment\n\n\nWe use various cloud services for the platform, for example AWS S3 and RDS for storing data and metadata, and the application runs on Heroku.\n\n\nWe have fully automated the deployment of the platform including the setup of all necessary services so that it is one commmand to deploy. Code and instructions here:\n\n\nhttps://gitlab.com/datopian/datahub-deploy\n\n\nBelow we provide a conceptual outline.\n\n\nOutline - Conceptually\n\n\n\ngraph TD\n\n  user[fa:fa-user User] --> frontend[Frontend]\n  frontend --> db[Database - RDS]\n  frontend --> bits[BitStore - S3]\n\n\n\n\nCurrent Structure\n\n\nThis diagram shows the current deployment architecture.\n\n\n\ngraph TD\n\n  user[fa:fa-user User]\n  bits[BitStore]\n  cloudflare[Cloudflare]\n\n  user --> cloudflare\n  cloudflare --> heroku\n  cloudflare --> bits\n  heroku[Heroku - Flask] --> rds[RDS Database]\n  heroku --> bits\n\n\n\n\nAWS - Old Structure\n\n\nWe are no longer using AWS in this way. However, we have kept this for historical purposes and in case we return to AWS\n\n\n\ngraph TD\n\n  user[fa:fa-user User] --> cloudfront[Cloudfront]\n  cloudfront --> apigateway[API Gateway]\n  apigateway --> lambda[AWS Lambda - Flask via Zappa]\n  cloudfront --> s3assets[S3 Assets]\n  lambda --> rds[RDS Database]\n  lambda --> bits[BitStore]\n  cloudfront --> bits", 
             "title": "Deploy"
         }, 
         {
             "location": "/developers/deploy/#devops-production-deployment", 
-            "text": "We use various cloud instances for DataHub application. We use AWS S3 and RDS for storing data and metadata, and the application runs on Heroku.  You can create all the instances and deploy app with one simple command, follow the instructions here:  https://gitlab.com/datopian/datahub-deploy", 
+            "text": "We use various cloud services for the platform, for example AWS S3 and RDS for storing data and metadata, and the application runs on Heroku.  We have fully automated the deployment of the platform including the setup of all necessary services so that it is one commmand to deploy. Code and instructions here:  https://gitlab.com/datopian/datahub-deploy  Below we provide a conceptual outline.", 
             "title": "DevOps - Production Deployment"
         }, 
         {
             "location": "/developers/deploy/#outline-conceptually", 
-            "text": "graph TD\n\n  user[fa:fa-user User] --> frontend\n  frontend[Frontend] --> db[Database]\n  frontend --> bits[BitStore - S3]", 
+            "text": "graph TD\n\n  user[fa:fa-user User] --> frontend[Frontend]\n  frontend --> db[Database - RDS]\n  frontend --> bits[BitStore - S3]", 
             "title": "Outline - Conceptually"
         }, 
         {

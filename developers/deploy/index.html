@@ -164,14 +164,16 @@
             <div class="section">
               
                 <h2 id="devops-production-deployment">DevOps - Production Deployment</h2>
-<p>We use various cloud instances for DataHub application. We use AWS S3 and RDS for storing data and metadata, and the application runs on Heroku.</p>
-<p>You can create all the instances and deploy app with one simple command, follow the instructions here: <a href="https://gitlab.com/datopian/datahub-deploy">https://gitlab.com/datopian/datahub-deploy</a></p>
+<p>We use various cloud services for the platform, for example AWS S3 and RDS for storing data and metadata, and the application runs on Heroku.</p>
+<p>We have fully automated the deployment of the platform including the setup of all necessary services so that it is one commmand to deploy. Code and instructions here:</p>
+<p><a href="https://gitlab.com/datopian/datahub-deploy">https://gitlab.com/datopian/datahub-deploy</a></p>
+<p>Below we provide a conceptual outline.</p>
 <h3 id="outline-conceptually">Outline - Conceptually</h3>
 <div class="mermaid">
 graph TD
 
-  user[fa:fa-user User] --> frontend
-  frontend[Frontend] --> db[Database]
+  user[fa:fa-user User] --> frontend[Frontend]
+  frontend --> db[Database - RDS]
   frontend --> bits[BitStore - S3]
 </div>
 
