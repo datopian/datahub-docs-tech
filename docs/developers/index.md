@@ -4,7 +4,7 @@ This section of the DataHub documentation is for developers. Here you can learn 
 
 [![Gitter](https://img.shields.io/gitter/room/frictionlessdata/chat.svg)](https://gitter.im/frictionlessdata/chat)
 
-We use following repositories on Github and Gitlab for our platform:
+We use following repositories on GitHub and GitLab for our platform:
 
 * [DPR API][dpr-api] - API and web-application
 * [DPR JS][dpr-js] - Visualizations and front-end JS
