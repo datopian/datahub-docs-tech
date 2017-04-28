@@ -1,16 +1,20 @@
 ## DevOps - Production Deployment
 
-We use various cloud instances for DataHub application. We use AWS S3 and RDS for storing data and metadata, and the application runs on Heroku.
+We use various cloud services for the platform, for example AWS S3 and RDS for storing data and metadata, and the application runs on Heroku.
 
-You can create all the instances and deploy app with one simple command, follow the instructions here: https://gitlab.com/datopian/datahub-deploy
+We have fully automated the deployment of the platform including the setup of all necessary services so that it is one commmand to deploy. Code and instructions here:
+
+https://gitlab.com/datopian/datahub-deploy
+
+Below we provide a conceptual outline.
 
 ### Outline - Conceptually
 
 <div class="mermaid">
 graph TD
 
-  user[fa:fa-user User] --> frontend
-  frontend[Frontend] --> db[Database]
+  user[fa:fa-user User] --> frontend[Frontend]
+  frontend --> db[Database - RDS]
   frontend --> bits[BitStore - S3]
 </div>
 
