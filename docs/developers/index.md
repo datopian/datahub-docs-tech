@@ -4,6 +4,39 @@ This section of the DataHub documentation is for developers. Here you can learn 
 
 [![Gitter](https://img.shields.io/gitter/room/frictionlessdata/chat.svg)](https://gitter.im/frictionlessdata/chat)
 
+We use following repositories on Github and Gitlab for our platform:
+
+* [DPR API][dpr-api] - API and web-application
+* [DPR JS][dpr-js] - Visualizations and front-end JS
+* [DPR DOCS][dpr-docs] - Documentations
+
+[dpr-api]: https://github.com/frictionlessdata/dpr-api
+[dpr-js]: https://github.com/frictionlessdata/dpr-js
+[dpr-docs]: https://github.com/frictionlessdata/dpr-docs
+
+<div class="mermaid">
+graph LR
+
+subgraph Repos
+  dprapi[DPR API]
+  dprjs[DPR JS]
+  dprdeploy[DPR Deploy]
+  dprdocs[DPR Docs]
+  dprjs --submodule--> dprapi
+end
+
+subgraph Sites
+  dhio[data.xxx]
+  dhdocs[docs.data.xxx]
+  dprdocs --> dhdocs
+end
+
+deploy((Deploy))
+dprapi --> deploy
+deploy --> dhio
+dprdeploy --> deploy
+</div>
+
 ## Install
 
 To install the platform locally for development purposes, please follow the instructions here:
