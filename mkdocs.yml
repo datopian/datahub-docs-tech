@@ -10,13 +10,13 @@ pages:
 - Home: 'index.md'
 - Developers:
   - 'Getting started': developers/index.md
+  - Platform: developers/platform.md
   - Deploy: developers/deploy.md
   - API: developers/api.md
+  - Publish: developers/publish.md
+  - Views: developers/views.md
   - Authorization: developers/authorization.md
   - Authentication: developers/authentication.md
-  - Publish: developers/publish.md
-  - Platform: developers/platform.md
-  - Views: developers/views.md
 - Publishers:
   - 'Getting started': publishers/index.md
   - CLI: publishers/cli.md
