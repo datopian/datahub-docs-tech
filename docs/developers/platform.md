@@ -53,9 +53,6 @@ end
 * [CLI][cli] - Command Line Interface for publishing [Data Packages](#data-package)
 * [Front-end Web Application][web-app] - Core part of platform - API, Login & Sign-Up and Browse & Search (page not yet implemented)
 * [Views and Renderer][views] - JS Library responsible for visualization and views on platform
-* [BitStore](#bitstore) - Place were data is stored
-* [MetaStore](#metastore) - Place for storing and managing package meta-data, users, permissions etc
-* [Users and Permissions](*users-and-permissions) - Permissions & Access Control
 
 ### BitStore
 
@@ -72,7 +69,7 @@ We use AWS RDS Postgresql database for storing meta-data.
 
 ### Users and Permissions
 
-- We are using GitHub auth API for authenticating users for our platform. See more information on [authentication page][auth-page]
+- We are using GitHub auth API for authenticating users on our platform. See more information on [authentication page][auth-page]
 - We have a standard access control matrix with 3 axes for authorization. See more information on
 [authorization page][authz-page]
 
@@ -110,13 +107,13 @@ end
 
 ### Profile
 
-Profile covers set of an authenticated and authorized entities like publishers and users. They are responsible for publishing, deleting or maintaining data on platform.
+Set of an authenticated and authorized entities like publishers and users. They are responsible for publishing, deleting or maintaining data on platform.
 
 **Important:** Users do not have Data Packages, Publishers do. Users are *members* of Publishers.
 
 #### Publisher
 
-Publisher is an organization which "owns" Data Packages. Publisher may have zero or more Data Packages. Publisher May also have one or more user.
+Publisher is an organization which "owns" Data Packages. Publisher may have zero or more Data Packages. Publisher may also have one or more user.
 
 #### User
 
@@ -124,7 +121,7 @@ User is an authenticated entity, that is member of Publisher organization, that 
 
 ### Package
 
-Package part covers set of Data Packages published under publisher name.
+Set of Data Packages published under publisher name.
 
 #### Data Package
 
@@ -137,7 +134,7 @@ Each Data Package may have zero or more resources and one or more versions.
 **Version of a Data Package** - similar to git commits and tags. People can mean different things by a "Version":
 
 * Tag - Same as label or version - a nice human usable label e.g. *"v0.3"*, *"master"*, *"2013"*
-* Commit/Hash - Corresponds to the hash of datapackage.json\*, with that datapackage.json including all hashes of all data files
+* Commit/Hash - Corresponds to the hash of datapackage.json, with that datapackage.json including all hashes of all data files
 
 We interpret Version as *"Tag"* concept. *"Commit/Hash"* is not supported
 
