@@ -17,12 +17,12 @@
         }, 
         {
             "location": "/developers/", 
-            "text": "Developers\n\n\nThis section of the DataHub documentation is for developers. Here you can learn about the design of the platform and how to get DataHub running locally or on your own servers, and the process for contributing enhancements and bug fixes to the code.\n\n\n\n\nWe use following repositories on GitHub and GitLab for our platform:\n\n\n\n\nDPR API\n - API and web-application\n\n\nDPR JS\n - Visualizations and front-end JS\n\n\nDPR DOCS\n - Documentations\n\n\n\n\n\ngraph LR\n\nsubgraph Repos\n  dprapi[DPR API]\n  dprjs[DPR JS]\n  dprdeploy[DPR Deploy]\n  dprdocs[DPR Docs]\n  dprjs --submodule--> dprapi\nend\n\nsubgraph Sites\n  dhio[data.xxx]\n  dhdocs[docs.data.xxx]\n  dprdocs --> dhdocs\nend\n\ndeploy((Deploy))\ndprapi --> deploy\ndeploy --> dhio\ndprdeploy --> deploy\n\n\n\n\nInstall\n\n\nTo install the platform locally for development purposes, please follow the instructions here:\n\n\nhttps://github.com/frictionlessdata/dpr-api\n\n\nDeploy\n\n\nFor deployment of the application in a production environment, please see \nthe deploy page\n.\n\n\nAuthorization\n\n\nThe authorization set up enables system to restricts user permission to execute.\n\n\n\n\nAuthorization docs\n\n\n\n\nAuthentication\n\n\nSome DataHub API methods require client to provide user identity. API Client can use JWT token to perform authenticated requests.\n\n\n\n\nAuthentication docs\n\n\n\n\nCLI\n\n\nThe DataHub CLI (dpm) is a Python lib and command line interface to interact with an DataHub instance.\n\n\n\n\nCLI code", 
+            "text": "Developers\n\n\nThis section of the DataHub documentation is for developers. Here you can learn about the design of the platform and how to get DataHub running locally or on your own servers, and the process for contributing enhancements and bug fixes to the code.\n\n\n\n\nWe use following repositories on GitHub and GitLab for our platform:\n\n\n\n\nDPR API\n - API and web-application\n\n\nDPR DEPLOY\n - Automated deployment of application\n\n\nDPR JS\n - Visualizations and front-end JS\n\n\nDPR DOCS\n - Documentations\n\n\n\n\n\ngraph LR\n\nsubgraph Repos\n  dprapi[DPR API]\n  dprjs[DPR JS]\n  dprdeploy[DPR Deploy]\n  dprdocs[DPR Docs]\n  dprjs --submodule--> dprapi\nend\n\nsubgraph Sites\n  dhio[xxx.datapackaged.com]\n  dhdocs[docs.datapackaged.com]\n  dprdocs --> dhdocs\nend\n\ndeploy((Deploy))\ndprapi --> deploy\ndeploy --> dhio\ndprdeploy --> deploy\n\n\n\n\nInstall\n\n\nTo install the platform locally for development purposes, please follow the instructions here:\n\n\nhttps://github.com/frictionlessdata/dpr-api\n\n\nDeploy\n\n\nFor deployment of the application in a production environment, please see \nthe deploy page\n.\n\n\nAuthorization\n\n\nThe authorization set up enables system to restricts user permission to execute.\n\n\nAuthorization docs\n\n\nAuthentication\n\n\nSome DataHub API methods require client to provide user identity. API Client can use JWT token to perform authenticated requests.\n\n\nAuthentication docs\n\n\nCLI\n\n\nThe DataHub CLI (dpm) is a Python lib and command line interface to interact with an DataHub instance.\n\n\nCLI code", 
             "title": "Getting started"
         }, 
         {
             "location": "/developers/#developers", 
-            "text": "This section of the DataHub documentation is for developers. Here you can learn about the design of the platform and how to get DataHub running locally or on your own servers, and the process for contributing enhancements and bug fixes to the code.   We use following repositories on GitHub and GitLab for our platform:   DPR API  - API and web-application  DPR JS  - Visualizations and front-end JS  DPR DOCS  - Documentations   \ngraph LR\n\nsubgraph Repos\n  dprapi[DPR API]\n  dprjs[DPR JS]\n  dprdeploy[DPR Deploy]\n  dprdocs[DPR Docs]\n  dprjs --submodule--> dprapi\nend\n\nsubgraph Sites\n  dhio[data.xxx]\n  dhdocs[docs.data.xxx]\n  dprdocs --> dhdocs\nend\n\ndeploy((Deploy))\ndprapi --> deploy\ndeploy --> dhio\ndprdeploy --> deploy", 
+            "text": "This section of the DataHub documentation is for developers. Here you can learn about the design of the platform and how to get DataHub running locally or on your own servers, and the process for contributing enhancements and bug fixes to the code.   We use following repositories on GitHub and GitLab for our platform:   DPR API  - API and web-application  DPR DEPLOY  - Automated deployment of application  DPR JS  - Visualizations and front-end JS  DPR DOCS  - Documentations   \ngraph LR\n\nsubgraph Repos\n  dprapi[DPR API]\n  dprjs[DPR JS]\n  dprdeploy[DPR Deploy]\n  dprdocs[DPR Docs]\n  dprjs --submodule--> dprapi\nend\n\nsubgraph Sites\n  dhio[xxx.datapackaged.com]\n  dhdocs[docs.datapackaged.com]\n  dprdocs --> dhdocs\nend\n\ndeploy((Deploy))\ndprapi --> deploy\ndeploy --> dhio\ndprdeploy --> deploy", 
             "title": "Developers"
         }, 
         {
@@ -37,18 +37,78 @@
         }, 
         {
             "location": "/developers/#authorization", 
-            "text": "The authorization set up enables system to restricts user permission to execute.   Authorization docs", 
+            "text": "The authorization set up enables system to restricts user permission to execute.  Authorization docs", 
             "title": "Authorization"
         }, 
         {
             "location": "/developers/#authentication", 
-            "text": "Some DataHub API methods require client to provide user identity. API Client can use JWT token to perform authenticated requests.   Authentication docs", 
+            "text": "Some DataHub API methods require client to provide user identity. API Client can use JWT token to perform authenticated requests.  Authentication docs", 
             "title": "Authentication"
         }, 
         {
             "location": "/developers/#cli", 
-            "text": "The DataHub CLI (dpm) is a Python lib and command line interface to interact with an DataHub instance.   CLI code", 
+            "text": "The DataHub CLI (dpm) is a Python lib and command line interface to interact with an DataHub instance.  CLI code", 
             "title": "CLI"
+        }, 
+        {
+            "location": "/developers/platform/", 
+            "text": "Platform\n\n\nThe DataHub platform has been designed as a set of loosely coupled components, each performing distinct functions related to the platform as a whole.\n\n\n\n\nArchitecture\n\n\nDomain Model\n\n\nProfile\n\n\nPackage\n\n\n\n\n\n\n\n\nArchitecture\n\n\n\ngraph TD\n\nsubgraph Web Frontend\n  frontend[Frontend Webapp]\n  browse[Browse \n&\n Search]\n  login[Login \n&\n Signup]\n  view[Views Renderer]\n  frontend --> browse\n  frontend --> login\nend\n\nsubgraph Users and Permissions\n  user[User]\n  permissions[Permissions]\n  authapi[Auth API]\n  authzapi[Authorization API]\n  login --> authapi\n  authapi --> user\n  authzapi --> permissions\nend\n\nsubgraph BitStore\n  bitstore[\"BitStore (S3)\"]\n  bitstoreapi[BitStore API\nput,get]\n  bitstoreapi --> bitstore\n  browse --> bitstoreapi\nend\n\nsubgraph MetaStore\n  metastore[\"MetaStore (RDS)\"]\n  metaapi[MetaStore API\nread,search,import]\n  metaapi --> metastore\n  browse --> metaapi\nend\n\nsubgraph CLI\n  cli[CLI]\nend\n\n\n\n\n\n\nCLI\n - Command Line Interface for publishing \nData Packages\n\n\nFront-end Web Application\n - Core part of platform - API, Login \n Sign-Up and Browse \n Search (page not yet implemented)\n\n\nViews and Renderer\n - JS Library responsible for visualization and views on platform\n\n\n\n\nBitStore\n\n\nWe are preserving the data byte by byte.\n\n\n\n\nWe use AWS S3 instance for storing data\n\n\nWe use the following URL structure on S3: \nbits.{base-domain}.metadata/{publisher}/{data-package}/_v/{version}/data/{resource-name}.csv\n\n\n\n\nMetaStore\n\n\nThe MetaStore stores Data Package meta-data along with other management information like publishers, users and permissions.\n\n\nWe use AWS RDS Postgresql database for storing meta-data.\n\n\nUsers and Permissions\n\n\n\n\nWe are using GitHub auth API for authenticating users on our platform. See more information on \nauthentication page\n\n\nWe have a standard access control matrix with 3 axes for authorization. See more information on\n\nauthorization page\n\n\n\n\nDomain model\n\n\nThere are two main concepts to understand in DataHub domain model - \nProfile\n and \nPackage\n\n\n\ngraph TD\n\npkg[Data Package]\nresource[Resource]\nfile[File]\nversion[Version]\nuser[User]\npublisher[Publisher]\n\nsubgraph Package\n  pkg --0..*--> resource\n  resource --1..*--> file\n  pkg --> version\nend\n\nsubgraph Profile\n  publisher --1..*--> user\n  publisher --0..*--> pkg\nend\n\n\n\n\nProfile\n\n\nSet of an authenticated and authorized entities like publishers and users. They are responsible for publishing, deleting or maintaining data on platform.\n\n\nImportant:\n Users do not have Data Packages, Publishers do. Users are \nmembers\n of Publishers.\n\n\nPublisher\n\n\nPublisher is an organization which \"owns\" Data Packages. Publisher may have zero or more Data Packages. Publisher may also have one or more user.\n\n\nUser\n\n\nUser is an authenticated entity, that is member of Publisher organization, that can read, edit, create or delete data packages depending on their permissions.\n\n\nPackage\n\n\nSet of Data Packages published under publisher name.\n\n\nData Package\n\n\nA Data Package is a simple way of \u201cpackaging\u201d up and describing data so that it can be easily shared and used. You can imagine as collection of data and and it's meta-data (\ndatapackage.json\n), usually covering some concrete topic Eg: \n\"Gold Prices\"\n or \n\"Population Growth Rate In My country\"\n etc.\n\n\nEach Data Package may have zero or more resources and one or more versions.\n\n\nResources\n - think like \"tables\" - Each can map to one or more physical files (usually just one). Think of a data table split into multiple CSV files on disk.\n\n\nVersion of a Data Package\n - similar to git commits and tags. People can mean different things by a \"Version\":\n\n\n\n\nTag - Same as label or version - a nice human usable label e.g. \n\"v0.3\"\n, \n\"master\"\n, \n\"2013\"\n\n\nCommit/Hash - Corresponds to the hash of datapackage.json, with that datapackage.json including all hashes of all data files\n\n\n\n\nWe interpret Version as \n\"Tag\"\n concept. \n\"Commit/Hash\"\n is not supported", 
+            "title": "Platform"
+        }, 
+        {
+            "location": "/developers/platform/#platform", 
+            "text": "The DataHub platform has been designed as a set of loosely coupled components, each performing distinct functions related to the platform as a whole.   Architecture  Domain Model  Profile  Package", 
+            "title": "Platform"
+        }, 
+        {
+            "location": "/developers/platform/#architecture", 
+            "text": "graph TD\n\nsubgraph Web Frontend\n  frontend[Frontend Webapp]\n  browse[Browse  &  Search]\n  login[Login  &  Signup]\n  view[Views Renderer]\n  frontend --> browse\n  frontend --> login\nend\n\nsubgraph Users and Permissions\n  user[User]\n  permissions[Permissions]\n  authapi[Auth API]\n  authzapi[Authorization API]\n  login --> authapi\n  authapi --> user\n  authzapi --> permissions\nend\n\nsubgraph BitStore\n  bitstore[\"BitStore (S3)\"]\n  bitstoreapi[BitStore API put,get]\n  bitstoreapi --> bitstore\n  browse --> bitstoreapi\nend\n\nsubgraph MetaStore\n  metastore[\"MetaStore (RDS)\"]\n  metaapi[MetaStore API read,search,import]\n  metaapi --> metastore\n  browse --> metaapi\nend\n\nsubgraph CLI\n  cli[CLI]\nend   CLI  - Command Line Interface for publishing  Data Packages  Front-end Web Application  - Core part of platform - API, Login   Sign-Up and Browse   Search (page not yet implemented)  Views and Renderer  - JS Library responsible for visualization and views on platform", 
+            "title": "Architecture"
+        }, 
+        {
+            "location": "/developers/platform/#bitstore", 
+            "text": "We are preserving the data byte by byte.   We use AWS S3 instance for storing data  We use the following URL structure on S3:  bits.{base-domain}.metadata/{publisher}/{data-package}/_v/{version}/data/{resource-name}.csv", 
+            "title": "BitStore"
+        }, 
+        {
+            "location": "/developers/platform/#metastore", 
+            "text": "The MetaStore stores Data Package meta-data along with other management information like publishers, users and permissions.  We use AWS RDS Postgresql database for storing meta-data.", 
+            "title": "MetaStore"
+        }, 
+        {
+            "location": "/developers/platform/#users-and-permissions", 
+            "text": "We are using GitHub auth API for authenticating users on our platform. See more information on  authentication page  We have a standard access control matrix with 3 axes for authorization. See more information on authorization page", 
+            "title": "Users and Permissions"
+        }, 
+        {
+            "location": "/developers/platform/#domain-model", 
+            "text": "There are two main concepts to understand in DataHub domain model -  Profile  and  Package  \ngraph TD\n\npkg[Data Package]\nresource[Resource]\nfile[File]\nversion[Version]\nuser[User]\npublisher[Publisher]\n\nsubgraph Package\n  pkg --0..*--> resource\n  resource --1..*--> file\n  pkg --> version\nend\n\nsubgraph Profile\n  publisher --1..*--> user\n  publisher --0..*--> pkg\nend", 
+            "title": "Domain model"
+        }, 
+        {
+            "location": "/developers/platform/#profile", 
+            "text": "Set of an authenticated and authorized entities like publishers and users. They are responsible for publishing, deleting or maintaining data on platform.  Important:  Users do not have Data Packages, Publishers do. Users are  members  of Publishers.", 
+            "title": "Profile"
+        }, 
+        {
+            "location": "/developers/platform/#publisher", 
+            "text": "Publisher is an organization which \"owns\" Data Packages. Publisher may have zero or more Data Packages. Publisher may also have one or more user.", 
+            "title": "Publisher"
+        }, 
+        {
+            "location": "/developers/platform/#user", 
+            "text": "User is an authenticated entity, that is member of Publisher organization, that can read, edit, create or delete data packages depending on their permissions.", 
+            "title": "User"
+        }, 
+        {
+            "location": "/developers/platform/#package", 
+            "text": "Set of Data Packages published under publisher name.", 
+            "title": "Package"
+        }, 
+        {
+            "location": "/developers/platform/#data-package", 
+            "text": "A Data Package is a simple way of \u201cpackaging\u201d up and describing data so that it can be easily shared and used. You can imagine as collection of data and and it's meta-data ( datapackage.json ), usually covering some concrete topic Eg:  \"Gold Prices\"  or  \"Population Growth Rate In My country\"  etc.  Each Data Package may have zero or more resources and one or more versions.  Resources  - think like \"tables\" - Each can map to one or more physical files (usually just one). Think of a data table split into multiple CSV files on disk.  Version of a Data Package  - similar to git commits and tags. People can mean different things by a \"Version\":   Tag - Same as label or version - a nice human usable label e.g.  \"v0.3\" ,  \"master\" ,  \"2013\"  Commit/Hash - Corresponds to the hash of datapackage.json, with that datapackage.json including all hashes of all data files   We interpret Version as  \"Tag\"  concept.  \"Commit/Hash\"  is not supported", 
+            "title": "Data Package"
         }, 
         {
             "location": "/developers/deploy/", 
@@ -84,6 +144,41 @@
             "location": "/developers/api/#datahub-api", 
             "text": "The API provides a range of endpoints to query and manage the platform.  You can explore the API via the docs below.         \nwindow.onload = function() {\n  // Build a system\n  const ui = SwaggerUIBundle({\n    url: \"https://staging.datapackaged.com/api/swagger.json\",\n    dom_id: '#swagger-ui',\n    validatorUrl : null,\n    presets: [\n      SwaggerUIBundle.presets.apis,\n      SwaggerUIStandalonePreset\n    ],\n    plugins: [\n      SwaggerUIBundle.plugins.DownloadUrl\n    ],\n    layout: \"StandaloneLayout\"\n  })\n\n  window.ui = ui\n}", 
             "title": "DataHub API"
+        }, 
+        {
+            "location": "/developers/publish/", 
+            "text": "Publish\n\n\nExplanation of DataHub publishing flow from client and back-end perspectives.\n\n\nClient Perspective\n\n\nPublishing flow takes the following steps and processes to communicate with DataHub API:\n\n\n\nsequenceDiagram\nUpload Agent CLI->>Upload Agent CLI: Check Data Package valid\nUpload Agent CLI-->>Auth(SSO): Get Session Token (Sends base auth)\nAuth(SSO)-->>Upload Agent CLI: session token\nUpload Agent CLI->>BitStore Upload Auth: Get BitStore Upload token [send session token]\nBitStore Upload Auth->>Auth(SSO): Check key / token\nAuth(SSO)->>BitStore Upload Auth: OK / Not OK\nBitStore Upload Auth->>Upload Agent CLI: S3 auth Token\nUpload Agent CLI->>Data Storage (S3 Raw): Send file plus token\nData Storage (S3 Raw)->>Upload Agent CLI: OK / Not OK\nUpload Agent CLI->>MetaData Storage API: Finalize (After all data uploaded)\nMetaData Storage API->>Upload Agent CLI: OK / Not OK\n\n\n\n\n\n\n\n\nUpload API - see \nPOST /api/package/upload\n in \npackage\n section of \nAPI\n\n\nAuthentication API - see \nPOST /api/auth/token\n in \nauth\n section of \nAPI\n. Read more \nabout authentication\n\n\n[Authorization API][authz] - see \nPOST /api/datastore/authorize\n in \npackage\n section of \nAPI\n. Read more \nabout authorization\n\n\n\n\nSee example \ncode snippet in dpm-py\n\n\n\n\nBack-end perspective\n\n\nDataHub Metadata and Data Flow\n\n\n\n\nPink = service we build\n\n\nBlue = external service\n\n\nDark gray = not yet implemented\n\n\n\n\n\ngraph TD\n\nuser[Publisher fa:fa-user]\nupload-api[\"Upload API (S3 API)\"]\nbitstore(Bitstore S3)\nmetaingestor[Meta Ingestor]\ndataingestor[Data Ingestor]\nmetastore(\"Metastore (RDS)\")\nreadapi[Read API]\ndataproxy[\"DataProxy (convert raw data to json on the fly)\"]\ndatastore[\"Datastore (RDS)\"]\ns3readapi[S3 Get API]\nreaduser[Consumer fa:fa-user]\n\nuser --s3 signed upload url--> upload-api\nupload-api --> bitstore\nbitstore --> metaingestor\nmetaingestor --> metastore\nmetastore --> readapi\nbitstore -.-> dataproxy\nbitstore -.-> dataingestor\ndataingestor -.-> datastore\ndatastore -.-> readapi\nbitstore --> s3readapi\ns3readapi --> readuser\ndataproxy -.-> readuser\nreadapi --> readuser\n\n  classDef extservice fill:lightblue,stroke:#333,stroke-width:4px;\n  classDef notimplemented fill:darkgrey,stroke:#bbb,stroke-width:1px;\n  classDef service fill:pink,stroke:#333,stroke-width:4px;\n  class datastore,dataingestor,dataproxy notimplemented;\n  class bitstore,metastore,s3readapi extservice;\n  class readapi service;\n\n\n\n\n\n\nAuthentication\n\n\nAuthorization\n\n\nMetastore\n\n\nBitStore", 
+            "title": "Publish"
+        }, 
+        {
+            "location": "/developers/publish/#publish", 
+            "text": "Explanation of DataHub publishing flow from client and back-end perspectives.", 
+            "title": "Publish"
+        }, 
+        {
+            "location": "/developers/publish/#client-perspective", 
+            "text": "Publishing flow takes the following steps and processes to communicate with DataHub API:  \nsequenceDiagram\nUpload Agent CLI->>Upload Agent CLI: Check Data Package valid\nUpload Agent CLI-->>Auth(SSO): Get Session Token (Sends base auth)\nAuth(SSO)-->>Upload Agent CLI: session token\nUpload Agent CLI->>BitStore Upload Auth: Get BitStore Upload token [send session token]\nBitStore Upload Auth->>Auth(SSO): Check key / token\nAuth(SSO)->>BitStore Upload Auth: OK / Not OK\nBitStore Upload Auth->>Upload Agent CLI: S3 auth Token\nUpload Agent CLI->>Data Storage (S3 Raw): Send file plus token\nData Storage (S3 Raw)->>Upload Agent CLI: OK / Not OK\nUpload Agent CLI->>MetaData Storage API: Finalize (After all data uploaded)\nMetaData Storage API->>Upload Agent CLI: OK / Not OK    Upload API - see  POST /api/package/upload  in  package  section of  API  Authentication API - see  POST /api/auth/token  in  auth  section of  API . Read more  about authentication  [Authorization API][authz] - see  POST /api/datastore/authorize  in  package  section of  API . Read more  about authorization   See example  code snippet in dpm-py", 
+            "title": "Client Perspective"
+        }, 
+        {
+            "location": "/developers/publish/#back-end-perspective", 
+            "text": "DataHub Metadata and Data Flow   Pink = service we build  Blue = external service  Dark gray = not yet implemented   \ngraph TD\n\nuser[Publisher fa:fa-user]\nupload-api[\"Upload API (S3 API)\"]\nbitstore(Bitstore S3)\nmetaingestor[Meta Ingestor]\ndataingestor[Data Ingestor]\nmetastore(\"Metastore (RDS)\")\nreadapi[Read API]\ndataproxy[\"DataProxy (convert raw data to json on the fly)\"]\ndatastore[\"Datastore (RDS)\"]\ns3readapi[S3 Get API]\nreaduser[Consumer fa:fa-user]\n\nuser --s3 signed upload url--> upload-api\nupload-api --> bitstore\nbitstore --> metaingestor\nmetaingestor --> metastore\nmetastore --> readapi\nbitstore -.-> dataproxy\nbitstore -.-> dataingestor\ndataingestor -.-> datastore\ndatastore -.-> readapi\nbitstore --> s3readapi\ns3readapi --> readuser\ndataproxy -.-> readuser\nreadapi --> readuser\n\n  classDef extservice fill:lightblue,stroke:#333,stroke-width:4px;\n  classDef notimplemented fill:darkgrey,stroke:#bbb,stroke-width:1px;\n  classDef service fill:pink,stroke:#333,stroke-width:4px;\n  class datastore,dataingestor,dataproxy notimplemented;\n  class bitstore,metastore,s3readapi extservice;\n  class readapi service;   Authentication  Authorization  Metastore  BitStore", 
+            "title": "Back-end perspective"
+        }, 
+        {
+            "location": "/developers/views/", 
+            "text": "Views\n\n\nTo render Data Packages in browsers we use DataHub views written in JavaScript. The module implemented in ReactJS framework and it can render tables, maps and various graphs using third-party libraries.\n\n\n\n  graph TD\n\n  url[\"metadata URL passed from back-end\"]\n  dp-js[datapackage-js]\n  dprender[datapackage-render-js]\n  table[\"table view\"]\n  chart[\"graph view\"]\n  hot[HandsOnTable]\n  map[LeafletMap]\n  vega[Vega]\n  plotly[Plotly]\n  browser[Browser]\n\n  url --> dp-js\n  dp-js --fetched dp--> dprender\n  dprender --spec--> table\n  table --1..n--> hot\n  dprender --geojson--> map\n  dprender --spec--> chart\n  chart --0..n--> vega\n  chart --0..n--> plotly\n  hot --table--> browser\n  map --map--> browser\n  vega --graph--> browser\n  plotly --graph--> browser\n\n\n\n\nNotice that DataHub views render a table view per tabular resource. If GeoJSON resource is given, it renders a map. Graph views should be specified in \nviews\n property of a Data Package.\n\n\nLinks\n\n\n\n\ndpr-js repo\n\n\ndatapackage-render-js\n\n\nviews specification and analysis", 
+            "title": "Views"
+        }, 
+        {
+            "location": "/developers/views/#views", 
+            "text": "To render Data Packages in browsers we use DataHub views written in JavaScript. The module implemented in ReactJS framework and it can render tables, maps and various graphs using third-party libraries.  \n  graph TD\n\n  url[\"metadata URL passed from back-end\"]\n  dp-js[datapackage-js]\n  dprender[datapackage-render-js]\n  table[\"table view\"]\n  chart[\"graph view\"]\n  hot[HandsOnTable]\n  map[LeafletMap]\n  vega[Vega]\n  plotly[Plotly]\n  browser[Browser]\n\n  url --> dp-js\n  dp-js --fetched dp--> dprender\n  dprender --spec--> table\n  table --1..n--> hot\n  dprender --geojson--> map\n  dprender --spec--> chart\n  chart --0..n--> vega\n  chart --0..n--> plotly\n  hot --table--> browser\n  map --map--> browser\n  vega --graph--> browser\n  plotly --graph--> browser  Notice that DataHub views render a table view per tabular resource. If GeoJSON resource is given, it renders a map. Graph views should be specified in  views  property of a Data Package.", 
+            "title": "Views"
+        }, 
+        {
+            "location": "/developers/views/#links", 
+            "text": "dpr-js repo  datapackage-render-js  views specification and analysis", 
+            "title": "Links"
         }, 
         {
             "location": "/developers/authorization/", 
@@ -144,71 +239,6 @@
             "location": "/developers/authentication/#api-authentication", 
             "text": "Some DataHub API methods require client to provide identity of a registered user. To prove its identity, client first has to obtain temporal JWT token, providing permanent API-KEY of a registered user. After that client can pass this token in the header of a request to the API.  To obtain a temporal JWT token, client should send POST request to  /api/auth/token . Request should have json-encoded body with 'username' and 'secret' keys, where 'secret' is an API-KEY of the user:  response = requests.post(\n        url='https://datapackaged.com/api/auth/token',\n        {'username': 'my_username', 'secret': '1dd5f984bc'}))  If the username and API-KEY are valid, server will return json response with JWT token:  {'token': 'a6d8b887'}  auth_token = response.json().get('token')  This token should be temporarily stored by the client. To access any API method with authentication, client should include this token in the \"Authorization\" header.  requests.post(api_url, headers={'Authorization', 'Bearer %s' % auth_token})", 
             "title": "API authentication"
-        }, 
-        {
-            "location": "/developers/publish/", 
-            "text": "Publish\n\n\nExplanation of DataHub publishing flow from client and back-end perspectives.\n\n\nClient Perspective\n\n\nPublishing flow takes the following steps and processes to communicate with DataHub API:\n\n\n\nsequenceDiagram\nUpload Agent CLI->>Upload Agent CLI: Check Data Package valid\nUpload Agent CLI-->>Auth(SSO): Get Session Token (Sends base auth)\nAuth(SSO)-->>Upload Agent CLI: session token\nUpload Agent CLI->>BitStore Upload Auth: Get BitStore Upload token [send session token]\nBitStore Upload Auth->>Auth(SSO): Check key / token\nAuth(SSO)->>BitStore Upload Auth: OK / Not OK\nBitStore Upload Auth->>Upload Agent CLI: S3 auth Token\nUpload Agent CLI->>Data Storage (S3 Raw): Send file plus token\nData Storage (S3 Raw)->>Upload Agent CLI: OK / Not OK\nUpload Agent CLI->>MetaData Storage API: Finalize (After all data uploaded)\nMetaData Storage API->>Upload Agent CLI: OK / Not OK\n\n\n\n\n\n\n\n\nUpload API - see \nPOST /api/package/upload\n in \npackage\n section of \nAPI\n\n\nAuthentication API - see \nPOST /api/auth/token\n in \nauth\n section of \nAPI\n. Read more \nabout authentication\n\n\n[Authorization API][authz] - see \nPOST /api/datastore/authorize\n in \npackage\n section of \nAPI\n. Read more \nabout authorization\n\n\n\n\nSee example \ncode snippet in dpm-py\n\n\n\n\nBack-end perspective\n\n\nDataHub Metadata and Data Flow\n\n\n\n\nPink = service we build\n\n\nBlue = external service\n\n\nDark gray = not yet implemented\n\n\n\n\n\ngraph TD\n\nuser[Publisher fa:fa-user]\nupload-api[\"Upload API (S3 API)\"]\nbitstore(Bitstore S3)\nmetaingestor[Meta Ingestor]\ndataingestor[Data Ingestor]\nmetastore(\"Metastore (RDS)\")\nreadapi[Read API]\ndataproxy[\"DataProxy (convert raw data to json on the fly)\"]\ndatastore[\"Datastore (RDS)\"]\ns3readapi[S3 Get API]\nreaduser[Consumer fa:fa-user]\n\nuser --s3 signed upload url--> upload-api\nupload-api --> bitstore\nbitstore --> metaingestor\nmetaingestor --> metastore\nmetastore --> readapi\nbitstore -.-> dataproxy\nbitstore -.-> dataingestor\ndataingestor -.-> datastore\ndatastore -.-> readapi\nbitstore --> s3readapi\ns3readapi --> readuser\ndataproxy -.-> readuser\nreadapi --> readuser\n\n  classDef extservice fill:lightblue,stroke:#333,stroke-width:4px;\n  classDef notimplemented fill:darkgrey,stroke:#bbb,stroke-width:1px;\n  classDef service fill:pink,stroke:#333,stroke-width:4px;\n  class datastore,dataingestor,dataproxy notimplemented;\n  class bitstore,metastore,s3readapi extservice;\n  class readapi service;\n\n\n\n\n\n\nAuthentication\n\n\nAuthorization\n\n\nMetastore\n - page not yet implemented\n\n\nBitStore\n - page not yet implemented", 
-            "title": "Publish"
-        }, 
-        {
-            "location": "/developers/publish/#publish", 
-            "text": "Explanation of DataHub publishing flow from client and back-end perspectives.", 
-            "title": "Publish"
-        }, 
-        {
-            "location": "/developers/publish/#client-perspective", 
-            "text": "Publishing flow takes the following steps and processes to communicate with DataHub API:  \nsequenceDiagram\nUpload Agent CLI->>Upload Agent CLI: Check Data Package valid\nUpload Agent CLI-->>Auth(SSO): Get Session Token (Sends base auth)\nAuth(SSO)-->>Upload Agent CLI: session token\nUpload Agent CLI->>BitStore Upload Auth: Get BitStore Upload token [send session token]\nBitStore Upload Auth->>Auth(SSO): Check key / token\nAuth(SSO)->>BitStore Upload Auth: OK / Not OK\nBitStore Upload Auth->>Upload Agent CLI: S3 auth Token\nUpload Agent CLI->>Data Storage (S3 Raw): Send file plus token\nData Storage (S3 Raw)->>Upload Agent CLI: OK / Not OK\nUpload Agent CLI->>MetaData Storage API: Finalize (After all data uploaded)\nMetaData Storage API->>Upload Agent CLI: OK / Not OK    Upload API - see  POST /api/package/upload  in  package  section of  API  Authentication API - see  POST /api/auth/token  in  auth  section of  API . Read more  about authentication  [Authorization API][authz] - see  POST /api/datastore/authorize  in  package  section of  API . Read more  about authorization   See example  code snippet in dpm-py", 
-            "title": "Client Perspective"
-        }, 
-        {
-            "location": "/developers/publish/#back-end-perspective", 
-            "text": "DataHub Metadata and Data Flow   Pink = service we build  Blue = external service  Dark gray = not yet implemented   \ngraph TD\n\nuser[Publisher fa:fa-user]\nupload-api[\"Upload API (S3 API)\"]\nbitstore(Bitstore S3)\nmetaingestor[Meta Ingestor]\ndataingestor[Data Ingestor]\nmetastore(\"Metastore (RDS)\")\nreadapi[Read API]\ndataproxy[\"DataProxy (convert raw data to json on the fly)\"]\ndatastore[\"Datastore (RDS)\"]\ns3readapi[S3 Get API]\nreaduser[Consumer fa:fa-user]\n\nuser --s3 signed upload url--> upload-api\nupload-api --> bitstore\nbitstore --> metaingestor\nmetaingestor --> metastore\nmetastore --> readapi\nbitstore -.-> dataproxy\nbitstore -.-> dataingestor\ndataingestor -.-> datastore\ndatastore -.-> readapi\nbitstore --> s3readapi\ns3readapi --> readuser\ndataproxy -.-> readuser\nreadapi --> readuser\n\n  classDef extservice fill:lightblue,stroke:#333,stroke-width:4px;\n  classDef notimplemented fill:darkgrey,stroke:#bbb,stroke-width:1px;\n  classDef service fill:pink,stroke:#333,stroke-width:4px;\n  class datastore,dataingestor,dataproxy notimplemented;\n  class bitstore,metastore,s3readapi extservice;\n  class readapi service;   Authentication  Authorization  Metastore  - page not yet implemented  BitStore  - page not yet implemented", 
-            "title": "Back-end perspective"
-        }, 
-        {
-            "location": "/developers/platform/", 
-            "text": "Domain model\n\n\nData Package\n\n\nEach Data Package (DataSet) may have zero or more resources and one or more versions. Data Package is owned by Publisher.\n\n\nResources\n - think \"tables\" - Each can map to one or more physical files (usually just one). Think of a data table split into multiple CSV files on disk.\n\n\nVersion of a Data Package\n - similar to git commits and tags. People can mean different things by a \"Version\":\n\n\n\n\nTag - Same as label or version - a nice human usable label e.g. \"v0.3\", \"master\", \"2013\"\n\n\nCommit/Hash - Corresponds to the hash of datapackage.json, with that datapackage.json including all hashes of all data files\n\n\n\n\nWe interpret Version as \"Tag\" concept. *Commit/Hash\" is not supported\n\n\nPublisher\n\n\nPublisher\n is an organization which \"owns\" Data Packages. Publisher may have zero or more Data Packages. Publisher May also have one or more user.\n\n\nUser\n\n\nUser is an authenticated entity, that is member of Publisher organization.\n\n\nImportant:\n Users do not have Data Packages, Publishers do. Users are \nmembers\n of Publishers.\n\n\n\ngraph TD\n\npkg[Package]\nresource[Resource]\nfile[File]\nversion[Version]\nuser[User]\npublisher[Publisher]\n\nsubgraph Package\n  pkg --0..*--> resource\n  resource --1..*--> file\n  pkg --> version\nend\n\nsubgraph Profile\n  publisher --1..*--> user\n  publisher --0..*--> pkg\nend\n\n\n\n\nOverall Architecture\n\n\nOur platform architecture is built on several different components:\n\n\n\n\nCLI\n - Command Line Interface\n\n\nFront-end Web Application\n - API, Login \n Sign-Up and Browse \n Search\n\n\nViews and Renderer\n - Graphs, Charts, Tables and other visualization tools\n\n\n\n\n\ngraph TD\n\nsubgraph Web Frontend\n  frontend[Frontend Webapp]\n  browse[Browse \n&\n Search]\n  login[Login \n&\n Signup]\n  view[Views Renderer]\n  frontend --> browse\n  frontend --> login\nend\n\nsubgraph Users and Permissions\n  user[User]\n  permissions[Permissions]\n  authapi[Auth API]\n  authzapi[Authorization API]\n  login --> authapi\n  authapi --> user\n  authzapi --> permissions\nend\n\nsubgraph BitStore\n  bitstore[\"BitStore (S3)\"]\n  bitstoreapi[BitStore API\nput,get]\n  bitstoreapi --> bitstore\n  browse --> bitstoreapi\nend\n\nsubgraph MetaStore\n  metastore[\"MetaStore (RDS)\"]\n  metaapi[MetaStore API\nread,search,import]\n  metaapi --> metastore\n  browse --> metaapi\nend\n\nsubgraph CLI\n  cli[CLI]\nend", 
-            "title": "Platform"
-        }, 
-        {
-            "location": "/developers/platform/#domain-model", 
-            "text": "", 
-            "title": "Domain model"
-        }, 
-        {
-            "location": "/developers/platform/#data-package", 
-            "text": "Each Data Package (DataSet) may have zero or more resources and one or more versions. Data Package is owned by Publisher.  Resources  - think \"tables\" - Each can map to one or more physical files (usually just one). Think of a data table split into multiple CSV files on disk.  Version of a Data Package  - similar to git commits and tags. People can mean different things by a \"Version\":   Tag - Same as label or version - a nice human usable label e.g. \"v0.3\", \"master\", \"2013\"  Commit/Hash - Corresponds to the hash of datapackage.json, with that datapackage.json including all hashes of all data files   We interpret Version as \"Tag\" concept. *Commit/Hash\" is not supported", 
-            "title": "Data Package"
-        }, 
-        {
-            "location": "/developers/platform/#publisher", 
-            "text": "Publisher  is an organization which \"owns\" Data Packages. Publisher may have zero or more Data Packages. Publisher May also have one or more user.", 
-            "title": "Publisher"
-        }, 
-        {
-            "location": "/developers/platform/#user", 
-            "text": "User is an authenticated entity, that is member of Publisher organization.  Important:  Users do not have Data Packages, Publishers do. Users are  members  of Publishers.  \ngraph TD\n\npkg[Package]\nresource[Resource]\nfile[File]\nversion[Version]\nuser[User]\npublisher[Publisher]\n\nsubgraph Package\n  pkg --0..*--> resource\n  resource --1..*--> file\n  pkg --> version\nend\n\nsubgraph Profile\n  publisher --1..*--> user\n  publisher --0..*--> pkg\nend", 
-            "title": "User"
-        }, 
-        {
-            "location": "/developers/platform/#overall-architecture", 
-            "text": "Our platform architecture is built on several different components:   CLI  - Command Line Interface  Front-end Web Application  - API, Login   Sign-Up and Browse   Search  Views and Renderer  - Graphs, Charts, Tables and other visualization tools   \ngraph TD\n\nsubgraph Web Frontend\n  frontend[Frontend Webapp]\n  browse[Browse  &  Search]\n  login[Login  &  Signup]\n  view[Views Renderer]\n  frontend --> browse\n  frontend --> login\nend\n\nsubgraph Users and Permissions\n  user[User]\n  permissions[Permissions]\n  authapi[Auth API]\n  authzapi[Authorization API]\n  login --> authapi\n  authapi --> user\n  authzapi --> permissions\nend\n\nsubgraph BitStore\n  bitstore[\"BitStore (S3)\"]\n  bitstoreapi[BitStore API put,get]\n  bitstoreapi --> bitstore\n  browse --> bitstoreapi\nend\n\nsubgraph MetaStore\n  metastore[\"MetaStore (RDS)\"]\n  metaapi[MetaStore API read,search,import]\n  metaapi --> metastore\n  browse --> metaapi\nend\n\nsubgraph CLI\n  cli[CLI]\nend", 
-            "title": "Overall Architecture"
-        }, 
-        {
-            "location": "/developers/views/", 
-            "text": "Views\n\n\nTo render Data Packages in browsers we use DataHub views written in JavaScript. The module implemented in ReactJS framework and it can render tables, maps and various graphs using third-party libraries.\n\n\n\n  graph TD\n\n  url[\"metadata URL passed from back-end\"]\n  dp-js[datapackage-js]\n  dprender[datapackage-render-js]\n  table[\"table view\"]\n  chart[\"graph view\"]\n  hot[HandsOnTable]\n  map[LeafletMap]\n  vega[Vega]\n  plotly[Plotly]\n  browser[Browser]\n\n  url --> dp-js\n  dp-js --fetched dp--> dprender\n  dprender --spec--> table\n  table --1..n--> hot\n  dprender --geojson--> map\n  dprender --spec--> chart\n  chart --0..n--> vega\n  chart --0..n--> plotly\n  hot --table--> browser\n  map --map--> browser\n  vega --graph--> browser\n  plotly --graph--> browser\n\n\n\n\nNotice that DataHub views render a table view per tabular resource. If GeoJSON resource is given, it renders a map. Graph views should be specified in \nviews\n property of a Data Package.\n\n\nLinks\n\n\n\n\ndpr-js repo\n\n\ndatapackage-render-js\n\n\nviews specification and analysis", 
-            "title": "Views"
-        }, 
-        {
-            "location": "/developers/views/#views", 
-            "text": "To render Data Packages in browsers we use DataHub views written in JavaScript. The module implemented in ReactJS framework and it can render tables, maps and various graphs using third-party libraries.  \n  graph TD\n\n  url[\"metadata URL passed from back-end\"]\n  dp-js[datapackage-js]\n  dprender[datapackage-render-js]\n  table[\"table view\"]\n  chart[\"graph view\"]\n  hot[HandsOnTable]\n  map[LeafletMap]\n  vega[Vega]\n  plotly[Plotly]\n  browser[Browser]\n\n  url --> dp-js\n  dp-js --fetched dp--> dprender\n  dprender --spec--> table\n  table --1..n--> hot\n  dprender --geojson--> map\n  dprender --spec--> chart\n  chart --0..n--> vega\n  chart --0..n--> plotly\n  hot --table--> browser\n  map --map--> browser\n  vega --graph--> browser\n  plotly --graph--> browser  Notice that DataHub views render a table view per tabular resource. If GeoJSON resource is given, it renders a map. Graph views should be specified in  views  property of a Data Package.", 
-            "title": "Views"
-        }, 
-        {
-            "location": "/developers/views/#links", 
-            "text": "dpr-js repo  datapackage-render-js  views specification and analysis", 
-            "title": "Links"
         }, 
         {
             "location": "/publishers/", 

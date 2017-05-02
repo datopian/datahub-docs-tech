@@ -62,6 +62,24 @@
                     
     <a class="" href="../">Getting started</a>
                 </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Platform</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#platform">Platform</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#architecture">Architecture</a></li>
+        
+            <li><a class="toctree-l4" href="#domain-model">Domain model</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
                 <li class="">
                     
     <a class="" href="../deploy/">Deploy</a>
@@ -72,42 +90,19 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../publish/">Publish</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../views/">Views</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../authorization/">Authorization</a>
                 </li>
                 <li class="">
                     
     <a class="" href="../authentication/">Authentication</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../publish/">Publish</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Platform</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#domain-model">Domain model</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#data-package">Data Package</a></li>
-        
-            <li><a class="toctree-l4" href="#publisher">Publisher</a></li>
-        
-            <li><a class="toctree-l4" href="#user">User</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#overall-architecture">Overall Architecture</a></li>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../views/">Views</a>
                 </li>
     </ul>
 	    </li>
@@ -166,50 +161,17 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="domain-model">Domain model</h2>
-<h4 id="data-package">Data Package</h4>
-<p>Each Data Package (DataSet) may have zero or more resources and one or more versions. Data Package is owned by Publisher.</p>
-<p><strong>Resources</strong> - think "tables" - Each can map to one or more physical files (usually just one). Think of a data table split into multiple CSV files on disk.</p>
-<p><strong>Version of a Data Package</strong> - similar to git commits and tags. People can mean different things by a "Version":</p>
+                <h1 id="platform">Platform</h1>
+<p>The DataHub platform has been designed as a set of loosely coupled components, each performing distinct functions related to the platform as a whole.</p>
 <ul>
-<li>Tag - Same as label or version - a nice human usable label e.g. "v0.3", "master", "2013"</li>
-<li>Commit/Hash - Corresponds to the hash of datapackage.json, with that datapackage.json including all hashes of all data files</li>
+<li><a href="#architecture">Architecture</a></li>
+<li><a href="#domain-model">Domain Model</a><ul>
+<li><a href="#profile">Profile</a></li>
+<li><a href="#package">Package</a></li>
 </ul>
-<p>We interpret Version as "Tag" concept. *Commit/Hash" is not supported</p>
-<h4 id="publisher">Publisher</h4>
-<p><strong>Publisher</strong> is an organization which "owns" Data Packages. Publisher may have zero or more Data Packages. Publisher May also have one or more user.</p>
-<h4 id="user">User</h4>
-<p>User is an authenticated entity, that is member of Publisher organization.</p>
-<p><strong>Important:</strong> Users do not have Data Packages, Publishers do. Users are <em>members</em> of Publishers.</p>
-<div class="mermaid">
-graph TD
-
-pkg[Package]
-resource[Resource]
-file[File]
-version[Version]
-user[User]
-publisher[Publisher]
-
-subgraph Package
-  pkg --0..*--> resource
-  resource --1..*--> file
-  pkg --> version
-end
-
-subgraph Profile
-  publisher --1..*--> user
-  publisher --0..*--> pkg
-end
-</div>
-
-<h2 id="overall-architecture">Overall Architecture</h2>
-<p>Our platform architecture is built on several different components:</p>
-<ul>
-<li><a href="https://github.com/frictionlessdata/dpm-py">CLI</a> - Command Line Interface</li>
-<li><a href="https://github.com/frictionlessdata/dpr-api">Front-end Web Application</a> - API, Login &amp; Sign-Up and Browse &amp; Search</li>
-<li><a href="https://github.com/frictionlessdata/dpr-js">Views and Renderer</a> - Graphs, Charts, Tables and other visualization tools</li>
+</li>
 </ul>
+<h2 id="architecture">Architecture</h2>
 <div class="mermaid">
 graph TD
 
@@ -250,6 +212,70 @@ subgraph CLI
   cli[CLI]
 end
 </div>
+
+<ul>
+<li><a href="../../publishers/cli">CLI</a> - Command Line Interface for publishing <a href="#data-package">Data Packages</a></li>
+<li><a href="">Front-end Web Application</a> - Core part of platform - API, Login &amp; Sign-Up and Browse &amp; Search (page not yet implemented)</li>
+<li><a href="../../developers/view">Views and Renderer</a> - JS Library responsible for visualization and views on platform</li>
+</ul>
+<h3 id="bitstore">BitStore</h3>
+<p>We are preserving the data byte by byte.</p>
+<ul>
+<li>We use AWS S3 instance for storing data</li>
+<li>We use the following URL structure on S3: <code>bits.{base-domain}.metadata/{publisher}/{data-package}/_v/{version}/data/{resource-name}.csv</code></li>
+</ul>
+<h3 id="metastore">MetaStore</h3>
+<p>The MetaStore stores Data Package meta-data along with other management information like publishers, users and permissions.</p>
+<p>We use AWS RDS Postgresql database for storing meta-data.</p>
+<h3 id="users-and-permissions">Users and Permissions</h3>
+<ul>
+<li>We are using GitHub auth API for authenticating users on our platform. See more information on <a href="../../developers/authentication">authentication page</a></li>
+<li>We have a standard access control matrix with 3 axes for authorization. See more information on
+<a href="../../developers/authorization">authorization page</a></li>
+</ul>
+<h2 id="domain-model">Domain model</h2>
+<p>There are two main concepts to understand in DataHub domain model - <a href="#profile">Profile</a> and <a href="#package">Package</a></p>
+<div class="mermaid">
+graph TD
+
+pkg[Data Package]
+resource[Resource]
+file[File]
+version[Version]
+user[User]
+publisher[Publisher]
+
+subgraph Package
+  pkg --0..*--> resource
+  resource --1..*--> file
+  pkg --> version
+end
+
+subgraph Profile
+  publisher --1..*--> user
+  publisher --0..*--> pkg
+end
+</div>
+
+<h3 id="profile">Profile</h3>
+<p>Set of an authenticated and authorized entities like publishers and users. They are responsible for publishing, deleting or maintaining data on platform.</p>
+<p><strong>Important:</strong> Users do not have Data Packages, Publishers do. Users are <em>members</em> of Publishers.</p>
+<h4 id="publisher">Publisher</h4>
+<p>Publisher is an organization which "owns" Data Packages. Publisher may have zero or more Data Packages. Publisher may also have one or more user.</p>
+<h4 id="user">User</h4>
+<p>User is an authenticated entity, that is member of Publisher organization, that can read, edit, create or delete data packages depending on their permissions.</p>
+<h3 id="package">Package</h3>
+<p>Set of Data Packages published under publisher name.</p>
+<h4 id="data-package">Data Package</h4>
+<p>A Data Package is a simple way of “packaging” up and describing data so that it can be easily shared and used. You can imagine as collection of data and and it's meta-data (<a href="http://frictionlessdata.io/guides/data-package/#datapackagejson">datapackage.json</a>), usually covering some concrete topic Eg: <em>"Gold Prices"</em> or <em>"Population Growth Rate In My country"</em> etc.</p>
+<p>Each Data Package may have zero or more resources and one or more versions.</p>
+<p><strong>Resources</strong> - think like "tables" - Each can map to one or more physical files (usually just one). Think of a data table split into multiple CSV files on disk.</p>
+<p><strong>Version of a Data Package</strong> - similar to git commits and tags. People can mean different things by a "Version":</p>
+<ul>
+<li>Tag - Same as label or version - a nice human usable label e.g. <em>"v0.3"</em>, <em>"master"</em>, <em>"2013"</em></li>
+<li>Commit/Hash - Corresponds to the hash of datapackage.json, with that datapackage.json including all hashes of all data files</li>
+</ul>
+<p>We interpret Version as <em>"Tag"</em> concept. <em>"Commit/Hash"</em> is not supported</p>
               
             </div>
           </div>
@@ -257,10 +283,10 @@ end
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../views/" class="btn btn-neutral float-right" title="Views">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../deploy/" class="btn btn-neutral float-right" title="Deploy">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../publish/" class="btn btn-neutral" title="Publish"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../" class="btn btn-neutral" title="Getting started"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -288,10 +314,10 @@ end
           <a href="https://github.com/frictionlessdata/dpr-docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../publish/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../views/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../deploy/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
