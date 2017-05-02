@@ -7,10 +7,12 @@ This section of the DataHub documentation is for developers. Here you can learn 
 We use following repositories on GitHub and GitLab for our platform:
 
 * [DPR API][dpr-api] - API and web-application
+* [DPR DEPLOY][dpr-deploy] - Automated deployment of application
 * [DPR JS][dpr-js] - Visualizations and front-end JS
 * [DPR DOCS][dpr-docs] - Documentations
 
 [dpr-api]: https://github.com/frictionlessdata/dpr-api
+[dpr-deploy]: https://gitlab.com/datopian/datahub-deploy
 [dpr-js]: https://github.com/frictionlessdata/dpr-js
 [dpr-docs]: https://github.com/frictionlessdata/dpr-docs
 
@@ -26,8 +28,8 @@ subgraph Repos
 end
 
 subgraph Sites
-  dhio[data.xxx]
-  dhdocs[docs.data.xxx]
+  dhio[xxx.datapackaged.com]
+  dhdocs[docs.datapackaged.com]
   dprdocs --> dhdocs
 end
 
@@ -53,16 +55,16 @@ For deployment of the application in a production environment, please see [the d
 
 The authorization set up enables system to restricts user permission to execute.
 
-- [Authorization docs](authorization/)
+[Authorization docs](authorization/)
 
 ## Authentication
 
 Some DataHub API methods require client to provide user identity. API Client can use JWT token to perform authenticated requests.
 
-- [Authentication docs](authentication/)
+[Authentication docs](authentication/)
 
 ## CLI
 
 The DataHub CLI (dpm) is a Python lib and command line interface to interact with an DataHub instance.
 
-- [CLI code](https://github.com/frictionlessdata/dpm-py)
+[CLI code](https://github.com/frictionlessdata/dpm-py)
