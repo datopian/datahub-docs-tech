@@ -1,6 +1,6 @@
 # Core Datasets
 
-**Core Datasets** - important, commonly-used datasets in high quality, easy-to-use & open form.
+**Core Datasets** - important, commonly used datasets in high quality, easy-to-use & open form.
 
 **High Quality & Reliable** - sourcing, normalizing and quality checking a set of **key reference and indicator datasets such as country codes, currencies, GDP and population**
 
@@ -17,7 +17,7 @@
   - This is the place to ask questions, get help etc - just open a new topic
 - [Introduction to Core Datasets Project](http://data.okfn.org/roadmap/core-datasets)
   - [Join the Team Post](http://okfnlabs.org/blog/2015/01/03/data-curators-wanted-for-core-datasets.html)
-- [Packaging Queue (Github Issues Tracker)](https://github.com/datasets/registry/issues)
+- [Packaging Queue (GitHub Issues Tracker)](https://github.com/datasets/registry/issues)
 - [Publish Data Packages Documentation on Frictionless Data Site](http://data.okfn.org/doc/publish)
 
 ### Quick Start
@@ -43,7 +43,7 @@ There are 2 areas of activity:
 1. Preparing datasets as Core Data Packages - finding them, cleaning them, data-packaging them
 2. Maintaining Core Data Packages - keeping them up to date with the source dataset, handling changes, responding to user queries
 
-Each of these have sub-steps which we detail below and you can contribute in any and all of these. [In fact given how many of us there are you will almost end up doing several of these at once!]
+Each of these has sub-steps which we detail below and you can contribute in any and all of these. [In fact given how many of us there are you will almost end up doing several of these at once!]
 
 #### Preparing Datasets as Core Data Packages
 
@@ -63,7 +63,7 @@ This involves researching and selecting datasets as core datasets and adding the
 * To propose a dataset for addition you [open an issue in the Registry](https://github.com/datasets/registry/issues/new) with the details of the proposed dataset.
 * Identify relevant source or sources for the dataset
   * To propose a dataset you do not have to know where to get the data from (e.g. you could suggest “US GDP” as a core dataset without yet knowing where to get the data from)
-* Discuss with Queue Manager(s) (they will spot your submission and start commenting in the github issue)
+* Discuss with Queue Manager(s) (they will spot your submission and start commenting in the GitHub issue)
 * If good =&gt; Shortlist for Packaging - add [Label “Status: Ready to Package”](https://github.com/datasets/registry/labels/Status%3A%20Ready%20to%20Package)
 
 ##### 2. Packaging up data
@@ -86,7 +86,7 @@ This involves validating and checking packaged datasets to ensure they are of hi
 
 We have a few extra specific requirements:
 
-* All Data Packages must (ultimately) be stored in a public github repo
+* All Data Packages must (ultimately) be stored in a public GitHub repo
   * First publish to your own repository
   * Then arrange a move the repository to [github.com/datasets/ organization](https://github.com/datasets/) - as the owner of a repository you can initiate a transfer request to github.com/datasets/ which can then be approved
 * Add to the [catalog list](https://github.com/datasets/registry/blob/master/catalog-list.txt) **and** the [core list](https://github.com/datasets/registry/blob/master/core-list.txt) **and** the associated csv files: [catalog-list.csv](https://github.com/datasets/registry/blob/master/data/catalog-list.csv) and [core-list.csv](https://github.com/datasets/registry/blob/master/data/core-list.csv).
