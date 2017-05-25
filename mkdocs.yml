@@ -19,7 +19,7 @@ pages:
   - Authentication: developers/authentication.md
 - Publishers:
   - 'Getting started': publishers/index.md
-  - 'Core datasets': publishers/core-datasets.md
+  - 'Core Datasets': publishers/core-datasets.md
   - CLI: publishers/cli.md
 theme: readthedocs
 markdown_extensions:
