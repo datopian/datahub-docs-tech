@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-05-02</lastmod>
+     <lastmod>2017-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,49 +13,49 @@
         
     <url>
      <loc>/developers/</loc>
-     <lastmod>2017-05-02</lastmod>
+     <lastmod>2017-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/developers/platform/</loc>
-     <lastmod>2017-05-02</lastmod>
+     <lastmod>2017-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/developers/deploy/</loc>
-     <lastmod>2017-05-02</lastmod>
+     <lastmod>2017-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/developers/api/</loc>
-     <lastmod>2017-05-02</lastmod>
+     <lastmod>2017-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/developers/publish/</loc>
-     <lastmod>2017-05-02</lastmod>
+     <lastmod>2017-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/developers/views/</loc>
-     <lastmod>2017-05-02</lastmod>
+     <lastmod>2017-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/developers/authorization/</loc>
-     <lastmod>2017-05-02</lastmod>
+     <lastmod>2017-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/developers/authentication/</loc>
-     <lastmod>2017-05-02</lastmod>
+     <lastmod>2017-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -65,13 +65,19 @@
         
     <url>
      <loc>/publishers/</loc>
-     <lastmod>2017-05-02</lastmod>
+     <lastmod>2017-05-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/publishers/core-datasets/</loc>
+     <lastmod>2017-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/publishers/cli/</loc>
-     <lastmod>2017-05-02</lastmod>
+     <lastmod>2017-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
