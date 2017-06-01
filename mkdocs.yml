@@ -20,6 +20,7 @@ pages:
 - Publishers:
   - 'Getting started': publishers/index.md
   - 'Core Datasets': publishers/core-datasets.md
+  - 'Core Data Curators': publishers/core-data-curators.md
   - CLI: publishers/cli.md
 theme: readthedocs
 markdown_extensions:
