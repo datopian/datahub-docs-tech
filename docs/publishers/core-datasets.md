@@ -1,4 +1,4 @@
-g# Core Datasets
+# Core Datasets
 
 **Core Datasets** - important, commonly used datasets in high quality, easy-to-use & open form like GDP or ISO-codes. 
 
