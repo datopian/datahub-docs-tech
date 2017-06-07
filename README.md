@@ -11,7 +11,7 @@ https://frictionlessdata.github.io/dpr-docs
 We use mkdocs http://www.mkdocs.org
 
 1. You need to have python and pip installed
-2. Run `pip install -r requirements.txt` (we deffer from instructions of mkdocs http://www.mkdocs.org/#installation because we have some extra dependencies)
+2. Run `pip install -r requirements.txt` (we differ from mkdocs instructions http://www.mkdocs.org/#installation because we have some extra dependencies)
 
 # Building the site locally
 
