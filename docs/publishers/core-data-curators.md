@@ -1,43 +1,54 @@
 ## Core Data Curators Guide
-Data Curators's job is to collect and maintain important and commonly-used (“core”) datasets in high-quality, standardized and easy-to-use form - in particular, as up-to-date, well-structured [Data Packages](http://frictionlessdata.io/data-packages/).
 
-Take a look to the following Core Data Curators guide:
+This is a guide for curators of ["core datasets"][core-intro]. Curators collect and maintain these important and commonly-used (“core”) datasets as high-quality, easy-to-use, open [Data Packages][dp].
 
-### Quick Links
+[dp]: http://frictionlessdata.io/data-packages/
 
-- [Discussion forum](http://discuss.okfn.org/category/open-knowledge-labs/core-datasets) - discussion takes place here by default
+## Quick Links
+
+- [Discussion forum][forum] - discussion takes place here by default
   - This is the place to ask questions, get help etc - just open a new topic
-- [Introduction to Core Datasets Project](http://docs.datapackaged.com/publishers/core-datasets)
-  - [Join the Team Post](http://okfnlabs.org/blog/2015/01/03/data-curators-wanted-for-core-datasets.html)
+- [Introduction to Core Datasets Project][core-intro]
+- [Join the Core Data Curators Team][core-intro-team]
 - [Packaging Queue (GitHub Issues Tracker)](https://github.com/datasets/registry/issues)
-- [Publish Data Packages Documentation on Frictionless Data Site](http://data.okfn.org/doc/publish)
+- [Publish Data Packages Howto on Frictionless Data Site][publish-howto]
 
-### Quick Start
+[core-intro]: /publishers/core-datasets/
+[core-intro-team]: /publishers/core-datasets/#curators
+[forum]: http://discuss.okfn.org/category/open-knowledge-labs/core-datasets
+[publish-howto]: http://frictionlessdata.io/guides/publish/
+
+## Quick Start
 
 1. Please take 2m to introduce yourself in the [discussion forum](http://discuss.okfn.org/t/core-data-curators-introductions/145) so that other team members can get to know you
 2. Read the contributing guide below so you:
-  * understand the details of the curator workflow
-  * can work out where you'd like to contribute
+    * understand the details of the curator workflow
+    * can work out where you'd like to contribute
 3.  **Stop: have you read the contributing guide? The next items only make sense if you have!**
 4.  Now you can dive in with one or both of:
+    * Researching: start reviewing the [current queue](https://github.com/datasets/registry/issues) - add new items, comment on existing ones etc
+    * Packaging:  check out the [“Ready to Package”](https://github.com/datasets/registry/labels/Status%3A%20Ready%20to%20Package) section of the queue and assign yourself (drop a comment in the issue claiming it)
 
-  - Researching: start reviewing the [current queue](https://github.com/datasets/registry/issues) - add new items, comment on existing ones etc
-  - Packaging:  check out the [“Ready to Package”](https://github.com/datasets/registry/labels/Status%3A%20Ready%20to%20Package) section of the queue and assign yourself (drop a comment in the issue claiming it)
-
-### Contributor Guide
+## Contributor Guide
 
 <img src="https://docs.google.com/drawings/d/1Emi_N9GTv95Z_STW7XO2PVo0ykZgbgKvT30b1tpuXqI/pub?w=1136&h=318" alt="" style="min-width: 100%; margin-left: 0px; margin-right: 0px;" />
 
-*Fig 1: Overview of the Curation Workflow 
+*Fig 1: Overview of the Curation Workflow*
 
 There are 2 areas of activity:
 
 1. Preparing datasets as Core Data Packages - finding them, cleaning them, data-packaging them
 2. Maintaining Core Data Packages - keeping them up to date with the source dataset, handling changes, responding to user queries
 
-Each of these has sub-steps which we detail below and you can contribute in any and all of these. [In fact given how many of us there are you will almost end up doing several of these at once!]
+Each of these has sub-steps which we detail below and you can contribute in any and all of these.
 
-#### Preparing Datasets as Core Data Packages
+Key principles of our approach are that:
+
+* We package data rather than create it – our focus is to take source data and ensure it is of high quality and in a standard form
+* We preserve a clean separation between the data source, the data package and this registry – for example, data packages are stored in git repos hosted separately (preferably github)
+
+
+### Preparing Datasets as Core Data Packages
 
 There are different areas where people can contribute:
 
@@ -48,7 +59,7 @@ There are different areas where people can contribute:
 
 Often you will contribute in all 4 by taking a dataset all the way from a suggestion to a fully packaged data package published online.
 
-##### 1. Research
+#### 1. Research
 
 This involves researching and selecting datasets as core datasets and adding them to the queue for packaging - no coding or data wrangling skill is needed for this
 
@@ -58,7 +69,7 @@ This involves researching and selecting datasets as core datasets and adding the
 * Discuss with Queue Manager(s) (they will spot your submission and start commenting in the GitHub issue)
 * If good =&gt; Shortlist for Packaging - add [Label “Status: Ready to Package”](https://github.com/datasets/registry/labels/Status%3A%20Ready%20to%20Package)
 
-##### 2. Packaging up data
+#### 2. Packaging up data
 
 Once we have a suggested dataset marked as "ready to package" we can move to packaging it up.
 
@@ -66,7 +77,7 @@ How to package up data is covered in the [general publishing guide][pub].
 
 [pub]: /doc/publish
 
-##### 3. Quality Assurance
+#### 3. Quality Assurance
 
 This involves validating and checking packaged datasets to ensure they are of high quality and ready to publish.
 
@@ -74,7 +85,7 @@ This involves validating and checking packaged datasets to ensure they are of hi
 2. In the review phase, you should be looking at a table with the data you have input before. That will ensure your data package is working without any issues and that it follows the same quality standards that any other package.
 3. Post a validation link and a view link in the comments for the issue in the Registry related to your Data Package.
 
-##### 4. Publishing
+#### 4. Publishing
 
 We have a few extra specific requirements:
 
@@ -86,7 +97,7 @@ We have a few extra specific requirements:
 * If you have access, tweet from the @OKFNLabs account a link to the http://data.okfn.org/data/ page for the dataset.
 
 
-#### Maintaining Data Packages
+### Maintaining Data Packages
 
 Many data packages package data that changes over time - for example, many time series get updated monthly or daily.
 
@@ -97,7 +108,7 @@ We need people to become the "maintainer" for a given dataset and keep it up to 
 [maintainer]: https://github.com/datasets/registry/labels/Status%3A%20Maintainer%20Wanted
 
 
-#### Core Data Assessment Criteria
+### Core Data Assessment Criteria
 
 For a dataset to be designated as "core" it should meet the following criteria:
 
@@ -108,20 +119,27 @@ For a dataset to be designated as "core" it should meet the following criteria:
 
 ----
 
-### Guide for Managing Curators
+## Guide for Managing Curators
 
-#### Intro Email for New Joiners
+### Intro Email for New Joiners
 
-You are being added to the Core Data Curators mailing list as you indicated your interest in the project through the online form.
+```
+Hi,
 
-This list is announce-only and will be used rarely. General discussion takes place in the public forum:
+We are delighted to welcome you to the Core Data Curators team of crack data curators.
 
-http://discuss.okfn.org/category/open-knowledge-labs/core-datasets
+To kick-off your core data curatorship we invite you to:
 
-**Getting Started**
+1. Introduce yourself in the forum here:
 
-To kick-off your core data curatorship we encourage you to:
+    http://discuss.okfn.org/t/core-data-curators-introductions/145/24
 
-1. Introduce yourself in forum here: http://discuss.okfn.org/t/core-data-curators-introductions/145/24
+2. Take a look at the Core Data Curators guide:
 
-2. Take a look at the Core Data Curators guide: http://docs.datapackaged.com/publishers/core-data-curators
+    http://docs.datapackaged.com/publishers/core-data-curators
+
+Regards,
+
+XXX
+```
+
