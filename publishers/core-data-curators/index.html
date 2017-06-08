@@ -112,15 +112,31 @@
             
     <li class="toctree-l3"><a href="#core-data-curators-guide">Core Data Curators Guide</a></li>
     
+
+    <li class="toctree-l3"><a href="#quick-links">Quick Links</a></li>
+    
+
+    <li class="toctree-l3"><a href="#quick-start">Quick Start</a></li>
+    
+
+    <li class="toctree-l3"><a href="#contributor-guide">Contributor Guide</a></li>
+    
         <ul>
         
-            <li><a class="toctree-l4" href="#quick-links">Quick Links</a></li>
+            <li><a class="toctree-l4" href="#preparing-datasets-as-core-data-packages">Preparing Datasets as Core Data Packages</a></li>
         
-            <li><a class="toctree-l4" href="#quick-start">Quick Start</a></li>
+            <li><a class="toctree-l4" href="#maintaining-data-packages">Maintaining Data Packages</a></li>
         
-            <li><a class="toctree-l4" href="#contributor-guide">Contributor Guide</a></li>
+            <li><a class="toctree-l4" href="#core-data-assessment-criteria">Core Data Assessment Criteria</a></li>
         
-            <li><a class="toctree-l4" href="#guide-for-managing-curators">Guide for Managing Curators</a></li>
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#guide-for-managing-curators">Guide for Managing Curators</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#intro-email-for-new-joiners">Intro Email for New Joiners</a></li>
         
         </ul>
     
@@ -174,42 +190,46 @@
             <div class="section">
               
                 <h2 id="core-data-curators-guide">Core Data Curators Guide</h2>
-<p>Data Curators's job is to collect and maintain important and commonly-used (“core”) datasets in high-quality, standardized and easy-to-use form - in particular, as up-to-date, well-structured <a href="http://frictionlessdata.io/data-packages/">Data Packages</a>.</p>
-<p>Take a look to the following Core Data Curators guide:</p>
-<h3 id="quick-links">Quick Links</h3>
+<p>This is a guide for curators of <a href="../../publishers/core-datasets/">"core datasets"</a>. Curators collect and maintain these important and commonly-used (“core”) datasets as high-quality, easy-to-use, open <a href="http://frictionlessdata.io/data-packages/">Data Packages</a>.</p>
+<h2 id="quick-links">Quick Links</h2>
 <ul>
 <li><a href="http://discuss.okfn.org/category/open-knowledge-labs/core-datasets">Discussion forum</a> - discussion takes place here by default</li>
 <li>This is the place to ask questions, get help etc - just open a new topic</li>
-<li><a href="http://docs.datapackaged.com/publishers/core-datasets">Introduction to Core Datasets Project</a></li>
-<li><a href="http://okfnlabs.org/blog/2015/01/03/data-curators-wanted-for-core-datasets.html">Join the Team Post</a></li>
+<li><a href="../../publishers/core-datasets/">Introduction to Core Datasets Project</a></li>
+<li><a href="../../publishers/core-datasets/#curators">Join the Core Data Curators Team</a></li>
 <li><a href="https://github.com/datasets/registry/issues">Packaging Queue (GitHub Issues Tracker)</a></li>
-<li><a href="http://data.okfn.org/doc/publish">Publish Data Packages Documentation on Frictionless Data Site</a></li>
+<li><a href="http://frictionlessdata.io/guides/publish/">Publish Data Packages Howto on Frictionless Data Site</a></li>
 </ul>
-<h3 id="quick-start">Quick Start</h3>
+<h2 id="quick-start">Quick Start</h2>
 <ol>
 <li>Please take 2m to introduce yourself in the <a href="http://discuss.okfn.org/t/core-data-curators-introductions/145">discussion forum</a> so that other team members can get to know you</li>
-<li>Read the contributing guide below so you:</li>
+<li>Read the contributing guide below so you:<ul>
 <li>understand the details of the curator workflow</li>
 <li>can work out where you'd like to contribute</li>
+</ul>
+</li>
 <li><strong>Stop: have you read the contributing guide? The next items only make sense if you have!</strong></li>
-<li>
-<p>Now you can dive in with one or both of:</p>
-</li>
-<li>
-<p>Researching: start reviewing the <a href="https://github.com/datasets/registry/issues">current queue</a> - add new items, comment on existing ones etc</p>
-</li>
+<li>Now you can dive in with one or both of:<ul>
+<li>Researching: start reviewing the <a href="https://github.com/datasets/registry/issues">current queue</a> - add new items, comment on existing ones etc</li>
 <li>Packaging:  check out the <a href="https://github.com/datasets/registry/labels/Status%3A%20Ready%20to%20Package">“Ready to Package”</a> section of the queue and assign yourself (drop a comment in the issue claiming it)</li>
+</ul>
+</li>
 </ol>
-<h3 id="contributor-guide">Contributor Guide</h3>
+<h2 id="contributor-guide">Contributor Guide</h2>
 <p><img src="https://docs.google.com/drawings/d/1Emi_N9GTv95Z_STW7XO2PVo0ykZgbgKvT30b1tpuXqI/pub?w=1136&h=318" alt="" style="min-width: 100%; margin-left: 0px; margin-right: 0px;" /></p>
-<p>*Fig 1: Overview of the Curation Workflow </p>
+<p><em>Fig 1: Overview of the Curation Workflow</em></p>
 <p>There are 2 areas of activity:</p>
 <ol>
 <li>Preparing datasets as Core Data Packages - finding them, cleaning them, data-packaging them</li>
 <li>Maintaining Core Data Packages - keeping them up to date with the source dataset, handling changes, responding to user queries</li>
 </ol>
-<p>Each of these has sub-steps which we detail below and you can contribute in any and all of these. [In fact given how many of us there are you will almost end up doing several of these at once!]</p>
-<h4 id="preparing-datasets-as-core-data-packages">Preparing Datasets as Core Data Packages</h4>
+<p>Each of these has sub-steps which we detail below and you can contribute in any and all of these.</p>
+<p>Key principles of our approach are that:</p>
+<ul>
+<li>We package data rather than create it – our focus is to take source data and ensure it is of high quality and in a standard form</li>
+<li>We preserve a clean separation between the data source, the data package and this registry – for example, data packages are stored in git repos hosted separately (preferably github)</li>
+</ul>
+<h3 id="preparing-datasets-as-core-data-packages">Preparing Datasets as Core Data Packages</h3>
 <p>There are different areas where people can contribute:</p>
 <ol>
 <li>Research</li>
@@ -218,7 +238,7 @@
 <li>Final Publication into the official core datasets list</li>
 </ol>
 <p>Often you will contribute in all 4 by taking a dataset all the way from a suggestion to a fully packaged data package published online.</p>
-<h5 id="1-research">1. Research</h5>
+<h4 id="1-research">1. Research</h4>
 <p>This involves researching and selecting datasets as core datasets and adding them to the queue for packaging - no coding or data wrangling skill is needed for this</p>
 <ul>
 <li>To propose a dataset for addition you <a href="https://github.com/datasets/registry/issues/new">open an issue in the Registry</a> with the details of the proposed dataset.</li>
@@ -227,17 +247,17 @@
 <li>Discuss with Queue Manager(s) (they will spot your submission and start commenting in the GitHub issue)</li>
 <li>If good =&gt; Shortlist for Packaging - add <a href="https://github.com/datasets/registry/labels/Status%3A%20Ready%20to%20Package">Label “Status: Ready to Package”</a></li>
 </ul>
-<h5 id="2-packaging-up-data">2. Packaging up data</h5>
+<h4 id="2-packaging-up-data">2. Packaging up data</h4>
 <p>Once we have a suggested dataset marked as "ready to package" we can move to packaging it up.</p>
 <p>How to package up data is covered in the <a href="../../doc/publish">general publishing guide</a>.</p>
-<h5 id="3-quality-assurance">3. Quality Assurance</h5>
+<h4 id="3-quality-assurance">3. Quality Assurance</h4>
 <p>This involves validating and checking packaged datasets to ensure they are of high quality and ready to publish.</p>
 <ol>
 <li><a href="http://data.okfn.org/tools/validate">Validate</a> the Data Package and <a href="http://data.okfn.org/tools/view">review</a> the data in the Data Package.</li>
 <li>In the review phase, you should be looking at a table with the data you have input before. That will ensure your data package is working without any issues and that it follows the same quality standards that any other package.</li>
 <li>Post a validation link and a view link in the comments for the issue in the Registry related to your Data Package.</li>
 </ol>
-<h5 id="4-publishing">4. Publishing</h5>
+<h4 id="4-publishing">4. Publishing</h4>
 <p>We have a few extra specific requirements:</p>
 <ul>
 <li>All Data Packages must (ultimately) be stored in a public GitHub repo</li>
@@ -247,11 +267,11 @@
 <li>Reload <a href="http://data.okfn.org/data/"><a href="http://data.okfn.org/data/">http://data.okfn.org/data/</a></a> by visiting <a href="http://data.okfn.org/admin/reload/">http://data.okfn.org/admin/reload/</a></li>
 <li>If you have access, tweet from the @OKFNLabs account a link to the <a href="http://data.okfn.org/data/">http://data.okfn.org/data/</a> page for the dataset.</li>
 </ul>
-<h4 id="maintaining-data-packages">Maintaining Data Packages</h4>
+<h3 id="maintaining-data-packages">Maintaining Data Packages</h3>
 <p>Many data packages package data that changes over time - for example, many time series get updated monthly or daily.</p>
 <p>We need people to become the "maintainer" for a given dataset and keep it up to date by regularly adding in the new data.</p>
 <p><strong><a href="https://github.com/datasets/registry/labels/Status%3A%20Maintainer%20Wanted">List of datasets needing a maintainer</a></strong></p>
-<h4 id="core-data-assessment-criteria">Core Data Assessment Criteria</h4>
+<h3 id="core-data-assessment-criteria">Core Data Assessment Criteria</h3>
 <p>For a dataset to be designated as "core" it should meet the following criteria:</p>
 <ul>
 <li>Quality - the dataset must be well structured</li>
@@ -260,21 +280,25 @@
 <li>Openness - data should be <a href="http://opendefinition.org/">open data</a> and openly licensed in accordance with the <a href="http://opendefinition.org/">Open Definition</a></li>
 </ul>
 <hr />
-<h3 id="guide-for-managing-curators">Guide for Managing Curators</h3>
-<h4 id="intro-email-for-new-joiners">Intro Email for New Joiners</h4>
-<p>You are being added to the Core Data Curators mailing list as you indicated your interest in the project through the online form.</p>
-<p>This list is announce-only and will be used rarely. General discussion takes place in the public forum:</p>
-<p><a href="http://discuss.okfn.org/category/open-knowledge-labs/core-datasets">http://discuss.okfn.org/category/open-knowledge-labs/core-datasets</a></p>
-<p><strong>Getting Started</strong></p>
-<p>To kick-off your core data curatorship we encourage you to:</p>
-<ol>
-<li>
-<p>Introduce yourself in forum here: <a href="http://discuss.okfn.org/t/core-data-curators-introductions/145/24">http://discuss.okfn.org/t/core-data-curators-introductions/145/24</a></p>
-</li>
-<li>
-<p>Take a look at the Core Data Curators guide: <a href="http://docs.datapackaged.com/publishers/core-data-curators">http://docs.datapackaged.com/publishers/core-data-curators</a></p>
-</li>
-</ol>
+<h2 id="guide-for-managing-curators">Guide for Managing Curators</h2>
+<h3 id="intro-email-for-new-joiners">Intro Email for New Joiners</h3>
+<pre class="highlight"><code class="linenums">Hi,
+
+We are delighted to welcome you to the Core Data Curators team of crack data curators.
+
+To kick-off your core data curatorship we invite you to:
+
+1. Introduce yourself in the forum here:
+
+    http://discuss.okfn.org/t/core-data-curators-introductions/145/24
+
+2. Take a look at the Core Data Curators guide:
+
+    http://docs.datapackaged.com/publishers/core-data-curators
+
+Regards,
+
+XXX</code></pre>
               
             </div>
           </div>
