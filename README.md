@@ -1,5 +1,5 @@
 # DataHub Documentation
-
+[![Build Status](https://travis-ci.org/frictionlessdata/dpr-docs.svg?branch=master)](https://travis-ci.org/frictionlessdata/dpr-docs)
 [![Gitter](https://img.shields.io/gitter/room/frictionlessdata/chat.svg)](https://gitter.im/frictionlessdata/chat) [![Issues](https://img.shields.io/badge/issue-tracker-orange.svg)](https://github.com/frictionlessdata/dpr-docs/issues)
 
 This repository holds the documentation for DataHub. The documentation is online:
