@@ -114,7 +114,7 @@
     <a class="current" href="./">CLI</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#dpm-the-data-package-manager-cli">DPM: The Data Package Manager CLI</a></li>
+    <li class="toctree-l3"><a href="#data-the-data-package-manager-cli">DATA: The Data Package Manager CLI</a></li>
     
         <ul>
         
@@ -181,60 +181,76 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="dpm-the-data-package-manager-cli">DPM: The Data Package Manager CLI</h1>
+                <h1 id="data-the-data-package-manager-cli">DATA: The Data Package Manager CLI</h1>
 <ul>
 <li><a href="#getting-started">Getting started</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#commands">Commands</a></li>
 <li><a href="#configuration">Configuration</a></li>
-<li><a href="#usage">Usage</a><ul>
+<li>
+<p><a href="#usage">Usage</a></p>
+<ul>
 <li><a href="#publish">Publish</a></li>
-<li><a href="#tag">Tag</a></li>
+<li><a href="#download">Download</a></li>
 <li><a href="#delete">Delete</a></li>
-<li><a href="#undelete">Undelete</a></li>
+<li><a href="#information">Information</a></li>
+<li><a href="#normalize">Normalize</a></li>
+<li><a href="#validate">Validate</a></li>
+<li><a href="#configuration">Configuration</a></li>
 </ul>
 </li>
-<li><a href="#links">Links</a></li>
+<li>
+<p><a href="#links">Links</a></p>
+</li>
 </ul>
 <h2 id="getting-started">Getting started</h2>
-<p>The dpm is a command-line tool aimed to help publishers to prepare and upload data to the DataHub. With dpm you will be able to:</p>
+<p>The data is a command-line tool aimed to help publishers to prepare and upload data to the DataHub. With data you will be able to:</p>
 <ul>
+<li>Publish Data Package to DataHub</li>
+<li>Get Data Package from DataHub</li>
+<li>Remove uploaded Data Package from DataHub</li>
+<li>Get information about particular Data Package</li>
+<li>Normalize Data Package according to the specs</li>
 <li>Validate your data to ensure its quality</li>
-<li>Publish Data Package</li>
-<li>Tag uploaded Data Package to create historical snapshot</li>
-<li>Remove uploaded Data Package that is no longer needed</li>
+<li>Set up configuration file in order to publish</li>
 </ul>
 <h2 id="installation">Installation</h2>
-<p>You can install unstable version directly from the code repository:</p>
-<pre class="highlight"><code class="language-bash linenums">pip install git+https://github.com/frictionlessdata/dpm-py.git</code></pre>
+<h3 id="installing-binaries-without-npm">Installing binaries without npm</h3>
+<p>On the <a href="https://github.com/datopian/datahub-cli/releases">releases</a> page, you can download pre-built binaries for MacOS and LinuxOS x64. You may need to put the pre-built binary in the bin directory (e.g.: /usr/local/bin/).</p>
+<pre class="highlight"><code class="language-bash linenums">mv path/to/data-{os-distribution} /usr/local/bin/data</code></pre>
 
+<h3 id="installing-from-npm">Installing from npm</h3>
+<p>You can also install it from <a href="">npm</a> as follows:
+<code>npm install -g data</code></p>
 <h2 id="commands">Commands</h2>
 <p>You can see the latest commands and get help by doing:</p>
-<pre class="highlight"><code class="language-bash linenums">dpm --help</code></pre>
+<pre class="highlight"><code class="language-bash linenums">data --help</code></pre>
 
-<p>You will see output like this:</p>
-<pre class="highlight"><code class="language-bash linenums">Usage: dpm [OPTIONS] COMMAND [ARGS]...
-
-Options:
-  --version      Show the version and exit.
-  --config TEXT  Use custom config file. Default /home/u1/.dpm/config
-  --debug        Show debug messages
-  --help         Show this message and exit.
+<p>The output of the help command:</p>
+<pre class="highlight"><code class="language-bash linenums">❒ data [options] &lt;command&gt; &lt;args&gt;
 
 Commands:
-  configure     Update configuration options.
-  datavalidate  Validate csv file data, given its path.
-  delete        Delete Data Package from the registry server.
-  publish       Publish Data Package to the registry server.
-  purge         Purge Data Package from the registry server.
-  tag           Tag Data Package on the server.
-  undelete      Undelete Data Package from the registry...
-  validate      Validate Data Package in the current dir.</code></pre>
+  DataHub:
+    push        [path]        Push data to the DataHub
+    get         [pkg-id]      Get data from DataHub
+    purge       [owner/name]  Permanently deletes data from DataHub
+  Data Package specific:
+    info        [pkg-id]      Get info on data
+    normalize                 Normalize datapackage.json
+    validate                  Validate Data Package structure
+
+  Administrative:
+    config                    Set up configuration
+    help        [cmd]         Show help on cmd
+
+Options:
+-h, --help              Output usage information
+-v, --version           Output the version
+</code></pre>
 
 <h2 id="configuration">Configuration</h2>
-<p>Dpm can be configured using <code>dpm configure</code> command. It will ask you
-to provide username, access_token and server address of DataHub.</p>
-<p>The config is stored in <code>~/.dpm/config</code>, you can edit it with text editor.
+<p>Data can be configured using <code>data config[ure]</code> command. It will ask you to provide a username, secretToken, server and bitStore addresses of DataHub.</p>
+<p>The config is stored in <code>~/.datahub/config</code>, you can edit it with text editor.
 Simple example config file can look like this:</p>
 <pre class="highlight"><code class="linenums">username = myname
 access_token = mykey
@@ -244,29 +260,36 @@ server = server URL for publishing Eg: https://www.datapackaged.com</code></pre>
 <h3 id="publish">Publish</h3>
 <p>To publish a Data Package, go to the Data Package directory (with <code>datapackage.json</code>) and
 run:</p>
-<pre class="highlight"><code class="language-bash linenums">dpm publish</code></pre>
+<pre class="highlight"><code class="language-bash linenums">data push</code></pre>
 
-<p>If your configured <em>username</em> and <em>access_token</em> are correct, dpm will
-upload datapackage.json and all relevant resources to the registry server.</p>
-<h3 id="tag">Tag</h3>
-<p>To create historical snapshot of your data, you can tag previously uploaded datapackage on the server. Use <code>dpm tag</code> command:</p>
-<p><pre class="highlight"><code class="language-bash linenums">cd datapackage-dir
-dpm tag v1.1</code></pre>
-This will copy the latest version of the Data Package to a separate location in the BitStore. This way you will be able keep a copy of your Data Package at this particular point in time.</p>
+<p>If your configured <em>username</em> and <em>secretToken</em> are correct, data will
+upload datapackage.json and all relevant resources to the DataHub server.</p>
+<h3 id="get">Get</h3>
+<p>To get Data Package run the following command:
+<pre class="highlight"><code class="language-bash linenums">data get &lt;publisher&gt;/&lt;package&gt;</code></pre>
+New Data Package will be downloaded into current working directory. </p>
 <h3 id="delete">Delete</h3>
-<p>You have two choices: delete Data Package completely from the server (<code>purge</code>) or make the datapackage invisible to everyone except you (<code>delete</code>). You can use <code>dpm purge</code> and <code>dpm delete</code> accordingly:</p>
-<pre class="highlight"><code class="language-bash linenums">cd datapackage-dir
-dpm delete
-# or purge it completely
-dpm purge</code></pre>
+<p>To delete permanently Data Package from DataHub, you can use <code>dpm purge</code> command:</p>
+<pre class="highlight"><code class="language-bash linenums">data purge</code></pre>
 
-<h3 id="undelete">Undelete</h3>
-<p>You can restore your Data Package using <code>undelete</code> command.</p>
-<p><pre class="highlight"><code class="language-bash linenums">dpm undelete</code></pre>
-Note that this only works on packages with soft delete (<code>dpm delete</code>), you can not undelete ones with hard delete (<code>dpm purge</code>)</p>
+<h3 id="information">Information</h3>
+<p>You can get information about particular Data Package</p>
+<pre class="highlight"><code class="language-bash linenums">data info</code></pre>
+
+<h3 id="normalize">Normalize</h3>
+<p>To normalize Data Package descriptor according to the specs</p>
+<pre class="highlight"><code class="language-bash linenums">data norm[alize] [path]</code></pre>
+
+<h3 id="validate">Validate</h3>
+<p>To validate Data Package descriptor against schema</p>
+<pre class="highlight"><code class="language-bash linenums">data validate [path | URL]</code></pre>
+
+<h3 id="configuration_1">Configuration</h3>
+<p>To set up configuration file:
+<pre class="highlight"><code class="language-bash linenums">data config[ure]</code></pre></p>
 <h2 id="links">Links</h2>
 <ul>
-<li><a href="https://github.com/frictionlessdata/dpm-py">Code repo</a></li>
+<li><a href="https://github.com/datahq/datahub-cli">Code repo</a></li>
 </ul>
               
             </div>
