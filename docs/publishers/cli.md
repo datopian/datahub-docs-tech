@@ -1,4 +1,4 @@
-# DPM: The Data Package Manager CLI
+# DATA: The Data Package Manager CLI
 
 - [Getting started](#getting-started)
 - [Installation](#installation)
@@ -6,64 +6,80 @@
 - [Configuration](#configuration)
 - [Usage](#usage)
     - [Publish](#publish)
-    - [Tag](#tag)
+    - [Download](#download)
     - [Delete](#delete)
-    - [Undelete](#undelete)
+    - [Information](#information)
+    - [Normalize](#normalize)
+    - [Validate](#validate)
+    - [Configuration](#configuration)
+    
 - [Links](#links)
 
 ## Getting started
 
-The dpm is a command-line tool aimed to help publishers to prepare and upload data to the DataHub. With dpm you will be able to:
+The data is a command-line tool aimed to help publishers to prepare and upload data to the DataHub. With data you will be able to:
 
+* Publish Data Package to DataHub
+* Get Data Package from DataHub
+* Remove uploaded Data Package from DataHub
+* Get information about particular Data Package
+* Normalize Data Package according to the specs
 * Validate your data to ensure its quality
-* Publish Data Package
-* Tag uploaded Data Package to create historical snapshot
-* Remove uploaded Data Package that is no longer needed
+* Set up configuration file in order to publish
 
 ## Installation
 
-You can install unstable version directly from the code repository:
+### Installing binaries without npm
 
+On the [releases](https://github.com/datopian/datahub-cli/releases) page, you can download pre-built binaries for MacOS and LinuxOS x64. You may need to put the pre-built binary in the bin directory (e.g.: /usr/local/bin/).
+ 
 ```bash
-pip install git+https://github.com/frictionlessdata/dpm-py.git
+mv path/to/data-{os-distribution} /usr/local/bin/data
 ```
+
+### Installing from npm
+
+You can also install it from [npm]() as follows:
+`npm install -g data`
 
 ## Commands
 
 You can see the latest commands and get help by doing:
 
 ```bash
-dpm --help
+data --help
 ```
 
-You will see output like this:
+The output of the help command:
 
 ```bash
-Usage: dpm [OPTIONS] COMMAND [ARGS]...
-
-Options:
-  --version      Show the version and exit.
-  --config TEXT  Use custom config file. Default /home/u1/.dpm/config
-  --debug        Show debug messages
-  --help         Show this message and exit.
+❒ data [options] <command> <args>
 
 Commands:
-  configure     Update configuration options.
-  datavalidate  Validate csv file data, given its path.
-  delete        Delete Data Package from the registry server.
-  publish       Publish Data Package to the registry server.
-  purge         Purge Data Package from the registry server.
-  tag           Tag Data Package on the server.
-  undelete      Undelete Data Package from the registry...
-  validate      Validate Data Package in the current dir.
+  DataHub:
+    push        [path]        Push data to the DataHub
+    get         [pkg-id]      Get data from DataHub
+    purge       [owner/name]  Permanently deletes data from DataHub
+  Data Package specific:
+    info        [pkg-id]      Get info on data
+    normalize                 Normalize datapackage.json
+    validate                  Validate Data Package structure
+
+  Administrative:
+    config                    Set up configuration
+    help        [cmd]         Show help on cmd
+
+Options:
+-h, --help              Output usage information
+-v, --version           Output the version
+
 ```
 
 ## Configuration
 
-Dpm can be configured using `dpm configure` command. It will ask you
-to provide username, access_token and server address of DataHub.
+Data can be configured using `data config[ure]` command. It will ask you to provide a username, secretToken, server and bitStore addresses of DataHub.
 
-The config is stored in `~/.dpm/config`, you can edit it with text editor.
+The config is stored in `~/.datahub/config`, you can edit it with text editor.
 Simple example config file can look like this:
 
 ```
@@ -80,42 +96,57 @@ To publish a Data Package, go to the Data Package directory (with `datapackage.j
 run:
 
 ```bash
-dpm publish
+data push
 ```
 
-If your configured *username* and *access_token* are correct, dpm will
-upload datapackage.json and all relevant resources to the registry server.
+If your configured *username* and *secretToken* are correct, data will
+upload datapackage.json and all relevant resources to the DataHub server.
 
-### Tag
+### Get
 
-To create historical snapshot of your data, you can tag previously uploaded datapackage on the server. Use `dpm tag` command:
-
+To get Data Package run the following command:
 ```bash
-cd datapackage-dir
-dpm tag v1.1
+data get <publisher>/<package>
 ```
-This will copy the latest version of the Data Package to a separate location in the BitStore. This way you will be able keep a copy of your Data Package at this particular point in time.
+New Data Package will be downloaded into current working directory. 
 
 ### Delete
 
-You have two choices: delete Data Package completely from the server (`purge`) or make the datapackage invisible to everyone except you (`delete`). You can use `dpm purge` and `dpm delete` accordingly:
+To delete permanently Data Package from DataHub, you can use `dpm purge` command:
 
 ```bash
-cd datapackage-dir
-dpm delete
-# or purge it completely
-dpm purge
+data purge
 ```
 
-### Undelete
+### Information
 
-You can restore your Data Package using `undelete` command.
+You can get information about particular Data Package
 
 ```bash
-dpm undelete
+data info
 ```
-Note that this only works on packages with soft delete (`dpm delete`), you can not undelete ones with hard delete (`dpm purge`)
+
+### Normalize
+
+To normalize Data Package descriptor according to the specs
+
+```bash
+data norm[alize] [path]
+```
+### Validate
+
+To validate Data Package descriptor against schema
+
+```bash
+data validate [path | URL]
+```
+### Configuration
+
+To set up configuration file:
+```bash
+data config[ure]
+```
 
 ## Links
 
-- [Code repo](https://github.com/frictionlessdata/dpm-py)
+- [Code repo](https://github.com/datahq/datahub-cli)
