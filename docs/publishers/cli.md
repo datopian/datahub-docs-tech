@@ -31,7 +31,7 @@ The data is a command-line tool aimed to help publishers to prepare and upload d
 
 ### Installing binaries without npm
 
-On the [releases](https://github.com/datopian/datahub-cli/releases) page, you can download pre-built binaries for MacOS and LinuxOS x64. You need to put pre-built binary in bin directory, your path eg: `/usr/local/bin/`.
+On the [releases](https://github.com/datopian/datahub-cli/releases) page, you can download pre-built binaries for MacOS and LinuxOS x64. You may need to put the pre-built binary in the bin directory (e.g.: /usr/local/bin/).
  
 ```bash
 mv path/to/data-{os-distribution} /usr/local/bin/data
@@ -50,7 +50,7 @@ You can see the latest commands and get help by doing:
 data --help
 ```
 
-You will see output like this:
+The output of the help command:
 
 ```bash
 ❒ data [options] <command> <args>
@@ -77,8 +77,7 @@ Options:
 
 ## Configuration
 
-Data can be configured using `data config[ure]` command. It will ask you
-to provide username, access_token and server address of DataHub.
+Data can be configured using `data config[ure]` command. It will ask you to provide a username, secretToken, server and bitStore addresses of DataHub.
 
 The config is stored in `~/.datahub/config`, you can edit it with text editor.
 Simple example config file can look like this:
@@ -100,12 +99,12 @@ run:
 data push
 ```
 
-If your configured *username* and *access_token* are correct, dpm will
-upload datapackage.json and all relevant resources to the registry server.
+If your configured *username* and *secretToken* are correct, data will
+upload datapackage.json and all relevant resources to the DataHub server.
 
-### Download
+### Get
 
-To download run the following command:
+To get Data Package run the following command:
 ```bash
 data get <publisher>/<package>
 ```
@@ -150,4 +149,4 @@ data config[ure]
 
 ## Links
 
-- [Code repo](https://github.com/datopian/datahub-cli)
+- [Code repo](https://github.com/datahq/datahub-cli)
