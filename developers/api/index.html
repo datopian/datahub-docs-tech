@@ -77,6 +77,16 @@
             
     <li class="toctree-l3"><a href="#datahub-api">DataHub API</a></li>
     
+        <ul>
+        
+            <li><a class="toctree-l4" href="#auth">Auth</a></li>
+        
+            <li><a class="toctree-l4" href="#rawstore">Rawstore</a></li>
+        
+            <li><a class="toctree-l4" href="#sources">Sources</a></li>
+        
+        </ul>
+    
 
     </ul>
                 </li>
@@ -166,34 +176,252 @@
             <div class="section">
               
                 <h1 id="datahub-api">DataHub API</h1>
-<p>The API provides a range of endpoints to query and manage the platform.</p>
-<p>You can explore the API via the docs below.</p>
-<div id="swagger-ui"></div>
+<p>The DataHub API provides a range of endpoints to interact with the platform. All endpoints live under the URL <code>https://api.datahub.io</code> where our API is divided into the following sections: <strong>auth, rawstore, sources</strong> </p>
+<h2 id="auth">Auth</h2>
+<p>A generic OAuth2 authentication service and user permission manager. </p>
+<h3 id="check-an-authentication-tokens-validity">Check an authentication token's validity</h3>
+<p><code>/auth/check</code></p>
+<p><strong>Method:</strong> <code>GET</code></p>
+<p><strong>Query Parameters:</strong></p>
+<ul>
+<li><code>jwt</code> - authentication token</li>
+<li><code>next</code> - URL to redirect to when finished authentication</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>If authenticated:</p>
+<pre class="highlight"><code class="language-javascript linenums">{
+    &quot;authenticated&quot;: true,
+    &quot;profile&quot;: {
+        &quot;id&quot;: &quot;&lt;user-id&gt;&quot;,
+        &quot;name&quot;: &quot;&lt;user-name&gt;&quot;,
+        &quot;email&quot;: &quot;&lt;user-email&gt;&quot;,
+        &quot;avatar_url&quot;: &quot;&lt;url-for-user's-profile-photo&gt;&quot;,
+        &quot;idhash&quot;: &quot;&lt;unique-id-of-the-user&gt;&quot;,
+        &quot;username&quot;: &quot;&lt;user-selected-id&gt;&quot; // If user has a username
+    }
+}</code></pre>
 
-<script src="../../js/dist/swagger-ui-bundle.js"> </script>
+<p>If not:</p>
+<pre class="highlight"><code class="language-javascript linenums">{
+    &quot;authenticated&quot;: false,
+    &quot;providers&quot;: {
+        &quot;google&quot;: {
+            &quot;url&quot;: &quot;&lt;url-for-logging-in-with-the-Google-provider&gt;&quot;
+        },
+        &quot;github&quot;: {
+            &quot;url&quot;: &quot;&lt;url-for-logging-in-with-the-Github-provider&gt;&quot;
+        },
+    }
+}</code></pre>
 
-<script src="../../js/dist/swagger-ui-standalone-preset.js"> </script>
+<p>When the authentication flow is finished, the caller will be redirected to the <code>next</code> URL with an extra query parameter
+<code>jwt</code> which contains the authentication token. The caller should cache this token for further interactions with the API.</p>
+<h3 id="get-permission-for-a-service">Get permission for a service</h3>
+<p><code>/user/authorize</code></p>
+<p><strong>Method:</strong> <code>GET</code></p>
+<p><strong>Query Parameters:</strong></p>
+<ul>
+<li><code>jwt</code> - user token (received from <code>/user/check</code>)</li>
+<li><code>service</code> - the relevant service (e.g. <code>storage-service</code>)</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<pre class="highlight"><code class="language-javascript linenums">{
+    &quot;token&quot;: &quot;&lt;token-for-the-relevant-service&gt;&quot;
+    &quot;userid&quot;: &quot;&lt;unique-id-of-the-user&gt;&quot;,
+    &quot;permissions&quot;: {
+        &quot;permission-x&quot;: true,
+        &quot;permission-y&quot;: false
+    },
+    &quot;service&quot;: &quot;&lt;relevant-service&gt;&quot;
+}</code></pre>
 
-<script>
-window.onload = function() {
-  // Build a system
-  const ui = SwaggerUIBundle({
-    url: "https://staging.datapackaged.com/api/swagger.json",
-    dom_id: '#swagger-ui',
-    validatorUrl : null,
-    presets: [
-      SwaggerUIBundle.presets.apis,
-      SwaggerUIStandalonePreset
-    ],
-    plugins: [
-      SwaggerUIBundle.plugins.DownloadUrl
-    ],
-    layout: "StandaloneLayout"
-  })
+<h3 id="change-the-username">Change the username</h3>
+<p><code>/user/update</code></p>
+<p><strong>Method:</strong> <code>POST</code></p>
+<p><strong>Query Parameters:</strong></p>
+<ul>
+<li><code>jwt</code> - authentication token (received from <code>/user/check</code>)</li>
+<li><code>username</code> - A new username for the user profile (this action is only allowed once)</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p><pre class="highlight"><code class="language-javascript linenums">{
+    &quot;success&quot;: true,
+    &quot;error&quot;: &quot;&lt;error-message-if-applicable&gt;&quot;
+}</code></pre>
+<strong>Note</strong>: trying to update other user profile fields like <code>email</code> will fail silently and return</p>
+<pre class="highlight"><code class="language-javascript linenums">{ 
+    &quot;success&quot;: true
+}</code></pre>
 
-  window.ui = ui
+<h3 id="receive-authorization-public-key">Receive authorization public key</h3>
+<p><code>/user/public-key</code></p>
+<p><strong>Method:</strong> <code>GET</code></p>
+<p><strong>Returns:</strong></p>
+<p>The service's public key in PEM format.</p>
+<p>Can be used by services to validate that the permission token is authentic.</p>
+<h2 id="rawstore">Rawstore</h2>
+<h3 id="get-authorized-upload-urls">Get authorized upload URL(s)</h3>
+<p><code>/rawstore/authorize</code></p>
+<p><strong>Method:</strong> <code>POST</code></p>
+<p><strong>Query Parameters:</strong></p>
+<p><strong>Headers:</strong></p>
+<ul>
+<li><code>Auth-Token</code> - permission token (received from conductor)</li>
+</ul>
+<p><strong>Body:</strong></p>
+<pre class="highlight"><code class="language-javascript linenums">{
+  &quot;metadata&quot;: {
+        &quot;owner&quot;: &quot;&lt;user-id-of-uploader&gt;&quot;,
+        &quot;name&quot;: &quot;&lt;data-set-unique-id&gt;&quot;
+    },
+  &quot;filedata&quot;: {
+      &quot;&lt;relative-path-to-file-in-package-1&gt;&quot;: {
+          &quot;size&quot;: 1234,
+          &quot;md5&quot;: &quot;&lt;md5-hash-of-the-data&gt;&quot;,
+          &quot;type&quot;: &quot;&lt;content-type-of-the-data&gt;&quot;,
+          &quot;name&quot;: &quot;&lt;file-name&gt;&quot;
+      },
+      &quot;&lt;relative-path-to-file-in-package-2&gt;&quot;: {
+          &quot;size&quot;: 4321,
+          &quot;md5&quot;: &quot;&lt;md5-hash-of-the-data&gt;&quot;,
+          &quot;type&quot;: &quot;&lt;content-type-of-the-data&gt;&quot;,
+          &quot;name&quot;: &quot;&lt;file-name&gt;&quot;
+      }
+      ...
+  }
+}</code></pre>
+
+<p><strong>Returns:</strong></p>
+<p>Signed urls to upload into S3:</p>
+<pre class="highlight"><code class="language-javascript linenums">{
+  fileData: {
+    &quot;&lt;file-name-1&gt;&quot;: {
+      &quot;md5-hash&quot;: &quot;...&quot;,
+      &quot;name&quot;: &quot;&lt;file-name&gt;&quot;,
+      &quot;type&quot;: &quot;&lt;file-type&gt;&quot;,
+      &quot;upload_query&quot;: {
+        'Content-MD5': '...',
+        'Content-Type': '...',
+        'acl': 'public-read',
+        'key': '&lt;path&gt;',
+        'policy': '...',
+        'x-amz-algorithm': 'AWS4-HMAC-SHA256',
+        'x-amz-credential': '...',
+        'x-amz-date': '&lt;date-time-in-ISO',
+        'x-amz-signature': '...'
+      },
+      &quot;upload_url&quot;: &quot;&lt;s3-url&gt;&quot;
+    },
+    &quot;&lt;file-name-2&gt;&quot;: ...,
+    ...
+  }
 }
-</script>
+</code></pre>
+
+<h3 id="get-information-regarding-the-datastore">Get information regarding the datastore</h3>
+<p><code>/info</code></p>
+<p><strong>Method:</strong> <code>GET</code></p>
+<p><strong>Query Parameters:</strong></p>
+<ul>
+<li><code>jwt</code> - permission token (received from <code>/user/authorize</code>)</li>
+</ul>
+<p><strong>Headers:</strong></p>
+<ul>
+<li><code>Auth-Token</code> - permission token (can be used instead of the <code>jwt</code> query parameter)</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>JSON content with the following structure:
+<pre class="highlight"><code class="language-javascript linenums">{
+    &quot;prefixes&quot;: [
+        &quot;https://api.datahub.io/rawstore/123456789&quot;,
+        ...
+    ]
+}</code></pre></p>
+<p><code>prefixes</code> is the list of possible prefixes for an uploaded file for this user.</p>
+<h2 id="sources">Sources</h2>
+<h3 id="get-status">Get status</h3>
+<p><code>/source/{identifier}/status</code></p>
+<p><strong>Method:</strong> <code>GET</code></p>
+<p><strong>Returns:</strong></p>
+<pre class="highlight"><code class="language-javascript linenums">{
+   'state': 'queued/running/errored',
+   'errors': [
+       'error-message', // ...
+   ],
+   'logs': [
+              'log-line', 
+              'log-line', // ...
+           ],
+   'history': [
+      {
+       'execution-time': 'iso-time',
+       'success': true or false,
+       'termination-time': 'iso-time' or null
+      }, // ...   
+   ],
+   'outputs': [
+       {
+        'kind': '&lt;kind&gt;', 
+        'url': '&lt;url&gt;', 
+        'created-at': '&lt;iso-time&gt;',
+        'filename': '&lt;displayable-filename&gt;',
+        'title': '&lt;displayable-title&gt;'
+       }
+   ],
+   'stats': {
+       'key': 'value' // e.g. 'count-of-rows', etc.
+   }
+}</code></pre>
+
+<h3 id="upload">Upload</h3>
+<p><code>/source/upload</code></p>
+<p><strong>Method:</strong> <code>POST</code></p>
+<p><strong>Query Parameters:</strong></p>
+<p><strong>Headers:</strong></p>
+<ul>
+<li><code>Auth-Token</code> - permission token (received from conductor)</li>
+</ul>
+<p><strong>Body:</strong></p>
+<pre class="highlight"><code class="language-javascript linenums">{
+    'meta': {
+        'version': 1, // version of the _spec_
+        'owner': '&lt;user-id&gt;', // Will be validated on upload
+        'id': '&lt;id&gt;'
+    },
+    'inputs': [
+        {
+            'kind': 'datapackage',
+            'url': '&lt;url&gt;',
+            'parameters': {
+                'resource-mapping': {
+                    '&lt;resource-name&gt;': '&lt;resource-url&gt;'
+                }
+            }
+        }    
+    ],
+    'processing': [
+        {
+            // TBD
+        }
+    ],
+    'outputs': [
+        {
+            'kind': 'datapackage',
+            'parameters': {
+                // e.g. 'create-previews': false
+            }
+        }
+    ]
+}</code></pre>
+
+<p><strong>Returns:</strong></p>
+<pre class="highlight"><code class="language-javascript linenums">{
+  &quot;success&quot;: true,
+  &quot;id&quot;: &quot;&lt;identifier&gt;&quot;
+  &quot;errors&quot;: [
+      &quot;&lt;error-message&gt;&quot;
+  ]
+}</code></pre>
               
             </div>
           </div>
