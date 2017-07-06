@@ -57,6 +57,7 @@ When the authentication flow is finished, the caller will be redirected to the `
 `jwt` which contains the authentication token. The caller should cache this token for further interactions with the API.
 
 ### Get permission for a service
+
 `/user/authorize`
 
 **Method:** `GET`
@@ -81,6 +82,7 @@ When the authentication flow is finished, the caller will be redirected to the `
 ```
 
 ### Change the username
+
 `/user/update`
 
 **Method:** `POST`
@@ -107,6 +109,7 @@ When the authentication flow is finished, the caller will be redirected to the `
 ```
 
 ### Receive authorization public key
+
 `/user/public-key`
 
 **Method:** `GET`
@@ -318,5 +321,3 @@ JSON content with the following structure:
   ]
 }
 ```
-
-
