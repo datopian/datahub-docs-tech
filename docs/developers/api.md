@@ -125,12 +125,14 @@ Can be used by services to validate that the permission token is authentic.
 
 ### Get authorized upload URL(s)
 
-`/rawstore/authorize`
+`/authorize`
 
 **Method:** `POST`
 
 **Query Parameters:**
 
+ - `jwt` - permission token (received from `/user/authorize`)
+ 
 **Headers:**
 
 * `Auth-Token` - permission token (received from conductor)
@@ -139,25 +141,25 @@ Can be used by services to validate that the permission token is authentic.
 
 ```javascript
 {
-  "metadata": {
+    "metadata": {
         "owner": "<user-id-of-uploader>",
         "name": "<data-set-unique-id>"
     },
-  "filedata": {
-      "<relative-path-to-file-in-package-1>": {
-          "size": 1234,
-          "md5": "<md5-hash-of-the-data>",
-          "type": "<content-type-of-the-data>",
-          "name": "<file-name>"
-      },
-      "<relative-path-to-file-in-package-2>": {
-          "size": 4321,
-          "md5": "<md5-hash-of-the-data>",
-          "type": "<content-type-of-the-data>",
-          "name": "<file-name>"
-      }
-      ...
-  }
+    "filedata": {
+        "<relative-path-to-file-in-package-1>": {
+            "length": 1234, //length in bytes of data
+            "md5": "<md5-hash-of-the-data>",
+            "type": "<content-type-of-the-data>",
+            "name": "<file-name>"
+        },
+        "<relative-path-to-file-in-package-2>": {
+            "length": 4321,
+            "md5": "<md5-hash-of-the-data>",
+            "type": "<content-type-of-the-data>",
+            "name": "<file-name>"
+        }
+        ...
+    }
 }
 ```
 
