@@ -69,7 +69,7 @@ When the authentication flow is finished, the caller will be redirected to the `
 
 **Returns:**
 
-```json
+```javascript
 {
     "token": "<token-for-the-relevant-service>"
     "userid": "<unique-id-of-the-user>",
@@ -94,7 +94,7 @@ When the authentication flow is finished, the caller will be redirected to the `
 
 **Returns:**
 
-```json
+```javascript
 {
     "success": true,
     "error": "<error-message-if-applicable>"
@@ -102,7 +102,7 @@ When the authentication flow is finished, the caller will be redirected to the `
 ```
 **Note**: trying to update other user profile fields like `email` will fail silently and return
 
-```json
+```javascript
 { 
     "success": true
 }
@@ -209,7 +209,7 @@ Signed urls to upload into S3:
 **Returns:**
 
 JSON content with the following structure:
-```json
+```javascript
 {
     "prefixes": [
         "https://api.datahub.io/rawstore/123456789",
