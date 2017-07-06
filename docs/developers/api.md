@@ -1,6 +1,6 @@
 # DataHub API
 
-The DataHub API provides a range of endpoints to interact with the platform. All endpoints live under the URL `https://api.datahub.io` where our API is divided into the following sections: **auth, rawstore, sources, assemblers.** 
+The DataHub API provides a range of endpoints to interact with the platform. All endpoints live under the URL `https://api.datahub.io` where our API is divided into the following sections: **auth, rawstore, sources** 
 
 
 
@@ -98,11 +98,10 @@ When the authentication flow is finished, the caller will be redirected to the `
     "error": "<error-message-if-applicable>"
 }
 ```
-
-__Note__: trying to update other user profile fields like `email` will fail silently and return
+**Note**: trying to update other user profile fields like `email` will fail silently and return
 
 ```json
-{
+{ 
     "success": true
 }
 ```
