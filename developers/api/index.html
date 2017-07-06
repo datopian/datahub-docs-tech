@@ -261,34 +261,37 @@
 <p>Can be used by services to validate that the permission token is authentic.</p>
 <h2 id="rawstore">Rawstore</h2>
 <h3 id="get-authorized-upload-urls">Get authorized upload URL(s)</h3>
-<p><code>/rawstore/authorize</code></p>
+<p><code>/authorize</code></p>
 <p><strong>Method:</strong> <code>POST</code></p>
 <p><strong>Query Parameters:</strong></p>
+<ul>
+<li><code>jwt</code> - permission token (received from <code>/user/authorize</code>)</li>
+</ul>
 <p><strong>Headers:</strong></p>
 <ul>
 <li><code>Auth-Token</code> - permission token (received from conductor)</li>
 </ul>
 <p><strong>Body:</strong></p>
 <pre class="highlight"><code class="language-javascript linenums">{
-  &quot;metadata&quot;: {
+    &quot;metadata&quot;: {
         &quot;owner&quot;: &quot;&lt;user-id-of-uploader&gt;&quot;,
         &quot;name&quot;: &quot;&lt;data-set-unique-id&gt;&quot;
     },
-  &quot;filedata&quot;: {
-      &quot;&lt;relative-path-to-file-in-package-1&gt;&quot;: {
-          &quot;size&quot;: 1234,
-          &quot;md5&quot;: &quot;&lt;md5-hash-of-the-data&gt;&quot;,
-          &quot;type&quot;: &quot;&lt;content-type-of-the-data&gt;&quot;,
-          &quot;name&quot;: &quot;&lt;file-name&gt;&quot;
-      },
-      &quot;&lt;relative-path-to-file-in-package-2&gt;&quot;: {
-          &quot;size&quot;: 4321,
-          &quot;md5&quot;: &quot;&lt;md5-hash-of-the-data&gt;&quot;,
-          &quot;type&quot;: &quot;&lt;content-type-of-the-data&gt;&quot;,
-          &quot;name&quot;: &quot;&lt;file-name&gt;&quot;
-      }
-      ...
-  }
+    &quot;filedata&quot;: {
+        &quot;&lt;relative-path-to-file-in-package-1&gt;&quot;: {
+            &quot;length&quot;: 1234, //length in bytes of data
+            &quot;md5&quot;: &quot;&lt;md5-hash-of-the-data&gt;&quot;,
+            &quot;type&quot;: &quot;&lt;content-type-of-the-data&gt;&quot;,
+            &quot;name&quot;: &quot;&lt;file-name&gt;&quot;
+        },
+        &quot;&lt;relative-path-to-file-in-package-2&gt;&quot;: {
+            &quot;length&quot;: 4321,
+            &quot;md5&quot;: &quot;&lt;md5-hash-of-the-data&gt;&quot;,
+            &quot;type&quot;: &quot;&lt;content-type-of-the-data&gt;&quot;,
+            &quot;name&quot;: &quot;&lt;file-name&gt;&quot;
+        }
+        ...
+    }
 }</code></pre>
 
 <p><strong>Returns:</strong></p>
