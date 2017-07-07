@@ -28,8 +28,8 @@ subgraph Repos
 end
 
 subgraph Sites
-  dhio[xxx.datapackaged.com]
-  dhdocs[docs.datapackaged.com]
+  dhio[xxx.dh.io]
+  dhdocs[docs.dh.io]
   dprdocs --> dhdocs
 end
 

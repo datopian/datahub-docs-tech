@@ -136,7 +136,7 @@ To kick-off your core data curatorship we invite you to:
 
 2. Take a look at the Core Data Curators guide:
 
-    http://docs.datapackaged.com/publishers/core-data-curators
+    http://docs.datahub.io/publishers/core-data-curators
 
 Regards,
 

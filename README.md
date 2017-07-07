@@ -4,7 +4,7 @@
 
 This repository holds the documentation for DataHub. The documentation is online:
 
-https://docs.datapackaged.com
+https://docs.datahub.io
 
 # Install
 

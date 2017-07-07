@@ -1,6 +1,6 @@
 site_name: DataHub
 site_description: DataHub is a web service for hosting datapackages.
-repo_url: https://github.com/frictionlessdata/dpr-docs
+repo_url: https://github.com/datahq/docs
 extra_css:
     - css/marmaid.css
     - css/main.css
