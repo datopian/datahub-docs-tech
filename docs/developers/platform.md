@@ -45,7 +45,8 @@ graph TD
 
 ### Raw Storage
 
-We save all files
+We first save all raw files before sending to pipeline-runner.
+**Pipeline-runner** is a service that has several functionality to modify data. 
 
 - We use AWS S3 instance for storing data
 
@@ -54,7 +55,6 @@ We save all files
 We store files after passing pipeline-runner
 
 - We use AWS S3 instance for storing data
-- We use the following URL structure on S3: `bits.{base-domain}.metadata/{user}/{pkg-name}/{version}`
 
 
 ### BitStore
@@ -62,7 +62,7 @@ We store files after passing pipeline-runner
 We are preserving the data byte by byte.
 
 - We use AWS S3 instance for storing data
-- We use the following URL structure on S3: `bits.{base-domain}.metadata/{publisher}/{data-package}/_v/{version}/data/{resource-name}.csv`
+
 
 ### MetaStore
 

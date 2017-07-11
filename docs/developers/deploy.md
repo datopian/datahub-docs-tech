@@ -18,7 +18,7 @@ graph TD
   frontend --> bits[BitStore - S3]
 </div>
 
-### New Structure[docker]
+### New Structure
 
 This diagram shows the current deployment architecture.
 
@@ -36,9 +36,9 @@ graph TD
   docker --> bits
 </div>
 
-### Old Structure[heroku]
+### Old Structures
 
-This diagram shows the current deployment architecture.
+#### Heroku
 
 <div class="mermaid">
 graph TD
@@ -54,9 +54,9 @@ graph TD
   heroku --> bits
 </div>
 
-### Old Structure[AWS Lambda - Flask via Zappa]
+#### AWS Lambda - Flask via Zappa
 
-We are no longer using AWS in this way. However, we have kept this for historical purposes and in case we return to AWS
+We are no longer using AWS and Heroku in this way. However, we have kept this for historical purposes and in case we return to AWS
 
 <div class="mermaid">
 graph TD

@@ -4,7 +4,7 @@ This section of the DataHub documentation is for developers. Here you can learn 
 
 [![Gitter](https://img.shields.io/gitter/room/frictionlessdata/chat.svg)](https://gitter.im/frictionlessdata/chat)
 
-We use following repositories on GitHub for our DataHub platform:
+We use following GitHub repositories for DataHub platform:
 
 * [DEPLOY][deploy] - Automated deployment
 * [FRONTEND][frontend] - Frontend application in node.js
@@ -24,7 +24,7 @@ We use following repositories on GitHub for our DataHub platform:
 
 
 <div class="mermaid">
-graph LR
+graph TD
 
 subgraph Repos
   frontend[Frontend]
@@ -33,13 +33,11 @@ subgraph Repos
   specstore[Specstore]
   bitstore[Bitstore]
   docs[Docs]
-  cli[CLI]
 end
 
 subgraph Sites
   dhio[datahub.io]
   dhdocs[docs.datahub.io]
-  cli --> npm
   docs --> dhdocs
 end
 
@@ -57,15 +55,15 @@ bitstore --> deploy
 
 We use several different services to run our platform, please follow the installation instructions here:
 
-* [Install Assembler](https://github.com/datahq/assembler/blob/master/README.md)
+* [Install Assembler](https://github.com/datahq/assembler#assembler)
 
-* [Install Auth](https://github.com/datahq/auth/blob/master/README.md)
+* [Install Auth](https://github.com/datahq/auth#datahq-auth-service)
 
-* [Install Specstore](https://github.com/datahq/specstore/blob/master/README.md)
+* [Install Specstore](https://github.com/datahq/specstore#datahq-spec-store)
 
-* [Install Bitstore](https://github.com/datahq/bitstore/blob/master/README.md)
+* [Install Bitstore](https://github.com/datahq/bitstore#quick-start)
 
-* [Install DataHub-CLI](https://github.com/datahq/datahub-cli/blob/master/README.md)
+* [Install DataHub-CLI](https://github.com/datahq/datahub-cli#usage)
 ## Deploy
 
 For deployment of the application in a production environment, please see [the deploy page][deploy].
@@ -88,6 +86,6 @@ Some DataHub API methods require client to provide user identity. API Client can
 
 ## DataHub CLI
 
-The DataHub CLI (data) is a Node JS lib and command line interface to interact with an DataHub instance.
+The DataHub CLI is a Node JS lib and command line interface to interact with an DataHub instance.
 
 [CLI code](https://github.com/datahq/datahub-cli)
