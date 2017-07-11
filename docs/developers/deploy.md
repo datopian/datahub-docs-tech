@@ -1,10 +1,10 @@
 ## DevOps - Production Deployment
 
-We use various cloud services for the platform, for example AWS S3 and RDS for storing data and metadata, and the application runs on Heroku.
+We use various cloud services for the platform, for example AWS S3 for storing data and metadata, and the application runs on Docker Cloud.
 
-We have fully automated the deployment of the platform including the setup of all necessary services so that it is one commmand to deploy. Code and instructions here:
+We have fully automated the deployment of the platform including the setup of all necessary services so that it is one command to deploy. Code and instructions here:
 
-https://gitlab.com/datopian/datahub-deploy
+https://github.com/datahq/deploy
 
 Below we provide a conceptual outline.
 
@@ -14,11 +14,29 @@ Below we provide a conceptual outline.
 graph TD
 
   user[fa:fa-user User] --> frontend[Frontend]
-  frontend --> db[Database - RDS]
+  frontend --> apiproxy[API Proxy]
   frontend --> bits[BitStore - S3]
 </div>
 
-### Current Structure
+### New Structure[docker]
+
+This diagram shows the current deployment architecture.
+
+<div class="mermaid">
+graph TD
+
+  user[fa:fa-user User]
+  bits[BitStore]
+  cloudflare[Cloudflare]
+
+  user --> cloudflare
+  cloudflare --> docker
+  cloudflare --> bits
+  docker[Docker - Node JS Application] --> apiproxy[API Proxy]
+  docker --> bits
+</div>
+
+### Old Structure[heroku]
 
 This diagram shows the current deployment architecture.
 
@@ -36,7 +54,7 @@ graph TD
   heroku --> bits
 </div>
 
-### AWS - Old Structure
+### Old Structure[AWS Lambda - Flask via Zappa]
 
 We are no longer using AWS in this way. However, we have kept this for historical purposes and in case we return to AWS
 
