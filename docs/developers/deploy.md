@@ -56,7 +56,7 @@ graph TD
 
 #### AWS Lambda - Flask via Zappa
 
-We are no longer using AWS and Heroku in this way. However, we have kept this for historical purposes and in case we return to AWS
+We are no longer using AWS and Heroku in this way. However, we have kept this for historical purposes and in case we return to any of them.
 
 <div class="mermaid">
 graph TD

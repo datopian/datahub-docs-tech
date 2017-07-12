@@ -46,7 +46,7 @@ graph TD
 ### Raw Storage
 
 We first save all raw files before sending to pipeline-runner.
-**Pipeline-runner** is a service that has several functionality to modify data. 
+**Pipeline-runner** is a service that runs the data package pipelines. It is used to normalise and modify the data before it is displayed publicly
 
 - We use AWS S3 instance for storing data
 
