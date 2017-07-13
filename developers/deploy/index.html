@@ -77,9 +77,9 @@
         
             <li><a class="toctree-l4" href="#outline-conceptually">Outline - Conceptually</a></li>
         
-            <li><a class="toctree-l4" href="#current-structure">Current Structure</a></li>
+            <li><a class="toctree-l4" href="#new-structure">New Structure</a></li>
         
-            <li><a class="toctree-l4" href="#aws-old-structure">AWS - Old Structure</a></li>
+            <li><a class="toctree-l4" href="#old-structures">Old Structures</a></li>
         
         </ul>
     
@@ -176,21 +176,37 @@
             <div class="section">
               
                 <h2 id="devops-production-deployment">DevOps - Production Deployment</h2>
-<p>We use various cloud services for the platform, for example AWS S3 and RDS for storing data and metadata, and the application runs on Heroku.</p>
-<p>We have fully automated the deployment of the platform including the setup of all necessary services so that it is one commmand to deploy. Code and instructions here:</p>
-<p><a href="https://gitlab.com/datopian/datahub-deploy">https://gitlab.com/datopian/datahub-deploy</a></p>
+<p>We use various cloud services for the platform, for example AWS S3 for storing data and metadata, and the application runs on Docker Cloud.</p>
+<p>We have fully automated the deployment of the platform including the setup of all necessary services so that it is one command to deploy. Code and instructions here:</p>
+<p><a href="https://github.com/datahq/deploy">https://github.com/datahq/deploy</a></p>
 <p>Below we provide a conceptual outline.</p>
 <h3 id="outline-conceptually">Outline - Conceptually</h3>
 <div class="mermaid">
 graph TD
 
   user[fa:fa-user User] --> frontend[Frontend]
-  frontend --> db[Database - RDS]
+  frontend --> apiproxy[API Proxy]
   frontend --> bits[BitStore - S3]
 </div>
 
-<h3 id="current-structure">Current Structure</h3>
+<h3 id="new-structure">New Structure</h3>
 <p>This diagram shows the current deployment architecture.</p>
+<div class="mermaid">
+graph TD
+
+  user[fa:fa-user User]
+  bits[BitStore]
+  cloudflare[Cloudflare]
+
+  user --> cloudflare
+  cloudflare --> docker
+  cloudflare --> bits
+  docker[Docker - Node JS Application] --> apiproxy[API Proxy]
+  docker --> bits
+</div>
+
+<h3 id="old-structures">Old Structures</h3>
+<h4 id="heroku">Heroku</h4>
 <div class="mermaid">
 graph TD
 
@@ -205,8 +221,8 @@ graph TD
   heroku --> bits
 </div>
 
-<h3 id="aws-old-structure">AWS - Old Structure</h3>
-<p>We are no longer using AWS in this way. However, we have kept this for historical purposes and in case we return to AWS</p>
+<h4 id="aws-lambda-flask-via-zappa">AWS Lambda - Flask via Zappa</h4>
+<p>We are no longer using AWS and Heroku in this way. However, we have kept this for historical purposes and in case we return to any of them.</p>
 <div class="mermaid">
 graph TD
 
