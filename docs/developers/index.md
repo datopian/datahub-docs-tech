@@ -4,47 +4,66 @@ This section of the DataHub documentation is for developers. Here you can learn 
 
 [![Gitter](https://img.shields.io/gitter/room/frictionlessdata/chat.svg)](https://gitter.im/frictionlessdata/chat)
 
-We use following repositories on GitHub and GitLab for our platform:
+We use following GitHub repositories for DataHub platform:
 
-* [DPR API][dpr-api] - API and web-application
-* [DPR DEPLOY][dpr-deploy] - Automated deployment of application
-* [DPR JS][dpr-js] - Visualizations and front-end JS
-* [DPR DOCS][dpr-docs] - Documentations
+* [DEPLOY][deploy] - Automated deployment
+* [FRONTEND][frontend] - Frontend application in node.js
+* [ASSEMBLER][assembler] - Data assembly line
+* [AUTH][auth] - A generic OAuth2 authentication service and user permission manager.
+* [SPECSTORE][specstore] - API server for managing a Source Spec Registry
+* [BITSTORE][bitstore] - A microservice for storing blobs i.e. files.
+* [DOCS][docs] - Documentations
 
-[dpr-api]: https://github.com/frictionlessdata/dpr-api
-[dpr-deploy]: https://gitlab.com/datopian/datahub-deploy
-[dpr-js]: https://github.com/frictionlessdata/dpr-js
-[dpr-docs]: https://github.com/frictionlessdata/dpr-docs
+[deploy]: https://github.com/datahq/deploy
+[frontend]: https://github.com/datahq/frontend
+[assembler]: https://github.com/datahq/assembler
+[auth]: https://github.com/datahq/auth
+[specstore]: https://github.com/datahq/specstore
+[bitstore]: https://github.com/datahq/bitstore
+[docs]: https://github.com/datahq/docs
+
 
 <div class="mermaid">
-graph LR
+graph TD
 
 subgraph Repos
-  dprapi[DPR API]
-  dprjs[DPR JS]
-  dprdeploy[DPR Deploy]
-  dprdocs[DPR Docs]
-  dprjs --submodule--> dprapi
+  frontend[Frontend]
+  assembler[Assembler]
+  auth[Auth]
+  specstore[Specstore]
+  bitstore[Bitstore]
+  docs[Docs]
 end
 
 subgraph Sites
-  dhio[xxx.dh.io]
-  dhdocs[docs.dh.io]
-  dprdocs --> dhdocs
+  dhio[datahub.io]
+  dhdocs[docs.datahub.io]
+  docs --> dhdocs
 end
 
-deploy((Deploy))
-dprapi --> deploy
+deploy((DEPLOY))
 deploy --> dhio
-dprdeploy --> deploy
+frontend --> deploy
+assembler --> deploy
+auth --> deploy
+specstore --> deploy
+bitstore --> deploy
+
 </div>
 
 ## Install
 
-To install the platform locally for development purposes, please follow the instructions here:
+We use several different services to run our platform, please follow the installation instructions here:
 
-https://github.com/frictionlessdata/dpr-api
+* [Install Assembler](https://github.com/datahq/assembler#assembler)
 
+* [Install Auth](https://github.com/datahq/auth#datahq-auth-service)
+
+* [Install Specstore](https://github.com/datahq/specstore#datahq-spec-store)
+
+* [Install Bitstore](https://github.com/datahq/bitstore#quick-start)
+
+* [Install DataHub-CLI](https://github.com/datahq/datahub-cli#usage)
 ## Deploy
 
 For deployment of the application in a production environment, please see [the deploy page][deploy].
@@ -57,14 +76,16 @@ The authorization set up enables system to restricts user permission to execute.
 
 [Authorization docs](authorization/)
 
+
+
 ## Authentication
 
 Some DataHub API methods require client to provide user identity. API Client can use JWT token to perform authenticated requests.
 
 [Authentication docs](authentication/)
 
-## CLI
+## DataHub CLI
 
-The DataHub CLI (dpm) is a Python lib and command line interface to interact with an DataHub instance.
+The DataHub CLI is a Node JS lib and command line interface to interact with an DataHub instance.
 
-[CLI code](https://github.com/frictionlessdata/dpm-py)
+[CLI code](https://github.com/datahq/datahub-cli)

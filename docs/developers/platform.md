@@ -10,56 +10,59 @@ The DataHub platform has been designed as a set of loosely coupled components, e
 ## Architecture
 
 <div class="mermaid">
+
 graph TD
 
-subgraph Web Frontend
-  frontend[Frontend Webapp]
-  browse[Browse & Search]
-  login[Login & Signup]
-  view[Views Renderer]
-  frontend --> browse
-  frontend --> login
-end
 
-subgraph Users and Permissions
-  user[User]
-  permissions[Permissions]
-  authapi[Auth API]
-  authzapi[Authorization API]
-  login --> authapi
-  authapi --> user
-  authzapi --> permissions
-end
+  cli((CLI fa:fa-user))
+  auth[Auth Service]
+  cli --login--> auth
+  
+	
+	cli --store--> raw[Raw Store API<br>+ Storage]  
+  
+	cli --package-info--> pipeline-store
+  raw --data resource--> pipeline-runner
+  
+  pipeline-store -.generate.-> pipeline-runner
+	
+  pipeline-runner --> package[Package Storage]
+	package --api--> frontend[Frontend]
+  frontend --> user[User fa:fa-user]
+  
 
-subgraph BitStore
-  bitstore["BitStore (S3)"]
-  bitstoreapi[BitStore API<br/>put,get]
-  bitstoreapi --> bitstore
-  browse --> bitstoreapi
-end
-
-subgraph MetaStore
-  metastore["MetaStore (RDS)"]
-  metaapi[MetaStore API<br/>read,search,import]
-  metaapi --> metastore
-  browse --> metaapi
-end
-
-subgraph CLI
-  cli[CLI]
-end
+  
+  package -.publish.->metastore[MetaStore]
+  pipeline-store -.publish.-> metastore[MetaStore]
+  metastore[MetaStore] --api--> frontend
+  
 </div>
 
-* [CLI][cli] - Command Line Interface for publishing [Data Packages](#data-package)
+
+* [DataHub-CLI][cli] - Command Line Interface for publishing [Data Packages](#data-package)
 * [Front-end Web Application][web-app] - Core part of platform - API, Login & Sign-Up and Browse & Search (page not yet implemented)
 * [Views and Renderer][views] - JS Library responsible for visualization and views on platform
+
+### Raw Storage
+
+We first save all raw files before sending to pipeline-runner.
+**Pipeline-runner** is a service that runs the data package pipelines. It is used to normalise and modify the data before it is displayed publicly
+
+- We use AWS S3 instance for storing data
+
+### Package Storage
+
+We store files after passing pipeline-runner
+
+- We use AWS S3 instance for storing data
+
 
 ### BitStore
 
 We are preserving the data byte by byte.
 
 - We use AWS S3 instance for storing data
-- We use the following URL structure on S3: `bits.{base-domain}.metadata/{publisher}/{data-package}/_v/{version}/data/{resource-name}.csv`
+
 
 ### MetaStore
 
