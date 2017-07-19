@@ -1,3 +1,7 @@
 .topbar {
     display: none;
 }
+
+.toc > ul > li:first-child {
+    display: none;
+}
