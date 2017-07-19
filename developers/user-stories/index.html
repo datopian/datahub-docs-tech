@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>User Stories - DataHub</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/marmaid.css" rel="stylesheet">
+  <link href="../../css/main.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "User Stories";
+    var mkdocs_page_input_path = "developers/user-stories.md";
+    var mkdocs_page_url = "/developers/user-stories/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> DataHub</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Developers</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../platform/">Platform</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../deploy/">Deploy</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api/">API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../publish/">Publish</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../views/">Views</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../authorization/">Authorization</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../authentication/">Authentication</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">User Stories</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#user-stories">User Stories</a></li>
+    
+
+    <li class="toctree-l3"><a href="#personas">Personas</a></li>
+    
+
+    <li class="toctree-l3"><a href="#stories">Stories</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#1-get-started">1. Get Started</a></li>
+        
+            <li><a class="toctree-l4" href="#2-publish-data-packages">2. Publish Data Packages</a></li>
+        
+            <li><a class="toctree-l4" href="#3-find-and-view-data-packages">3. Find and View Data Packages</a></li>
+        
+            <li><a class="toctree-l4" href="#4-install-a-data-package-locally">4. Install a Data Package (locally)</a></li>
+        
+            <li><a class="toctree-l4" href="#5-versioning-and-changes-in-data-packages">5. Versioning and Changes in Data Packages</a></li>
+        
+            <li><a class="toctree-l4" href="#6-publishers">6. Publishers</a></li>
+        
+            <li><a class="toctree-l4" href="#7-web-hooks-and-extensions">7. Web Hooks and Extensions</a></li>
+        
+            <li><a class="toctree-l4" href="#8-administer-site">8. Administer Site</a></li>
+        
+            <li><a class="toctree-l4" href="#private-data-packages">Private Data Packages</a></li>
+        
+            <li><a class="toctree-l4" href="#sell-my-data-through-your-site">Sell My Data through your site</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Publishers</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../publishers/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../publishers/core-datasets/">Core Datasets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../publishers/core-data-curators/">Core Data Curators</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../publishers/cli/">CLI</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../publishers/views/">Views</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">DataHub</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Developers &raquo;</li>
+        
+      
+    
+    <li>User Stories</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/datahq/docs/edit/master/docs/developers/user-stories.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="user-stories">User Stories</h1>
+<p>DataHub is the place where <em>people</em> can <strong>store, share and publish</strong> their data, <strong>collect, inspect and process</strong> it with <strong>powerful tools</strong>, and <strong>discover and use</strong> data shared by others. [order matters]</p>
+<p>People = data wranglers = those who use machines (e.g. code, command line tools) to work with their data rather than editing it by hand (as, for example, many analysts do in Excel). (Think people who use Python vs people who use Excel for data work)</p>
+<ul>
+<li>Data is not chaotic and is in some sense neat</li>
+<li>Can present your data with various visualization tools (graphs, charts, tables etc.) </li>
+<li>Easy to publish</li>
+<li>Specific data (power) tools and integrations<ul>
+<li>Can validate your data before publishing</li>
+<li>Data API</li>
+<li>Data Conversion / Bundling: zip the data, provide sqlite</li>
+<li>Generate a node package of your data</li>
+<li>(Versioning)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Table of Contents</strong></p>
+<div class="toc">
+<ul>
+<li><a href="#user-stories">User Stories</a></li>
+<li><a href="#personas">Personas</a></li>
+<li><a href="#stories">Stories</a><ul>
+<li><a href="#1-get-started">1. Get Started</a><ul>
+<li><a href="#1-sign-in-sign-up-done">1. Sign in / Sign up [DONE]</a></li>
+<li><a href="#sign-up-via-github-andor-google">Sign up via github (and/or google)</a></li>
+<li><a href="#next-step-after-sign-up">Next Step after Sign Up</a></li>
+<li><a href="#invite-user-to-join-platform">Invite User to Join Platform</a></li>
+</ul>
+</li>
+<li><a href="#2-publish-data-packages">2. Publish Data Packages</a><ul>
+<li><a href="#publish-with-a-client">Publish with a Client</a><ul>
+<li><a href="#configure-client">Configure Client</a></li>
+</ul>
+</li>
+<li><a href="#update-a-data-package">Update a Data Package</a></li>
+<li><a href="#delete-a-data-package">Delete a Data Package</a></li>
+<li><a href="#purge-a-data-package">Purge a Data Package</a></li>
+<li><a href="#validate-data-in-data-package">Validate Data in Data Package</a><ul>
+<li><a href="#validate-in-cli">Validate in CLI</a></li>
+<li><a href="#validate-on-server">Validate on Server</a></li>
+</ul>
+</li>
+<li><a href="#cache-data-package-resource-data-on-the-server">Cache Data Package Resource data (on the server)</a></li>
+<li><a href="#publish-with-web-interface">Publish with Web Interface</a></li>
+<li><a href="#undelete-data-package">Undelete data package</a></li>
+<li><a href="#render-views-in-data-package-in-cli-before-upload">Render (views) in data package in CLI before upload</a></li>
+</ul>
+</li>
+<li><a href="#3-find-and-view-data-packages">3. Find and View Data Packages</a><ul>
+<li><a href="#view-a-data-package-online">View a Data Package Online</a></li>
+<li><a href="#preview-a-not-yet-published-data-package-online">(Pre)View a not-yet-published Data Package Online</a></li>
+<li><a href="#see-how-much-a-data-package-is-used-downloaded-2d">See How Much a Data Package is Used (Downloaded) {2d}</a></li>
+<li><a href="#browse-data-packages">Browse Data Packages</a></li>
+<li><a href="#search-for-data-packages">Search for Data Packages</a></li>
+<li><a href="#download-data-package-descriptor">Download Data Package Descriptor</a></li>
+<li><a href="#download-data-package-in-one-file-eg-zip">Download Data Package in One File (e.g. zip)</a></li>
+</ul>
+</li>
+<li><a href="#4-install-a-data-package-locally">4. Install a Data Package (locally)</a><ul>
+<li><a href="#use-datapackage-in-node-package-auto-generated">Use DataPackage in Node (package auto-generated)</a></li>
+<li><a href="#import-datapackage-into-r">Import DataPackage into R</a></li>
+<li><a href="#import-datapackage-into-pandas">Import DataPackage into Pandas</a></li>
+<li><a href="#sql-sqlite-database">SQL / SQLite database</a></li>
+<li><a href="#see-changes-between-versions">See changes between versions</a></li>
+<li><a href="#low-priority">Low Priority</a></li>
+</ul>
+</li>
+<li><a href="#5-versioning-and-changes-in-data-packages">5. Versioning and Changes in Data Packages</a><ul>
+<li><a href="#explicit-versioning-publisher">Explicit Versioning - Publisher</a></li>
+<li><a href="#explicit-versioning-consumer">Explicit Versioning - Consumer</a></li>
+<li><a href="#revisioning-implicit-versioning">Revisioning - Implicit Versioning</a></li>
+<li><a href="#change-notifications">Change Notifications</a></li>
+</ul>
+</li>
+<li><a href="#6-publishers">6. Publishers</a><ul>
+<li><a href="#create-a-new-publisher">Create a New Publisher</a></li>
+<li><a href="#find-a-publisher-and-users">Find a Publisher (and users?)</a></li>
+<li><a href="#view-a-publisher-profile">View a Publisher Profile</a><ul>
+<li><a href="#search-among-publishers-packages">Search among publishers packages</a></li>
+<li><a href="#registered-users-profile-and-packages">Registered Users Profile and packages</a></li>
+</ul>
+</li>
+<li><a href="#publisher-and-user-leaderboard">Publisher and User Leaderboard</a></li>
+<li><a href="#manage-publisher">Manage Publisher</a><ul>
+<li><a href="#create-and-edit-profile">Create and Edit Profile</a></li>
+<li><a href="#add-and-manage-members">Add and Manage Members</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#7-web-hooks-and-extensions">7. Web Hooks and Extensions</a></li>
+<li><a href="#8-administer-site">8. Administer Site</a><ul>
+<li><a href="#configure-site">Configure Site</a></li>
+<li><a href="#see-usage-metrics">See usage metrics</a></li>
+<li><a href="#pricing-and-billing">Pricing and Billing</a></li>
+</ul>
+</li>
+<li><a href="#private-data-packages">Private Data Packages</a></li>
+<li><a href="#sell-my-data-through-your-site">Sell My Data through your site</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="personas">Personas</h1>
+<ul>
+<li><strong>[Geek] Publisher</strong>. Knows how to use a command line or other automated tooling. Wants to publish their data package in order to satisfy their teams requirements to publish data.<ul>
+<li>Non-Geek Publisher. Tbc …</li>
+</ul>
+</li>
+<li><strong>Consumer</strong>: A person or organization looking to use data packages (or data in general)<ul>
+<li>Data Analyst</li>
+<li>Coder (of data driven applications)</li>
+<li>…</li>
+</ul>
+</li>
+<li><strong>Admin</strong>: A person or organization who runs an instance of a DataHub</li>
+</ul>
+<h1 id="stories">Stories</h1>
+<h2 id="1-get-started">1. Get Started</h2>
+<h3 id="1-sign-in-sign-up-done">1. Sign in / Sign up [DONE]</h3>
+<p>As a Geek Publisher I want to sign up for an account so that I can publish my data package to the registry and to have a publisher account to publish my data package under.</p>
+<p><em>Generally want this to be as minimal, easy and quick as possible</em></p>
+<ul>
+<li>Sign in with a Google account<ul>
+<li>(?) what about up other social accounts?</li>
+</ul>
+</li>
+<li>Essential profile information (after sign in we prompt for this)<ul>
+<li>email address</li>
+<li>Name</li>
+<li>(?) - future. Credit card details for payment - can we integrate with payment system (?)</li>
+</ul>
+</li>
+<li>They need to choose a user name which is url friendly unique human readable name for our app. Can be used in sign in and in many other places.<ul>
+<li>WHY? Where would we need this? For url on site &amp; for publisher</li>
+<li>Same as publisher names (needed for URLs): [a-z-_.]</li>
+<li>Explain: they cannot change this later e.g. "Choose wisely! Once you set this it cannot be changed later!"</li>
+</ul>
+</li>
+<li>Send the user an email confirming their account is set up and suggesting next steps</li>
+</ul>
+<p>Automatically:</p>
+<ul>
+<li>Auto-create a publisher for them<ul>
+<li>Same name as their user name but a publisher</li>
+<li>That way they can start publishing straight away …</li>
+</ul>
+</li>
+</ul>
+<p><em><em>TODO: (??) should we do *all</em> of this via the command line client (a la npmjs) *</em></p>
+<h3 id="sign-up-via-github-andor-google">Sign up via github (and/or google)</h3>
+<p>As a Visitor I want to sign up via github or google so that I don’t have to enter lots of information and remember my password for yet another website</p>
+<ul>
+<li>How do we deal with username conflicts? What about publisher name conflicts?<ul>
+<li>This does not arise in simple username system because we have only pool of usernames</li>
+</ul>
+</li>
+</ul>
+<h3 id="next-step-after-sign-up">Next Step after Sign Up</h3>
+<p>As a Geek Publisher I want to know what do next after signing up so that I can get going quickly.</p>
+<p>Things to do:</p>
+<ul>
+<li>Edit your profile</li>
+<li>Download a client / Configure your client (if you have one already)<ul>
+<li>Instructions on getting relevant auth credentials</li>
+<li>Note they will *need* to have set a username / password in their profile</li>
+</ul>
+</li>
+<li>Join a Publisher (understand what a publisher is!)</li>
+</ul>
+<h3 id="invite-user-to-join-platform">Invite User to Join Platform</h3>
+<p>As an Admin (or existing Registered User?) I want to invite someone to join the platform so that they can start contributing or using data</p>
+<ul>
+<li>Get an invitation email with a sign up link</li>
+<li><em>Some commonality with Publisher invite member below</em></li>
+</ul>
+<h2 id="2-publish-data-packages">2. Publish Data Packages</h2>
+<h3 id="publish-with-a-client">Publish with a Client</h3>
+<p>As a Geek Publisher I want to import (publish) my data package into the registry so my data has a permanent online home so that I and others can have access</p>
+<p>On command line looks like:</p>
+<blockquote>
+<p>cd my/data/package</p>
+<p>dpm publish</p>
+<p>… working …</p>
+<p>SUCCESS</p>
+</blockquote>
+<p>Notes</p>
+<ul>
+<li>Permissions: must be a member of the Publisher<ul>
+<li>Internally: DataPackageCreate or DataPackageUpdate capability</li>
+</ul>
+</li>
+<li>Handle conflicts: if data package already exists, return 409. Client instructions should be already exists and use "--force" or similar to overwrite</li>
+<li>API endpoint behind the scenes: POST {api}/package/</li>
+<li>TODO: private data packages<ul>
+<li>And payment!</li>
+</ul>
+</li>
+</ul>
+<h4 id="configure-client">Configure Client</h4>
+<p>As a Geek Publisher I want to configure my client so I can start publishing data packages.</p>
+<p>TODO: check whether we want to use OAUTH.</p>
+<p>TODO: research JWT (JSON Web Tokens)</p>
+<p>Locally in $HOME store store:</p>
+<p>.dpm/credentials # stores your API key and user name</p>
+<p>.dpm/config # stores info like your default publisher</p>
+<h3 id="update-a-data-package">Update a Data Package</h3>
+<p>As a Geek Publisher I want to use a publish command to update a data package that is already in the registry so it appears there</p>
+<ul>
+<li>Old version will be lost (!)</li>
+</ul>
+<h3 id="delete-a-data-package">Delete a Data Package</h3>
+<p>As a Geek Publisher I want to unpublish (delete) a data package so it is no longer visible to anyone</p>
+<h3 id="purge-a-data-package">Purge a Data Package</h3>
+<p>As a Geek Publisher I want to permanently delete (purge) a data package so that it no longer takes up storage space</p>
+<h3 id="validate-data-in-data-package">Validate Data in Data Package</h3>
+<h4 id="validate-in-cli">Validate in CLI</h4>
+<p>As a Publisher [owner/member] I want to validate the data I am about to publish to the registry so that I publish “good” data and know that I am doing so and do not have to manually check that the published data looks ok (e.g. rendering charts properly) (and if wrong I have to re-upload)</p>
+<p>dpmpy datavalidate [file-path]</p>
+<ul>
+<li>[file-path] - run this against a given file. Look in the resources to see if this file is there and if so use the schema. Otherwise just do goodtables table …<ul>
+<li>If no file provided run validate against each resource in turn in the datapackage</li>
+</ul>
+</li>
+<li>Output to stdout.<ul>
+<li>Default: human-readable - nice version of output from goodtables.</li>
+<li>Option for JSON e.g. --json to put machine readable output<ul>
+<li>check goodtables command line tool and follow if possible. Can probably reuse code</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Auto-run this before publish unless explicit suppression (e.g. --skip-datavalidate)</li>
+<li>Use goodtables</li>
+</ul>
+<h4 id="validate-on-server">Validate on Server</h4>
+<p>As a Publisher [owner] i want my data to be validated when I publish it so that I know immediately if I have accidentally “broken” my data or have bugs and can take action to correct</p>
+<p>As a Consumer I want to know that the data I am downloading is “good” and can be relied on so that I don’t have to check it myself or run into annoying bugs later on</p>
+<ul>
+<li>Implies showing something in the UI e.g. “Data Valid” (like build passing)</li>
+</ul>
+<p><strong>Implementation notes to self</strong></p>
+<ul>
+<li>Need a new table to store results of validation and a concept of a “run”<ul>
+<li>Store details of the run [e.g. time to complete, ]</li>
+</ul>
+</li>
+<li>How to automate doing validation (using goodtables we assume) - do we reuse a separate service (goodtables.io in some way) or run ourselves in a process like ECS ???</li>
+<li>Display this in frontend</li>
+</ul>
+<h3 id="cache-data-package-resource-data-on-the-server">Cache Data Package Resource data (on the server)</h3>
+<p>As a Publisher I want to publish a data package where its resource data is stored on my servers but the registry caches a copy of that data so that if my data is lost or gets broken I still have a copy people can use</p>
+<p>As a Consumer I want to be able to get the data for a data package even if the original data has been moved or removed so that I can still use is and my app or analysis keeps working</p>
+<ul>
+<li>TODO: what does this mean for the UI or command line tools. How does the CLI know about this, how does it use it?</li>
+</ul>
+<h3 id="publish-with-web-interface">Publish with Web Interface</h3>
+<p>As a Publisher I want to publish a data package in the UI so that it is available and published</p>
+<ul>
+<li>Publish => they already have datapackage.json and all the data. They just want to be able to upload and store this.</li>
+</ul>
+<p>As a Publisher I want to create a data package in the UI so that it is available and published</p>
+<ul>
+<li>Create => no datapackage.json - just data files. Need to add key descriptors information, upload data files and have schemas created etc etc.</li>
+</ul>
+<h3 id="undelete-data-package">Undelete data package</h3>
+<p>[cli] As a Publisher I want to be able to restore the deleted data package via cli, so that it is back visible and available to view, download (and searchable)</p>
+<pre class="highlight"><code class="linenums">dpmpy undelete</code></pre>
+
+<p>[webui] As a Publisher i want to undelete the deleted data packages, so that the deleted data packages is now visible again.</p>
+<h3 id="render-views-in-data-package-in-cli-before-upload">Render (views) in data package in CLI before upload</h3>
+<p>As a Publisher, I want to be able to preview the views (graphs and table (?)) of the current data package using cli prior to publishing so that I can refine the json declarations of datapackage view section to achieve a great looking result.</p>
+<h2 id="3-find-and-view-data-packages">3. Find and View Data Packages</h2>
+<h3 id="view-a-data-package-online">View a Data Package Online</h3>
+<p><strong>EPIC: As a Consumer I want to view a data package online so I can get a sense of whether this is the dataset I want</strong></p>
+<ul>
+<li><em>Obsess here about “whether this is the dataset I want”</em></li>
+<li>*Publishers want this too … *</li>
+<li><em>Also important for SEO if we have good info here</em></li>
+</ul>
+<p>Features</p>
+<ul>
+<li>Visualize data in charts - gives one an immediate sense of what this is<ul>
+<li>One graph section at top of page after README excerpt</li>
+<li>One graph for each entry in the “views”</li>
+</ul>
+</li>
+<li>Interactive table - allows me to see what is in the table<ul>
+<li>One table for each resource</li>
+</ul>
+</li>
+</ul>
+<p>This user story can be viewed from two perspectives:</p>
+<ul>
+<li>From a publisher point of view</li>
+<li>From a consumer point of view</li>
+</ul>
+<p>As a <strong>publisher</strong> i want to show the world how my published data is so that it immediately catches consumer’s attention (and so I know it looks right - e.g. graph is ok)</p>
+<p>As a <strong>consumer</strong> i want to view the data package so that i can get a sense of whether i want this dataset or not.</p>
+<p>Acceptance criteria - what does done mean!</p>
+<ul>
+<li>A table for each resource</li>
+<li>Simple graph spec works => converts to plotly<ul>
+<li>Multiple time series</li>
+</ul>
+</li>
+<li>Plotly spec graphs work</li>
+<li>All core graphs work (not sure how to check every one but representative ones)</li>
+<li>Recline graphs specs (are handled - temporary basis)</li>
+<li>Loading spinners whilst data is loading so users know what is happening</li>
+</ul>
+<p>Bonus:</p>
+<ul>
+<li>Complex examples e.g. time series with a log scale … (e.g. hard drive data …)</li>
+</ul>
+<p>Features: <a href="../fonts/Alegreya-regular.ttf"><em>DP view status</em></a></p>
+<ul>
+<li>Different options to view data as graph.<ul>
+<li>Recline</li>
+<li>Vega-lite</li>
+<li>Vega</li>
+<li>[Plotly]</li>
+</ul>
+</li>
+<li>General Functionality<ul>
+<li>Multiple views [wrongly done. We iterate over resource not views]</li>
+<li>Table as a view</li>
+</ul>
+</li>
+<li>Interactive table so that consumer can do<ul>
+<li>Filter</li>
+<li>Join</li>
+</ul>
+</li>
+</ul>
+<h3 id="preview-a-not-yet-published-data-package-online">(Pre)View a not-yet-published Data Package Online</h3>
+<p>As a (potential) Publisher I want to preview a datapackage I have prepared so that I can check it works and share the results (if there is something wrong with others)</p>
+<ul>
+<li>Be able to supply a URL to my datapackage (e.g. on github) and have it previewed as it would look on DPR</li>
+<li>Be able to upload a datapackage and have it previewed</li>
+</ul>
+<p><em>Rufus: this was a very common use case for me (and others) when using data.okfn.org. Possibly less relevant if the command line tool can do previewing but still relevant IMO (some people may not have command line tool, and it is useful to be able to share a link e.g. when doing core datasets curation and there is something wrong with a datapackage).</em></p>
+<p><em>Rufus: also need for an online validation tool</em></p>
+<h3 id="see-how-much-a-data-package-is-used-downloaded-2d">See How Much a Data Package is Used (Downloaded) {2d}</h3>
+<p>As a Consumer i want to see how much the data has been downloaded so that i can choose most popular (=&gt; probably most reliable and complete) in the case when there are several alternatives for my usecase (maybe from different publishers)</p>
+<h3 id="browse-data-packages">Browse Data Packages</h3>
+<p>As a potential Publisher, unaware of datapackages, I want to see real examples of published packages (with the contents datapackage.json), so that I can understand how useful and simple is the datapackage format and the registry itself.</p>
+<p>As a Consumer I want to see some example data packages quickly so I get a sense of what is on this site and if it is useful to look further</p>
+<ul>
+<li>Browse based on what properties? Most recent, most downloaded?<ul>
+<li>Most downloaded</li>
+<li>Start with: we could just go with core data packages</li>
+</ul>
+</li>
+</ul>
+<h3 id="search-for-data-packages">Search for Data Packages</h3>
+<p>As a Consumer I want to search data packages so that I can find the ones I want</p>
+<ul>
+<li>Essential question: what is it you want?<ul>
+<li>Rufus: in my view generic search is actually *not* important to start with. People do not want to randomly search. More useful is to go via a publisher at the beginning.</li>
+</ul>
+</li>
+<li>Search results should provide enough information to help a user decide whether to dig further e.g. title, short description<ul>
+<li>For future when we have it: [number of downloads], stars etc</li>
+</ul>
+</li>
+<li>
+<p>Minimum viable search (based on implementation questions)</p>
+<ul>
+<li>Filter by publisher</li>
+<li>Free text search against title<ul>
+<li>Description could be added if we start doing actual scoring as easy to add additional fields</li>
+</ul>
+</li>
+<li>Scoring would be nice but not essential</li>
+</ul>
+</li>
+<li>
+<p>Implementation questions:</p>
+<ul>
+<li>Search:<ul>
+<li>Should search perform ranking (that requires scoring support)</li>
+<li>Free text queries should search against which fields (with what weighting)?</li>
+</ul>
+</li>
+<li>Filtering: On what individual properties of the data package should be able to filter?</li>
+<li>Themes and profiles:<ul>
+<li>Searching for a given profile: not possible atm.</li>
+<li>Themes: Should we tag data packages by themes like finance, education and let user find data package by that?
+        * Maybe but not now - maybe in the future</li>
+</ul>
+</li>
+<li>If we follow the go via a publisher at the beginning then should we list the most popular publisher on the home page of user[logged-in/ not logged in]?</li>
+<li>If most popular publisher then by what mesaure?<ul>
+<li>Sort by Most published?</li>
+<li>Sort by Most followers?</li>
+<li>Sort by most downloads?</li>
+<li>Or all show top5 in each facet?</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Sub user stories:</p>
+<blockquote>
+<p><em>[WONTFIX?] As a Consumer i want to find the data packages by profile (ex: spending) so that I can find the kind of data I want quickly and easily and in one big list</em></p>
+<p><em>As a Consumer i want to search based on description of data package, so that I can find package which related to some key words</em></p>
+</blockquote>
+<h3 id="download-data-package-descriptor">Download Data Package Descriptor</h3>
+<p>As a Consumer I want to download the data package descriptor (datapackage.json) on its own so that …</p>
+<p>*Rufus: I can’t understand why anyone would want to do this *</p>
+<h3 id="download-data-package-in-one-file-eg-zip">Download Data Package in One File (e.g. zip)</h3>
+<p>As a Consumer I want to download the data package in one file so that I don’t have to download descriptor and each resource by hand</p>
+<p><em>Only useful if no cli tool and no install command</em></p>
+<h2 id="4-install-a-data-package-locally">4. Install a Data Package (locally)</h2>
+<p>Let’s move discussion to the github: <a href="../fonts/Lato-italic.ttf"><em><a href="https://github.com/frictionlessdata/dpm-py/issues/30">https://github.com/frictionlessdata/dpm-py/issues/30</a></em></a></p>
+<p><em>TODO add these details from the requirement doc</em></p>
+<ul>
+<li><em>Local “Data Package” cache storage (`.datapackages` or similar)</em><ul>
+<li><em>Stores copies of packages from Registry</em></li>
+<li><em>Stores new Data Packages the user has created</em></li>
+<li><em>This</em> <a href="../fonts/Lato-boldItalic.ttf"><strong>Ruby lib</strong></a> <em>implements something similar</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="use-datapackage-in-node-package-auto-generated">Use DataPackage in Node (package auto-generated)</h3>
+<p>As a NodeJS developer I want to use data package as a node lib in my project so that I can depend on it using my normal dependency framework</p>
+<ul>
+<li>See this <a href="../fonts/SourceSansPro-regular.ttf"><em>real-world example</em></a> of this request for country-list</li>
+<li>=> auto-building node package and publishing to npm (not that hard to do …)<ul>
+<li>Convert CSV data to json (that’s what you probably want from node?)</li>
+<li>Generate package.json</li>
+<li>Push to npm (register the dataset users)</li>
+<li>Rufus: My guess here is that to implement here we want something a bit like github integrations – specific additional hooks which also get some configuration (or do it like travis - github integration plus a tiny config file - in our case rather than a .travis.yml we have a .node.yml or whatever)</li>
+</ul>
+</li>
+<li>Is it configurable for user that enable to push to npm or not?<ul>
+<li>Yes. Since we need to push to a specific npm user (for each publisher) this will need to be configured (along with authorization - where does that go?)</li>
+</ul>
+</li>
+<li>Is this something done for *all* data packages or does user need to turn something on? Probably want them to turn this on …</li>
+</ul>
+<p>Questions:</p>
+<ul>
+<li>From where we should push the data package to npm repo.<ul>
+<li>Is it from dpmpy or from server? Obviously from a server - this needs to be automated. But you can use dpmpy if you want (but I’m not sure we do want to …)</li>
+</ul>
+</li>
+<li>What to do with multiple resources? Ans: include all resources</li>
+<li>Do we include datapackage.json into the node package? Yes, include it so they get all the original metadata.</li>
+</ul>
+<p><em>Generic version is:</em></p>
+<p><em>As a Web Developer I want to download a DataPackage (like currency codes or country names) so that I can use it in the web service I am building [...]</em></p>
+<h3 id="import-datapackage-into-r">Import DataPackage into R</h3>
+<p>As a Consumer [R user] I want to load a Data Package from R so that I can immediately start playing with it</p>
+<ul>
+<li>Should we try and publish to CRAN?<ul>
+<li>Probably not? Why? think it can be quite painful getting permission to publish to CRAN and very easy to load from the registry<ul>
+<li>On the CRAN website I can't find a way to automate publishing. It seems possible by filling web-form, but to know the status we have to wait and parse email.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Using this library: <a href="https://github.com/ropenscilabs/datapkg">https://github.com/ropenscilabs/datapkg</a></li>
+<li>Where can i know about this?<ul>
+<li>On each data package view page …</li>
+</ul>
+</li>
+</ul>
+<p><em>Generic version:</em></p>
+<p><em>As a Data Analyst I want to download a data package, so that I can study it and wrangle with it to infer new data or generate new insights.</em></p>
+<p><em>As a Data Analyst, I want to update previously downloaded data package, so that I can work with the most recent data.</em></p>
+<p>Question:</p>
+<ul>
+<li>Is the version structure would have been problem for the user. As out directory structure is e.g “bits.datapackaged.com/metadata/core/demo-package/_v/latest/*”? If now how to</li>
+</ul>
+<h3 id="import-datapackage-into-pandas">Import DataPackage into Pandas</h3>
+<p>TODO - like R</p>
+<h3 id="sql-sqlite-database">SQL / SQLite database</h3>
+<p>As a Consumer I want to download a DataPackage’s data one coherent SQLite database so that I can get it easily in one form</p>
+<p>Question:</p>
+<ul>
+<li>Why does we need to store datapackage data in sqlite. Is not it better to store in file structure?</li>
+</ul>
+<p>We can store the datapackage like this way:</p>
+<p>~/.datapackage/\&lt;publisher>/\&lt;package>/\&lt;version>/*</p>
+<p>This is the way maven/gradle/ivy cache jar locally.</p>
+<h3 id="see-changes-between-versions">See changes between versions</h3>
+<p>As a Data Analyst I want to compare different versions of some datapackage locally, so that I can see schema changes clearly and adjust my analytics code to the desired schema version.</p>
+<h3 id="low-priority">Low Priority</h3>
+<p>As a Web Developer of multiple projects, I want to be able to install multiple versions of the same datapackage separately so that all my projects could be developed independently and deployed locally. (virtualenv-like)</p>
+<p>As a Developer I want to list all DataPackages requirements for my project in the file and pin the exact versions of any DataPackage that my project depends on so that the project can be deterministically deployed locally and won’t break because of the DataPackage schema changes. (requirements.txt-like)</p>
+<h2 id="5-versioning-and-changes-in-data-packages">5. Versioning and Changes in Data Packages</h2>
+<p><em>When we talk about versioning we can mean two things:</em></p>
+<ul>
+<li><em>Explicit versioning: this is like the versioning of releases “v1.0” etc. This is conscious and explicit. Main purpose:</em><ul>
+<li>*to support other systems depending on this one (they want the data at a known stable state) *</li>
+<li><em>easy access to major staging points in the evolution (e.g. i want to see how things were at v1)</em></li>
+</ul>
+</li>
+<li><em>Implicit versioning or “revisioning”: this is like the commits in git or the autosave of a word or google doc. It happens frequently, either with minimum effort or even automatically. Main purpose:</em><ul>
+<li><em>Undelete and recovery (you save a every point and can recover if you accidentally write or delete something)</em></li>
+<li><em>Collaboration and merging of changes (in revision control)</em></li>
+<li><em>Activity logging</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="explicit-versioning-publisher">Explicit Versioning - Publisher</h3>
+<p>As a Publisher I want to tag a version of my data on the command line so that … [see so that’s below]</p>
+<p>dpmpy tag {tag-name}</p>
+<p>=> tag current “latest” on the server as {tag-name}</p>
+<ul>
+<li>Do we restrict {tag-name} to semver? I don’t think so atm.</li>
+<li>As a {Publisher} I want to tag datapackage to create a snapshot of data on the registry server, so that consumers can refer to it</li>
+<li>As a {Publisher} I want to be warned that a tag exists, when I try to overwrite it, so that I don’t accidentally overwrite stable tagged data, which is relied on by consumers.</li>
+<li>As a {Publisher} I want to be able to overwrite the previously tagged datapackage, so that I can fix it if I mess up.</li>
+<li>The versioning here happens server side<ul>
+<li>Is this confusing for users? I.e. they are doing something local.</li>
+</ul>
+</li>
+</ul>
+<p>Background “so that” user story epics:</p>
+<ul>
+<li>As a {Publisher} I want to version my Data Package and keep multiple versions around including older versions so that I do not break consumer systems when I change my Data Package (whether schema or data) [It is not just the publisher who wants this, it is a consumer - see below]</li>
+<li>As a {Publisher} I want to be able to get access to a previous version I tagged so that I can return to it and review it (and use it)<ul>
+<li>so that i can recover old data if i delete it myself or compare how things changed over time</li>
+</ul>
+</li>
+</ul>
+<h3 id="explicit-versioning-consumer">Explicit Versioning - Consumer</h3>
+<p>As a {Consumer} (of a Data Package) I want to know full details when and how the data package schema has changed and when so that I can adjust my scripts to handle it.</p>
+<p>Important info to know for each schema change:</p>
+<ul>
+<li>time when published</li>
+<li>for any <strong><em>changed</em></strong> field - name, what was changed (type, format, …?),
+    &gt; +maybe everything else that was not changed (full field descriptor)</li>
+<li>for any <strong><em>deleted</em></strong> field - name,
+    &gt; +maybe everything else (full field descriptor)</li>
+<li>for any <strong><em>added</em></strong> field - all data (full field descriptor)</li>
+</ul>
+<p><em>A change in schema would correspond to a major version change in software (see</em> <a href="../fonts/SourceSansPro-italic.ttf"><strong><a href="http://semver.org/">http://semver.org/</a>)</strong></a><em>.</em></p>
+<p><em><strong>Concerns about explicit versioning</strong>: we all have experience with consuming data from e.g. government publishers where the publishers change the data schema breaking client code. I am constatnly looking for a policy\mechanism to guide publishers to develop stable schema versioning for the data they produce, and help consumers to get some stability guarantees.</em></p>
+<p><em><strong>Automated versioning / automated tracking</strong>: Explicit versioning relies on the publisher, and humans can forget or not care enough about others. So to help consumers my suggestion would be to always track schema changes of uploaded packages on the server, and allow users to review those changes on the website. (We might even want to implement auto-tagging or not allowing users to upload a package with the same version but a different schema without forcing)</em></p>
+<p>As a {Consumer} I want to get a sense how outdated is the datapackage, that I have downloaded before, so that I can decide if I should update or not.</p>
+<ul>
+<li>I want to preview a DataPackage changelog (list of all available versions\tags with brief info) online, sorted by creation time, so that I can get a sense how data or schema has changed since some time in the past. Important brief info:<ul>
+<li>Time when published</li>
+<li>How many rows added\deleted for each resource data</li>
+<li>What fields(column names) changed, added or deleted for each resource.</li>
+</ul>
+</li>
+</ul>
+<p>As a {Consumer} I want to view a Datapackage at a particular version online, so that I can present/discuss the particular data timeslice of interest with other people.</p>
+<p>As a {Consumer} I want to download a Data package at a particular version so that I know it is compatible with my scripts and system</p>
+<ul>
+<li>Online: I want to pick the version I want from the list, and download it (as zip for ex.)</li>
+<li>CLI: I want to specify tag or version when using the `install` command.</li>
+</ul>
+<h3 id="revisioning-implicit-versioning">Revisioning - Implicit Versioning</h3>
+<p>…</p>
+<h3 id="change-notifications">Change Notifications</h3>
+<p>As a Consumer I want to be notified of changes to a package i care about so that I can check out what has changed and take action (like downloading the updated data)</p>
+<p>As a Consumer I want to see how active the site is to see if I should get involved</p>
+<h2 id="6-publishers">6. Publishers</h2>
+<h3 id="create-a-new-publisher">Create a New Publisher</h3>
+<p>TODO</p>
+<h3 id="find-a-publisher-and-users">Find a Publisher (and users?)</h3>
+<p>As a Consumer I want to browse and find publishers so that I can find interesting publishers and their packages (so that I can use them)</p>
+<h3 id="view-a-publisher-profile">View a Publisher Profile</h3>
+<p><em>view data packages associated to a publisher or user</em></p>
+<p>Implementation details: <a href="../fonts/SourceSansPro-boldItalic.ttf"><em><a href="https://hackmd.io/MwNgrAZmCMAcBMBaYB2eAWR72woghmLNIrAEb4AME+08s6VQA===">https://hackmd.io/MwNgrAZmCMAcBMBaYB2eAWR72woghmLNIrAEb4AME+08s6VQA===</a></em></a></p>
+<p>As a Consumer I want to see a publisher’s profile so that I can discover their packages and get a sense of how active and good they are</p>
+<p><strong>As a Publisher I want to have a profile with a list of my data packages so that:</strong></p>
+<ul>
+<li>Others can find my data packages quickly and easily</li>
+<li>Can see how many data packages i have</li>
+<li><strong>I can find a data package i want to look at quickly [they can discover their own data]</strong></li>
+<li><strong>I can find the link for a data package to send to someone else</strong><ul>
+<li><em>People want to share what they have done. This is probably the number one way the site gets prominence at the start (along with simple google traffic)</em></li>
+</ul>
+</li>
+<li>so that I can check that members do not abuse their rights to publish and only publish topical data packages.</li>
+</ul>
+<p>As a Consumer I want to view a publisher’s profile so that I can see who is behind a particular package or to see what other packages they produce [navigate up from a package page] [so that: i can trust on his published data packages to reuse.]</p>
+<p><strong>Details</strong></p>
+<ul>
+<li>Profile =<ul>
+<li>Full name / title e.g. “World Bank”, identifier e.g. world-bank<ul>
+<li><em>picture, short description text (if we have this - we don’t atm)</em></li>
+<li><em>(esp important to know if this is the world bank or not)</em></li>
+</ul>
+</li>
+<li><em>Total number of data packages</em></li>
+<li>List of data packages<ul>
+<li>View by most recently created (updated?)</li>
+<li>For each DataPackage want to see: title, number of resources (?), first 200 character of description, license (see data.okfn.org/data/ for example)</li>
+<li>Do we limit / paginate this list? No, not for the moment</li>
+</ul>
+</li>
+<li><em>[wontfix atm] Activity - this means data packages published, updated</em></li>
+<li><em>[wontfix atm] Quality … - we don’t have anything on this</em></li>
+<li><em>[wontfix atm] List of users</em></li>
+</ul>
+</li>
+<li>What are the permissions here?<ul>
+<li>Do we show private data packages? No<ul>
+<li>Do we show them when “owner” viewing or sysadmin? Yes (but flag as “private”)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- -->
+
+<ul>
+<li>What data packages to show? All the packages you own.<ul>
+<li>What about pinning? No support for this atm.</li>
+</ul>
+</li>
+</ul>
+<h4 id="search-among-publishers-packages">Search among publishers packages</h4>
+<p>As a Consumer i want to search among all data packages owned by a publisher so that I can easily find one data package amongst all the data packages by this publisher.</p>
+<h4 id="registered-users-profile-and-packages">Registered Users Profile and packages</h4>
+<p><em>As a Consumer i want to see the profile and activity of a user so that …</em></p>
+<p><em>As a Registered User I want to see the data packages i am associated with <strong>so that</strong> [like publisher]</em></p>
+<h3 id="publisher-and-user-leaderboard">Publisher and User Leaderboard</h3>
+<p>As a ??? I want to see who are the top publihers and users so that I can emulate them or ???</p>
+<h3 id="manage-publisher">Manage Publisher</h3>
+<h4 id="create-and-edit-profile">Create and Edit Profile</h4>
+<p>As {Owner ...} I want to edit my profile so that it is updated with new information</p>
+<h4 id="add-and-manage-members">Add and Manage Members</h4>
+<p>As an {Owner of a Publisher in the Registry} I want to invite an existing user to become a member of my publisher</p>
+<ul>
+<li>Auto lookup by user name (show username and fullname) - standard as per all sites</li>
+<li>User gets a notification on their dashboard + email with link to accept invite</li>
+<li>If invite is accepted notify the publisher (?) - actually do not do this.</li>
+</ul>
+<p>As an {Owner of a Publisher in the Registry} I want to invite someone using their email to sign up and become a member of my Publisher so that they are authorized to publish data packages under my Publisher.</p>
+<p>As an {Publisher Owner} I want to remove someone from membership in my publisher so they no longer have ability to publish or modify my data packages</p>
+<p>As a {Publisher Owner} I want to view all the people in my organization and what roles they have so that I can change these if I want</p>
+<p>As a {Publisher Owner} I want to make a user an “owner” so they have full control</p>
+<p>As a {Publisher Owner} I want to remove a user as an “owner” so they are just a member and no longer have full control</p>
+<h2 id="7-web-hooks-and-extensions">7. Web Hooks and Extensions</h2>
+<p>TODO: how do people build value added services around the system (and push back over the API etc …) - OAuth etc</p>
+<h2 id="8-administer-site">8. Administer Site</h2>
+<h3 id="configure-site">Configure Site</h3>
+<p>As the Admin I want to set key configuration parameters for my site deployment so that I can change key information like the site title</p>
+<ul>
+<li>Main config database is the one thing we might need</li>
+</ul>
+<h3 id="see-usage-metrics">See usage metrics</h3>
+<p>As an Admin I want to see key metrics about usage such as users, API usage, downloads etc so that I know how things are going</p>
+<ul>
+<li>Total users are signed up, how many signed up in last week / month etc</li>
+<li>Total publishers …<ul>
+<li>Users per publisher distribution (?)</li>
+</ul>
+</li>
+<li>API usage</li>
+<li>Downloads</li>
+<li>Billing: revenue in relevant periods</li>
+<li>Costs: how much are we spending on storage</li>
+</ul>
+<h3 id="pricing-and-billing">Pricing and Billing</h3>
+<p>As an Admin I want to have a pricing plan and billing system so that I can charge users and make my platform sustainable</p>
+<p>As a Publisher I want to know if this site has a pricing plan and what the prices are so that I can work out what this will cost me in the future and have a sense that these guys are sustainable (‘free forever’ does not work very well)</p>
+<p>As a Publisher I want to sign up for a given pricing plan so that I am entitled to what it allows (e.g. private stuff …)</p>
+<h2 id="private-data-packages">Private Data Packages</h2>
+<p>cf npmjs.com</p>
+<p>As a Publisher I want to have private data packages that I can share just with my team</p>
+<h2 id="sell-my-data-through-your-site">Sell My Data through your site</h2>
+<p><strong>EPIC: As a Publisher i want to sell my data through your site so that I make money and am able to sustain my publishing and my life …</strong></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../publishers/" class="btn btn-neutral float-right" title="Getting started">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../authentication/" class="btn btn-neutral" title="Authentication"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/datahq/docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../authentication/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../publishers/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+      <script src="../../js/mermaid.min.js"></script>
+
+</body>
+</html>
