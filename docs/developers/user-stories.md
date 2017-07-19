@@ -46,7 +46,7 @@ As a Geek Publisher I want to sign up for an account so that I can publish my da
 	* (?) - future. Credit card details for payment - can we integrate with payment system (?)
 * They need to choose a user name which is url friendly unique human readable name for our app. Can be used in sign in and in many other places.
 	* WHY? Where would we need this? For url on site & for publisher
-	* Same as publisher names (needed for URLs): [a-z-\_.]
+	* Same as publisher names (needed for URLs): [a-z-_.]
 	* Explain: they cannot change this later e.g. "Choose wisely! Once you set this it cannot be changed later!"
 * Send the user an email confirming their account is set up and suggesting next steps
 
@@ -75,7 +75,7 @@ Things to do:
 * Edit your profile
 * Download a client / Configure your client (if you have one already)
 	* Instructions on getting relevant auth credentials
-	* Note they will \*need\* to have set a username / password in their profile
+	* Note they will *need* to have set a username / password in their profile
 * Join a Publisher (understand what a publisher is!)
 
 ### Invite User to Join Platform
@@ -120,9 +120,11 @@ TODO: research JWT (JSON Web Tokens)
 
 Locally in $HOME store store:
 
-.dpm/credentials \# stores your API key and user name
+```
+.dpm/credentials # stores your API key and user name
 
-.dpm/config \# stores info like your default publisher
+.dpm/config      # stores info like your default publisher
+```
 
 ### Update a Data Package
 
@@ -183,11 +185,11 @@ As a Consumer I want to be able to get the data for a data package even if the o
 
 As a Publisher I want to publish a data package in the UI so that it is available and published
 
-* Publish =\> they already have datapackage.json and all the data. They just want to be able to upload and store this.
+* Publish => they already have datapackage.json and all the data. They just want to be able to upload and store this.
 
 As a Publisher I want to create a data package in the UI so that it is available and published
 
-* Create =\> no datapackage.json - just data files. Need to add key descriptors information, upload data files and have schemas created etc etc.
+* Create => no datapackage.json - just data files. Need to add key descriptors information, upload data files and have schemas created etc etc.
 
 ### Undelete data package
 
@@ -233,7 +235,7 @@ As a **consumer** i want to view the data package so that i can get a sense of w
 Acceptance criteria - what does done mean!
 
 * A table for each resource
-* Simple graph spec works =\> converts to plotly
+* Simple graph spec works => converts to plotly
 	* Multiple time series
 * Plotly spec graphs work
 * All core graphs work (not sure how to check every one but representative ones)
@@ -289,7 +291,7 @@ As a Consumer I want to see some example data packages quickly so I get a sense 
 As a Consumer I want to search data packages so that I can find the ones I want
 
 * Essential question: what is it you want?
-	* Rufus: in my view generic search is actually \*not\* important to start with. People do not want to randomly search. More useful is to go via a publisher at the beginning.
+	* Rufus: in my view generic search is actually *not* important to start with. People do not want to randomly search. More useful is to go via a publisher at the beginning.
 * Search results should provide enough information to help a user decide whether to dig further e.g. title, short description
 	* For future when we have it: [number of downloads], stars etc
 * Minimum viable search (based on implementation questions)
@@ -338,7 +340,7 @@ Let’s move discussion to the github: [*https://github.com/frictionlessdata/dpm
 
 *TODO add these details from the requirement doc*
 
-* *Local “Data Package” cache storage (\`.datapackages\` or similar)*
+* *Local “Data Package” cache storage (`.datapackages` or similar)*
 	* *Stores copies of packages from Registry*
 	* *Stores new Data Packages the user has created*
 	* *This* [**Ruby lib**](fonts/Lato-boldItalic.ttf) *implements something similar*
@@ -348,14 +350,14 @@ Let’s move discussion to the github: [*https://github.com/frictionlessdata/dpm
 As a NodeJS developer I want to use data package as a node lib in my project so that I can depend on it using my normal dependency framework
 
 * See this [*real-world example*](fonts/SourceSansPro-regular.ttf) of this request for country-list
-* =\> auto-building node package and publishing to npm (not that hard to do …)
+* => auto-building node package and publishing to npm (not that hard to do …)
 	* Convert CSV data to json (that’s what you probably want from node?)
 	* Generate package.json
 	* Push to npm (register the dataset users)
 	* Rufus: My guess here is that to implement here we want something a bit like github integrations – specific additional hooks which also get some configuration (or do it like travis - github integration plus a tiny config file - in our case rather than a .travis.yml we have a .node.yml or whatever)
 * Is it configurable for user that enable to push to npm or not?
 	* Yes. Since we need to push to a specific npm user (for each publisher) this will need to be configured (along with authorization - where does that go?)
-* Is this something done for \*all\* data packages or does user need to turn something on? Probably want them to turn this on …
+* Is this something done for *all* data packages or does user need to turn something on? Probably want them to turn this on …
 
 Questions:
 
@@ -385,10 +387,6 @@ As a Consumer [R user] I want to load a Data Package from R so that I can immedi
 
 *As a Data Analyst, I want to update previously downloaded data package, so that I can work with the most recent data.*
 
-Question:
-
--   Is the version structure would have been problem for the user. As out directory structure is e.g “bits.datapackaged.com/metadata/core/demo-package/\_v/latest/\*”? If now how to
-
 ### Import DataPackage into Pandas
 
 TODO - like R
@@ -403,7 +401,9 @@ Question:
 
 We can store the datapackage like this way:
 
-~/.datapackage/\<publisher\>/\<package\>/\<version\>/\*
+```
+~/.datapackage/<publisher>/<package>/<version>/*
+```
 
 This is the way maven/gradle/ivy cache jar locally.
 
@@ -435,7 +435,7 @@ As a Publisher I want to tag a version of my data on the command line so that �
 
 dpmpy tag {tag-name}
 
-=\> tag current “latest” on the server as {tag-name}
+=> tag current “latest” on the server as {tag-name}
 
 * Do we restrict {tag-name} to semver? I don’t think so atm.
 * As a {Publisher} I want to tag datapackage to create a snapshot of data on the registry server, so that consumers can refer to it
@@ -463,17 +463,17 @@ Important info to know for each schema change:
     > +maybe everything else (full field descriptor)
 * for any ***added*** field - all data (full field descriptor)
 
-*A change in schema would correspond to a major version change in software (see* [**http://semver.org/)**](fonts/SourceSansPro-italic.ttf)*.*
+*A change in schema would correspond to a major version change in software (see http://semver.org/)
 
-***Concerns about explicit versioning**: we all have experience with consuming data from e.g. government publishers where the publishers change the data schema breaking client code. I am constatnly looking for a policy\\mechanism to guide publishers to develop stable schema versioning for the data they produce, and help consumers to get some stability guarantees.*
+***Concerns about explicit versioning**: we all have experience with consuming data from e.g. government publishers where the publishers change the data schema breaking client code. I am constatnly looking for a policy/mechanism to guide publishers to develop stable schema versioning for the data they produce, and help consumers to get some stability guarantees.*
 
 ***Automated versioning / automated tracking**: Explicit versioning relies on the publisher, and humans can forget or not care enough about others. So to help consumers my suggestion would be to always track schema changes of uploaded packages on the server, and allow users to review those changes on the website. (We might even want to implement auto-tagging or not allowing users to upload a package with the same version but a different schema without forcing)*
 
 As a {Consumer} I want to get a sense how outdated is the datapackage, that I have downloaded before, so that I can decide if I should update or not.
 
-* I want to preview a DataPackage changelog (list of all available versions\\tags with brief info) online, sorted by creation time, so that I can get a sense how data or schema has changed since some time in the past. Important brief info:
+* I want to preview a DataPackage changelog (list of all available versions/tags with brief info) online, sorted by creation time, so that I can get a sense how data or schema has changed since some time in the past. Important brief info:
 	* Time when published
-	* How many rows added\\deleted for each resource data
+	* How many rows added/deleted for each resource data
 	* What fields(column names) changed, added or deleted for each resource.
 
 As a {Consumer} I want to view a Datapackage at a particular version online, so that I can present/discuss the particular data timeslice of interest with other people.
@@ -481,7 +481,7 @@ As a {Consumer} I want to view a Datapackage at a particular version online, so 
 As a {Consumer} I want to download a Data package at a particular version so that I know it is compatible with my scripts and system
 
 * Online: I want to pick the version I want from the list, and download it (as zip for ex.)
-* CLI: I want to specify tag or version when using the \`install\` command.
+* CLI: I want to specify tag or version when using the `install` command.
 
 ### Revisioning - Implicit Versioning
 
@@ -539,9 +539,6 @@ As a Consumer I want to view a publisher’s profile so that I can see who is be
 * What are the permissions here?
 	* Do we show private data packages? No
 		* Do we show them when “owner” viewing or sysadmin? Yes (but flag as “private”)
-
-<!-- -->
-
 * What data packages to show? All the packages you own.
 	* What about pinning? No support for this atm.
 
