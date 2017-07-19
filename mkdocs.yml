@@ -17,6 +17,7 @@ pages:
   - Views: developers/views.md
   - Authorization: developers/authorization.md
   - Authentication: developers/authentication.md
+  - User Stories: developers/user-stories.md
 - Publishers:
   - 'Getting started': publishers/index.md
   - 'Core Datasets': publishers/core-datasets.md
