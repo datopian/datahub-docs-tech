@@ -268,7 +268,10 @@
 </li>
 <li><a href="#5-versioning-and-changes-in-data-packages">5. Versioning and Changes in Data Packages</a><ul>
 <li><a href="#explicit-versioning-publisher">Explicit Versioning - Publisher</a></li>
-<li><a href="#explicit-versioning-consumer">Explicit Versioning - Consumer</a></li>
+<li><a href="#explicit-versioning-consumer">Explicit Versioning - Consumer</a><ul>
+<li><a href="#know-when-a-package-has-changed-re-caching">Know when a package has changed re caching</a></li>
+</ul>
+</li>
 <li><a href="#revisioning-implicit-versioning">Revisioning - Implicit Versioning</a></li>
 <li><a href="#change-notifications">Change Notifications</a></li>
 </ul>
@@ -364,7 +367,7 @@
 <li>Edit your profile</li>
 <li>Download a client / Configure your client (if you have one already)<ul>
 <li>Instructions on getting relevant auth credentials</li>
-<li>Note they will *need* to have set a username / password in their profile</li>
+<li>Note they will <em>need</em> to have set a username / password in their profile</li>
 </ul>
 </li>
 <li>Join a Publisher (understand what a publisher is!)</li>
@@ -403,8 +406,10 @@
 <p>TODO: check whether we want to use OAUTH.</p>
 <p>TODO: research JWT (JSON Web Tokens)</p>
 <p>Locally in $HOME store store:</p>
-<p>.dpm/credentials # stores your API key and user name</p>
-<p>.dpm/config # stores info like your default publisher</p>
+<pre class="highlight"><code class="linenums">.dpm/credentials # stores your API key and user name
+
+.dpm/config      # stores info like your default publisher</code></pre>
+
 <h3 id="update-a-data-package">Update a Data Package</h3>
 <p>As a Geek Publisher I want to use a publish command to update a data package that is already in the registry so it appears there</p>
 <ul>
@@ -458,11 +463,11 @@
 <h3 id="publish-with-web-interface">Publish with Web Interface</h3>
 <p>As a Publisher I want to publish a data package in the UI so that it is available and published</p>
 <ul>
-<li>Publish => they already have datapackage.json and all the data. They just want to be able to upload and store this.</li>
+<li>Publish =&gt; they already have datapackage.json and all the data. They just want to be able to upload and store this.</li>
 </ul>
 <p>As a Publisher I want to create a data package in the UI so that it is available and published</p>
 <ul>
-<li>Create => no datapackage.json - just data files. Need to add key descriptors information, upload data files and have schemas created etc etc.</li>
+<li>Create =&gt; no datapackage.json - just data files. Need to add key descriptors information, upload data files and have schemas created etc etc.</li>
 </ul>
 <h3 id="undelete-data-package">Undelete data package</h3>
 <p>[cli] As a Publisher I want to be able to restore the deleted data package via cli, so that it is back visible and available to view, download (and searchable)</p>
@@ -501,7 +506,7 @@
 <p>Acceptance criteria - what does done mean!</p>
 <ul>
 <li>A table for each resource</li>
-<li>Simple graph spec works => converts to plotly<ul>
+<li>Simple graph spec works =&gt; converts to plotly<ul>
 <li>Multiple time series</li>
 </ul>
 </li>
@@ -558,7 +563,7 @@
 <p>As a Consumer I want to search data packages so that I can find the ones I want</p>
 <ul>
 <li>Essential question: what is it you want?<ul>
-<li>Rufus: in my view generic search is actually *not* important to start with. People do not want to randomly search. More useful is to go via a publisher at the beginning.</li>
+<li>Rufus: in my view generic search is actually <em>not</em> important to start with. People do not want to randomly search. More useful is to go via a publisher at the beginning.</li>
 </ul>
 </li>
 <li>Search results should provide enough information to help a user decide whether to dig further e.g. title, short description<ul>
@@ -617,7 +622,7 @@
 <p>Let’s move discussion to the github: <a href="../fonts/Lato-italic.ttf"><em><a href="https://github.com/frictionlessdata/dpm-py/issues/30">https://github.com/frictionlessdata/dpm-py/issues/30</a></em></a></p>
 <p><em>TODO add these details from the requirement doc</em></p>
 <ul>
-<li><em>Local “Data Package” cache storage (`.datapackages` or similar)</em><ul>
+<li><em>Local “Data Package” cache storage (<code>.datapackages</code> or similar)</em><ul>
 <li><em>Stores copies of packages from Registry</em></li>
 <li><em>Stores new Data Packages the user has created</em></li>
 <li><em>This</em> <a href="../fonts/Lato-boldItalic.ttf"><strong>Ruby lib</strong></a> <em>implements something similar</em></li>
@@ -628,7 +633,7 @@
 <p>As a NodeJS developer I want to use data package as a node lib in my project so that I can depend on it using my normal dependency framework</p>
 <ul>
 <li>See this <a href="../fonts/SourceSansPro-regular.ttf"><em>real-world example</em></a> of this request for country-list</li>
-<li>=> auto-building node package and publishing to npm (not that hard to do …)<ul>
+<li>=&gt; auto-building node package and publishing to npm (not that hard to do …)<ul>
 <li>Convert CSV data to json (that’s what you probably want from node?)</li>
 <li>Generate package.json</li>
 <li>Push to npm (register the dataset users)</li>
@@ -639,7 +644,7 @@
 <li>Yes. Since we need to push to a specific npm user (for each publisher) this will need to be configured (along with authorization - where does that go?)</li>
 </ul>
 </li>
-<li>Is this something done for *all* data packages or does user need to turn something on? Probably want them to turn this on …</li>
+<li>Is this something done for <em>all</em> data packages or does user need to turn something on? Probably want them to turn this on …</li>
 </ul>
 <p>Questions:</p>
 <ul>
@@ -671,10 +676,6 @@
 <p><em>Generic version:</em></p>
 <p><em>As a Data Analyst I want to download a data package, so that I can study it and wrangle with it to infer new data or generate new insights.</em></p>
 <p><em>As a Data Analyst, I want to update previously downloaded data package, so that I can work with the most recent data.</em></p>
-<p>Question:</p>
-<ul>
-<li>Is the version structure would have been problem for the user. As out directory structure is e.g “bits.datapackaged.com/metadata/core/demo-package/_v/latest/*”? If now how to</li>
-</ul>
 <h3 id="import-datapackage-into-pandas">Import DataPackage into Pandas</h3>
 <p>TODO - like R</p>
 <h3 id="sql-sqlite-database">SQL / SQLite database</h3>
@@ -684,7 +685,8 @@
 <li>Why does we need to store datapackage data in sqlite. Is not it better to store in file structure?</li>
 </ul>
 <p>We can store the datapackage like this way:</p>
-<p>~/.datapackage/\&lt;publisher>/\&lt;package>/\&lt;version>/*</p>
+<pre class="highlight"><code class="linenums">~/.datapackage/&lt;publisher&gt;/&lt;package&gt;/&lt;version&gt;/*</code></pre>
+
 <p>This is the way maven/gradle/ivy cache jar locally.</p>
 <h3 id="see-changes-between-versions">See changes between versions</h3>
 <p>As a Data Analyst I want to compare different versions of some datapackage locally, so that I can see schema changes clearly and adjust my analytics code to the desired schema version.</p>
@@ -692,24 +694,24 @@
 <p>As a Web Developer of multiple projects, I want to be able to install multiple versions of the same datapackage separately so that all my projects could be developed independently and deployed locally. (virtualenv-like)</p>
 <p>As a Developer I want to list all DataPackages requirements for my project in the file and pin the exact versions of any DataPackage that my project depends on so that the project can be deterministically deployed locally and won’t break because of the DataPackage schema changes. (requirements.txt-like)</p>
 <h2 id="5-versioning-and-changes-in-data-packages">5. Versioning and Changes in Data Packages</h2>
-<p><em>When we talk about versioning we can mean two things:</em></p>
+<p>When we talk about versioning we can mean two things:</p>
 <ul>
-<li><em>Explicit versioning: this is like the versioning of releases “v1.0” etc. This is conscious and explicit. Main purpose:</em><ul>
-<li>*to support other systems depending on this one (they want the data at a known stable state) *</li>
-<li><em>easy access to major staging points in the evolution (e.g. i want to see how things were at v1)</em></li>
+<li>Explicit versioning: this is like the versioning Of releases “v1.0” etc. This is conscious and explicit. Main purpose:<ul>
+<li>to support other systems depending on this one (they want the data at a known stable state)</li>
+<li>easy access to major staging points in the evolution (e.g. i want to see how things were at v1)</li>
 </ul>
 </li>
-<li><em>Implicit versioning or “revisioning”: this is like the commits in git or the autosave of a word or google doc. It happens frequently, either with minimum effort or even automatically. Main purpose:</em><ul>
-<li><em>Undelete and recovery (you save a every point and can recover if you accidentally write or delete something)</em></li>
-<li><em>Collaboration and merging of changes (in revision control)</em></li>
-<li><em>Activity logging</em></li>
+<li>Implicit versioning or “revisioning”: this is like the commits in git or the autosave of a word or google doc. It happens frequently, either with minimum effort or even automatically. Main purpose:<ul>
+<li>Undelete and recovery (you save a every point and can recover if you accidentally write or delete something)</li>
+<li>Collaboration and merging of changes (in revision control)</li>
+<li>Activity logging</li>
 </ul>
 </li>
 </ul>
 <h3 id="explicit-versioning-publisher">Explicit Versioning - Publisher</h3>
 <p>As a Publisher I want to tag a version of my data on the command line so that … [see so that’s below]</p>
 <p>dpmpy tag {tag-name}</p>
-<p>=> tag current “latest” on the server as {tag-name}</p>
+<p>=&gt; tag current “latest” on the server as {tag-name}</p>
 <ul>
 <li>Do we restrict {tag-name} to semver? I don’t think so atm.</li>
 <li>As a {Publisher} I want to tag datapackage to create a snapshot of data on the registry server, so that consumers can refer to it</li>
@@ -739,14 +741,14 @@
     &gt; +maybe everything else (full field descriptor)</li>
 <li>for any <strong><em>added</em></strong> field - all data (full field descriptor)</li>
 </ul>
-<p><em>A change in schema would correspond to a major version change in software (see</em> <a href="../fonts/SourceSansPro-italic.ttf"><strong><a href="http://semver.org/">http://semver.org/</a>)</strong></a><em>.</em></p>
-<p><em><strong>Concerns about explicit versioning</strong>: we all have experience with consuming data from e.g. government publishers where the publishers change the data schema breaking client code. I am constatnly looking for a policy\mechanism to guide publishers to develop stable schema versioning for the data they produce, and help consumers to get some stability guarantees.</em></p>
+<p>*A change in schema would correspond to a major version change in software (see <a href="http://semver.org/">http://semver.org/</a>)</p>
+<p><em><strong>Concerns about explicit versioning</strong>: we all have experience with consuming data from e.g. government publishers where the publishers change the data schema breaking client code. I am constatnly looking for a policy/mechanism to guide publishers to develop stable schema versioning for the data they produce, and help consumers to get some stability guarantees.</em></p>
 <p><em><strong>Automated versioning / automated tracking</strong>: Explicit versioning relies on the publisher, and humans can forget or not care enough about others. So to help consumers my suggestion would be to always track schema changes of uploaded packages on the server, and allow users to review those changes on the website. (We might even want to implement auto-tagging or not allowing users to upload a package with the same version but a different schema without forcing)</em></p>
 <p>As a {Consumer} I want to get a sense how outdated is the datapackage, that I have downloaded before, so that I can decide if I should update or not.</p>
 <ul>
-<li>I want to preview a DataPackage changelog (list of all available versions\tags with brief info) online, sorted by creation time, so that I can get a sense how data or schema has changed since some time in the past. Important brief info:<ul>
+<li>I want to preview a DataPackage changelog (list of all available versions/tags with brief info) online, sorted by creation time, so that I can get a sense how data or schema has changed since some time in the past. Important brief info:<ul>
 <li>Time when published</li>
-<li>How many rows added\deleted for each resource data</li>
+<li>How many rows added/deleted for each resource data</li>
 <li>What fields(column names) changed, added or deleted for each resource.</li>
 </ul>
 </li>
@@ -755,8 +757,26 @@
 <p>As a {Consumer} I want to download a Data package at a particular version so that I know it is compatible with my scripts and system</p>
 <ul>
 <li>Online: I want to pick the version I want from the list, and download it (as zip for ex.)</li>
-<li>CLI: I want to specify tag or version when using the `install` command.</li>
+<li>CLI: I want to specify tag or version when using the <code>install</code> command.</li>
 </ul>
+<h4 id="know-when-a-package-has-changed-re-caching">Know when a package has changed re caching</h4>
+<p>Excerpted from: <a href="https://github.com/okfn/data.okfn.org-new/issues/7">https://github.com/okfn/data.okfn.org-new/issues/7</a></p>
+<p><em>From @trickvi on June 20, 2013 12:37</em></p>
+<p>I would like to be able to use data.okfn.org as an intermediary between my software and the data packages it uses and be able to quickly check whether there's a new version available of the data (e.g. if I've cached the package on a local machine).</p>
+<p>There are ways to do it with the current setup:</p>
+<ol>
+<li>Download the datapackage.json descriptor file, parse it and get the version there and check it against my local version. Problems:</li>
+<li>This solution relies on humans and that they update their version but there might not be any consistency in it since the data package standard describes the version attribute as: <em>"a version string conforming to the Semantic Versioning requirement"</em></li>
+<li>I have to fetch the whole datapackage.json (it's not big I know but why download all that extra data I might not even want)</li>
+<li>Go around data.okfn.org and look directly at the github repository. Problems:</li>
+<li>I have to find out where the repo is, use git and do a lot of extra stuff (I don't care how the data packages are stored, I just want a simple interface to fetch them)</li>
+<li>What would be the point of data.okfn.org/data? In my mind it collects data packages and provides a consistent interface to get the data packages irrespective of how its stored.</li>
+</ol>
+<p>I propose data.okfn.org provides an internal system to allow users to quickly check whether a new version might be released. This does not have to be an API. We could leverage HTTP's caching mechanism using an ETag header that would contain some hash value. This hash value can e.g. be the the sha value of heads ref objects served via the Github API:</p>
+<pre class="highlight"><code class="linenums">https://api.github.com/repos/datasets/cpi/git/refs/heads/master</code></pre>
+
+<p>Software that works with data packages could then implement a caching strategy and just send a request with an If-None-Match header along with a GET request for datapackage.json to either get a new version of the descriptor (and look at the version in that file) or just serve the data from its cache.</p>
+<p><em>Copied from original issue: frictionlessdata/ideas#51</em></p>
 <h3 id="revisioning-implicit-versioning">Revisioning - Implicit Versioning</h3>
 <p>…</p>
 <h3 id="change-notifications">Change Notifications</h3>
@@ -810,10 +830,6 @@
 </li>
 </ul>
 </li>
-</ul>
-<!-- -->
-
-<ul>
 <li>What data packages to show? All the packages you own.<ul>
 <li>What about pinning? No support for this atm.</li>
 </ul>
