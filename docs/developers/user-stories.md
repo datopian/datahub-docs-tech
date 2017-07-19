@@ -419,15 +419,15 @@ As a Developer I want to list all DataPackages requirements for my project in th
 
 ## 5. Versioning and Changes in Data Packages
 
-*When we talk about versioning we can mean two things:*
+When we talk about versioning we can mean two things:
 
-* *Explicit versioning: this is like the versioning of releases “v1.0” etc. This is conscious and explicit. Main purpose:*
-	* *to support other systems depending on this one (they want the data at a known stable state) *
-	* *easy access to major staging points in the evolution (e.g. i want to see how things were at v1)*
-* *Implicit versioning or “revisioning”: this is like the commits in git or the autosave of a word or google doc. It happens frequently, either with minimum effort or even automatically. Main purpose:*
-	* *Undelete and recovery (you save a every point and can recover if you accidentally write or delete something)*
-	* *Collaboration and merging of changes (in revision control)*
-	* *Activity logging*
+* Explicit versioning: this is like the versioning Of releases “v1.0” etc. This is conscious and explicit. Main purpose:
+	* to support other systems depending on this one (they want the data at a known stable state)
+	* easy access to major staging points in the evolution (e.g. i want to see how things were at v1)
+* Implicit versioning or “revisioning”: this is like the commits in git or the autosave of a word or google doc. It happens frequently, either with minimum effort or even automatically. Main purpose:
+	* Undelete and recovery (you save a every point and can recover if you accidentally write or delete something)
+	* Collaboration and merging of changes (in revision control)
+	* Activity logging
 
 ### Explicit Versioning - Publisher
 
@@ -482,6 +482,34 @@ As a {Consumer} I want to download a Data package at a particular version so tha
 
 * Online: I want to pick the version I want from the list, and download it (as zip for ex.)
 * CLI: I want to specify tag or version when using the `install` command.
+
+#### Know when a package has changed re caching
+
+Excerpted from: https://github.com/okfn/data.okfn.org-new/issues/7
+
+_From @trickvi on June 20, 2013 12:37_
+
+I would like to be able to use data.okfn.org as an intermediary between my software and the data packages it uses and be able to quickly check whether there's a new version available of the data (e.g. if I've cached the package on a local machine).
+
+There are ways to do it with the current setup:
+
+1. Download the datapackage.json descriptor file, parse it and get the version there and check it against my local version. Problems:
+   - This solution relies on humans and that they update their version but there might not be any consistency in it since the data package standard describes the version attribute as: _"a version string conforming to the Semantic Versioning requirement"_
+   - I have to fetch the whole datapackage.json (it's not big I know but why download all that extra data I might not even want)
+2. Go around data.okfn.org and look directly at the github repository. Problems:
+   - I have to find out where the repo is, use git and do a lot of extra stuff (I don't care how the data packages are stored, I just want a simple interface to fetch them)
+   - What would be the point of data.okfn.org/data? In my mind it collects data packages and provides a consistent interface to get the data packages irrespective of how its stored.
+
+I propose data.okfn.org provides an internal system to allow users to quickly check whether a new version might be released. This does not have to be an API. We could leverage HTTP's caching mechanism using an ETag header that would contain some hash value. This hash value can e.g. be the the sha value of heads ref objects served via the Github API:
+
+```
+https://api.github.com/repos/datasets/cpi/git/refs/heads/master
+```
+
+Software that works with data packages could then implement a caching strategy and just send a request with an If-None-Match header along with a GET request for datapackage.json to either get a new version of the descriptor (and look at the version in that file) or just serve the data from its cache.
+
+_Copied from original issue: frictionlessdata/ideas#51_
+
 
 ### Revisioning - Implicit Versioning
 
