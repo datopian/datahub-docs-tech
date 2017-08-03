@@ -1,6 +1,6 @@
 # DataHub API
 
-The DataHub API provides a range of endpoints to interact with the platform. All endpoints live under the URL `https://api.datahub.io` where our API is divided into the following sections: **auth, rawstore, sources, metastore, resolver** 
+The DataHub API provides a range of endpoints to interact with the platform. All endpoints live under the URL `https://api.datahub.io` where our API is divided into the following sections: **auth, rawstore, sources, metastore, resolver**. 
 
 ## Auth
 
@@ -10,13 +10,13 @@ https://github.com/datahq/auth#api
 
 ## Rawstore
 
-DataHub microservice for storing blobs i.e. files. It is a lightweight auth wrapper for an S3-compatible object store that integrates with the rest of the DataHub stack and especially the auth service.
+DataHub microservice for storing blobs i.e. files. It is a lightweight auth wrapper for n S3-compative object store that integrates with the rest of the DataHub stack and especially the auth service.
 
 https://github.com/datahq/bitstore#api
 
 ## Sources
 
-An API server for managing a Source Spec Registry
+An API server for managing a Source Spec Registry.
 
 https://github.com/datahq/specstore#api
 
@@ -28,7 +28,7 @@ https://github.com/datahq/metastore#api
 
 ## Resolver
 
-DataHub microservice for resolving datapackage URLs into more human readable ones
+DataHub microservice for resolving datapackage URLs into more human readable ones.
 
 https://github.com/datahq/resolver#api
  
