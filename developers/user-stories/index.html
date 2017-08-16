@@ -111,7 +111,7 @@
         
             <li><a class="toctree-l4" href="#3-find-and-view-data-packages">3. Find and View Data Packages</a></li>
         
-            <li><a class="toctree-l4" href="#4-install-a-data-package-locally">4. Install a Data Package (locally)</a></li>
+            <li><a class="toctree-l4" href="#4-get-a-data-package-locally">4. Get a Data Package (locally)</a></li>
         
             <li><a class="toctree-l4" href="#5-versioning-and-changes-in-data-packages">5. Versioning and Changes in Data Packages</a></li>
         
@@ -223,21 +223,21 @@
 <li><a href="#stories">Stories</a><ul>
 <li><a href="#1-get-started">1. Get Started</a><ul>
 <li><a href="#1-sign-in-sign-up-done">1. Sign in / Sign up [DONE]</a></li>
-<li><a href="#sign-up-via-github-andor-google">Sign up via github (and/or google)</a></li>
+<li><a href="#sign-up-via-github-andor-google-done">Sign up via github (and/or google) [DONE]</a></li>
 <li><a href="#next-step-after-sign-up">Next Step after Sign Up</a></li>
 <li><a href="#invite-user-to-join-platform">Invite User to Join Platform</a></li>
 </ul>
 </li>
 <li><a href="#2-publish-data-packages">2. Publish Data Packages</a><ul>
-<li><a href="#publish-with-a-client">Publish with a Client</a><ul>
-<li><a href="#configure-client">Configure Client</a></li>
+<li><a href="#publish-with-a-client-done">Publish with a Client [DONE]</a><ul>
+<li><a href="#configure-client-done">Configure Client [DONE]</a></li>
 </ul>
 </li>
-<li><a href="#update-a-data-package">Update a Data Package</a></li>
+<li><a href="#update-a-data-package-done">Update a Data Package [DONE]</a></li>
 <li><a href="#delete-a-data-package">Delete a Data Package</a></li>
 <li><a href="#purge-a-data-package">Purge a Data Package</a></li>
 <li><a href="#validate-data-in-data-package">Validate Data in Data Package</a><ul>
-<li><a href="#validate-in-cli">Validate in CLI</a></li>
+<li><a href="#validate-in-cli-done">Validate in CLI [DONE]</a></li>
 <li><a href="#validate-on-server">Validate on Server</a></li>
 </ul>
 </li>
@@ -248,19 +248,19 @@
 </ul>
 </li>
 <li><a href="#3-find-and-view-data-packages">3. Find and View Data Packages</a><ul>
-<li><a href="#view-a-data-package-online">View a Data Package Online</a></li>
+<li><a href="#view-a-data-package-online-done">View a Data Package Online [DONE]</a></li>
 <li><a href="#preview-a-not-yet-published-data-package-online">(Pre)View a not-yet-published Data Package Online</a></li>
 <li><a href="#see-how-much-a-data-package-is-used-downloaded-2d">See How Much a Data Package is Used (Downloaded) {2d}</a></li>
-<li><a href="#browse-data-packages">Browse Data Packages</a></li>
-<li><a href="#search-for-data-packages">Search for Data Packages</a></li>
+<li><a href="#browse-data-packages-done">Browse Data Packages [DONE]</a></li>
+<li><a href="#search-for-data-packages-done">Search for Data Packages [DONE]</a></li>
 <li><a href="#download-data-package-descriptor">Download Data Package Descriptor</a></li>
 <li><a href="#download-data-package-in-one-file-eg-zip">Download Data Package in One File (e.g. zip)</a></li>
 </ul>
 </li>
-<li><a href="#4-install-a-data-package-locally">4. Install a Data Package (locally)</a><ul>
+<li><a href="#4-get-a-data-package-locally">4. Get a Data Package (locally)</a><ul>
 <li><a href="#use-datapackage-in-node-package-auto-generated">Use DataPackage in Node (package auto-generated)</a></li>
-<li><a href="#import-datapackage-into-r">Import DataPackage into R</a></li>
-<li><a href="#import-datapackage-into-pandas">Import DataPackage into Pandas</a></li>
+<li><a href="#import-datapackage-into-r-done">Import DataPackage into R [DONE?]</a></li>
+<li><a href="#import-datapackage-into-pandas-done">Import DataPackage into Pandas [DONE?]</a></li>
 <li><a href="#sql-sqlite-database">SQL / SQLite database</a></li>
 <li><a href="#see-changes-between-versions">See changes between versions</a></li>
 <li><a href="#low-priority">Low Priority</a></li>
@@ -352,7 +352,7 @@
 </li>
 </ul>
 <p><em><em>TODO: (??) should we do *all</em> of this via the command line client (a la npmjs) *</em></p>
-<h3 id="sign-up-via-github-andor-google">Sign up via github (and/or google)</h3>
+<h3 id="sign-up-via-github-andor-google-done">Sign up via github (and/or google) [DONE]</h3>
 <p>As a Visitor I want to sign up via github or google so that I don’t have to enter lots of information and remember my password for yet another website</p>
 <ul>
 <li>How do we deal with username conflicts? What about publisher name conflicts?<ul>
@@ -379,15 +379,16 @@
 <li><em>Some commonality with Publisher invite member below</em></li>
 </ul>
 <h2 id="2-publish-data-packages">2. Publish Data Packages</h2>
-<h3 id="publish-with-a-client">Publish with a Client</h3>
+<h3 id="publish-with-a-client-done">Publish with a Client [DONE]</h3>
 <p>As a Geek Publisher I want to import (publish) my data package into the registry so my data has a permanent online home so that I and others can have access</p>
 <p>On command line looks like:</p>
-<blockquote>
-<p>cd my/data/package</p>
-<p>dpm publish</p>
-<p>… working …</p>
-<p>SUCCESS</p>
-</blockquote>
+<pre class="highlight"><code class="linenums">$ cd my/data/package
+$ data publish
+
+&gt; … working …
+&gt;
+&gt; SUCCESS</code></pre>
+
 <p>Notes</p>
 <ul>
 <li>Permissions: must be a member of the Publisher<ul>
@@ -401,16 +402,14 @@
 </ul>
 </li>
 </ul>
-<h4 id="configure-client">Configure Client</h4>
+<h4 id="configure-client-done">Configure Client [DONE]</h4>
 <p>As a Geek Publisher I want to configure my client so I can start publishing data packages.</p>
-<p>TODO: check whether we want to use OAUTH.</p>
-<p>TODO: research JWT (JSON Web Tokens)</p>
-<p>Locally in $HOME store store:</p>
+<p>Locally in $HOME store store something like:</p>
 <pre class="highlight"><code class="linenums">.dpm/credentials # stores your API key and user name
 
 .dpm/config      # stores info like your default publisher</code></pre>
 
-<h3 id="update-a-data-package">Update a Data Package</h3>
+<h3 id="update-a-data-package-done">Update a Data Package [DONE]</h3>
 <p>As a Geek Publisher I want to use a publish command to update a data package that is already in the registry so it appears there</p>
 <ul>
 <li>Old version will be lost (!)</li>
@@ -420,9 +419,10 @@
 <h3 id="purge-a-data-package">Purge a Data Package</h3>
 <p>As a Geek Publisher I want to permanently delete (purge) a data package so that it no longer takes up storage space</p>
 <h3 id="validate-data-in-data-package">Validate Data in Data Package</h3>
-<h4 id="validate-in-cli">Validate in CLI</h4>
+<h4 id="validate-in-cli-done">Validate in CLI [DONE]</h4>
 <p>As a Publisher [owner/member] I want to validate the data I am about to publish to the registry so that I publish “good” data and know that I am doing so and do not have to manually check that the published data looks ok (e.g. rendering charts properly) (and if wrong I have to re-upload)</p>
-<p>dpmpy datavalidate [file-path]</p>
+<pre class="highlight"><code class="linenums">data datavalidate [file-path]</code></pre>
+
 <ul>
 <li>[file-path] - run this against a given file. Look in the resources to see if this file is there and if so use the schema. Otherwise just do goodtables table …<ul>
 <li>If no file provided run validate against each resource in turn in the datapackage</li>
@@ -437,7 +437,7 @@
 </ul>
 </li>
 <li>Auto-run this before publish unless explicit suppression (e.g. --skip-datavalidate)</li>
-<li>Use goodtables</li>
+<li>Use goodtables (?)</li>
 </ul>
 <h4 id="validate-on-server">Validate on Server</h4>
 <p>As a Publisher [owner] i want my data to be validated when I publish it so that I know immediately if I have accidentally “broken” my data or have bugs and can take action to correct</p>
@@ -477,7 +477,7 @@
 <h3 id="render-views-in-data-package-in-cli-before-upload">Render (views) in data package in CLI before upload</h3>
 <p>As a Publisher, I want to be able to preview the views (graphs and table (?)) of the current data package using cli prior to publishing so that I can refine the json declarations of datapackage view section to achieve a great looking result.</p>
 <h2 id="3-find-and-view-data-packages">3. Find and View Data Packages</h2>
-<h3 id="view-a-data-package-online">View a Data Package Online</h3>
+<h3 id="view-a-data-package-online-done">View a Data Package Online [DONE]</h3>
 <p><strong>EPIC: As a Consumer I want to view a data package online so I can get a sense of whether this is the dataset I want</strong></p>
 <ul>
 <li><em>Obsess here about “whether this is the dataset I want”</em></li>
@@ -549,7 +549,7 @@
 <p><em>Rufus: also need for an online validation tool</em></p>
 <h3 id="see-how-much-a-data-package-is-used-downloaded-2d">See How Much a Data Package is Used (Downloaded) {2d}</h3>
 <p>As a Consumer i want to see how much the data has been downloaded so that i can choose most popular (=&gt; probably most reliable and complete) in the case when there are several alternatives for my usecase (maybe from different publishers)</p>
-<h3 id="browse-data-packages">Browse Data Packages</h3>
+<h3 id="browse-data-packages-done">Browse Data Packages [DONE]</h3>
 <p>As a potential Publisher, unaware of datapackages, I want to see real examples of published packages (with the contents datapackage.json), so that I can understand how useful and simple is the datapackage format and the registry itself.</p>
 <p>As a Consumer I want to see some example data packages quickly so I get a sense of what is on this site and if it is useful to look further</p>
 <ul>
@@ -559,7 +559,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="search-for-data-packages">Search for Data Packages</h3>
+<h3 id="search-for-data-packages-done">Search for Data Packages [DONE]</h3>
 <p>As a Consumer I want to search data packages so that I can find the ones I want</p>
 <ul>
 <li>Essential question: what is it you want?<ul>
@@ -618,8 +618,8 @@
 <h3 id="download-data-package-in-one-file-eg-zip">Download Data Package in One File (e.g. zip)</h3>
 <p>As a Consumer I want to download the data package in one file so that I don’t have to download descriptor and each resource by hand</p>
 <p><em>Only useful if no cli tool and no install command</em></p>
-<h2 id="4-install-a-data-package-locally">4. Install a Data Package (locally)</h2>
-<p>Let’s move discussion to the github: <a href="../fonts/Lato-italic.ttf"><em><a href="https://github.com/frictionlessdata/dpm-py/issues/30">https://github.com/frictionlessdata/dpm-py/issues/30</a></em></a></p>
+<h2 id="4-get-a-data-package-locally">4. Get a Data Package (locally)</h2>
+<p>Let’s move discussion to the github: *<a href="https://github.com/frictionlessdata/dpm-py/issues/30">https://github.com/frictionlessdata/dpm-py/issues/30</a></p>
 <p><em>TODO add these details from the requirement doc</em></p>
 <ul>
 <li><em>Local “Data Package” cache storage (<code>.datapackages</code> or similar)</em><ul>
@@ -657,7 +657,7 @@
 </ul>
 <p><em>Generic version is:</em></p>
 <p><em>As a Web Developer I want to download a DataPackage (like currency codes or country names) so that I can use it in the web service I am building [...]</em></p>
-<h3 id="import-datapackage-into-r">Import DataPackage into R</h3>
+<h3 id="import-datapackage-into-r-done">Import DataPackage into R [DONE?]</h3>
 <p>As a Consumer [R user] I want to load a Data Package from R so that I can immediately start playing with it</p>
 <ul>
 <li>Should we try and publish to CRAN?<ul>
@@ -676,7 +676,7 @@
 <p><em>Generic version:</em></p>
 <p><em>As a Data Analyst I want to download a data package, so that I can study it and wrangle with it to infer new data or generate new insights.</em></p>
 <p><em>As a Data Analyst, I want to update previously downloaded data package, so that I can work with the most recent data.</em></p>
-<h3 id="import-datapackage-into-pandas">Import DataPackage into Pandas</h3>
+<h3 id="import-datapackage-into-pandas-done">Import DataPackage into Pandas [DONE?]</h3>
 <p>TODO - like R</p>
 <h3 id="sql-sqlite-database">SQL / SQLite database</h3>
 <p>As a Consumer I want to download a DataPackage’s data one coherent SQLite database so that I can get it easily in one form</p>
