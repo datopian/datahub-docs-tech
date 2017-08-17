@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-08-16</lastmod>
+     <lastmod>2017-08-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,55 +13,61 @@
         
     <url>
      <loc>/developers/</loc>
-     <lastmod>2017-08-16</lastmod>
+     <lastmod>2017-08-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/developers/platform/</loc>
-     <lastmod>2017-08-16</lastmod>
+     <lastmod>2017-08-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/developers/deploy/</loc>
-     <lastmod>2017-08-16</lastmod>
+     <lastmod>2017-08-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/developers/api/</loc>
-     <lastmod>2017-08-16</lastmod>
+     <lastmod>2017-08-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/developers/publish/</loc>
-     <lastmod>2017-08-16</lastmod>
+     <lastmod>2017-08-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/developers/views/</loc>
-     <lastmod>2017-08-16</lastmod>
+     <lastmod>2017-08-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/developers/views-research/</loc>
+     <lastmod>2017-08-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/developers/authorization/</loc>
-     <lastmod>2017-08-16</lastmod>
+     <lastmod>2017-08-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/developers/authentication/</loc>
-     <lastmod>2017-08-16</lastmod>
+     <lastmod>2017-08-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/developers/user-stories/</loc>
-     <lastmod>2017-08-16</lastmod>
+     <lastmod>2017-08-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -71,31 +77,31 @@
         
     <url>
      <loc>/publishers/</loc>
-     <lastmod>2017-08-16</lastmod>
+     <lastmod>2017-08-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/publishers/core-datasets/</loc>
-     <lastmod>2017-08-16</lastmod>
+     <lastmod>2017-08-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/publishers/core-data-curators/</loc>
-     <lastmod>2017-08-16</lastmod>
+     <lastmod>2017-08-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/publishers/cli/</loc>
-     <lastmod>2017-08-16</lastmod>
+     <lastmod>2017-08-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/publishers/views/</loc>
-     <lastmod>2017-08-16</lastmod>
+     <lastmod>2017-08-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

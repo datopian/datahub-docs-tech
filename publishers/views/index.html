@@ -84,6 +84,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../../developers/views-research/">Views Research</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../../developers/authorization/">Authorization</a>
                 </li>
                 <li class="">
@@ -124,13 +128,26 @@
             
     <li class="toctree-l3"><a href="#views">Views</a></li>
     
+
+    <li class="toctree-l3"><a href="#introduction">Introduction</a></li>
+    
+
+    <li class="toctree-l3"><a href="#features">Features</a></li>
+    
+
+    <li class="toctree-l3"><a href="#how-it-works">How it works</a></li>
+    
+
+    <li class="toctree-l3"><a href="#examples">Examples</a></li>
+    
         <ul>
         
-            <li><a class="toctree-l4" href="#introduction">Introduction</a></li>
-        
-            <li><a class="toctree-l4" href="#examples-of-using-views">Examples of using views</a></li>
+            <li><a class="toctree-l4" href="#simple-graph-spec">Simple graph spec</a></li>
         
         </ul>
+    
+
+    <li class="toctree-l3"><a href="#more-information">More Information</a></li>
     
 
     </ul>
@@ -178,114 +195,127 @@
             <div class="section">
               
                 <h1 id="views">Views</h1>
+<div class="toc">
 <ul>
-<li><a href="#introduction">Introduction</a><ul>
-<li><a href="#motivation">Motivation</a></li>
-<li><a href="#concepts-and-background">Concepts and Background</a></li>
-</ul>
-</li>
-<li><a href="#examples-of-using-views">Examples of using views</a><ul>
-<li><a href="#simple-graph-spec">Simple graph spec</a></li>
+<li><a href="#views">Views</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#how-it-works">How it works</a></li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#simple-graph-spec">Simple graph spec</a><ul>
 <li><a href="#vega-graphs">Vega graphs</a></li>
 <li><a href="#maps">Maps</a></li>
 <li><a href="#tables-and-transforms">Tables and Transforms</a></li>
 </ul>
 </li>
 </ul>
-<h2 id="introduction">Introduction</h2>
-<h3 id="motivation">Motivation</h3>
-<p>Producers and consumers of data [packages] want to have their data presented in tables and graphs -- "views" on the data.</p>
-<p><em>Why? For a range of reasons -- from simple eyeballing to drawing out key insights.</em></p>
+</li>
+<li><a href="#more-information">More Information</a></li>
+</ul>
+</div>
+<h1 id="introduction">Introduction</h1>
+<p>Producers and consumers of data want to have data presented in tables and graphs -- "views" on the data. They want this for a range of reasons, from simple eyeballing to drawing out key insights,</p>
 <div class="mermaid">
 graph LR
   data[Your Data] --> table[Table]
   data --> grap[Graph]
-
-  classDef implemented fill:lightblue,stroke:#333,stroke-width:4px;
-  class abc implemented;
+  data --> geo[Map]
 </div>
 
-<p>To achieve this we need to provide:</p>
+<p>This guide shows you how you can create beautiful views for your data on the DataHub.</p>
+<h1 id="features">Features</h1>
 <ul>
-<li>A tool-chain to create these views from the data.</li>
-<li>A descriptive language for specifying views such as tables, graphs, map.</li>
+<li>Simple things are simple: adding a bar chart or line chart is fast and easy -- seconds to do and requiring minimal knowledge. Views are created in a simple declarative syntax</li>
+<li>Powerful and extensible: complex and powerful graphing is also powerful.</li>
+<li>Reuse: leverage the power of existing specs like [Vega][] (and tools like Vega and Plotly)</li>
+<li>Transform your data prior to visualization</li>
+<li>Composable: the views spec is independent but composable with other data package specs (and even usable on its own)</li>
 </ul>
-<p>These requirements are addressed through the introduction of Data Package "Views" and associated tooling.</p>
-<div class="mermaid">
-graph LR
+<h1 id="how-it-works">How it works</h1>
+<p>You can add a view for your data simply by describing your view in a simple declarative syntax (in JSON) and then adding to the <code>datapackage.json</code> for your dataset.</p>
+<p>For example, suppose you have data in a csv that looks like this:</p>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>y</th>
+<th>z</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>8</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>9</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<p>Then you could describe your view like this:</p>
+<pre class="highlight"><code class="language-javascript linenums">{
+  &quot;type&quot;: &quot;line&quot;,
+  &quot;group&quot;: &quot;x&quot;,
+  &quot;series&quot;: [ &quot;y&quot;, &quot;z&quot; ]
+}</code></pre>
 
-  subgraph Data Package
-    resource[Resource]
-    view[View]
-    resource -.-> view
-  end
+<p>Finally, you need to connect your view with the underlying data source in the <code>datapackage.json</code></p>
+<pre class="highlight"><code class="linenums">...
+&quot;resources&quot;: [{
+    &quot;name&quot;: &quot;mydata&quot;
+    &quot;path&quot;: &quot;mydata.csv&quot;,
+    &quot;schema&quot;: ... schema for the 
+}]
+views: [{
+    &quot;name&quot;: &quot;graph-1&quot;,
+    &quot;title&quot;: &quot;My awesome view&quot;
 
-  view --> toolchain
-  toolchain --> svg["Rendered Graph (SVG)"]
-  toolchain --> table[Table]
-</div>
+    // the data to connect to this view
+    &quot;resources&quot;: [&quot;mydata&quot;]
 
-<p>We take a "running code" approach -- as in the rest of the Frictionless Data effort. We develop the spec by building a working implementation, and iterate around the spec as we develop. As development progresses the spec crystallizes and becomes ever less subject to change.</p>
-<p>Our current implementation efforts focus on provide javascript tools and building a data package registry (DPR).</p>
-<h3 id="concepts-and-background">Concepts and Background</h3>
-<p>To generate visualizations you usually want the following 3 types of information:</p>
-<ul>
-<li>metadata: e.g. title of graph, credits etc</li>
-<li>graph: description / specification of the graph itself</li>
-<li>data: specification of data sources for the graph including location and key metadata like types</li>
-</ul>
-<p>The data spec itself often consists of three distinct parts:</p>
-<ul>
-<li>"raw / graph data": a spec / description of data exactly in the form needed by the visualization system. This is often a very well defined spec e.g. an array of series.</li>
-<li>locate/describe: a spec of where to get data from e.g. <code>url</code> or <code>data</code> attribute plus some information on that data such as format and types.</li>
-<li>transform: a spec of how transform external data prior to use e.g. pivoting or filtering it</li>
-</ul>
-<p>From this description it should be clear that the latter two data specs -- locate/describe and transform -- are actually generic and independent of the specific graphing library. The only thing the graphing library really needs is a clear description of the "raw" format which it directly consumes. Thus, we can consider a natural grouping of specs as:</p>
-<ul>
-<li>general-metadata - e.g. title of graph, credits etc [provided by e.g. Data Package / define yourself!]</li>
-<li>data: sourcing and transform [provided by e.g. Data Resource]<ul>
-<li>sourcing: how to source data from external sources</li>
-<li>transform: how to transform data e.g. pivot it, select one field, scale a field etc</li>
-</ul>
-</li>
-<li>graph description / specification [provided by e.g. Vega]<ul>
-<li>graph data (raw): data as directly consumed by graph spec (usually JSON based if we are talking about JS web-based visualization)</li>
-</ul>
-</li>
-</ul>
-<p>However, in many visualization tools -- including specs like Vega -- these items are combined together. This is understandable as these tools seek to off users a "complete solution". However, <strong>decoupling these parts and having clearly defined interfaces would offer significant benefits</strong>:</p>
-<ul>
-<li>Extensibility: it would be easier to extend and adapt the system. For example, adding new data import options could be done without changing the graph system.</li>
-<li>Composability: we can combine different parts together in different ways. For example, data import and transformation could be used for generating data for tabular display as well as graphing.</li>
-<li>Reusability: we want to reuse existing tools and specifications wherever possible. If we keep the specs relatively separate we can reuse the best spec for each job.</li>
-<li>Reliability: when the system is decoupled it is easier to test and check.</li>
-</ul>
-<p>In summary, a smaller pieces, loosely joined makes it easier to adapt and evolve the specs and the associated tooling.</p>
-<h2 id="examples-of-using-views">Examples of using views</h2>
+    // specType here is optional as simple is the default
+    &quot;specType&quot;: &quot;simple&quot;
+    &quot;spec&quot;: {
+        &quot;type&quot;: &quot;line&quot;,
+        &quot;group&quot;: &quot;x&quot;,
+        &quot;series&quot;: [ &quot;y&quot;, &quot;z&quot; ]
+    }
+}}</code></pre>
+
+<p>To learn more see the examples live examples below.</p>
+<h1 id="examples">Examples</h1>
 <p>In this section, examples of using Data Package views are provided. Each example has a README section with small tutorial.</p>
-<h3 id="simple-graph-spec">Simple graph spec</h3>
+<h2 id="simple-graph-spec">Simple graph spec</h2>
 <p>Simple graph spec is the easiest and quickest way to specify a view in a Data Package. Using simple graph spec publishers can generate graphs, e.g., line and bar charts.</p>
 <ul>
-<li><a href="https://staging.datapackaged.com/examples/simple-graph-spec">Simple Graph Spec Tutorial</a></li>
+<li><a href="https://datahub.io/examples/simple-graph-spec)">Simple Graph Spec Tutorial</a></li>
 </ul>
 <h3 id="vega-graphs">Vega graphs</h3>
 <p>Publishers can also describe graphs using Vega specifications:</p>
 <ul>
-<li><a href="https://staging.datapackaged.com/examples/vega-views-tutorial-grouping">Vega Graph Spec Tutorial - Yields of Barley</a></li>
-<li><a href="https://staging.datapackaged.com/examples/vega-views-tutorial-lines">Vega Graph Spec Tutorial - US presidents</a></li>
-<li><a href="https://staging.datapackaged.com/examples/vega-views-tutorial-topojson">Vega Graph Spec Tutorial - US Airports</a></li>
+<li><a href="https://datahub.io/examples/vega-views-tutorial-grouping">Vega Graph Spec Tutorial - Yields of Barley</a></li>
+<li><a href="https://datahub.io/examples/vega-views-tutorial-lines">Vega Graph Spec Tutorial - US presidents</a></li>
+<li><a href="https://datahub.io/examples/vega-views-tutorial-topojson">Vega Graph Spec Tutorial - US Airports</a></li>
 </ul>
 <h3 id="maps">Maps</h3>
 <p>At the moment, we only support <code>.geojson</code> format:</p>
 <ul>
-<li><a href="https://staging.datapackaged.com/examples/geojson-tutorial">GeoJSON Tutorial</a></li>
+<li><a href="https://datahub.io/examples/geojson-tutorial">GeoJSON Tutorial</a></li>
 </ul>
 <h3 id="tables-and-transforms">Tables and Transforms</h3>
 <p>In the following examples, we demonstrate how transforms can be used in Data Package views. Transformed data will be displayed as table views.</p>
 <ul>
-<li><a href="https://staging.datapackaged.com/examples/transform-examples-on-co2-fossil-global">Filter &amp; Formula</a></li>
-<li><a href="https://staging.datapackaged.com/examples/example-sample-transform-on-currency-codes">Sample</a></li>
-<li><a href="https://staging.datapackaged.com/examples/transform-example-gdp-uk">Aggregate</a></li>
+<li><a href="https://datahub.io/examples/transform-examples-on-co2-fossil-global">Filter &amp; Formula</a></li>
+<li><a href="https://datahub.io/examples/example-sample-transform-on-currency-codes">Sample</a></li>
+<li><a href="https://datahub.io/examples/transform-example-gdp-uk">Aggregate</a></li>
+</ul>
+<h1 id="more-information">More Information</h1>
+<ul>
+<li><a href="../../developers/views/">Details of how the tooling works are in Views Developer guide</a></li>
+<li><a href="https://specs.frictionlessdata.io/views/">Views spec (draft)</a></li>
 </ul>
               
             </div>

@@ -85,14 +85,33 @@
             
     <li class="toctree-l3"><a href="#views">Views</a></li>
     
+
+    <li class="toctree-l3"><a href="#the-tool-chain">The Tool Chain</a></li>
+    
         <ul>
         
-            <li><a class="toctree-l4" href="#links">Links</a></li>
+            <li><a class="toctree-l4" href="#graphs">Graphs</a></li>
+        
+            <li><a class="toctree-l4" href="#geo-support">Geo support</a></li>
+        
+            <li><a class="toctree-l4" href="#table-support">Table support</a></li>
+        
+            <li><a class="toctree-l4" href="#summary">Summary</a></li>
         
         </ul>
     
 
+    <li class="toctree-l3"><a href="#views-in-the-showcase">Views in the Showcase</a></li>
+    
+
+    <li class="toctree-l3"><a href="#appendix">Appendix</a></li>
+    
+
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../views-research/">Views Research</a>
                 </li>
                 <li class="">
                     
@@ -176,7 +195,128 @@
             <div class="section">
               
                 <h1 id="views">Views</h1>
+<p>Pproducers and consumers of data want to have data presented in tables and graphs -- "views" on the data. They want this for a range of reasons, from simple eyeballing to drawing out key insights.</p>
+<div class="mermaid">
+graph LR
+  data[Your Data] --> table[Table]
+  data --> grap[Graph]
+  data --> geo[Map]
+</div>
+
+<p>To achieve this we need to provide:</p>
+<ul>
+<li>A tool-chain to create these views from the data.</li>
+<li>A descriptive language for specifying views such as tables, graphs, map.</li>
+</ul>
+<p>These requirements are addressed through the introduction of Data Package "Views" and associated tooling.</p>
+<div class="mermaid">
+graph LR
+
+  subgraph Data Package
+    resource[Resource]
+    view[View]
+    resource -.-> view
+  end
+
+  view --> toolchain
+  toolchain --> svg["Rendered Graph (SVG)"]
+  toolchain --> table[Table]
+  toolchain --> map[Map]
+</div>
+
+<p>This section describes the details of how we support <a href="../../publishers/views/">Data Package Views</a> in the DataHub.</p>
+<p>It consists of two parts, the first describes the general tool chain we have. The second part describes how we use that to generate graphs in the showcase page.</p>
+<p><strong>Quick Links</strong></p>
+<ul>
+<li><a href="../../publishers/views/">Data Package Views introduction and spec</a></li>
+<li><a href="https://github.com/frictionlessdata/datapackage-render-js">datapackage-render-js</a> - this is the library that implements conversion from the data package views spec to vega/plotly and then svg or png</li>
+</ul>
+<p><strong>Table of Contents</strong></p>
+<div class="toc">
+<ul>
+<li><a href="#views">Views</a></li>
+<li><a href="#the-tool-chain">The Tool Chain</a><ul>
+<li><a href="#graphs">Graphs</a></li>
+<li><a href="#geo-support">Geo support</a></li>
+<li><a href="#table-support">Table support</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+</li>
+<li><a href="#views-in-the-showcase">Views in the Showcase</a></li>
+<li><a href="#appendix">Appendix</a></li>
+</ul>
+</div>
+<h1 id="the-tool-chain">The Tool Chain</h1>
+<p><strong><em>Figure 1: From Data Package View Spec to Rendered output</em></strong></p>
+<div class="mermaid">
+graph TD
+  pre[Pre-cursor views e.g. Recline] --bespoke conversions--> dpv[Data Package Views]
+  dpv --"normalize (correct any variations and ensure key fields are present)"--> dpvn["Data Package Views<br />(Normalized)"]
+  dpvn --"compile in resource & data ([future] do transforms)"--> dpvnd["Self-Contained View<br />(All data and schema inline)"]
+  dpvnd --compile to native spec--> plotly[Plotly Spec]
+  dpvnd --compile to native spec--> vega[Vega Spec]
+  plotly --render--> html[svg/png/etc]
+  vega --render--> html
+</div>
+
+<p><strong>IMPORTANT</strong>: an important "convention" we adopt for the "compiling-in" of data is that resource data should be inlined into an <code>_values</code> attribute. If the data is tabular this attribute should be an array of <em>arrays</em> (not objects).</p>
+<h2 id="graphs">Graphs</h2>
+<p><strong><em>Figure 2: Conversion paths</em></strong></p>
+<div class="mermaid">
+graph LR
+  inplotly["Plotly DP Spec"] --> plotly[Plotly JSON]
+  simple[Simple Spec] --> plotly
+  simple .-> vega[Vega JSON]
+  invega[Vega DP Spec] --> vega
+  vegalite[Vega Lite DP Spec] --> vega
+  recline[Recline] .-> simple
+  plotly --plotly lib--> svg[SVG / PNG]
+  vega --vega lib--> svg
+
+  classDef implemented fill:lightblue,stroke:#333,stroke-width:4px;
+  class recline,simple,plotly,svg,inplotly,invega,vega implemented;
+</div>
+
+<p>Notes:</p>
+<ul>
+<li>Implemented paths are shown in lightblue - code for this is in <a href="https://github.com/frictionlessdata/datapackage-render-js">datapackage-render-js</a></li>
+<li>Left-most column (Recline): pre-specs that we can convert to our standard specs</li>
+<li>Second-from-left column: DP View spec types.</li>
+<li>Second-from-right column: the graphing libraries we can use (which all output to SVG)</li>
+</ul>
+<h2 id="geo-support">Geo support</h2>
+<p><strong>Note</strong>: support for customizing map is limited to JS atm - there is no real map "spec" in JSON yet beyond the trivial version.</p>
+<p><strong>Note</strong>: vega has some geo support but geo here means full geojson style mapping.</p>
+<div class="mermaid">
+graph LR
+
+  geo[Geo Resource] --> map
+  map[Map Spec] --> leaflet[Leaflet]
+
+  classDef implemented fill:lightblue,stroke:#333,stroke-width:4px;
+  class geo,map,leaflet implemented;
+</div>
+
+<h2 id="table-support">Table support</h2>
+<div class="mermaid">
+graph LR
+  resource[Tabular Resource] --> table
+  table[Table Spec] --> handsontable[HandsOnTable]
+  table --> html[Simple HTML Table]
+
+  classDef implemented fill:lightblue,stroke:#333,stroke-width:4px;
+  class resource,table,handsontable implemented;
+</div>
+
+<h2 id="summary">Summary</h2>
+<p><strong><em>Figure 3: From Data Package View to Rendered output flow (richer version of diagram 1)</em></strong></p>
+<p><img src="https://docs.google.com/drawings/d/1M_6Vcal4PPSHpuKpzJQGvRUbPb5yeaAdRHomIIbfnlY/pub?w=790&h=1402" /></p>
+<h1 id="views-in-the-showcase">Views in the Showcase</h1>
 <p>To render Data Packages in browsers we use DataHub views written in JavaScript. The module implemented in ReactJS framework and it can render tables, maps and various graphs using third-party libraries.</p>
+<p>Implementing code can be found in:</p>
+<ul>
+<li><a href="https://github.com/frictionlessdata/dpr-js">dpr-js repo</a> - which in turn depends on <a href="https://github.com/frictionlessdata/datapackage-render-js">datapackage-render-js</a></li>
+</ul>
 <div class="mermaid">
   graph TD
 
@@ -206,12 +346,8 @@
 </div>
 
 <p>Notice that DataHub views render a table view per tabular resource. If GeoJSON resource is given, it renders a map. Graph views should be specified in <code>views</code> property of a Data Package.</p>
-<h2 id="links">Links</h2>
-<ul>
-<li><a href="https://github.com/frictionlessdata/dpr-js">dpr-js repo</a></li>
-<li><a href="https://github.com/frictionlessdata/datapackage-render-js">datapackage-render-js</a></li>
-<li><a href="https://hackmd.io/JwEwjGDMCGBMsFoBsAWAHJBLhmggRgAzCbDDRkgCsAZgKaw35A==">views specification and analysis</a></li>
-</ul>
+<h1 id="appendix">Appendix</h1>
+<p>There is a separate page with <a href="../../developers/views-research/">additional research material regarding views specification and tooling</a>.</p>
               
             </div>
           </div>
@@ -219,7 +355,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../authorization/" class="btn btn-neutral float-right" title="Authorization">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../views-research/" class="btn btn-neutral float-right" title="Views Research">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../publish/" class="btn btn-neutral" title="Publish"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -253,7 +389,7 @@
         <span><a href="../publish/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../authorization/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../views-research/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

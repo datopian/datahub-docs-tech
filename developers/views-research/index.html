@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Views Research - DataHub</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/marmaid.css" rel="stylesheet">
+  <link href="../../css/main.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Views Research";
+    var mkdocs_page_input_path = "developers/views-research.md";
+    var mkdocs_page_url = "/developers/views-research/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> DataHub</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Developers</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../platform/">Platform</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../deploy/">Deploy</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api/">API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../publish/">Publish</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../views/">Views</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Views Research</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#views-research">Views Research</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#simple-views-faq">Simple Views - FAQ</a></li>
+        
+            <li><a class="toctree-l4" href="#recline-views">Recline Views</a></li>
+        
+            <li><a class="toctree-l4" href="#analysis-of-vis-libraries-graph-specs">Analysis of Vis libraries Graph Specs</a></li>
+        
+            <li><a class="toctree-l4" href="#analysis-of-vis-libraries-data-objects">Analysis of Vis libraries data objects</a></li>
+        
+            <li><a class="toctree-l4" href="#appendix-plotly-graph-spec-research">Appendix: Plotly Graph spec research</a></li>
+        
+            <li><a class="toctree-l4" href="#data-transform-research">Data Transform Research</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../authorization/">Authorization</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../authentication/">Authentication</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../user-stories/">User Stories</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Publishers</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../publishers/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../publishers/core-datasets/">Core Datasets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../publishers/core-data-curators/">Core Data Curators</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../publishers/cli/">CLI</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../publishers/views/">Views</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">DataHub</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Developers &raquo;</li>
+        
+      
+    
+    <li>Views Research</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/datahq/docs/edit/master/docs/developers/views-research.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="views-research">Views Research</h1>
+<div class="toc">
+<ul>
+<li><a href="#views-research">Views Research</a><ul>
+<li><a href="#simple-views-faq">Simple Views - FAQ</a><ul>
+<li><a href="#why-not-vega-lite">Why not vega-lite?</a></li>
+<li><a href="#why-not-this-alternative-series-notation">Why not this alternative series notation:</a></li>
+</ul>
+</li>
+<li><a href="#recline-views">Recline Views</a><ul>
+<li><a href="#type-attribute">"type" attribute</a></li>
+<li><a href="#state-attribute">"state" attribute</a></li>
+<li><a href="#example-of-the-views-attribute">Example of the views attribute:</a></li>
+</ul>
+</li>
+<li><a href="#analysis-of-vis-libraries-graph-specs">Analysis of Vis libraries Graph Specs</a></li>
+<li><a href="#analysis-of-vis-libraries-data-objects">Analysis of Vis libraries data objects</a><ul>
+<li><a href="#vega">Vega</a><ul>
+<li><a href="#remote-data">Remote Data</a></li>
+</ul>
+</li>
+<li><a href="#vega-lite">Vega-Lite</a></li>
+<li><a href="#plotly">Plotly</a><ul>
+<li><a href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#appendix-plotly-graph-spec-research">Appendix: Plotly Graph spec research</a></li>
+<li><a href="#data-transform-research">Data Transform Research</a><ul>
+<li><a href="#plotly-transforms">Plotly Transforms</a></li>
+<li><a href="#vega-transforms">Vega Transforms</a><ul>
+<li><a href="#filtering">Filtering</a></li>
+<li><a href="#geopath-aggregate-lookup-filter-sort-voronoi-and-linkpath">Geopath, aggregate, lookup, filter, sort, voronoi and linkpath</a></li>
+<li><a href="#further-research-on-vega-transforms">Further research on Vega transforms</a></li>
+<li><a href="#old-analysis">Old analysis</a></li>
+</ul>
+</li>
+<li><a href="#dp-pipelines-transforms">DP Pipelines transforms</a><ul>
+<li><a href="#concatenate">concatenate</a></li>
+<li><a href="#join">join</a></li>
+</ul>
+</li>
+<li><a href="#vega-dataflow-usage-for-dp-views">Vega Dataflow usage for DP views</a><ul>
+<li><a href="#aggregate-example">Aggregate example</a></li>
+<li><a href="#filter-example">Filter example</a></li>
+<li><a href="#formula-example">Formula example</a></li>
+<li><a href="#sample-example">Sample example</a></li>
+</ul>
+</li>
+<li><a href="#suggestion-on-usage-from-datapackagejson">Suggestion on usage from datapackage.json</a><ul>
+<li><a href="#aggregate">Aggregate</a></li>
+<li><a href="#filter">Filter</a></li>
+<li><a href="#formula">Formula</a></li>
+<li><a href="#sample">Sample</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="simple-views-faq">Simple Views - FAQ</h2>
+<h3 id="why-not-vega-lite">Why not vega-lite?</h3>
+<ul>
+<li>vega-lite multiple lines approach is a bit weird and counter-intuitive. This matters as this is very common.</li>
+<li>overall vega-lite retains too much complexity.</li>
+</ul>
+<p>Vega-lite line example:</p>
+<pre class="highlight"><code class="language-javascript linenums">{
+  &quot;mark&quot;: &quot;line&quot;,
+  &quot;encoding&quot;: {
+    &quot;x&quot;: {&quot;field&quot;: &quot;Date&quot;, &quot;type&quot;: &quot;temporal&quot;},
+    &quot;y&quot;: {&quot;field&quot;: &quot;VIXClose&quot;, &quot;type&quot;: &quot;quantitative&quot;}
+  }
+}</code></pre>
+
+<h3 id="why-not-this-alternative-series-notation">Why not this alternative series notation:</h3>
+<pre class="highlight"><code class="linenums">  series: [[&quot;x&quot;, &quot;y&quot;], [&quot;x&quot;, &quot;z&quot;]]</code></pre>
+
+<ul>
+<li>pros: explicit about the series ... </li>
+<li>pros: you can plot two different series with different x values (as long as they have some commonality ... )</li>
+<li>cons: more verbose.</li>
+<li>cons: 2nd multiple x values point is actually confusing for most users ... (?)</li>
+</ul>
+<p>Simplicity is crucial here so those cons outweight the pros.</p>
+<h2 id="recline-views">Recline Views</h2>
+<p>To specify a Recline view, it must have <code>type</code> and <code>state</code> attributes. </p>
+<h3 id="type-attribute"><code>"type"</code> attribute</h3>
+<blockquote>
+<p>We used to use this attribute to identify what graph type we need: plotyl or vega-lite. I suppose it should be used for something else. Right now, if <code>"type"</code> attribute  is set to <code>vega-lite</code>, we render vega-lite chart. In all other cases we render plotly chart.</p>
+</blockquote>
+<h3 id="state-attribute"><code>"state"</code> attribute</h3>
+<p><code>"state"</code> attribute must be an object and have <code>"graphType"</code>, <code>"group"</code> and <code>"series"</code> attributes.</p>
+<p><code>"graphType"</code> indicates type of the chart - line chart, bar chart, etc. Value must be a string.</p>
+<p><code>"group"</code> is used to specify base axis - right now it is used as abscissa. It must be a string that is usually a primary key in a resource.</p>
+<p><code>"series"</code> is used to specify ordinate - it must be an array of string elements. Each element represents a field name.</p>
+<h3 id="example-of-the-views-attribute">Example of the <code>views</code> attribute:</h3>
+<pre class="highlight"><code class="linenums">&quot;views&quot;: [
+    {
+      &quot;type&quot;: &quot;Graph&quot;,
+      &quot;state&quot;: {
+        &quot;graphType&quot;: &quot;lines&quot;,
+        &quot;group&quot;: &quot;date&quot;,
+        &quot;series&quot;: [ &quot;autumn&quot; ]
+      }
+    }
+  ]</code></pre>
+
+<h2 id="analysis-of-vis-libraries-graph-specs">Analysis of Vis libraries Graph Specs</h2>
+<p>TODO. Plotly partially covered below.</p>
+<h2 id="analysis-of-vis-libraries-data-objects">Analysis of Vis libraries data objects</h2>
+<p>Focus on "inline" data structure - i.e. data structure in memory.</p>
+<p>Motivation for this: need to generate this data structure.</p>
+<h3 id="vega">Vega</h3>
+<p>See: <a href="https://github.com/vega/vega/wiki/Data#examples">https://github.com/vega/vega/wiki/Data#examples</a></p>
+<p>Data structure is standard "array of objects":</p>
+<pre class="highlight"><code class="language-javascript linenums">[
+  {&quot;x&quot;:0, &quot;y&quot;:3},
+  {&quot;x&quot;:1, &quot;y&quot;:5}
+]
+
+// note in Vega docs it is put as ...
+[{&quot;x&quot;:0, &quot;y&quot;:3}, {&quot;x&quot;:1, &quot;y&quot;:5}]</code></pre>
+
+<p>Also supports simple array of values <code>[1,2,3]</code> which is implicitly mapped to:</p>
+<pre class="highlight"><code class="language-javascript linenums">[
+  { &quot;data&quot;: 1 },
+  { &quot;data&quot;: 2 },
+  { &quot;data&quot;: 3 }
+]</code></pre>
+
+<p>Note that internally vega adds <code>_id</code> to all rows as a unique identifier (cf pandas).</p>
+<pre class="highlight"><code class="language-javascript linenums">// this input
+[{&quot;x&quot;:0, &quot;y&quot;:3}, {&quot;x&quot;:1, &quot;y&quot;:5}]
+
+// internally becomes
+[{&quot;_id&quot;:0, &quot;x&quot;:0, &quot;y&quot;:3}, {&quot;_id&quot;:1, &quot;x&quot;:1, &quot;y&quot;:5}]</code></pre>
+
+<p>You can also add a <code>name</code> attribute to name the data table and then the data is put in <code>values</code>:</p>
+<pre class="highlight"><code class="linenums">{
+  &quot;name&quot;: &quot;table&quot;,
+  &quot;values&quot;: [12, 23, 47, 6, 52, 19]
+}</code></pre>
+
+<p>Finally, inside the overall vega spec you put the data inside a <code>data</code> property:</p>
+<pre class="highlight"><code class="linenums">{
+  &quot;width&quot;: 400,
+  &quot;height&quot;: 200,
+  &quot;padding&quot;: {&quot;top&quot;: 10, &quot;left&quot;: 30, &quot;bottom&quot;: 30, &quot;right&quot;: 10},
+  &quot;data&quot;: [
+    {
+      &quot;name&quot;: &quot;table&quot;,
+      &quot;values&quot;: [
+        {&quot;x&quot;: 1,  &quot;y&quot;: 28}, {&quot;x&quot;: 2,  &quot;y&quot;: 55},
+                ...</code></pre>
+
+<p>See <a href="https://vega.github.io/vega-editor/?mode=vega">https://vega.github.io/vega-editor/?mode=vega</a></p>
+<h4 id="remote-data">Remote Data</h4>
+<p>Looks like a lot like Resource. Assume that data is mapped to inline structure</p>
+<h3 id="vega-lite">Vega-Lite</h3>
+<p><a href="https://vega.github.io/vega-lite/docs/data.html">https://vega.github.io/vega-lite/docs/data.html</a></p>
+<p>Same as Vega except that:</p>
+<ul>
+<li><code>data</code> is an object not an array -- only one data source allowed<ul>
+<li>Will be given the name <code>source</code> when converting to Vega</li>
+</ul>
+</li>
+<li>Only one property allowed: <code>values</code><ul>
+<li>And for remote data: <code>url</code> and <code>format</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="plotly">Plotly</h3>
+<p><a href="http://help.plot.ly/json-chart-schema/">http://help.plot.ly/json-chart-schema/</a>
+<a href="https://plot.ly/javascript/reference/">https://plot.ly/javascript/reference/</a></p>
+<p>The Plotly model does not separate the data out quite as cleanly as vega does. The structure for Plotly json specs is as follows:</p>
+<ul>
+<li>Oriented around "series"</li>
+<li>Each series includes its data <strong>plus</strong> the spec for the graph<ul>
+<li>The data is stored in two attributes <code>x</code> and <code>y</code></li>
+</ul>
+</li>
+<li>Separate <code>layout</code> property giving overall layout (e.g. margins, titles etc)</li>
+</ul>
+<p>To give a sense of how it works this is the JS for creating a Plotly graph:</p>
+<pre class="highlight"><code class="language-javascript linenums">Plotly.plot('graphDiv', data, layout);</code></pre>
+
+<h4 id="examples">Examples</h4>
+<p>From <a href="http://help.plot.ly/json-chart-schema/">http://help.plot.ly/json-chart-schema/</a> and links therein:</p>
+<pre class="highlight"><code class="language-javascript linenums">{
+    &quot;data&quot;: [
+        {
+            &quot;x&quot;: [
+                &quot;giraffes&quot;, 
+                &quot;orangutans&quot;, 
+                &quot;monkeys&quot;
+            ], 
+            &quot;y&quot;: [
+                20, 
+                14, 
+                23
+            ], 
+            &quot;type&quot;: &quot;bar&quot;
+        }
+    ]
+}</code></pre>
+
+<pre class="highlight"><code class="language-javascript linenums">[
+  {
+    &quot;name&quot;: &quot;SF Zoo&quot;,
+    &quot;marker&quot;: {
+      &quot;color&quot;: &quot;rgba(55, 128, 191, 0.6)&quot;,
+      &quot;line&quot;: {
+        &quot;color&quot;: &quot;rgba(55, 128, 191, 1.0)&quot;,
+        &quot;width&quot;: 1
+      }
+    },
+    &quot;y&quot;: [
+      &quot;giraffes&quot;,
+      &quot;orangutans&quot;,
+      &quot;monkeys&quot;
+    ],
+    &quot;x&quot;: [
+      20,
+      14,
+      23
+    ],
+    &quot;type&quot;: &quot;bar&quot;,
+    &quot;orientation&quot;: &quot;h&quot;,
+    &quot;uid&quot;: &quot;a4a45d&quot;
+  },
+  {
+    &quot;name&quot;: &quot;LA Zoo&quot;,
+    &quot;marker&quot;: {
+      &quot;color&quot;: &quot;rgba(255, 153, 51, 0.6)&quot;,
+      &quot;line&quot;: {
+        &quot;color&quot;: &quot;rgba(255, 153, 51, 1.0)&quot;,
+        &quot;width&quot;: 1
+      }
+    },
+    &quot;y&quot;: [
+      &quot;giraffes&quot;,
+      &quot;orangutans&quot;,
+      &quot;monkeys&quot;
+    ],
+    &quot;x&quot;: [
+      12,
+      18,
+      29
+    ],
+    &quot;type&quot;: &quot;bar&quot;,
+    &quot;orientation&quot;: &quot;h&quot;,
+    &quot;uid&quot;: &quot;d912bc&quot;
+  }
+]</code></pre>
+
+<h2 id="appendix-plotly-graph-spec-research">Appendix: Plotly Graph spec research</h2>
+<p>We would like users to be able to use Plotly JSON chart schema in their Data Package Views specs so they can take full advantage of Plotly's capabilities.</p>
+<p>Here's an example - <a href="https://plot.ly/~Dreamshot/8259/">https://plot.ly/~Dreamshot/8259/</a></p>
+<pre class="highlight"><code class="language-javascript linenums">{
+    &quot;data&quot;: [
+        {
+            &quot;name&quot;: &quot;Col2&quot;, 
+            &quot;uid&quot;: &quot;babced&quot;, 
+            &quot;fillcolor&quot;: &quot;rgb(224, 102, 102)&quot;, 
+            &quot;y&quot;: [
+                &quot;17087182&quot;, 
+                &quot;29354370&quot;, 
+                &quot;38760373&quot;, 
+                &quot;40912332&quot;, 
+            ], 
+            &quot;x&quot;: [
+                &quot;2000-01-01&quot;, 
+                &quot;2001-01-01&quot;, 
+                &quot;2002-01-01&quot;, 
+                &quot;2003-01-01&quot;, 
+            ], 
+            &quot;fill&quot;: &quot;tonexty&quot;, 
+            &quot;type&quot;: &quot;scatter&quot;, 
+            &quot;mode&quot;: &quot;none&quot;
+        }
+    ], 
+    &quot;layout&quot;: {
+        &quot;autosize&quot;: false, 
+        &quot;yaxis&quot;: {
+            &quot;range&quot;: [
+                0, 
+                1124750578.9473684
+            ], 
+            &quot;type&quot;: &quot;linear&quot;, 
+            &quot;autorange&quot;: true, 
+            &quot;title&quot;: &quot;&quot;
+        }, 
+        &quot;title&quot;: &quot;Total Number of Websites&quot;, 
+        &quot;height&quot;: 500, 
+        &quot;width&quot;: 800, 
+        &quot;xaxis&quot;: {
+            &quot;tickformat&quot;: &quot;%Y&quot;, 
+            &quot;title&quot;: &quot;...&quot;, 
+            &quot;showgrid&quot;: false, 
+            &quot;range&quot;: [
+                946702800000, 
+                1451624400000
+            ], 
+            &quot;type&quot;: &quot;date&quot;, 
+            &quot;autorange&quot;: true
+        }
+    }
+}</code></pre>
+
+<p>So, the major requirement will be link the plotly data structure with an external data resources in the Data Package View.</p>
+<p><strong>Key point:  Plotly data is of form:</strong></p>
+<pre class="highlight"><code class="language-javascript linenums">data: [
+    {
+      &quot;name&quot;: ...
+      x: [...]
+      y: [...],
+      z: [...] // optional
+    },
+    ...
+  ]
+}</code></pre>
+
+<p>We just need a way to bind these ... </p>
+<pre class="highlight"><code class="language-javascript linenums">data: [
+    {
+      name: // by convention this must match the resource - if that is not possible use resource
+      resource: .... // only if name cannot match resource
+      x: &quot;field name ...&quot;  // if this is a string not an array then look it up in the resource ...
+      y: &quot;field name ...&quot;
+      z: &quot;field name ...&quot;
+    },
+    ...
+  ]
+}</code></pre>
+
+<p><em>Using this approach we would support most of Basic, Statistical and 3D charts of Plotly library. We would not support pie chart (labels, values), maps ...</em></p>
+<blockquote>
+<p><strong>Data manipulations -- not supported</strong></p>
+<p>In some examples of Plotly there are manipulations (e.g. filtering) on the raw data. As this is done in Javascript outside of Plotly JSON language we would not be able to support this.</p>
+</blockquote>
+<p>In the <code>plotlyToPlotly</code> function:</p>
+<pre class="highlight"><code class="language-javascript linenums">export function plotlyToPlotly(view) {
+  let plotlySpec = Object.assign({}, view.spec)
+
+  for trace in plotlySpec.data {
+    if(trace.resource) {
+      let resource = findResourceByNameOrIndex(view, trace.resource)
+      const rowsAsObjects = true
+      const rows = getResourceCachedValues(resource, rowsAsObjects)
+      if(trace.xField) {
+        trace.x = rows.map(row =&gt; row[trace.xField])
+        delete trace.xField
+      }
+      if(trace.yField) {
+        trace.y = rows.map(row =&gt; row[trace.yField])
+        delete trace.yField
+      }
+      if(trace.zField) {
+        trace.z = rows.map(row =&gt; row[trace.zField])
+        delete trace.zField
+      }
+
+      delete trace.resource      
+    }
+  }
+
+  return plotlySpec
+}</code></pre>
+
+<h2 id="data-transform-research">Data Transform Research</h2>
+<h3 id="plotly-transforms">Plotly Transforms</h3>
+<p>No libraries for data transform have been found.</p>
+<h3 id="vega-transforms">Vega Transforms</h3>
+<p><a href="https://github.com/vega/vega/wiki/Data-Transforms">https://github.com/vega/vega/wiki/Data-Transforms</a> - v2</p>
+<p><a href="https://vega.github.io/vega/docs/transforms/">https://vega.github.io/vega/docs/transforms/</a> - v3</p>
+<p>Vega provided Data Transforms can be used to manipulate datasets before rendering a visualisation. E.g., one may need to perform transformations such as aggregation or filtering (there many types, see link above) of a dataset and display the graph only after that. Another situation would be creating a new dataset by applying various calculations on an old one.</p>
+<p>Usually transforms are defined in <code>transform</code> array inside <code>data</code> property.</p>
+<p>"Transforms that do not filter or generate new data objects can be used within the transform array of a mark definition to specify post-encoding transforms."</p>
+<p>Examples:</p>
+<h4 id="filtering">Filtering</h4>
+<p><a href="https://vega.github.io/vega-editor/?mode=vega&amp;spec=parallel_coords">https://vega.github.io/vega-editor/?mode=vega&amp;spec=parallel_coords</a></p>
+<p>This example filters rows that have both <code>Horsepower</code> and <code>Miles_per_Gallon</code> fields.</p>
+<pre class="highlight"><code class="language-javascript linenums">{
+ &quot;data&quot;: [
+    {
+      &quot;name&quot;: &quot;cars&quot;,
+      &quot;url&quot;: &quot;data/cars.json&quot;,
+      &quot;transform&quot;: [
+        {
+          &quot;type&quot;: &quot;filter&quot;,
+          &quot;test&quot;: &quot;datum.Horsepower &amp;&amp; datum.Miles_per_Gallon&quot;
+        }  
+      ]
+    }
+  ] 
+}</code></pre>
+
+<h4 id="geopath-aggregate-lookup-filter-sort-voronoi-and-linkpath">Geopath, aggregate, lookup, filter, sort, voronoi and linkpath</h4>
+<p><a href="https://vega.github.io/vega-editor/?mode=vega&amp;spec=airports">https://vega.github.io/vega-editor/?mode=vega&amp;spec=airports</a></p>
+<p>This example has a lot of transforms - in some cases there is only transform applied to a dataset, in other cases there are sequence of transforms.</p>
+<p>In the first dataset, it applies <code>geopath</code> transform which maps GeoJSON features to SVG path strings. It uses <code>alberUsa</code> projection type (<a href="https://vega.github.io/vega/docs/projections/">more about projection</a>).</p>
+<p>In the second dataset, it applies sum operation on "count" field and outputs it as "flights" fields.</p>
+<p>In the third dataset: 
+1) it compares its "iata" field against "origin" field of "traffic" dataset. Matching values are outputed as "traffic" field. 
+2) Next, it filters out all values that are null.
+3) After that, it applies <code>geo</code> transform as in the first dataset above. 
+4) Next, it filters out layout_x and layout_y values that are null. 
+5) Then, it sorts dataset by traffic.flights field in descending order.
+6) After that, it applies <code>voronoi</code> transform to compute voronoi diagram based on "layout_x" and "layout_y" fields.</p>
+<p>In the last dataset:
+1) First, it filters values on which there is a signal called "hover" (specified in the Vega spec's "signals" property) with "iata" attribute that matches to the dataset's "origin" field.
+2) Next, it looks up matching values of "airports" dataset's "iata" field against its "origin" and "destination" fields. Output fields are saved as "_source" and "_target".
+3) Filters "_source" and "_target" values that are truthy (not null).
+4) Finally, linkpath transform creates visual links between nodes (<a href="https://vega.github.io/vega/docs/transforms/linkpath/">more about linkpath</a>).</p>
+<pre class="highlight"><code class="language-javascript linenums">{
+  &quot;data&quot;: [
+    {
+      &quot;name&quot;: &quot;states&quot;,
+      &quot;url&quot;: &quot;data/us-10m.json&quot;,
+      &quot;format&quot;: {&quot;type&quot;: &quot;topojson&quot;, &quot;feature&quot;: &quot;states&quot;},
+      &quot;transform&quot;: [
+        {
+          &quot;type&quot;: &quot;geopath&quot;, &quot;projection&quot;: &quot;albersUsa&quot;,
+          &quot;scale&quot;: 1200, &quot;translate&quot;: [450, 280]
+        }
+      ]
+    },
+    {
+      &quot;name&quot;: &quot;traffic&quot;,
+      &quot;url&quot;: &quot;data/flights-airport.csv&quot;,
+      &quot;format&quot;: {&quot;type&quot;: &quot;csv&quot;, &quot;parse&quot;: &quot;auto&quot;},
+      &quot;transform&quot;: [
+        {
+          &quot;type&quot;: &quot;aggregate&quot;, &quot;groupby&quot;: [&quot;origin&quot;],
+          &quot;summarize&quot;: [{&quot;field&quot;: &quot;count&quot;, &quot;ops&quot;: [&quot;sum&quot;], &quot;as&quot;: [&quot;flights&quot;]}]
+        }
+      ]
+    },
+    {
+      &quot;name&quot;: &quot;airports&quot;,
+      &quot;url&quot;: &quot;data/airports.csv&quot;,
+      &quot;format&quot;: {&quot;type&quot;: &quot;csv&quot;, &quot;parse&quot;: &quot;auto&quot;},
+      &quot;transform&quot;: [
+        {
+          &quot;type&quot;: &quot;lookup&quot;, &quot;on&quot;: &quot;traffic&quot;, &quot;onKey&quot;: &quot;origin&quot;,
+          &quot;keys&quot;: [&quot;iata&quot;], &quot;as&quot;: [&quot;traffic&quot;]
+        },
+        {
+          &quot;type&quot;: &quot;filter&quot;,
+          &quot;test&quot;: &quot;datum.traffic != null&quot;
+        },
+        {
+          &quot;type&quot;: &quot;geo&quot;, &quot;projection&quot;: &quot;albersUsa&quot;,
+          &quot;scale&quot;: 1200, &quot;translate&quot;: [450, 280],
+          &quot;lon&quot;: &quot;longitude&quot;, &quot;lat&quot;: &quot;latitude&quot;
+        },
+        {
+          &quot;type&quot;: &quot;filter&quot;,
+          &quot;test&quot;: &quot;datum.layout_x != null &amp;&amp; datum.layout_y != null&quot;
+        },
+        { &quot;type&quot;: &quot;sort&quot;, &quot;by&quot;: &quot;-traffic.flights&quot; },
+        { &quot;type&quot;: &quot;voronoi&quot;, &quot;x&quot;: &quot;layout_x&quot;, &quot;y&quot;: &quot;layout_y&quot; }
+      ]
+    },
+    {
+      &quot;name&quot;: &quot;routes&quot;,
+      &quot;url&quot;: &quot;data/flights-airport.csv&quot;,
+      &quot;format&quot;: {&quot;type&quot;: &quot;csv&quot;, &quot;parse&quot;: &quot;auto&quot;},
+      &quot;transform&quot;: [
+        { &quot;type&quot;: &quot;filter&quot;, &quot;test&quot;: &quot;hover &amp;&amp; hover.iata == datum.origin&quot; },
+        {
+          &quot;type&quot;: &quot;lookup&quot;, &quot;on&quot;: &quot;airports&quot;, &quot;onKey&quot;: &quot;iata&quot;,
+          &quot;keys&quot;: [&quot;origin&quot;, &quot;destination&quot;], &quot;as&quot;: [&quot;_source&quot;, &quot;_target&quot;]
+        },
+        { &quot;type&quot;: &quot;filter&quot;, &quot;test&quot;: &quot;datum._source &amp;&amp; datum._target&quot; },
+        { &quot;type&quot;: &quot;linkpath&quot; }
+      ]
+    }
+  ]
+}</code></pre>
+
+<h4 id="further-research-on-vega-transforms">Further research on Vega transforms</h4>
+<p><a href="https://github.com/vega/vega-dataflow-examples/">https://github.com/vega/vega-dataflow-examples/</a></p>
+<p>It is quite difficult to me to read the code as there is not enough documentation. I have included here the simplest example:</p>
+<p><code>vega-dataflow.js</code> contains Dataflow, all transforms and vega's utilities.</p>
+<pre class="highlight"><code class="language-html linenums">&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Dataflow CountPattern&lt;/title&gt;
+    &lt;script src=&quot;../../build/vega-dataflow.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+      body { margin: 10px; font-family: Helvetica Neue, Arial; font-size: 14px; }
+      textarea { width: 800px; height: 200px; }
+      pre { font-family: Monaco; font-size: 10px; }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;textarea id=&quot;text&quot;&gt;&lt;/textarea&gt;&lt;br/&gt;
+    &lt;input id=&quot;slider&quot; type=&quot;range&quot; min=&quot;2&quot; max=&quot;10&quot; value=&quot;4&quot;/&gt;
+    Frequency Threshold&lt;br/&gt;
+    &lt;pre id=&quot;output&quot;&gt;&lt;/pre&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<p><code>df</code> is a Dataflow instance where we register (.add) functions and parameters - as below on line 36-38. The same with adding transforms - lines 40-44. We can pass different parameters to the transforms depending on requirements of each of them. Event handlers can added by using <code>.on</code> method of the Dataflow instance - lines 46-48.</p>
+<pre class="highlight"><code class="language-javascript linenums">var tx = vega.transforms; // all transforms 
+var out = document.querySelector('#output');
+var area = document.querySelector('#text');
+area.value = [
+  &quot;Despite myriad tools for visualizing data, there remains a gap between the notational efficiency of high-level visualization systems and the expressiveness and accessibility of low-level graphical systems.&quot;
+].join('\n\n');
+var stopwords = &quot;(i|me|my|myself|we|us|our|ours|ourselves|you|your|yours|yourself|yourselves|he|him|his)&quot;;
+
+var get = vega.field('data');
+
+function readText(_, pulse) {
+  if (this.value) pulse.rem = this.value;
+  return pulse.source = pulse.add = [vega.ingest(area.value)];
+}
+
+function threshold(_) {
+  var freq = _.freq,
+      f = function(t) { return t.count &gt;= freq; };
+  return (f.fields = ['count'], f);
+}
+
+function updatePage() {
+  out.innerText = c1.value.slice()
+    .sort(function(a,b) {
+      return (b.count - a.count)
+        || (b.text &gt; a.text ? -1 : a.text &gt; b.text ? 1 : 0);
+    })
+    .map(function(t) {
+      return t.text + ': ' + t.count;
+    })
+    .join('\n');
+}
+
+var df = new vega.Dataflow(), // create a new Dataflow instance
+// then add various operators into Dataflow instance:
+    ft = df.add(4), // word frequency threshold
+    ff = df.add(threshold, {freq:ft})
+    rt = df.add(readText),
+    // add a transforms (tx):
+    cp = df.add(tx.CountPattern, {field:get, case:'lower',
+      pattern:'[\\w\']{2,}', stopwords:stopwords, pulse:rt}),
+    cc = df.add(tx.Collect, {pulse:cp}),
+    fc = df.add(tx.Filter, {expr:ff, pulse:cc}),
+    c1 = df.add(tx.Collect, {pulse:fc}),
+    up = df.add(updatePage, {pulse: c1});
+df.on(df.events(area, 'keyup').debounce(250), rt)
+  .on(df.events('#slider', 'input'), ft, function(_, e) { return +e.target.value; })
+  .run();</code></pre>
+
+<hr />
+<h4 id="old-analysis">Old analysis</h4>
+<p>There are number of transforms and they are located in different libraries. Basics are here <a href="https://github.com/vega/vega-dataflow/tree/master/src/transforms">https://github.com/vega/vega-dataflow/tree/master/src/transforms</a></p>
+<p>Generally, all data flow happens in the <a href="https://github.com/vega/vega-dataflow">vega-dataflow module</a>. There are lots of complicated operations performed to data input and parameters. Some of transform functions are inherited from another functions/classes which makes difficult to separate them:</p>
+<p>Filter function:</p>
+<p><pre class="highlight"><code class="language-javascript linenums">export default function Filter(params) {
+  Transform.call(this, fastmap(), params);
+}
+
+var prototype = inherits(Filter, Transform);
+
+// more code for prototype</code></pre>
+and Transform is:
+<pre class="highlight"><code class="language-javascript linenums">import Operator from './Operator';
+import {inherits} from 'vega-util';
+
+/**
+ * Abstract class for operators that process data tuples.
+ * Subclasses must provide a {@link transform} method for operator processing.
+ * @constructor
+ * @param {*} [init] - The initial value for this operator.
+ * @param {object} [params] - The parameters for this operator.
+ * @param {Operator} [source] - The operator from which to receive pulses.
+ */
+export default function Transform(init, params) {
+  Operator.call(this, init, null, params);
+}
+
+var prototype = inherits(Transform, Operator);
+
+/**
+ * Overrides {@link Operator.evaluate} for transform operators.
+ * Marshalls parameter values and then invokes {@link transform}.
+ * @param {Pulse} pulse - the current dataflow pulse.
+ * @return {Pulse} The output pulse (or StopPropagation). A falsy return
+     value (including undefined) will let the input pulse pass through.
+ */
+prototype.evaluate = function(pulse) {
+  var params = this.marshall(pulse.stamp),
+      out = this.transform(params, pulse);
+  params.clear();
+  return out;
+};
+
+/**
+ * Process incoming pulses.
+ * Subclasses should override this method to implement transforms.
+ * @param {Parameters} _ - The operator parameter values.
+ * @param {Pulse} pulse - The current dataflow pulse.
+ * @return {Pulse} The output pulse (or StopPropagation). A falsy return
+ *   value (including undefined) will let the input pulse pass through.
+ */
+prototype.transform = function() {};</code></pre></p>
+<p>and as we can see Transform inherits from Operator and so on.</p>
+<p>But some of the transform functions looks independent:</p>
+<p>Getting cross product:</p>
+<pre class="highlight"><code class="language-javascript linenums">// filter is an optional  function for selectively including tuples in the cross product.
+function cross(input, a, b, filter) {
+  var data = [],
+      t = {},
+      n = input.length,
+      i = 0,
+      j, left;
+
+  for (; i&lt;n; ++i) {
+    t[a] = left = input[i];
+    for (j=0; j&lt;n; ++j) {
+      t[b] = input[j];
+      if (filter(t)) {
+        data.push(ingest(t));
+        t = {};
+        t[a] = left;
+      }
+    }
+  }
+
+  return data;
+}</code></pre>
+
+<p>Other transforms:</p>
+<ul>
+<li>Linkpath <a href="https://github.com/vega/vega-encode">https://github.com/vega/vega-encode</a></li>
+<li>Geo <a href="https://github.com/vega/vega-geo">https://github.com/vega/vega-geo</a></li>
+<li>Hierarchical <a href="https://github.com/vega/vega-hierarchy/tree/master/definitions">https://github.com/vega/vega-hierarchy/tree/master/definitions</a></li>
+<li>voronoi <a href="https://github.com/vega/vega-voronoi">https://github.com/vega/vega-voronoi</a></li>
+<li>crossfilter <a href="https://github.com/vega/vega-crossfilter">https://github.com/vega/vega-crossfilter</a></li>
+</ul>
+<h3 id="dp-pipelines-transforms">DP Pipelines transforms</h3>
+<p>DPP provides number of transforms that can be applied to a dataset. However, those transforms cannot be processed inside browsers as the library requires Python scripts to run.</p>
+<p><strong>Below is a copy-paste from DPP docs:</strong></p>
+<h4 id="concatenate"><strong><em><code>concatenate</code></em></strong></h4>
+<p>Concatenates a number of streamed resources and converts them to a single resource.</p>
+<p><em>Parameters</em>:</p>
+<ul>
+<li><code>sources</code> - Which resources to concatenate. Same semantics as <code>resources</code> in <code>stream_remote_resources</code>.</li>
+</ul>
+<p>If omitted, all resources in datapackage are concatenated.</p>
+<p>Resources to concatenate must appear in consecutive order within the data-package.</p>
+<ul>
+<li>
+<p><code>target</code> - Target resource to hold the concatenated data. Should define at least the following properties:</p>
+</li>
+<li>
+<p><code>name</code> - name of the resource</p>
+</li>
+<li><code>path</code> - path in the data-package for this file.</li>
+</ul>
+<p>If omitted, the target resource will receive the name <code>concat</code> and will be saved at <code>data/concat.csv</code> in the datapackage.</p>
+<ul>
+<li><code>fields</code> - Mapping of fields between the sources and the target, so that the keys are the <em>target</em> field names, and values are lists of <em>source</em> field names.</li>
+</ul>
+<p>This mapping is used to create the target resources schema.</p>
+<p>Note that the target field name is <em>always</em> assumed to be mapped to itself.</p>
+<p><em>Example</em>:</p>
+<pre class="highlight"><code class="language-yaml linenums">- run: concatenate
+  parameters: 
+    target:
+      name: multi-year-report
+      path: data/multi-year-report.csv
+    sources: 'report-year-20[0-9]{2}'
+    fields:
+      activity: []
+      amount: ['2009_amount', 'Amount', 'AMOUNT [USD]', '$$$']    </code></pre>
+
+<p>In this example we concatenate all resources that look like <code>report-year-&lt;year&gt;</code>, and output them to the <code>multi-year-report</code> resource.</p>
+<p>The output contains two fields:</p>
+<ul>
+<li><code>activity</code> , which is called <code>activity</code> in all sources</li>
+<li><code>amount</code>, which has varying names in different resources (e.g. <code>Amount</code>, <code>2009_amount</code>, <code>amount</code> etc.)</li>
+</ul>
+<h4 id="join"><strong><em><code>join</code></em></strong></h4>
+<p>Joins two streamed resources. </p>
+<p>"Joining" in our case means taking the <em>target</em> resource, and adding fields to each of its rows by looking up data in the <em>source</em> resource. </p>
+<p>A special case for the join operation is when there is no target stream, and all unique rows from the source are used to create it. 
+This mode is called <em>deduplication</em> mode - The target resource will be created and  deduplicated rows from the source will be added to it.</p>
+<p><em>Parameters</em>:</p>
+<ul>
+<li><code>source</code> - information regarding the <em>source</em> resource</li>
+<li><code>name</code> - name of the resource</li>
+<li><code>key</code> - One of<ul>
+<li>List of field names which should be used as the lookup key</li>
+<li>String, which would be interpreted as a Python format string used to form the key (e.g. <code>{&lt;field_name_1&gt;}:{field_name_2}</code>)</li>
+</ul>
+</li>
+<li><code>delete</code> - delete from data-package after joining (<code>False</code> by default)</li>
+<li><code>target</code> - Target resource to hold the joined data. Should define at least the following properties:</li>
+<li><code>name</code> - as in <code>source</code></li>
+<li><code>key</code> - as in <code>source</code>, or <code>null</code> for creating the target resource and performing <em>deduplication</em>.</li>
+<li><code>fields</code> - mapping of fields from the source resource to the target resource. 
+  Keys should be field names in the target resource.
+  Values can define two attributes:</li>
+<li>
+<p><code>name</code> - field name in the source (by default is the same as the target field name)</p>
+</li>
+<li>
+<p><code>aggregate</code> - aggregation strategy (how to handle multiple <em>source</em> rows with the same key). Can take the following options: </p>
+<ul>
+<li>
+<p><code>sum</code> - summarise aggregated values. 
+  For numeric values it's the arithmetic sum, for strings the concatenation of strings and for other types will error.</p>
+</li>
+<li>
+<p><code>avg</code> - calculate the average of aggregated values.</p>
+</li>
+</ul>
+<p>For numeric values it's the arithmetic average and for other types will err.</p>
+<ul>
+<li><code>max</code> - calculate the maximum of aggregated values.</li>
+</ul>
+<p>For numeric values it's the arithmetic maximum, for strings the dictionary maximum and for other types will error.</p>
+<ul>
+<li><code>min</code> - calculate the minimum of aggregated values.</li>
+</ul>
+<p>For numeric values it's the arithmetic minimum, for strings the dictionary minimum and for other types will error.</p>
+<ul>
+<li>
+<p><code>first</code> - take the first value encountered</p>
+</li>
+<li>
+<p><code>last</code> - take the last value encountered</p>
+</li>
+<li>
+<p><code>count</code> - count the number of occurrences of a specific key
+  For this method, specifying <code>name</code> is not required. In case it is specified, <code>count</code> will count the number of non-null values for that source field.</p>
+</li>
+<li>
+<p><code>set</code> - collect all distinct values of the aggregated field, unordered </p>
+</li>
+<li>
+<p><code>array</code> - collect all values of the aggregated field, in order of appearance   </p>
+</li>
+<li>
+<p><code>any</code> - pick any value.</p>
+</li>
+</ul>
+<p>By default, <code>aggregate</code> takes the <code>any</code> value.</p>
+</li>
+</ul>
+<p>If neither <code>name</code> or <code>aggregate</code> need to be specified, the mapping can map to the empty object <code>{}</code> or to <code>null</code>.
+- <code>full</code>  - Boolean,
+  - If <code>True</code> (the default), failed lookups in the source will result in "null" values at the source.
+  - if <code>False</code>, failed lookups in the source will result in dropping the row from the target.</p>
+<p><em>Important: the "source" resource <strong>must</strong> appear before the "target" resource in the data-package.</em></p>
+<p><em>Examples</em>:</p>
+<pre class="highlight"><code class="language-yaml linenums">- run: join
+  parameters: 
+    source:
+      name: world_population
+      key: [&quot;country_code&quot;]
+      delete: yes
+    target:
+      name: country_gdp_2015
+      key: [&quot;CC&quot;]
+    fields:
+      population:
+        name: &quot;census_2015&quot;        
+    full: true</code></pre>
+
+<p>The above example aims to create a package containing the GDP and Population of each country in the world.</p>
+<p>We have one resource (<code>world_population</code>) with data that looks like:</p>
+<table>
+<thead>
+<tr>
+<th>country_code</th>
+<th>country_name</th>
+<th>census_2000</th>
+<th>census_2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UK</td>
+<td>United Kingdom</td>
+<td>58857004</td>
+<td>64715810</td>
+</tr>
+<tr>
+<td>...</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>And another resource (<code>country_gdp_2015</code>) with data that looks like:</p>
+<table>
+<thead>
+<tr>
+<th>CC</th>
+<th>GDP (£m)</th>
+<th>Net Debt (£m)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UK</td>
+<td>1832318</td>
+<td>1606600</td>
+</tr>
+<tr>
+<td>...</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The <code>join</code> command will match rows in both datasets based on the <code>country_code</code> / <code>CC</code> fields, and then copying the value in the <code>census_2015</code> field into a new <code>population</code> field.</p>
+<p>The resulting data package will have the <code>world_population</code> resource removed and the <code>country_gdp_2015</code> resource looking like:</p>
+<table>
+<thead>
+<tr>
+<th>CC</th>
+<th>GDP (£m)</th>
+<th>Net Debt (£m)</th>
+<th>population</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UK</td>
+<td>1832318</td>
+<td>1606600</td>
+<td>64715810</td>
+</tr>
+<tr>
+<td>...</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>A more complex example:</p>
+<pre class="highlight"><code class="language-yaml linenums">- run: join
+  parameters: 
+    source:
+      name: screen_actor_salaries
+      key: &quot;{production} ({year})&quot;
+    target:
+      name: mgm_movies
+      key: &quot;{title}&quot;
+    fields:
+      num_actors:
+        aggregate: 'count'
+      average_salary:
+        name: salary
+        aggregate: 'avg'
+      total_salaries:
+        name: salary
+        aggregate: 'sum'
+    full: false</code></pre>
+
+<p>This example aims to analyse salaries for screen actors in the MGM studios.</p>
+<p>Once more, we have one resource (<code>screen_actor_salaries</code>) with data that looks like:</p>
+<table>
+<thead>
+<tr>
+<th>year</th>
+<th>production</th>
+<th>actor</th>
+<th>salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2016</td>
+<td>Vertigo 2</td>
+<td>Mr. T</td>
+<td>15000000</td>
+</tr>
+<tr>
+<td>2016</td>
+<td>Vertigo 2</td>
+<td>Robert Downey Jr.</td>
+<td>7000000</td>
+</tr>
+<tr>
+<td>2015</td>
+<td>The Fall - Resurrection</td>
+<td>Jeniffer Lawrence</td>
+<td>18000000</td>
+</tr>
+<tr>
+<td>2015</td>
+<td>Alf - The Return to Melmack</td>
+<td>The Rock</td>
+<td>12000000</td>
+</tr>
+<tr>
+<td>...</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>And another resource (<code>mgm_movies</code>) with data that looks like:</p>
+<table>
+<thead>
+<tr>
+<th>title</th>
+<th>director</th>
+<th>producer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vertigo 2 (2016)</td>
+<td>Lindsay Lohan</td>
+<td>Lee Ka Shing</td>
+</tr>
+<tr>
+<td>iRobot - The Movie (2018)</td>
+<td>Mr. T</td>
+<td>Mr. T</td>
+</tr>
+<tr>
+<td>...</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The <code>join</code> command will match rows in both datasets based on the movie name and production year. Notice how we overcome incompatible fields by using different key patterns.</p>
+<p>The resulting dataset could look like:</p>
+<table>
+<thead>
+<tr>
+<th>title</th>
+<th>director</th>
+<th>producer</th>
+<th>num_actors</th>
+<th>average_salary</th>
+<th>total_salaries</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vertigo 2 (2016)</td>
+<td>Lindsay Lohan</td>
+<td>Lee Ka Shing</td>
+<td>2</td>
+<td>11000000</td>
+<td>22000000</td>
+</tr>
+<tr>
+<td>...</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="vega-dataflow-usage-for-dp-views">Vega Dataflow usage for DP views</h3>
+<p>Vega has quite a lot of data transform functions available, however, most of them require complicated JSON descriptor to use. Although we may implement them in the future, at the moment we could start with the most basic and essential ones:</p>
+<p><strong>List of transforms that we could use:</strong></p>
+<ul>
+<li>Aggregate</li>
+<li>Filter</li>
+<li>Formula (applies given formula to dataset)</li>
+<li>Sample</li>
+</ul>
+<h4 id="aggregate-example">Aggregate example</h4>
+<p>We have dataset with 4 fields - a, b, c and d. Lets apply different aggregation methods on them - count, sum, min and max:</p>
+<pre class="highlight"><code class="language-javascript linenums">const vegadataflow = require('./build/vega-dataflow.js');
+
+var tx = vegadataflow.transforms,
+    changeset = vegadataflow.changeset;
+
+var data = [
+ {
+   &quot;a&quot;: 17.76,
+   &quot;b&quot;: 20.14,
+   &quot;c&quot;: 17.05,
+   &quot;d&quot;: 17.79
+ },
+ {
+   &quot;a&quot;: 19.19,
+   &quot;b&quot;: 21.29,
+   &quot;c&quot;: 19.19,
+   &quot;d&quot;: 19.92
+ },
+ {
+   &quot;a&quot;: 20.33,
+   &quot;b&quot;: 22.9,
+   &quot;c&quot;: 19.52,
+   &quot;d&quot;: 21.12
+ },
+ {
+   &quot;a&quot;: 20.15,
+   &quot;b&quot;: 20.72,
+   &quot;c&quot;: 19.04,
+   &quot;d&quot;: 19.31
+ },
+ {
+   &quot;a&quot;: 17.93,
+   &quot;b&quot;: 18.09,
+   &quot;c&quot;: 16.99,
+   &quot;d&quot;: 17.01
+ }
+];
+
+var a = vegadataflow.field('a'),
+    b = vegadataflow.field('b'),
+    c = vegadataflow.field('c'),
+    d = vegadataflow.field('d');
+
+var df = new vegadataflow.Dataflow(),
+    col = df.add(tx.Collect),
+    agg = df.add(tx.Aggregate, {
+            fields: [a, b, c, d],
+            ops: ['count', 'sum', 'min', 'max'],
+            pulse: col
+          }),
+    out = df.add(tx.Collect, {pulse: agg});
+
+df.pulse(col, changeset().insert(data)).run();
+
+console.dir(out.value);</code></pre>
+
+<p>Output:
+<pre class="highlight"><code class="language-javascript linenums">[ 
+  {
+    _id: 7, 
+    count_a: 5, 
+    sum_b: 103.14, 
+    min_c: 16.99, 
+    max_d: 21.12 
+  }
+]</code></pre></p>
+<h4 id="filter-example">Filter example</h4>
+<p>Using the dataset from example above, lets filter values of field <code>a</code> that are not greater than 19:</p>
+<pre class="highlight"><code class="language-javascript linenums">const vegadataflow = require('./build/vega-dataflow.js');
+
+var tx = vegadataflow.transforms,
+    changeset = vegadataflow.changeset;
+
+var data = [
+ {
+   &quot;a&quot;: 17.76,
+   &quot;b&quot;: 20.14,
+   &quot;c&quot;: 17.05,
+   &quot;d&quot;: 17.79
+ },
+ {
+   &quot;a&quot;: 19.19,
+   &quot;b&quot;: 21.29,
+   &quot;c&quot;: 19.19,
+   &quot;d&quot;: 19.92
+ },
+ {
+   &quot;a&quot;: 20.33,
+   &quot;b&quot;: 22.9,
+   &quot;c&quot;: 19.52,
+   &quot;d&quot;: 21.12
+ },
+ {
+   &quot;a&quot;: 20.15,
+   &quot;b&quot;: 20.72,
+   &quot;c&quot;: 19.04,
+   &quot;d&quot;: 19.31
+ },
+ {
+   &quot;a&quot;: 17.93,
+   &quot;b&quot;: 18.09,
+   &quot;c&quot;: 16.99,
+   &quot;d&quot;: 17.01
+ }
+];
+
+var a = vegadataflow.field('a');
+
+var filter1 = vegadataflow.accessor(d =&gt; { return d.a &gt; 19 }, ['a']);
+
+var df = new vegadataflow.Dataflow(),
+    ex = df.add(null),
+    col = df.add(tx.Collect),
+    fil = df.add(tx.Filter, {expr: ex, pulse: col}),
+    out = df.add(tx.Collect, {pulse: fil});
+
+df.pulse(col, changeset().insert(data));
+df.update(ex, filter1).run();
+
+console.log(out.value);
+</code></pre>
+
+<p>Output:
+<pre class="highlight"><code class="language-javascript linenums">[ 
+  { a: 19.19, b: 21.29, c: 19.19, d: 19.92, _id: 3 },
+  { a: 20.33, b: 22.9, c: 19.52, d: 21.12, _id: 4 },
+  { a: 20.15, b: 20.72, c: 19.04, d: 19.31, _id: 5 } 
+]</code></pre></p>
+<h4 id="formula-example">Formula example</h4>
+<p>Using the same dataset, lets apply mapping on a field:</p>
+<pre class="highlight"><code class="language-javascript linenums">const vegadataflow = require('./build/vega-dataflow.js');
+
+var tx = vegadataflow.transforms,
+    changeset = vegadataflow.changeset;
+
+var data = [
+ {
+   &quot;a&quot;: 17.76,
+   &quot;b&quot;: 20.14,
+   &quot;c&quot;: 17.05,
+   &quot;d&quot;: 17.79
+ },
+ {
+   &quot;a&quot;: 19.19,
+   &quot;b&quot;: 21.29,
+   &quot;c&quot;: 19.19,
+   &quot;d&quot;: 19.92
+ },
+ {
+   &quot;a&quot;: 20.33,
+   &quot;b&quot;: 22.9,
+   &quot;c&quot;: 19.52,
+   &quot;d&quot;: 21.12
+ },
+ {
+   &quot;a&quot;: 20.15,
+   &quot;b&quot;: 20.72,
+   &quot;c&quot;: 19.04,
+   &quot;d&quot;: 19.31
+ },
+ {
+   &quot;a&quot;: 17.93,
+   &quot;b&quot;: 18.09,
+   &quot;c&quot;: 16.99,
+   &quot;d&quot;: 17.01
+ }
+];
+
+
+var df = new vegadataflow.Dataflow(),
+    e = vegadataflow.field('e'),
+    f = vegadataflow.field('f'),
+    formula1 = vegadataflow.accessor(d =&gt; { return d.a * 10; }, ['a']),
+    formula2 = vegadataflow.accessor(d =&gt; { return d.b / 10; }, ['b']),
+    col = df.add(tx.Collect),
+    fa = df.add(tx.Formula, {expr: formula1, as: 'e', pulse: col}),
+    fb = df.add(tx.Formula, {expr: formula2, as: 'f', pulse: fa});
+
+df.pulse(col, changeset().insert(data)).run();
+
+console.log(col.value.map(e));
+console.log(col.value.map(f));</code></pre>
+
+<p>Output:
+<pre class="highlight"><code class="linenums">[ 177.60000000000002, 191.9, 203.29999999999998, 201.5, 179.3 ]
+[ 2.0140000000000002, 2.129, 2.29, 2.072, 1.809 ]</code></pre></p>
+<h4 id="sample-example">Sample example</h4>
+<p>Lets create a dataset with 100 rows and take a sample of 10 from it:</p>
+<pre class="highlight"><code class="language-javascript linenums">const vegadataflow = require('./build/vega-dataflow.js');
+
+var tx = vegadataflow.transforms,
+    changeset = vegadataflow.changeset;
+
+var n = 100,
+    sampleSize = 10,
+    data = Array(n),
+    i;
+
+for(i=0; i&lt;n; i++) data[i] = {v:Math.random()};
+
+var df = new vegadataflow.Dataflow(),
+    s = df.add(tx.Sample, {size: sampleSize});
+
+df.pulse(s, changeset().insert(data)).run();
+
+console.log(s.value);</code></pre>
+
+<p>Output:
+<pre class="highlight"><code class="linenums">[ 
+  { v: 0.3332451883830292, _id: 69 },
+  { v: 0.2874480689159735, _id: 3 },
+  { v: 0.18009915754527817, _id: 41 },
+  { v: 0.10513776386462825, _id: 27 },
+  { v: 0.4972760501252764, _id: 35 },
+  { v: 0.757859721485594, _id: 67 },
+  { v: 0.248170225498199, _id: 64 },
+  { v: 0.431513510601889, _id: 28 },
+  { v: 0.07281378713091247, _id: 37 },
+  { v: 0.9543216903991236, _id: 33 } 
+]</code></pre></p>
+<h3 id="suggestion-on-usage-from-datapackagejson">Suggestion on usage from datapackage.json</h3>
+<p>Our current simple view layout:</p>
+<pre class="highlight"><code class="language-javascript linenums">{
+  name: 'sample',
+  resource: [0],
+  specType: 'simple',
+  spec: {
+    type: 'line',
+    group: 'a',
+    series: ['b', 'c']
+  }
+}</code></pre>
+
+<p>We could add <code>transform</code> property that would be a specification for transforms to be applied. Each transform would have slightly different properties:</p>
+<h4 id="aggregate">Aggregate</h4>
+<p><pre class="highlight"><code class="language-javascript linenums">{
+  ...
+  transform: {
+    type: 'aggregate',
+    fields: ['a', 'b'],
+    operations: ['sum', 'min']
+  },
+  ...
+}</code></pre>
+For <code>aggregate</code> transform, a publisher should pass a field name and an operation to be applied. Operations should be one of <a href="https://vega.github.io/vega/docs/transforms/aggregate/">https://vega.github.io/vega/docs/transforms/aggregate/</a></p>
+<h4 id="filter">Filter</h4>
+<p><pre class="highlight"><code class="language-javascript linenums">{
+  ...
+  transform: {
+    type: 'filter',
+    expr: 'data.fieldName &gt; 10'
+  },
+  ...
+}</code></pre>
+For <code>filter</code> type expression should evaluate to true or false so only truthy values will be kept.</p>
+<h4 id="formula">Formula</h4>
+<pre class="highlight"><code class="language-javascript linenums">{
+  ...
+  transform: {
+    type: 'formula',
+    expr: ['data.fieldName * 2', 'data.fieldName + 10'],
+    as: ['x', 'y']
+  },
+  ...
+}</code></pre>
+
+<p>For <code>formula</code> type, a field will be mapped with given expression and output will be stored in new fields that are specified in <code>as</code> property.</p>
+<h4 id="sample">Sample</h4>
+<pre class="highlight"><code class="language-javascript linenums">  ...
+  transform: {
+    type: 'sample',
+    size: 'some integer'
+  },
+  ...</code></pre>
+
+<p>In <code>sample</code> type, only size of a sample is needed.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../authorization/" class="btn btn-neutral float-right" title="Authorization">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../views/" class="btn btn-neutral" title="Views"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/datahq/docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../views/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../authorization/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+      <script src="../../js/mermaid.min.js"></script>
+
+</body>
+</html>
