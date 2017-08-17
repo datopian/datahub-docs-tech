@@ -40,7 +40,7 @@ graph TD
 
 
 * [DataHub-CLI][cli] - Command Line Interface for publishing [Data Packages](#data-package)
-* [Front-end Web Application][web-app] - Core part of platform - API, Login & Sign-Up and Browse & Search (page not yet implemented)
+* [Front-end Web Application][web-app] - Core part of platform - Login & Sign-Up and Browse & Search Datasets
 * [Views and Renderer][views] - JS Library responsible for visualization and views on platform
 
 ### Raw Storage
@@ -70,21 +70,13 @@ The MetaStore stores Data Package meta-data along with other management informat
 
 We use AWS RDS Postgresql database for storing meta-data.
 
-### Users and Permissions
-
-- We are using GitHub auth API for authenticating users on our platform. See more information on [authentication page][auth-page]
-- We have a standard access control matrix with 3 axes for authorization. See more information on
-[authorization page][authz-page]
-
-[auth-page]: /developers/authentication
-[authz-page]: /developers/authorization
 [cli]: /publishers/cli
-[views]: /developers/view
-[web-app]:
+[views]: /developers/views
+[web-app]: http://datahub.io/
 
 ## Domain model
 
-There are two main concepts to understand in DataHub domain model - [Profile](#profile) and [Package](#package)
+There are two main concepts to understand in DataHub domain model - [Profile](#profile) and [Package](#data-package)
 
 <div class="mermaid">
 graph TD
