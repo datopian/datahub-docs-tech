@@ -58,13 +58,12 @@ Automatically:
 
 **TODO: (??) should we do *all* of this via the command line client (a la npmjs) **
 
-### Sign up via github (and/or google)
+### Sign up via github (and/or google) [DONE]
 
 As a Visitor I want to sign up via github or google so that I don’t have to enter lots of information and remember my password for yet another website
 
 * How do we deal with username conflicts? What about publisher name conflicts?
 	* This does not arise in simple username system because we have only pool of usernames
-
 
 ### Next Step after Sign Up
 
@@ -87,19 +86,20 @@ As an Admin (or existing Registered User?) I want to invite someone to join the 
 
 ## 2. Publish Data Packages
 
-### Publish with a Client
+### Publish with a Client [DONE]
 
 As a Geek Publisher I want to import (publish) my data package into the registry so my data has a permanent online home so that I and others can have access
 
 On command line looks like:
 
-> cd my/data/package
->
-> dpm publish
->
+```
+$ cd my/data/package
+$ data publish
+
 > … working …
 >
 > SUCCESS
+```
 
 Notes
 
@@ -110,15 +110,11 @@ Notes
 * TODO: private data packages
 	* And payment!
 
-#### Configure Client
+#### Configure Client [DONE]
 
 As a Geek Publisher I want to configure my client so I can start publishing data packages.
 
-TODO: check whether we want to use OAUTH.
-
-TODO: research JWT (JSON Web Tokens)
-
-Locally in $HOME store store:
+Locally in $HOME store store something like:
 
 ```
 .dpm/credentials # stores your API key and user name
@@ -126,7 +122,7 @@ Locally in $HOME store store:
 .dpm/config      # stores info like your default publisher
 ```
 
-### Update a Data Package
+### Update a Data Package [DONE]
 
 As a Geek Publisher I want to use a publish command to update a data package that is already in the registry so it appears there
 
@@ -143,11 +139,13 @@ As a Geek Publisher I want to permanently delete (purge) a data package so that 
 
 ### Validate Data in Data Package
 
-#### Validate in CLI
+#### Validate in CLI [DONE]
 
 As a Publisher [owner/member] I want to validate the data I am about to publish to the registry so that I publish “good” data and know that I am doing so and do not have to manually check that the published data looks ok (e.g. rendering charts properly) (and if wrong I have to re-upload)
 
-dpmpy datavalidate [file-path]
+```
+data datavalidate [file-path]
+```
 
 * [file-path] - run this against a given file. Look in the resources to see if this file is there and if so use the schema. Otherwise just do goodtables table …
 	* If no file provided run validate against each resource in turn in the datapackage
@@ -156,7 +154,7 @@ dpmpy datavalidate [file-path]
 	* Option for JSON e.g. --json to put machine readable output
 		* check goodtables command line tool and follow if possible. Can probably reuse code
 * Auto-run this before publish unless explicit suppression (e.g. --skip-datavalidate)
-* Use goodtables
+* Use goodtables (?)
 
 #### Validate on Server
 
@@ -207,7 +205,7 @@ As a Publisher, I want to be able to preview the views (graphs and table (?)) of
 
 ## 3. Find and View Data Packages
 
-### View a Data Package Online
+### View a Data Package Online [DONE]
 
 **EPIC: As a Consumer I want to view a data package online so I can get a sense of whether this is the dataset I want**
 
@@ -276,7 +274,7 @@ As a (potential) Publisher I want to preview a datapackage I have prepared so th
 
 As a Consumer i want to see how much the data has been downloaded so that i can choose most popular (=> probably most reliable and complete) in the case when there are several alternatives for my usecase (maybe from different publishers)
 
-### Browse Data Packages
+### Browse Data Packages [DONE]
 
 As a potential Publisher, unaware of datapackages, I want to see real examples of published packages (with the contents datapackage.json), so that I can understand how useful and simple is the datapackage format and the registry itself.
 
@@ -286,7 +284,7 @@ As a Consumer I want to see some example data packages quickly so I get a sense 
 	* Most downloaded
 	* Start with: we could just go with core data packages
 
-### Search for Data Packages
+### Search for Data Packages [DONE]
 
 As a Consumer I want to search data packages so that I can find the ones I want
 
@@ -334,9 +332,9 @@ As a Consumer I want to download the data package in one file so that I don’t 
 
 *Only useful if no cli tool and no install command*
 
-## 4. Install a Data Package (locally)
+## 4. Get a Data Package (locally)
 
-Let’s move discussion to the github: [*https://github.com/frictionlessdata/dpm-py/issues/30*](fonts/Lato-italic.ttf)
+Let’s move discussion to the github: *https://github.com/frictionlessdata/dpm-py/issues/30
 
 *TODO add these details from the requirement doc*
 
@@ -370,7 +368,7 @@ Questions:
 
 *As a Web Developer I want to download a DataPackage (like currency codes or country names) so that I can use it in the web service I am building [...]*
 
-### Import DataPackage into R
+### Import DataPackage into R [DONE?]
 
 As a Consumer [R user] I want to load a Data Package from R so that I can immediately start playing with it
 
@@ -387,7 +385,7 @@ As a Consumer [R user] I want to load a Data Package from R so that I can immedi
 
 *As a Data Analyst, I want to update previously downloaded data package, so that I can work with the most recent data.*
 
-### Import DataPackage into Pandas
+### Import DataPackage into Pandas [DONE?]
 
 TODO - like R
 
