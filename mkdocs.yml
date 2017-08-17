@@ -15,6 +15,7 @@ pages:
   - API: developers/api.md
   - Publish: developers/publish.md
   - Views: developers/views.md
+  - Views Research: developers/views-research.md
   - Authorization: developers/authorization.md
   - Authentication: developers/authentication.md
   - User Stories: developers/user-stories.md
