@@ -12,6 +12,9 @@ We use following GitHub repositories for DataHub platform:
 * [AUTH][auth] - A generic OAuth2 authentication service and user permission manager.
 * [SPECSTORE][specstore] - API server for managing a Source Spec Registry
 * [BITSTORE][bitstore] - A microservice for storing blobs i.e. files.
+* [RESOLVER][resolver] - A microservice for resolving datapackage URLs into more human readable ones
+
+
 * [DOCS][docs] - Documentations
 
 [deploy]: https://github.com/datahq/deploy
@@ -20,6 +23,7 @@ We use following GitHub repositories for DataHub platform:
 [auth]: https://github.com/datahq/auth
 [specstore]: https://github.com/datahq/specstore
 [bitstore]: https://github.com/datahq/bitstore
+[resolver]: https://github.com/datahq/resolver
 [docs]: https://github.com/datahq/docs
 
 
@@ -32,6 +36,7 @@ subgraph Repos
   auth[Auth]
   specstore[Specstore]
   bitstore[Bitstore]
+  resolver[Resolver]
   docs[Docs]
 end
 
@@ -48,6 +53,7 @@ assembler --> deploy
 auth --> deploy
 specstore --> deploy
 bitstore --> deploy
+resolver --> deploy
 
 </div>
 
@@ -64,25 +70,15 @@ We use several different services to run our platform, please follow the install
 * [Install Bitstore](https://github.com/datahq/bitstore#quick-start)
 
 * [Install DataHub-CLI](https://github.com/datahq/datahub-cli#usage)
+
+* [Install Resolver](https://github.com/datahq/resolver#quick-start)
+
 ## Deploy
 
 For deployment of the application in a production environment, please see [the deploy page][deploy].
 
 [deploy]: deploy/
 
-## Authorization
-
-The authorization set up enables system to restricts user permission to execute.
-
-[Authorization docs](authorization/)
-
-
-
-## Authentication
-
-Some DataHub API methods require client to provide user identity. API Client can use JWT token to perform authenticated requests.
-
-[Authentication docs](authentication/)
 
 ## DataHub CLI
 
