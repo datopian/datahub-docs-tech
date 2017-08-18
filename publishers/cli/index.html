@@ -114,21 +114,28 @@
     <a class="current" href="./">CLI</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#data-the-data-package-manager-cli">DATA: The Data Package Manager CLI</a></li>
+    <li class="toctree-l3"><a href="#data-the-datahub-cli">data - the DataHub CLI</a></li>
+    
+
+    <li class="toctree-l3"><a href="#getting-started">Getting started</a></li>
+    
+
+    <li class="toctree-l3"><a href="#installation">Installation</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#getting-started">Getting started</a></li>
+            <li><a class="toctree-l4" href="#installing-binaries">Installing binaries</a></li>
         
-            <li><a class="toctree-l4" href="#installation">Installation</a></li>
+            <li><a class="toctree-l4" href="#installing-via-npm">Installing via npm</a></li>
         
-            <li><a class="toctree-l4" href="#commands">Commands</a></li>
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#usage">Usage</a></li>
+    
+        <ul>
         
-            <li><a class="toctree-l4" href="#configuration">Configuration</a></li>
-        
-            <li><a class="toctree-l4" href="#usage">Usage</a></li>
-        
-            <li><a class="toctree-l4" href="#links">Links</a></li>
+            <li><a class="toctree-l4" href="#push">push</a></li>
         
         </ul>
     
@@ -181,116 +188,62 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="data-the-data-package-manager-cli">DATA: The Data Package Manager CLI</h1>
+                <h1 id="data-the-datahub-cli"><code>data</code> - the DataHub CLI</h1>
+<div class="toc">
 <ul>
+<li><a href="#data-the-datahub-cli">data - the DataHub CLI</a></li>
 <li><a href="#getting-started">Getting started</a></li>
-<li><a href="#installation">Installation</a></li>
-<li><a href="#commands">Commands</a></li>
-<li><a href="#configuration">Configuration</a></li>
-<li>
-<p><a href="#usage">Usage</a></p>
-<ul>
-<li><a href="#publish">Publish</a></li>
-<li><a href="#download">Download</a></li>
-<li><a href="#delete">Delete</a></li>
-<li><a href="#information">Information</a></li>
-<li><a href="#normalize">Normalize</a></li>
-<li><a href="#validate">Validate</a></li>
-<li><a href="#configuration">Configuration</a></li>
+<li><a href="#installation">Installation</a><ul>
+<li><a href="#installing-binaries">Installing binaries</a></li>
+<li><a href="#installing-via-npm">Installing via npm</a></li>
 </ul>
 </li>
-<li>
-<p><a href="#links">Links</a></p>
+<li><a href="#usage">Usage</a><ul>
+<li><a href="#push">push</a></li>
+</ul>
 </li>
 </ul>
-<h2 id="getting-started">Getting started</h2>
-<p>The data is a command-line tool aimed to help publishers to prepare and upload data to the DataHub. With data you will be able to:</p>
+</div>
+<h1 id="getting-started">Getting started</h1>
+<p><code>data</code> is the command-line tool to prepare, push and get data from the DataHub. With <code>data</code> you will be able to:</p>
 <ul>
-<li>Publish Data Package to DataHub</li>
-<li>Get Data Package from DataHub</li>
-<li>Remove uploaded Data Package from DataHub</li>
-<li>Get information about particular Data Package</li>
-<li>Normalize Data Package according to the specs</li>
+<li>Push data to the DataHub</li>
+<li>Get data from the DataHub</li>
+<li>Get information about particular data files and datasets (both on the DataHub and off)</li>
 <li>Validate your data to ensure its quality</li>
-<li>Set up configuration file in order to publish</li>
 </ul>
-<h2 id="installation">Installation</h2>
-<h3 id="installing-binaries-without-npm">Installing binaries without npm</h3>
-<p>On the <a href="https://github.com/datopian/datahub-cli/releases">releases</a> page, you can download pre-built binaries for MacOS and LinuxOS x64. You may need to put the pre-built binary in the bin directory (e.g.: /usr/local/bin/).</p>
-<pre class="highlight"><code class="language-bash linenums">mv path/to/data-{os-distribution} /usr/local/bin/data</code></pre>
+<h1 id="installation">Installation</h1>
+<p>There are two options for installation:</p>
+<ol>
+<li>Installing pre-built binaries. These have no dependencies and will work "out of the box"</li>
+<li>Install via npm: if you have node (&gt;= v7) and npm installed you can install via npm</li>
+</ol>
+<h2 id="installing-binaries">Installing binaries</h2>
+<ol>
+<li>Go to the <a href="https://github.com/datopian/datahub-cli/releases">releases page</a></li>
+<li>Download the pre-built binary for your platform (MacOS and LinuxOS x64 at present)</li>
+<li>
+<p>Move the binary into your <code>$PATH</code> e.g. on Mac you could move to <code>/usr/local/bin/</code></p>
+<pre class="highlight"><code class="language-bash linenums">mv data-{os-distribution} /usr/local/bin/data</code></pre>
 
-<h3 id="installing-from-npm">Installing from npm</h3>
-<p>You can also install it from <a href="">npm</a> as follows:
-<code>npm install -g data</code></p>
-<h2 id="commands">Commands</h2>
+</li>
+</ol>
+<h2 id="installing-via-npm">Installing via npm</h2>
+<p>You can also install it from <code>npm</code> as follows:</p>
+<pre class="highlight"><code class="language-bash linenums">npm install -g datahub-cli</code></pre>
+
+<h1 id="usage">Usage</h1>
 <p>You can see the latest commands and get help by doing:</p>
-<pre class="highlight"><code class="language-bash linenums">data --help</code></pre>
+<pre class="highlight"><code class="language-bash linenums">data help</code></pre>
 
-<p>The output of the help command:</p>
-<pre class="highlight"><code class="language-bash linenums">❒ data [options] &lt;command&gt; &lt;args&gt;
+<h2 id="push"><code>push</code></h2>
+<p>Putting data online is one command: <code>push</code>.</p>
+<pre class="highlight"><code class="language-bash linenums">data push [FILE-or-DATA-PACKAGE-PATH]</code></pre>
 
-Commands:
-  DataHub:
-    push        [path]        Push data to the DataHub
-    get         [pkg-id]      Get data from DataHub
-    purge       [owner/name]  Permanently deletes data from DataHub
-  Data Package specific:
-    info        [pkg-id]      Get info on data
-    normalize                 Normalize datapackage.json
-    validate                  Validate Data Package structure
+<p><strong>Login befor pushing</strong>: you will need to login (or signup) before pushing:</p>
+<pre class="highlight"><code class="linenums">data login</code></pre>
 
-  Administrative:
-    config                    Set up configuration
-    help        [cmd]         Show help on cmd
-
-Options:
--h, --help              Output usage information
--v, --version           Output the version
-</code></pre>
-
-<h2 id="configuration">Configuration</h2>
-<p>Data can be configured using <code>data config[ure]</code> command. It will ask you to provide a username, secretToken, server and bitStore addresses of DataHub.</p>
-<p>The config is stored in <code>~/.datahub/config</code>, you can edit it with text editor.
-Simple example config file can look like this:</p>
-<pre class="highlight"><code class="linenums">username = myname
-access_token = mykey
-server = server URL for publishing Eg: https://www.datapackaged.com</code></pre>
-
-<h2 id="usage">Usage</h2>
-<h3 id="publish">Publish</h3>
-<p>To publish a Data Package, go to the Data Package directory (with <code>datapackage.json</code>) and
-run:</p>
-<pre class="highlight"><code class="language-bash linenums">data push</code></pre>
-
-<p>If your configured <em>username</em> and <em>secretToken</em> are correct, data will
-upload datapackage.json and all relevant resources to the DataHub server.</p>
-<h3 id="get">Get</h3>
-<p>To get Data Package run the following command:
-<pre class="highlight"><code class="language-bash linenums">data get &lt;publisher&gt;/&lt;package&gt;</code></pre>
-New Data Package will be downloaded into current working directory. </p>
-<h3 id="delete">Delete</h3>
-<p>To delete permanently Data Package from DataHub, you can use <code>dpm purge</code> command:</p>
-<pre class="highlight"><code class="language-bash linenums">data purge</code></pre>
-
-<h3 id="information">Information</h3>
-<p>You can get information about particular Data Package</p>
-<pre class="highlight"><code class="language-bash linenums">data info</code></pre>
-
-<h3 id="normalize">Normalize</h3>
-<p>To normalize Data Package descriptor according to the specs</p>
-<pre class="highlight"><code class="language-bash linenums">data norm[alize] [path]</code></pre>
-
-<h3 id="validate">Validate</h3>
-<p>To validate Data Package descriptor against schema</p>
-<pre class="highlight"><code class="language-bash linenums">data validate [path | URL]</code></pre>
-
-<h3 id="configuration_1">Configuration</h3>
-<p>To set up configuration file:
-<pre class="highlight"><code class="language-bash linenums">data config[ure]</code></pre></p>
-<h2 id="links">Links</h2>
-<ul>
-<li><a href="https://github.com/datahq/datahub-cli">Code repo</a></li>
-</ul>
+<p>This will carry out login / signup entirely from the command line.</p>
               
             </div>
           </div>

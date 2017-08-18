@@ -722,43 +722,18 @@
         }, 
         {
             "location": "/publishers/", 
-            "text": "Publishers\n\n\nThis section of the DataHub documentation is for data publishers. Here you can learn about getting your data ready for loading into DataHub, and how you can interact with your data once it is loaded.\n\n\n\n\nPublishing a Data Package\n\n\nSign up \n get a secret key\n\n\nInstall command line tool\n\n\nConfigure\n\n\nPublish a dataset\n\n\nView it online\n\n\n\n\n\n\n\n\nPublishing a Data Package\n\n\nSign up \n get a secret key\n\n\nYou can sign up using your GitHub account. Once you are signed in, you will be redirected to a dashboard, where you can find your secret key (access token).\n\n\nInstall command line tool\n\n\nNext you need to install \ndpm\n - the data package manager command line tool:\n\n\n$ [sudo] pip install git+https://github.com/frictionlessdata/dpm-py.git\n\n\n\nConfigure\n\n\nYou will need the secret key (access token) to set your configurations:\n\n\n$ dpm configure\n\n\n Username:  \n your user name \n\n\n Your access_token:  \n you secret key \n\n\n Server URL: https://www.datapackaged.com\n\n\n\nNote: server URL may vary depending on application development stage\n\n\nPublish a dataset\n\n\nWe assume you know what a \nData Package\n is.\n\n\nGo to a directory where your data package is located and publish it:\n\n\n$ cd your-data-package-directory/\n$ dpm publish\n\n\n\nView it online\n\n\nOnce your data package is successfully published, you will get an URL to your dataset on the website. Open the URL in your favourite browser and explore it.", 
+            "text": "Publishing\n\n\nThis guide is all about how to put your data online using the DataHub.\n\n\nQuickstart\n\n\nAs a new user you want to know quickly how to get going so that you can get your data online as soon as possible.\n\n\nTo put your data online you use our \ndata\n command line tool:\n\n\n\n\nHow do you get the \ndata\n tool? =\n follow the \ninstallation instructions\n\n\nHow do you use the \ndata\n tool? =\n Run \ndata login\n (if your first time) then \ndata push\n\n\n\n\nIn summary:\n\n\n\ngraph TD                                                                                 \nclient[Get the `data` tool]\nlogin[Login - on the command line]\npush[Push data using `data` tool]\n\nclient --> login\nlogin --> push\n\n\n\n\nDesktop app\n: we are  planning a Desktop app as well as the command line tool. If you're interested \nlet us know\n.\n\n\nAPI access\n: you can push via an API. However, the process is not yet well documented -- so if you want to use it \nlet us know and we can walk you through it\n.", 
             "title": "Getting started"
         }, 
         {
-            "location": "/publishers/#publishers", 
-            "text": "This section of the DataHub documentation is for data publishers. Here you can learn about getting your data ready for loading into DataHub, and how you can interact with your data once it is loaded.   Publishing a Data Package  Sign up   get a secret key  Install command line tool  Configure  Publish a dataset  View it online", 
-            "title": "Publishers"
+            "location": "/publishers/#publishing", 
+            "text": "This guide is all about how to put your data online using the DataHub.", 
+            "title": "Publishing"
         }, 
         {
-            "location": "/publishers/#publishing-a-data-package", 
-            "text": "", 
-            "title": "Publishing a Data Package"
-        }, 
-        {
-            "location": "/publishers/#sign-up-get-a-secret-key", 
-            "text": "You can sign up using your GitHub account. Once you are signed in, you will be redirected to a dashboard, where you can find your secret key (access token).", 
-            "title": "Sign up &amp; get a secret key"
-        }, 
-        {
-            "location": "/publishers/#install-command-line-tool", 
-            "text": "Next you need to install  dpm  - the data package manager command line tool:  $ [sudo] pip install git+https://github.com/frictionlessdata/dpm-py.git", 
-            "title": "Install command line tool"
-        }, 
-        {
-            "location": "/publishers/#configure", 
-            "text": "You will need the secret key (access token) to set your configurations:  $ dpm configure  Username:    your user name    Your access_token:    you secret key    Server URL: https://www.datapackaged.com  Note: server URL may vary depending on application development stage", 
-            "title": "Configure"
-        }, 
-        {
-            "location": "/publishers/#publish-a-dataset", 
-            "text": "We assume you know what a  Data Package  is.  Go to a directory where your data package is located and publish it:  $ cd your-data-package-directory/\n$ dpm publish", 
-            "title": "Publish a dataset"
-        }, 
-        {
-            "location": "/publishers/#view-it-online", 
-            "text": "Once your data package is successfully published, you will get an URL to your dataset on the website. Open the URL in your favourite browser and explore it.", 
-            "title": "View it online"
+            "location": "/publishers/#quickstart", 
+            "text": "As a new user you want to know quickly how to get going so that you can get your data online as soon as possible.  To put your data online you use our  data  command line tool:   How do you get the  data  tool? =  follow the  installation instructions  How do you use the  data  tool? =  Run  data login  (if your first time) then  data push   In summary:  \ngraph TD                                                                                 \nclient[Get the `data` tool]\nlogin[Login - on the command line]\npush[Push data using `data` tool]\n\nclient --> login\nlogin --> push  Desktop app : we are  planning a Desktop app as well as the command line tool. If you're interested  let us know .  API access : you can push via an API. However, the process is not yet well documented -- so if you want to use it  let us know and we can walk you through it .", 
+            "title": "Quickstart"
         }, 
         {
             "location": "/publishers/core-datasets/", 
@@ -857,88 +832,43 @@
         }, 
         {
             "location": "/publishers/cli/", 
-            "text": "DATA: The Data Package Manager CLI\n\n\n\n\nGetting started\n\n\nInstallation\n\n\nCommands\n\n\nConfiguration\n\n\n\n\nUsage\n\n\n\n\nPublish\n\n\nDownload\n\n\nDelete\n\n\nInformation\n\n\nNormalize\n\n\nValidate\n\n\nConfiguration\n\n\n\n\n\n\n\n\nLinks\n\n\n\n\n\n\nGetting started\n\n\nThe data is a command-line tool aimed to help publishers to prepare and upload data to the DataHub. With data you will be able to:\n\n\n\n\nPublish Data Package to DataHub\n\n\nGet Data Package from DataHub\n\n\nRemove uploaded Data Package from DataHub\n\n\nGet information about particular Data Package\n\n\nNormalize Data Package according to the specs\n\n\nValidate your data to ensure its quality\n\n\nSet up configuration file in order to publish\n\n\n\n\nInstallation\n\n\nInstalling binaries without npm\n\n\nOn the \nreleases\n page, you can download pre-built binaries for MacOS and LinuxOS x64. You may need to put the pre-built binary in the bin directory (e.g.: /usr/local/bin/).\n\n\nmv path/to/data-{os-distribution} /usr/local/bin/data\n\n\n\nInstalling from npm\n\n\nYou can also install it from \nnpm\n as follows:\n\nnpm install -g data\n\n\nCommands\n\n\nYou can see the latest commands and get help by doing:\n\n\ndata --help\n\n\n\nThe output of the help command:\n\n\n\u2752 data [options] \ncommand\n \nargs\n\n\nCommands:\n  DataHub:\n    push        [path]        Push data to the DataHub\n    get         [pkg-id]      Get data from DataHub\n    purge       [owner/name]  Permanently deletes data from DataHub\n  Data Package specific:\n    info        [pkg-id]      Get info on data\n    normalize                 Normalize datapackage.json\n    validate                  Validate Data Package structure\n\n  Administrative:\n    config                    Set up configuration\n    help        [cmd]         Show help on cmd\n\nOptions:\n-h, --help              Output usage information\n-v, --version           Output the version\n\n\n\n\nConfiguration\n\n\nData can be configured using \ndata config[ure]\n command. It will ask you to provide a username, secretToken, server and bitStore addresses of DataHub.\n\n\nThe config is stored in \n~/.datahub/config\n, you can edit it with text editor.\nSimple example config file can look like this:\n\n\nusername = myname\naccess_token = mykey\nserver = server URL for publishing Eg: https://www.datapackaged.com\n\n\n\nUsage\n\n\nPublish\n\n\nTo publish a Data Package, go to the Data Package directory (with \ndatapackage.json\n) and\nrun:\n\n\ndata push\n\n\n\nIf your configured \nusername\n and \nsecretToken\n are correct, data will\nupload datapackage.json and all relevant resources to the DataHub server.\n\n\nGet\n\n\nTo get Data Package run the following command:\n\ndata get \npublisher\n/\npackage\n\nNew Data Package will be downloaded into current working directory. \n\n\nDelete\n\n\nTo delete permanently Data Package from DataHub, you can use \ndpm purge\n command:\n\n\ndata purge\n\n\n\nInformation\n\n\nYou can get information about particular Data Package\n\n\ndata info\n\n\n\nNormalize\n\n\nTo normalize Data Package descriptor according to the specs\n\n\ndata norm[alize] [path]\n\n\n\nValidate\n\n\nTo validate Data Package descriptor against schema\n\n\ndata validate [path | URL]\n\n\n\nConfiguration\n\n\nTo set up configuration file:\n\ndata config[ure]\n\n\nLinks\n\n\n\n\nCode repo", 
+            "text": "data\n - the DataHub CLI\n\n\n\n\n\n\ndata - the DataHub CLI\n\n\nGetting started\n\n\nInstallation\n\n\nInstalling binaries\n\n\nInstalling via npm\n\n\n\n\n\n\nUsage\n\n\npush\n\n\n\n\n\n\n\n\n\n\nGetting started\n\n\ndata\n is the command-line tool to prepare, push and get data from the DataHub. With \ndata\n you will be able to:\n\n\n\n\nPush data to the DataHub\n\n\nGet data from the DataHub\n\n\nGet information about particular data files and datasets (both on the DataHub and off)\n\n\nValidate your data to ensure its quality\n\n\n\n\nInstallation\n\n\nThere are two options for installation:\n\n\n\n\nInstalling pre-built binaries. These have no dependencies and will work \"out of the box\"\n\n\nInstall via npm: if you have node (\n= v7) and npm installed you can install via npm\n\n\n\n\nInstalling binaries\n\n\n\n\nGo to the \nreleases page\n\n\nDownload the pre-built binary for your platform (MacOS and LinuxOS x64 at present)\n\n\n\n\nMove the binary into your \n$PATH\n e.g. on Mac you could move to \n/usr/local/bin/\n\n\nmv data-{os-distribution} /usr/local/bin/data\n\n\n\n\n\n\n\nInstalling via npm\n\n\nYou can also install it from \nnpm\n as follows:\n\n\nnpm install -g datahub-cli\n\n\n\nUsage\n\n\nYou can see the latest commands and get help by doing:\n\n\ndata help\n\n\n\npush\n\n\nPutting data online is one command: \npush\n.\n\n\ndata push [FILE-or-DATA-PACKAGE-PATH]\n\n\n\nLogin befor pushing\n: you will need to login (or signup) before pushing:\n\n\ndata login\n\n\n\nThis will carry out login / signup entirely from the command line.", 
             "title": "CLI"
         }, 
         {
-            "location": "/publishers/cli/#data-the-data-package-manager-cli", 
-            "text": "Getting started  Installation  Commands  Configuration   Usage   Publish  Download  Delete  Information  Normalize  Validate  Configuration     Links", 
-            "title": "DATA: The Data Package Manager CLI"
+            "location": "/publishers/cli/#data-the-datahub-cli", 
+            "text": "data - the DataHub CLI  Getting started  Installation  Installing binaries  Installing via npm    Usage  push", 
+            "title": "data - the DataHub CLI"
         }, 
         {
             "location": "/publishers/cli/#getting-started", 
-            "text": "The data is a command-line tool aimed to help publishers to prepare and upload data to the DataHub. With data you will be able to:   Publish Data Package to DataHub  Get Data Package from DataHub  Remove uploaded Data Package from DataHub  Get information about particular Data Package  Normalize Data Package according to the specs  Validate your data to ensure its quality  Set up configuration file in order to publish", 
+            "text": "data  is the command-line tool to prepare, push and get data from the DataHub. With  data  you will be able to:   Push data to the DataHub  Get data from the DataHub  Get information about particular data files and datasets (both on the DataHub and off)  Validate your data to ensure its quality", 
             "title": "Getting started"
         }, 
         {
             "location": "/publishers/cli/#installation", 
-            "text": "", 
+            "text": "There are two options for installation:   Installing pre-built binaries. These have no dependencies and will work \"out of the box\"  Install via npm: if you have node ( = v7) and npm installed you can install via npm", 
             "title": "Installation"
         }, 
         {
-            "location": "/publishers/cli/#installing-binaries-without-npm", 
-            "text": "On the  releases  page, you can download pre-built binaries for MacOS and LinuxOS x64. You may need to put the pre-built binary in the bin directory (e.g.: /usr/local/bin/).  mv path/to/data-{os-distribution} /usr/local/bin/data", 
-            "title": "Installing binaries without npm"
+            "location": "/publishers/cli/#installing-binaries", 
+            "text": "Go to the  releases page  Download the pre-built binary for your platform (MacOS and LinuxOS x64 at present)   Move the binary into your  $PATH  e.g. on Mac you could move to  /usr/local/bin/  mv data-{os-distribution} /usr/local/bin/data", 
+            "title": "Installing binaries"
         }, 
         {
-            "location": "/publishers/cli/#installing-from-npm", 
-            "text": "You can also install it from  npm  as follows: npm install -g data", 
-            "title": "Installing from npm"
-        }, 
-        {
-            "location": "/publishers/cli/#commands", 
-            "text": "You can see the latest commands and get help by doing:  data --help  The output of the help command:  \u2752 data [options]  command   args \n\nCommands:\n  DataHub:\n    push        [path]        Push data to the DataHub\n    get         [pkg-id]      Get data from DataHub\n    purge       [owner/name]  Permanently deletes data from DataHub\n  Data Package specific:\n    info        [pkg-id]      Get info on data\n    normalize                 Normalize datapackage.json\n    validate                  Validate Data Package structure\n\n  Administrative:\n    config                    Set up configuration\n    help        [cmd]         Show help on cmd\n\nOptions:\n-h, --help              Output usage information\n-v, --version           Output the version", 
-            "title": "Commands"
-        }, 
-        {
-            "location": "/publishers/cli/#configuration", 
-            "text": "Data can be configured using  data config[ure]  command. It will ask you to provide a username, secretToken, server and bitStore addresses of DataHub.  The config is stored in  ~/.datahub/config , you can edit it with text editor.\nSimple example config file can look like this:  username = myname\naccess_token = mykey\nserver = server URL for publishing Eg: https://www.datapackaged.com", 
-            "title": "Configuration"
+            "location": "/publishers/cli/#installing-via-npm", 
+            "text": "You can also install it from  npm  as follows:  npm install -g datahub-cli", 
+            "title": "Installing via npm"
         }, 
         {
             "location": "/publishers/cli/#usage", 
-            "text": "", 
+            "text": "You can see the latest commands and get help by doing:  data help", 
             "title": "Usage"
         }, 
         {
-            "location": "/publishers/cli/#publish", 
-            "text": "To publish a Data Package, go to the Data Package directory (with  datapackage.json ) and\nrun:  data push  If your configured  username  and  secretToken  are correct, data will\nupload datapackage.json and all relevant resources to the DataHub server.", 
-            "title": "Publish"
-        }, 
-        {
-            "location": "/publishers/cli/#get", 
-            "text": "To get Data Package run the following command: data get  publisher / package \nNew Data Package will be downloaded into current working directory.", 
-            "title": "Get"
-        }, 
-        {
-            "location": "/publishers/cli/#delete", 
-            "text": "To delete permanently Data Package from DataHub, you can use  dpm purge  command:  data purge", 
-            "title": "Delete"
-        }, 
-        {
-            "location": "/publishers/cli/#information", 
-            "text": "You can get information about particular Data Package  data info", 
-            "title": "Information"
-        }, 
-        {
-            "location": "/publishers/cli/#normalize", 
-            "text": "To normalize Data Package descriptor according to the specs  data norm[alize] [path]", 
-            "title": "Normalize"
-        }, 
-        {
-            "location": "/publishers/cli/#validate", 
-            "text": "To validate Data Package descriptor against schema  data validate [path | URL]", 
-            "title": "Validate"
-        }, 
-        {
-            "location": "/publishers/cli/#configuration_1", 
-            "text": "To set up configuration file: data config[ure]", 
-            "title": "Configuration"
-        }, 
-        {
-            "location": "/publishers/cli/#links", 
-            "text": "Code repo", 
-            "title": "Links"
+            "location": "/publishers/cli/#push", 
+            "text": "Putting data online is one command:  push .  data push [FILE-or-DATA-PACKAGE-PATH]  Login befor pushing : you will need to login (or signup) before pushing:  data login  This will carry out login / signup entirely from the command line.", 
+            "title": "push"
         }, 
         {
             "location": "/publishers/views/", 
