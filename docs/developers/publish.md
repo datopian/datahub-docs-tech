@@ -2,6 +2,35 @@
 
 Explanation of DataHub publishing flow from client and back-end perspectives.
 
+<div class="mermaid">
+
+graph TD
+
+
+  cli((CLI fa:fa-user))
+  auth[Auth Service]
+  cli --login--> auth
+  
+	
+	cli --store--> raw[Raw Store API<br>+ Storage]  
+  
+	cli --package-info--> pipeline-store
+  raw --data resource--> pipeline-runner
+  
+  pipeline-store -.generate.-> pipeline-runner
+	
+  pipeline-runner --> package[Package Storage]
+	package --api--> frontend[Frontend]
+  frontend --> user[User fa:fa-user]
+  
+
+  
+  package -.publish.->metastore[MetaStore]
+  pipeline-store -.publish.-> metastore[MetaStore]
+  metastore[MetaStore] --api--> frontend
+  
+</div>
+
 ## Client Perspective
 
 Publishing flow takes the following steps and processes to communicate with DataHub API:
@@ -9,81 +38,32 @@ Publishing flow takes the following steps and processes to communicate with Data
 <div class="mermaid">
 sequenceDiagram
 Upload Agent CLI->>Upload Agent CLI: Check Data Package valid
-Upload Agent CLI-->>Auth(SSO): Get Session Token (Sends base auth)
-Auth(SSO)-->>Upload Agent CLI: session token
-Upload Agent CLI->>BitStore Upload Auth: Get BitStore Upload token [send session token]
-BitStore Upload Auth->>Auth(SSO): Check key / token
-Auth(SSO)->>BitStore Upload Auth: OK / Not OK
-BitStore Upload Auth->>Upload Agent CLI: S3 auth Token
-Upload Agent CLI->>Data Storage (S3 Raw): Send file plus token
-Data Storage (S3 Raw)->>Upload Agent CLI: OK / Not OK
-Upload Agent CLI->>MetaData Storage API: Finalize (After all data uploaded)
-MetaData Storage API->>Upload Agent CLI: OK / Not OK
+Upload Agent CLI-->>Auth(SSO): login
+Auth(SSO)-->>Upload Agent CLI: JWT token
+Upload Agent CLI->>RawStore API: upload using signed url
+RawStore API->>Auth(SSO): Check key / token
+Auth(SSO)->>RawStore API: OK / Not OK
+RawStore API->>Upload Agent CLI: success message
+Upload Agent CLI->>pipeline store: package info
+pipeline store->>Upload Agent CLI: OK / Not OK
+pipeline store->>pipeline runner: generate
+RawStore API->>pipeline runner: data resource
+pipeline runner->>Package Storage: generated
+Package Storage->>Metadata Storage API: publish
+pipeline store->>Metadata Storage API: publish
+Metadata Storage API->>Upload Agent CLI: OK / Not OK
 </div>
 <br>
 
-* Upload API - see `POST /api/package/upload` in *package* section of [API][api]
-* Authentication API - see `POST /api/auth/token` in *auth* section of [API][api]. Read more [about authentication][auth-docs]
-* [Authorization API][authz] - see `POST /api/datastore/authorize` in *package* section of [API][api]. Read more [about authorization][authz-docs]
+* Upload API - see `POST /source/upload` in *source* section of [API][api]
+* Authentication API - see `GET /auth/check` in *auth* section of [API][api].
+* Authorization API - see `GET /auth/authorize` in *auth* section of [API][api].
 
-See example [code snippet in dpm-py][publish-code]
+
+See example [code snippet in DataHub CLI][publish-code]
 
 [api]: /developers/api/
-[auth-docs]: /developers/authentication/
-[authz-docs]: /developers/authorization/
-[publish-code]: https://github.com/frictionlessdata/dpm-py/blob/master/dpm/client/__init__.py#L120
+[publish-code]: https://github.com/datahq/datahub-cli/blob/b869d38073248903a944029cf93eddf3ef50001a/bin/data-push.js#L34
 
-<br>
+[api]: /developers/api/
 
-## Back-end perspective
-
-DataHub Metadata and Data Flow
-
-* Pink = service we build
-* Blue = external service
-* Dark gray = not yet implemented
-
-<div class="mermaid">
-graph TD
-
-user[Publisher fa:fa-user]
-upload-api["Upload API (S3 API)"]
-bitstore(Bitstore S3)
-metaingestor[Meta Ingestor]
-dataingestor[Data Ingestor]
-metastore("Metastore (RDS)")
-readapi[Read API]
-dataproxy["DataProxy (convert raw data to json on the fly)"]
-datastore["Datastore (RDS)"]
-s3readapi[S3 Get API]
-readuser[Consumer fa:fa-user]
-
-user --s3 signed upload url--> upload-api
-upload-api --> bitstore
-bitstore --> metaingestor
-metaingestor --> metastore
-metastore --> readapi
-bitstore -.-> dataproxy
-bitstore -.-> dataingestor
-dataingestor -.-> datastore
-datastore -.-> readapi
-bitstore --> s3readapi
-s3readapi --> readuser
-dataproxy -.-> readuser
-readapi --> readuser
-
-  classDef extservice fill:lightblue,stroke:#333,stroke-width:4px;
-  classDef notimplemented fill:darkgrey,stroke:#bbb,stroke-width:1px;
-  classDef service fill:pink,stroke:#333,stroke-width:4px;
-  class datastore,dataingestor,dataproxy notimplemented;
-  class bitstore,metastore,s3readapi extservice;
-  class readapi service;
-</div>
-
-* [Authentication][auth-docs]
-* [Authorization][authz-docs]
-* [Metastore][metastore]
-* [BitStore][bitstore]
-
-[metastore]: /developers/platform/#metastore
-[bitstore]: /developers/platform/#bitstore

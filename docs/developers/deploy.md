@@ -23,17 +23,37 @@ graph TD
 This diagram shows the current deployment architecture.
 
 <div class="mermaid">
-graph TD
+graph LR
 
-  user[fa:fa-user User]
-  bits[BitStore]
-  cloudflare[Cloudflare]
+cloudflare --> haproxy
 
-  user --> cloudflare
-  cloudflare --> docker
-  cloudflare --> bits
-  docker[Docker - Node JS Application] --> apiproxy[API Proxy]
-  docker --> bits
+haproxy --> frontend
+
+subgraph auth
+  postgres
+  authapp
+end
+
+subgraph rawstore
+  rawobjstore
+  rawapp
+end
+
+subgraph pkgstore
+  pkgobjstore
+  pkgapp
+end
+
+subgraph metastore
+  elasticsearch
+  metastore
+end
+
+haproxy --/auth--> authapp
+haproxy --/rawstore--> rawapp
+
+haproxy --> pkgapp
+haproxy --/metastore--> metastore
 </div>
 
 ### Old Structures
