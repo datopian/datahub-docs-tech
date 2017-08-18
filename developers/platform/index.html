@@ -102,14 +102,6 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../authorization/">Authorization</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../authentication/">Authentication</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../user-stories/">User Stories</a>
                 </li>
     </ul>
@@ -223,8 +215,8 @@ graph TD
 
 <ul>
 <li><a href="../../publishers/cli">DataHub-CLI</a> - Command Line Interface for publishing <a href="#data-package">Data Packages</a></li>
-<li><a href="">Front-end Web Application</a> - Core part of platform - API, Login &amp; Sign-Up and Browse &amp; Search (page not yet implemented)</li>
-<li><a href="../../developers/view">Views and Renderer</a> - JS Library responsible for visualization and views on platform</li>
+<li><a href="http://datahub.io/">Front-end Web Application</a> - Core part of platform - Login &amp; Sign-Up and Browse &amp; Search Datasets</li>
+<li><a href="../../developers/views">Views and Renderer</a> - JS Library responsible for visualization and views on platform</li>
 </ul>
 <h3 id="raw-storage">Raw Storage</h3>
 <p>We first save all raw files before sending to pipeline-runner.
@@ -245,14 +237,8 @@ graph TD
 <h3 id="metastore">MetaStore</h3>
 <p>The MetaStore stores Data Package meta-data along with other management information like publishers, users and permissions.</p>
 <p>We use AWS RDS Postgresql database for storing meta-data.</p>
-<h3 id="users-and-permissions">Users and Permissions</h3>
-<ul>
-<li>We are using GitHub auth API for authenticating users on our platform. See more information on <a href="../../developers/authentication">authentication page</a></li>
-<li>We have a standard access control matrix with 3 axes for authorization. See more information on
-<a href="../../developers/authorization">authorization page</a></li>
-</ul>
 <h2 id="domain-model">Domain model</h2>
-<p>There are two main concepts to understand in DataHub domain model - <a href="#profile">Profile</a> and <a href="#package">Package</a></p>
+<p>There are two main concepts to understand in DataHub domain model - <a href="#profile">Profile</a> and <a href="#data-package">Package</a></p>
 <div class="mermaid">
 graph TD
 

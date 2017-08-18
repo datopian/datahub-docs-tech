@@ -71,10 +71,6 @@
         
             <li><a class="toctree-l4" href="#deploy">Deploy</a></li>
         
-            <li><a class="toctree-l4" href="#authorization">Authorization</a></li>
-        
-            <li><a class="toctree-l4" href="#authentication">Authentication</a></li>
-        
             <li><a class="toctree-l4" href="#datahub-cli">DataHub CLI</a></li>
         
         </ul>
@@ -105,14 +101,6 @@
                 <li class="">
                     
     <a class="" href="views-research/">Views Research</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="authorization/">Authorization</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="authentication/">Authentication</a>
                 </li>
                 <li class="">
                     
@@ -198,7 +186,12 @@
 <li><a href="https://github.com/datahq/auth">AUTH</a> - A generic OAuth2 authentication service and user permission manager.</li>
 <li><a href="https://github.com/datahq/specstore">SPECSTORE</a> - API server for managing a Source Spec Registry</li>
 <li><a href="https://github.com/datahq/bitstore">BITSTORE</a> - A microservice for storing blobs i.e. files.</li>
-<li><a href="https://github.com/datahq/docs">DOCS</a> - Documentations</li>
+<li>
+<p><a href="https://github.com/datahq/resolver">RESOLVER</a> - A microservice for resolving datapackage URLs into more human readable ones</p>
+</li>
+<li>
+<p><a href="https://github.com/datahq/docs">DOCS</a> - Documentations</p>
+</li>
 </ul>
 <div class="mermaid">
 graph TD
@@ -209,6 +202,7 @@ subgraph Repos
   auth[Auth]
   specstore[Specstore]
   bitstore[Bitstore]
+  resolver[Resolver]
   docs[Docs]
 end
 
@@ -225,6 +219,7 @@ assembler --> deploy
 auth --> deploy
 specstore --> deploy
 bitstore --> deploy
+resolver --> deploy
 
 </div>
 
@@ -246,15 +241,12 @@ bitstore --> deploy
 <li>
 <p><a href="https://github.com/datahq/datahub-cli#usage">Install DataHub-CLI</a></p>
 </li>
+<li>
+<p><a href="https://github.com/datahq/resolver#quick-start">Install Resolver</a></p>
+</li>
 </ul>
 <h2 id="deploy">Deploy</h2>
 <p>For deployment of the application in a production environment, please see <a href="./deploy/">the deploy page</a>.</p>
-<h2 id="authorization">Authorization</h2>
-<p>The authorization set up enables system to restricts user permission to execute.</p>
-<p><a href="./authorization/">Authorization docs</a></p>
-<h2 id="authentication">Authentication</h2>
-<p>Some DataHub API methods require client to provide user identity. API Client can use JWT token to perform authenticated requests.</p>
-<p><a href="./authentication/">Authentication docs</a></p>
 <h2 id="datahub-cli">DataHub CLI</h2>
 <p>The DataHub CLI is a Node JS lib and command line interface to interact with an DataHub instance.</p>
 <p><a href="https://github.com/datahq/datahub-cli">CLI code</a></p>

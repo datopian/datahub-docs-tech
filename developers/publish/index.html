@@ -85,8 +85,6 @@
         
             <li><a class="toctree-l4" href="#client-perspective">Client Perspective</a></li>
         
-            <li><a class="toctree-l4" href="#back-end-perspective">Back-end perspective</a></li>
-        
         </ul>
     
 
@@ -99,14 +97,6 @@
                 <li class="">
                     
     <a class="" href="../views-research/">Views Research</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../authorization/">Authorization</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../authentication/">Authentication</a>
                 </li>
                 <li class="">
                     
@@ -183,81 +173,63 @@
               
                 <h1 id="publish">Publish</h1>
 <p>Explanation of DataHub publishing flow from client and back-end perspectives.</p>
+<div class="mermaid">
+
+graph TD
+
+
+  cli((CLI fa:fa-user))
+  auth[Auth Service]
+  cli --login--> auth
+
+
+    cli --store--> raw[Raw Store API<br>+ Storage]  
+
+    cli --package-info--> pipeline-store
+  raw --data resource--> pipeline-runner
+
+  pipeline-store -.generate.-> pipeline-runner
+
+  pipeline-runner --> package[Package Storage]
+    package --api--> frontend[Frontend]
+  frontend --> user[User fa:fa-user]
+
+
+
+  package -.publish.->metastore[MetaStore]
+  pipeline-store -.publish.-> metastore[MetaStore]
+  metastore[MetaStore] --api--> frontend
+
+</div>
+
 <h2 id="client-perspective">Client Perspective</h2>
 <p>Publishing flow takes the following steps and processes to communicate with DataHub API:</p>
 <div class="mermaid">
 sequenceDiagram
 Upload Agent CLI->>Upload Agent CLI: Check Data Package valid
-Upload Agent CLI-->>Auth(SSO): Get Session Token (Sends base auth)
-Auth(SSO)-->>Upload Agent CLI: session token
-Upload Agent CLI->>BitStore Upload Auth: Get BitStore Upload token [send session token]
-BitStore Upload Auth->>Auth(SSO): Check key / token
-Auth(SSO)->>BitStore Upload Auth: OK / Not OK
-BitStore Upload Auth->>Upload Agent CLI: S3 auth Token
-Upload Agent CLI->>Data Storage (S3 Raw): Send file plus token
-Data Storage (S3 Raw)->>Upload Agent CLI: OK / Not OK
-Upload Agent CLI->>MetaData Storage API: Finalize (After all data uploaded)
-MetaData Storage API->>Upload Agent CLI: OK / Not OK
+Upload Agent CLI-->>Auth(SSO): login
+Auth(SSO)-->>Upload Agent CLI: JWT token
+Upload Agent CLI->>RawStore API: upload using signed url
+RawStore API->>Auth(SSO): Check key / token
+Auth(SSO)->>RawStore API: OK / Not OK
+RawStore API->>Upload Agent CLI: success message
+Upload Agent CLI->>pipeline store: package info
+pipeline store->>Upload Agent CLI: OK / Not OK
+pipeline store->>pipeline runner: generate
+RawStore API->>pipeline runner: data resource
+pipeline runner->>Package Storage: generated
+Package Storage->>Metadata Storage API: publish
+pipeline store->>Metadata Storage API: publish
+Metadata Storage API->>Upload Agent CLI: OK / Not OK
 </div>
 
 <p><br></p>
 <ul>
-<li>Upload API - see <code>POST /api/package/upload</code> in <em>package</em> section of <a href="../../developers/api/">API</a></li>
-<li>Authentication API - see <code>POST /api/auth/token</code> in <em>auth</em> section of <a href="../../developers/api/">API</a>. Read more <a href="../../developers/authentication/">about authentication</a></li>
-<li>[Authorization API][authz] - see <code>POST /api/datastore/authorize</code> in <em>package</em> section of <a href="../../developers/api/">API</a>. Read more <a href="../../developers/authorization/">about authorization</a></li>
+<li>Upload API - see <code>POST /source/upload</code> in <em>source</em> section of <a href="../../developers/api/">API</a></li>
+<li>Authentication API - see <code>GET /auth/check</code> in <em>auth</em> section of <a href="../../developers/api/">API</a>.</li>
+<li>Authorization API - see <code>GET /auth/authorize</code> in <em>auth</em> section of <a href="../../developers/api/">API</a>.</li>
 </ul>
-<p>See example <a href="https://github.com/frictionlessdata/dpm-py/blob/master/dpm/client/__init__.py#L120">code snippet in dpm-py</a></p>
-<p><br></p>
-<h2 id="back-end-perspective">Back-end perspective</h2>
-<p>DataHub Metadata and Data Flow</p>
-<ul>
-<li>Pink = service we build</li>
-<li>Blue = external service</li>
-<li>Dark gray = not yet implemented</li>
-</ul>
-<div class="mermaid">
-graph TD
-
-user[Publisher fa:fa-user]
-upload-api["Upload API (S3 API)"]
-bitstore(Bitstore S3)
-metaingestor[Meta Ingestor]
-dataingestor[Data Ingestor]
-metastore("Metastore (RDS)")
-readapi[Read API]
-dataproxy["DataProxy (convert raw data to json on the fly)"]
-datastore["Datastore (RDS)"]
-s3readapi[S3 Get API]
-readuser[Consumer fa:fa-user]
-
-user --s3 signed upload url--> upload-api
-upload-api --> bitstore
-bitstore --> metaingestor
-metaingestor --> metastore
-metastore --> readapi
-bitstore -.-> dataproxy
-bitstore -.-> dataingestor
-dataingestor -.-> datastore
-datastore -.-> readapi
-bitstore --> s3readapi
-s3readapi --> readuser
-dataproxy -.-> readuser
-readapi --> readuser
-
-  classDef extservice fill:lightblue,stroke:#333,stroke-width:4px;
-  classDef notimplemented fill:darkgrey,stroke:#bbb,stroke-width:1px;
-  classDef service fill:pink,stroke:#333,stroke-width:4px;
-  class datastore,dataingestor,dataproxy notimplemented;
-  class bitstore,metastore,s3readapi extservice;
-  class readapi service;
-</div>
-
-<ul>
-<li><a href="../../developers/authentication/">Authentication</a></li>
-<li><a href="../../developers/authorization/">Authorization</a></li>
-<li><a href="../../developers/platform/#metastore">Metastore</a></li>
-<li><a href="../../developers/platform/#bitstore">BitStore</a></li>
-</ul>
+<p>See example <a href="https://github.com/datahq/datahub-cli/blob/b869d38073248903a944029cf93eddf3ef50001a/bin/data-push.js#L34">code snippet in DataHub CLI</a></p>
               
             </div>
           </div>
