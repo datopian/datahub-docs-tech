@@ -27,3 +27,4 @@ theme: readthedocs
 markdown_extensions:
   - pymdownx.github
   - fontawesome_markdown
+  - smarty
