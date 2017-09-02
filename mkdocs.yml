@@ -1,6 +1,9 @@
 site_name: DataHub
 site_description: DataHub is a web service for hosting datapackages.
 repo_url: https://github.com/datahq/docs
+google_analytics:
+  - 'UA-80458846-5'
+  - 'auto'
 extra_css:
     - css/marmaid.css
     - css/main.css
