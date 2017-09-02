@@ -79,11 +79,33 @@
             
     <li class="toctree-l3"><a href="#platform">Platform</a></li>
     
+
+    <li class="toctree-l3"><a href="#architecture">Architecture</a></li>
+    
         <ul>
         
-            <li><a class="toctree-l4" href="#architecture">Architecture</a></li>
+            <li><a class="toctree-l4" href="#frontend-web-application">Frontend Web Application</a></li>
         
-            <li><a class="toctree-l4" href="#domain-model">Domain model</a></li>
+            <li><a class="toctree-l4" href="#assembler">Assembler</a></li>
+        
+            <li><a class="toctree-l4" href="#raw-storage">Raw Storage</a></li>
+        
+            <li><a class="toctree-l4" href="#package-storage">Package Storage</a></li>
+        
+            <li><a class="toctree-l4" href="#bitstore">BitStore</a></li>
+        
+            <li><a class="toctree-l4" href="#metastore">MetaStore</a></li>
+        
+            <li><a class="toctree-l4" href="#command-line-interface">Command Line Interface</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#domain-model">Domain model</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#profile">Profile</a></li>
         
         </ul>
     
@@ -184,70 +206,134 @@
             <div class="section">
               
                 <h1 id="platform">Platform</h1>
-<p>The DataHub platform has been designed as a set of loosely coupled components, each performing distinct functions related to the platform as a whole.</p>
+<p>The DataHub platform follows a service oriented architecture. It is built from a set of loosely coupled components, each performing distinct functions related to the platform as a whole.</p>
+<div class="toc">
 <ul>
-<li><a href="#architecture">Architecture</a></li>
-<li><a href="#domain-model">Domain Model</a><ul>
-<li><a href="#profile">Profile</a></li>
+<li><a href="#platform">Platform</a></li>
+<li><a href="#architecture">Architecture</a><ul>
+<li><a href="#frontend-web-application">Frontend Web Application</a><ul>
+<li><a href="#views-and-renderer">Views and Renderer</a></li>
+</ul>
+</li>
+<li><a href="#assembler">Assembler</a></li>
+<li><a href="#raw-storage">Raw Storage</a></li>
+<li><a href="#package-storage">Package Storage</a></li>
+<li><a href="#bitstore">BitStore</a></li>
+<li><a href="#metastore">MetaStore</a></li>
+<li><a href="#command-line-interface">Command Line Interface</a></li>
+</ul>
+</li>
+<li><a href="#domain-model">Domain model</a><ul>
+<li><a href="#profile">Profile</a><ul>
+<li><a href="#publisher">Publisher</a></li>
+<li><a href="#user">User</a></li>
 <li><a href="#package">Package</a></li>
 </ul>
 </li>
 </ul>
-<h2 id="architecture">Architecture</h2>
-<div class="mermaid">
+</li>
+</ul>
+</div>
+<h1 id="architecture">Architecture</h1>
+<p style="text-align: center;">Fig 1: Data Flow through the system</p>
 
+<div class="mermaid">
 graph TD
 
+cli((CLI fa:fa-user))
+auth[Auth Service]
+cli --login--> auth
 
-  cli((CLI fa:fa-user))
-  auth[Auth Service]
-  cli --login--> auth
+cli --store--> raw[Raw Store API<br>+ Storage]  
 
+cli --package-info--> pipeline-store
+raw --data resource--> pipeline-runner
 
-    cli --store--> raw[Raw Store API<br>+ Storage]  
+pipeline-store -.generate.-> pipeline-runner
 
-    cli --package-info--> pipeline-store
-  raw --data resource--> pipeline-runner
+pipeline-runner --> package[Package Storage]
+package --api--> frontend[Frontend]
+frontend --> user[User fa:fa-user]
 
-  pipeline-store -.generate.-> pipeline-runner
-
-  pipeline-runner --> package[Package Storage]
-    package --api--> frontend[Frontend]
-  frontend --> user[User fa:fa-user]
-
-
-
-  package -.publish.->metastore[MetaStore]
-  pipeline-store -.publish.-> metastore[MetaStore]
-  metastore[MetaStore] --api--> frontend
-
+package -.publish.->metastore[MetaStore]
+pipeline-store -.publish.-> metastore[MetaStore]
+metastore[MetaStore] --api--> frontend
 </div>
 
-<ul>
-<li><a href="../../publishers/cli">DataHub-CLI</a> - Command Line Interface for publishing <a href="#data-package">Data Packages</a></li>
-<li><a href="http://datahub.io/">Front-end Web Application</a> - Core part of platform - Login &amp; Sign-Up and Browse &amp; Search Datasets</li>
-<li><a href="../../developers/views">Views and Renderer</a> - JS Library responsible for visualization and views on platform</li>
-</ul>
-<h3 id="raw-storage">Raw Storage</h3>
+<p style="text-align: center;">Fig 2: Components Perspective - from the Frontend</p>
+
+<div class="mermaid">
+graph TD
+
+subgraph Web Frontend
+  frontend[Frontend Webapp]
+  browse[Browse & Search]
+  login[Login & Signup]
+  view[Views Renderer]
+  frontend --> browse
+  frontend --> login
+end
+
+subgraph Users and Permissions
+  user[User]
+  permissions[Permissions]
+  authapi[Auth API]
+  authzapi[Authorization API]
+  login --> authapi
+  authapi --> user
+  authzapi --> permissions
+end
+
+subgraph PkgStore
+  bitstore["PkgStore (S3)"]
+  bitstoreapi[PkgStore API<br/>put,get]
+  bitstoreapi --> bitstore
+  browse --> bitstoreapi
+end
+
+subgraph MetaStore
+  metastore["MetaStore (ElasticSearch)"]
+  metaapi[MetaStore API<br/>read,search,import]
+  metaapi --> metastore
+  browse --> metaapi
+end
+
+subgraph CLI
+  cli[CLI]
+end
+</div>
+
+<h2 id="frontend-web-application">Frontend Web Application</h2>
+<p>Core part of platform - Login &amp; Sign-Up and Browse &amp; Search Datasets</p>
+<p><a href="https://github.com/datahq/frontend">https://github.com/datahq/frontend</a></p>
+<h3 id="views-and-renderer">Views and Renderer</h3>
+<p>JS Library responsible for visualization and views.</p>
+<p>See <a href="../../developers/views">views</a> section for more about Views.</p>
+<h2 id="assembler">Assembler</h2>
+<p>TODO</p>
+<h2 id="raw-storage">Raw Storage</h2>
 <p>We first save all raw files before sending to pipeline-runner.
 <strong>Pipeline-runner</strong> is a service that runs the data package pipelines. It is used to normalise and modify the data before it is displayed publicly</p>
 <ul>
 <li>We use AWS S3 instance for storing data</li>
 </ul>
-<h3 id="package-storage">Package Storage</h3>
+<h2 id="package-storage">Package Storage</h2>
 <p>We store files after passing pipeline-runner</p>
 <ul>
 <li>We use AWS S3 instance for storing data</li>
 </ul>
-<h3 id="bitstore">BitStore</h3>
+<h2 id="bitstore">BitStore</h2>
 <p>We are preserving the data byte by byte.</p>
 <ul>
 <li>We use AWS S3 instance for storing data</li>
 </ul>
-<h3 id="metastore">MetaStore</h3>
+<h2 id="metastore">MetaStore</h2>
 <p>The MetaStore stores Data Package meta-data along with other management information like publishers, users and permissions.</p>
 <p>We use AWS RDS Postgresql database for storing meta-data.</p>
-<h2 id="domain-model">Domain model</h2>
+<h2 id="command-line-interface">Command Line Interface</h2>
+<p>The command line interface.</p>
+<p><a href="https://github.com/datahq/datahub-cli">https://github.com/datahq/datahub-cli</a></p>
+<h1 id="domain-model">Domain model</h1>
 <p>There are two main concepts to understand in DataHub domain model - <a href="#profile">Profile</a> and <a href="#data-package">Package</a></p>
 <div class="mermaid">
 graph TD
@@ -271,25 +357,23 @@ subgraph Profile
 end
 </div>
 
-<h3 id="profile">Profile</h3>
+<h2 id="profile">Profile</h2>
 <p>Set of an authenticated and authorized entities like publishers and users. They are responsible for publishing, deleting or maintaining data on platform.</p>
 <p><strong>Important:</strong> Users do not have Data Packages, Publishers do. Users are <em>members</em> of Publishers.</p>
-<h4 id="publisher">Publisher</h4>
-<p>Publisher is an organization which "owns" Data Packages. Publisher may have zero or more Data Packages. Publisher may also have one or more user.</p>
-<h4 id="user">User</h4>
+<h3 id="publisher">Publisher</h3>
+<p>Publisher is an organization which &ldquo;owns&rdquo; Data Packages. Publisher may have zero or more Data Packages. Publisher may also have one or more user.</p>
+<h3 id="user">User</h3>
 <p>User is an authenticated entity, that is member of Publisher organization, that can read, edit, create or delete data packages depending on their permissions.</p>
 <h3 id="package">Package</h3>
-<p>Set of Data Packages published under publisher name.</p>
-<h4 id="data-package">Data Package</h4>
-<p>A Data Package is a simple way of “packaging” up and describing data so that it can be easily shared and used. You can imagine as collection of data and and it's meta-data (<a href="http://frictionlessdata.io/guides/data-package/#datapackagejson">datapackage.json</a>), usually covering some concrete topic Eg: <em>"Gold Prices"</em> or <em>"Population Growth Rate In My country"</em> etc.</p>
+<p>A Data Package is a simple way of “packaging” up and describing data so that it can be easily shared and used. You can imagine as collection of data and and it&rsquo;s meta-data (<a href="http://frictionlessdata.io/guides/data-package/#datapackagejson">datapackage.json</a>), usually covering some concrete topic Eg: <em>&ldquo;Gold Prices&rdquo;</em> or <em>&ldquo;Population Growth Rate In My country&rdquo;</em> etc.</p>
 <p>Each Data Package may have zero or more resources and one or more versions.</p>
-<p><strong>Resources</strong> - think like "tables" - Each can map to one or more physical files (usually just one). Think of a data table split into multiple CSV files on disk.</p>
-<p><strong>Version of a Data Package</strong> - similar to git commits and tags. People can mean different things by a "Version":</p>
+<p><strong>Resources</strong> - think like &ldquo;tables&rdquo; - Each can map to one or more physical files (usually just one). Think of a data table split into multiple CSV files on disk.</p>
+<p><strong>Version of a Data Package</strong> - similar to git commits and tags. People can mean different things by a &ldquo;Version&rdquo;:</p>
 <ul>
-<li>Tag - Same as label or version - a nice human usable label e.g. <em>"v0.3"</em>, <em>"master"</em>, <em>"2013"</em></li>
+<li>Tag - Same as label or version - a nice human usable label e.g. <em>&ldquo;v0.3&rdquo;</em>, <em>&ldquo;master&rdquo;</em>, <em>&ldquo;2013&rdquo;</em></li>
 <li>Commit/Hash - Corresponds to the hash of datapackage.json, with that datapackage.json including all hashes of all data files</li>
 </ul>
-<p>We interpret Version as <em>"Tag"</em> concept. <em>"Commit/Hash"</em> is not supported</p>
+<p>We interpret Version as <em>&ldquo;Tag&rdquo;</em> concept. <em>&ldquo;Commit/Hash&rdquo;</em> is not supported</p>
               
             </div>
           </div>

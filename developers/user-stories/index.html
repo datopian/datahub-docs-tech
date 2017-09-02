@@ -344,7 +344,7 @@
 <li>They need to choose a user name which is url friendly unique human readable name for our app. Can be used in sign in and in many other places.<ul>
 <li>WHY? Where would we need this? For url on site &amp; for publisher</li>
 <li>Same as publisher names (needed for URLs): [a-z-_.]</li>
-<li>Explain: they cannot change this later e.g. "Choose wisely! Once you set this it cannot be changed later!"</li>
+<li>Explain: they cannot change this later e.g. &ldquo;Choose wisely! Once you set this it cannot be changed later!&rdquo;</li>
 </ul>
 </li>
 <li>Send the user an email confirming their account is set up and suggesting next steps</li>
@@ -401,7 +401,7 @@ $ data publish
 <li>Internally: DataPackageCreate or DataPackageUpdate capability</li>
 </ul>
 </li>
-<li>Handle conflicts: if data package already exists, return 409. Client instructions should be already exists and use "--force" or similar to overwrite</li>
+<li>Handle conflicts: if data package already exists, return 409. Client instructions should be already exists and use &ldquo;&ndash;force&rdquo; or similar to overwrite</li>
 <li>API endpoint behind the scenes: POST {api}/package/</li>
 <li>TODO: private data packages<ul>
 <li>And payment!</li>
@@ -436,13 +436,13 @@ $ data publish
 </li>
 <li>Output to stdout.<ul>
 <li>Default: human-readable - nice version of output from goodtables.</li>
-<li>Option for JSON e.g. --json to put machine readable output<ul>
+<li>Option for JSON e.g. &ndash;json to put machine readable output<ul>
 <li>check goodtables command line tool and follow if possible. Can probably reuse code</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Auto-run this before publish unless explicit suppression (e.g. --skip-datavalidate)</li>
+<li>Auto-run this before publish unless explicit suppression (e.g. &ndash;skip-datavalidate)</li>
 <li>Use goodtables (?)</li>
 </ul>
 <h4 id="validate-on-server">Validate on Server</h4>
@@ -662,13 +662,13 @@ $ data publish
 <li>Do we include datapackage.json into the node package? Yes, include it so they get all the original metadata.</li>
 </ul>
 <p><em>Generic version is:</em></p>
-<p><em>As a Web Developer I want to download a DataPackage (like currency codes or country names) so that I can use it in the web service I am building [...]</em></p>
+<p><em>As a Web Developer I want to download a DataPackage (like currency codes or country names) so that I can use it in the web service I am building [&hellip;]</em></p>
 <h3 id="import-datapackage-into-r-done">Import DataPackage into R [DONE?]</h3>
 <p>As a Consumer [R user] I want to load a Data Package from R so that I can immediately start playing with it</p>
 <ul>
 <li>Should we try and publish to CRAN?<ul>
 <li>Probably not? Why? think it can be quite painful getting permission to publish to CRAN and very easy to load from the registry<ul>
-<li>On the CRAN website I can't find a way to automate publishing. It seems possible by filling web-form, but to know the status we have to wait and parse email.</li>
+<li>On the CRAN website I can&rsquo;t find a way to automate publishing. It seems possible by filling web-form, but to know the status we have to wait and parse email.</li>
 </ul>
 </li>
 </ul>
@@ -768,17 +768,17 @@ $ data publish
 <h4 id="know-when-a-package-has-changed-re-caching">Know when a package has changed re caching</h4>
 <p>Excerpted from: <a href="https://github.com/okfn/data.okfn.org-new/issues/7">https://github.com/okfn/data.okfn.org-new/issues/7</a></p>
 <p><em>From @trickvi on June 20, 2013 12:37</em></p>
-<p>I would like to be able to use data.okfn.org as an intermediary between my software and the data packages it uses and be able to quickly check whether there's a new version available of the data (e.g. if I've cached the package on a local machine).</p>
+<p>I would like to be able to use data.okfn.org as an intermediary between my software and the data packages it uses and be able to quickly check whether there&rsquo;s a new version available of the data (e.g. if I&rsquo;ve cached the package on a local machine).</p>
 <p>There are ways to do it with the current setup:</p>
 <ol>
 <li>Download the datapackage.json descriptor file, parse it and get the version there and check it against my local version. Problems:</li>
-<li>This solution relies on humans and that they update their version but there might not be any consistency in it since the data package standard describes the version attribute as: <em>"a version string conforming to the Semantic Versioning requirement"</em></li>
-<li>I have to fetch the whole datapackage.json (it's not big I know but why download all that extra data I might not even want)</li>
+<li>This solution relies on humans and that they update their version but there might not be any consistency in it since the data package standard describes the version attribute as: <em>&ldquo;a version string conforming to the Semantic Versioning requirement&rdquo;</em></li>
+<li>I have to fetch the whole datapackage.json (it&rsquo;s not big I know but why download all that extra data I might not even want)</li>
 <li>Go around data.okfn.org and look directly at the github repository. Problems:</li>
-<li>I have to find out where the repo is, use git and do a lot of extra stuff (I don't care how the data packages are stored, I just want a simple interface to fetch them)</li>
+<li>I have to find out where the repo is, use git and do a lot of extra stuff (I don&rsquo;t care how the data packages are stored, I just want a simple interface to fetch them)</li>
 <li>What would be the point of data.okfn.org/data? In my mind it collects data packages and provides a consistent interface to get the data packages irrespective of how its stored.</li>
 </ol>
-<p>I propose data.okfn.org provides an internal system to allow users to quickly check whether a new version might be released. This does not have to be an API. We could leverage HTTP's caching mechanism using an ETag header that would contain some hash value. This hash value can e.g. be the the sha value of heads ref objects served via the Github API:</p>
+<p>I propose data.okfn.org provides an internal system to allow users to quickly check whether a new version might be released. This does not have to be an API. We could leverage HTTP&rsquo;s caching mechanism using an ETag header that would contain some hash value. This hash value can e.g. be the the sha value of heads ref objects served via the Github API:</p>
 <pre class="highlight"><code class="linenums">https://api.github.com/repos/datasets/cpi/git/refs/heads/master</code></pre>
 
 <p>Software that works with data packages could then implement a caching strategy and just send a request with an If-None-Match header along with a GET request for datapackage.json to either get a new version of the descriptor (and look at the version in that file) or just serve the data from its cache.</p>
@@ -850,7 +850,7 @@ $ data publish
 <p>As a ??? I want to see who are the top publihers and users so that I can emulate them or ???</p>
 <h3 id="manage-publisher">Manage Publisher</h3>
 <h4 id="create-and-edit-profile">Create and Edit Profile</h4>
-<p>As {Owner ...} I want to edit my profile so that it is updated with new information</p>
+<p>As {Owner &hellip;} I want to edit my profile so that it is updated with new information</p>
 <h4 id="add-and-manage-members">Add and Manage Members</h4>
 <p>As an {Owner of a Publisher in the Registry} I want to invite an existing user to become a member of my publisher</p>
 <ul>

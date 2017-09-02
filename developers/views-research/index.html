@@ -201,8 +201,8 @@
 </ul>
 </li>
 <li><a href="#recline-views">Recline Views</a><ul>
-<li><a href="#type-attribute">"type" attribute</a></li>
-<li><a href="#state-attribute">"state" attribute</a></li>
+<li><a href="#type-attribute">&ldquo;type&rdquo; attribute</a></li>
+<li><a href="#state-attribute">&ldquo;state&rdquo; attribute</a></li>
 <li><a href="#example-of-the-views-attribute">Example of the views attribute:</a></li>
 </ul>
 </li>
@@ -273,10 +273,10 @@
 <pre class="highlight"><code class="linenums">  series: [[&quot;x&quot;, &quot;y&quot;], [&quot;x&quot;, &quot;z&quot;]]</code></pre>
 
 <ul>
-<li>pros: explicit about the series ... </li>
-<li>pros: you can plot two different series with different x values (as long as they have some commonality ... )</li>
+<li>pros: explicit about the series &hellip; </li>
+<li>pros: you can plot two different series with different x values (as long as they have some commonality &hellip; )</li>
 <li>cons: more verbose.</li>
-<li>cons: 2nd multiple x values point is actually confusing for most users ... (?)</li>
+<li>cons: 2nd multiple x values point is actually confusing for most users &hellip; (?)</li>
 </ul>
 <p>Simplicity is crucial here so those cons outweight the pros.</p>
 <h2 id="recline-views">Recline Views</h2>
@@ -305,11 +305,11 @@
 <h2 id="analysis-of-vis-libraries-graph-specs">Analysis of Vis libraries Graph Specs</h2>
 <p>TODO. Plotly partially covered below.</p>
 <h2 id="analysis-of-vis-libraries-data-objects">Analysis of Vis libraries data objects</h2>
-<p>Focus on "inline" data structure - i.e. data structure in memory.</p>
+<p>Focus on &ldquo;inline&rdquo; data structure - i.e. data structure in memory.</p>
 <p>Motivation for this: need to generate this data structure.</p>
 <h3 id="vega">Vega</h3>
 <p>See: <a href="https://github.com/vega/vega/wiki/Data#examples">https://github.com/vega/vega/wiki/Data#examples</a></p>
-<p>Data structure is standard "array of objects":</p>
+<p>Data structure is standard &ldquo;array of objects&rdquo;:</p>
 <pre class="highlight"><code class="language-javascript linenums">[
   {&quot;x&quot;:0, &quot;y&quot;:3},
   {&quot;x&quot;:1, &quot;y&quot;:5}
@@ -357,7 +357,7 @@
 <p><a href="https://vega.github.io/vega-lite/docs/data.html">https://vega.github.io/vega-lite/docs/data.html</a></p>
 <p>Same as Vega except that:</p>
 <ul>
-<li><code>data</code> is an object not an array -- only one data source allowed<ul>
+<li><code>data</code> is an object not an array &ndash; only one data source allowed<ul>
 <li>Will be given the name <code>source</code> when converting to Vega</li>
 </ul>
 </li>
@@ -371,7 +371,7 @@
 <a href="https://plot.ly/javascript/reference/">https://plot.ly/javascript/reference/</a></p>
 <p>The Plotly model does not separate the data out quite as cleanly as vega does. The structure for Plotly json specs is as follows:</p>
 <ul>
-<li>Oriented around "series"</li>
+<li>Oriented around &ldquo;series&rdquo;</li>
 <li>Each series includes its data <strong>plus</strong> the spec for the graph<ul>
 <li>The data is stored in two attributes <code>x</code> and <code>y</code></li>
 </ul>
@@ -451,8 +451,8 @@
 ]</code></pre>
 
 <h2 id="appendix-plotly-graph-spec-research">Appendix: Plotly Graph spec research</h2>
-<p>We would like users to be able to use Plotly JSON chart schema in their Data Package Views specs so they can take full advantage of Plotly's capabilities.</p>
-<p>Here's an example - <a href="https://plot.ly/~Dreamshot/8259/">https://plot.ly/~Dreamshot/8259/</a></p>
+<p>We would like users to be able to use Plotly JSON chart schema in their Data Package Views specs so they can take full advantage of Plotly&rsquo;s capabilities.</p>
+<p>Here&rsquo;s an example - <a href="https://plot.ly/~Dreamshot/8259/">https://plot.ly/~Dreamshot/8259/</a></p>
 <pre class="highlight"><code class="language-javascript linenums">{
     &quot;data&quot;: [
         {
@@ -517,7 +517,7 @@
   ]
 }</code></pre>
 
-<p>We just need a way to bind these ... </p>
+<p>We just need a way to bind these &hellip; </p>
 <pre class="highlight"><code class="language-javascript linenums">data: [
     {
       name: // by convention this must match the resource - if that is not possible use resource
@@ -530,9 +530,9 @@
   ]
 }</code></pre>
 
-<p><em>Using this approach we would support most of Basic, Statistical and 3D charts of Plotly library. We would not support pie chart (labels, values), maps ...</em></p>
+<p><em>Using this approach we would support most of Basic, Statistical and 3D charts of Plotly library. We would not support pie chart (labels, values), maps &hellip;</em></p>
 <blockquote>
-<p><strong>Data manipulations -- not supported</strong></p>
+<p><strong>Data manipulations &ndash; not supported</strong></p>
 <p>In some examples of Plotly there are manipulations (e.g. filtering) on the raw data. As this is done in Javascript outside of Plotly JSON language we would not be able to support this.</p>
 </blockquote>
 <p>In the <code>plotlyToPlotly</code> function:</p>
@@ -572,7 +572,7 @@
 <p><a href="https://vega.github.io/vega/docs/transforms/">https://vega.github.io/vega/docs/transforms/</a> - v3</p>
 <p>Vega provided Data Transforms can be used to manipulate datasets before rendering a visualisation. E.g., one may need to perform transformations such as aggregation or filtering (there many types, see link above) of a dataset and display the graph only after that. Another situation would be creating a new dataset by applying various calculations on an old one.</p>
 <p>Usually transforms are defined in <code>transform</code> array inside <code>data</code> property.</p>
-<p>"Transforms that do not filter or generate new data objects can be used within the transform array of a mark definition to specify post-encoding transforms."</p>
+<p>&ldquo;Transforms that do not filter or generate new data objects can be used within the transform array of a mark definition to specify post-encoding transforms.&rdquo;</p>
 <p>Examples:</p>
 <h4 id="filtering">Filtering</h4>
 <p><a href="https://vega.github.io/vega-editor/?mode=vega&amp;spec=parallel_coords">https://vega.github.io/vega-editor/?mode=vega&amp;spec=parallel_coords</a></p>
@@ -596,18 +596,18 @@
 <p><a href="https://vega.github.io/vega-editor/?mode=vega&amp;spec=airports">https://vega.github.io/vega-editor/?mode=vega&amp;spec=airports</a></p>
 <p>This example has a lot of transforms - in some cases there is only transform applied to a dataset, in other cases there are sequence of transforms.</p>
 <p>In the first dataset, it applies <code>geopath</code> transform which maps GeoJSON features to SVG path strings. It uses <code>alberUsa</code> projection type (<a href="https://vega.github.io/vega/docs/projections/">more about projection</a>).</p>
-<p>In the second dataset, it applies sum operation on "count" field and outputs it as "flights" fields.</p>
+<p>In the second dataset, it applies sum operation on &ldquo;count&rdquo; field and outputs it as &ldquo;flights&rdquo; fields.</p>
 <p>In the third dataset: 
-1) it compares its "iata" field against "origin" field of "traffic" dataset. Matching values are outputed as "traffic" field. 
+1) it compares its &ldquo;iata&rdquo; field against &ldquo;origin&rdquo; field of &ldquo;traffic&rdquo; dataset. Matching values are outputed as &ldquo;traffic&rdquo; field. 
 2) Next, it filters out all values that are null.
 3) After that, it applies <code>geo</code> transform as in the first dataset above. 
 4) Next, it filters out layout_x and layout_y values that are null. 
 5) Then, it sorts dataset by traffic.flights field in descending order.
-6) After that, it applies <code>voronoi</code> transform to compute voronoi diagram based on "layout_x" and "layout_y" fields.</p>
+6) After that, it applies <code>voronoi</code> transform to compute voronoi diagram based on &ldquo;layout_x&rdquo; and &ldquo;layout_y&rdquo; fields.</p>
 <p>In the last dataset:
-1) First, it filters values on which there is a signal called "hover" (specified in the Vega spec's "signals" property) with "iata" attribute that matches to the dataset's "origin" field.
-2) Next, it looks up matching values of "airports" dataset's "iata" field against its "origin" and "destination" fields. Output fields are saved as "_source" and "_target".
-3) Filters "_source" and "_target" values that are truthy (not null).
+1) First, it filters values on which there is a signal called &ldquo;hover&rdquo; (specified in the Vega spec&rsquo;s &ldquo;signals&rdquo; property) with &ldquo;iata&rdquo; attribute that matches to the dataset&rsquo;s &ldquo;origin&rdquo; field.
+2) Next, it looks up matching values of &ldquo;airports&rdquo; dataset&rsquo;s &ldquo;iata&rdquo; field against its &ldquo;origin&rdquo; and &ldquo;destination&rdquo; fields. Output fields are saved as &ldquo;_source&rdquo; and &ldquo;_target&rdquo;.
+3) Filters &ldquo;_source&rdquo; and &ldquo;_target&rdquo; values that are truthy (not null).
 4) Finally, linkpath transform creates visual links between nodes (<a href="https://vega.github.io/vega/docs/transforms/linkpath/">more about linkpath</a>).</p>
 <pre class="highlight"><code class="language-javascript linenums">{
   &quot;data&quot;: [
@@ -679,7 +679,7 @@
 <h4 id="further-research-on-vega-transforms">Further research on Vega transforms</h4>
 <p><a href="https://github.com/vega/vega-dataflow-examples/">https://github.com/vega/vega-dataflow-examples/</a></p>
 <p>It is quite difficult to me to read the code as there is not enough documentation. I have included here the simplest example:</p>
-<p><code>vega-dataflow.js</code> contains Dataflow, all transforms and vega's utilities.</p>
+<p><code>vega-dataflow.js</code> contains Dataflow, all transforms and vega&rsquo;s utilities.</p>
 <pre class="highlight"><code class="language-html linenums">&lt;!DOCTYPE HTML&gt;
 &lt;html&gt;
   &lt;head&gt;
@@ -881,7 +881,7 @@ function cross(input, a, b, filter) {
 </ul>
 <h4 id="join"><strong><em><code>join</code></em></strong></h4>
 <p>Joins two streamed resources. </p>
-<p>"Joining" in our case means taking the <em>target</em> resource, and adding fields to each of its rows by looking up data in the <em>source</em> resource. </p>
+<p>&ldquo;Joining&rdquo; in our case means taking the <em>target</em> resource, and adding fields to each of its rows by looking up data in the <em>source</em> resource. </p>
 <p>A special case for the join operation is when there is no target stream, and all unique rows from the source are used to create it. 
 This mode is called <em>deduplication</em> mode - The target resource will be created and  deduplicated rows from the source will be added to it.</p>
 <p><em>Parameters</em>:</p>
@@ -908,21 +908,21 @@ This mode is called <em>deduplication</em> mode - The target resource will be cr
 <ul>
 <li>
 <p><code>sum</code> - summarise aggregated values. 
-  For numeric values it's the arithmetic sum, for strings the concatenation of strings and for other types will error.</p>
+  For numeric values it&rsquo;s the arithmetic sum, for strings the concatenation of strings and for other types will error.</p>
 </li>
 <li>
 <p><code>avg</code> - calculate the average of aggregated values.</p>
 </li>
 </ul>
-<p>For numeric values it's the arithmetic average and for other types will err.</p>
+<p>For numeric values it&rsquo;s the arithmetic average and for other types will err.</p>
 <ul>
 <li><code>max</code> - calculate the maximum of aggregated values.</li>
 </ul>
-<p>For numeric values it's the arithmetic maximum, for strings the dictionary maximum and for other types will error.</p>
+<p>For numeric values it&rsquo;s the arithmetic maximum, for strings the dictionary maximum and for other types will error.</p>
 <ul>
 <li><code>min</code> - calculate the minimum of aggregated values.</li>
 </ul>
-<p>For numeric values it's the arithmetic minimum, for strings the dictionary minimum and for other types will error.</p>
+<p>For numeric values it&rsquo;s the arithmetic minimum, for strings the dictionary minimum and for other types will error.</p>
 <ul>
 <li>
 <p><code>first</code> - take the first value encountered</p>
@@ -949,9 +949,9 @@ This mode is called <em>deduplication</em> mode - The target resource will be cr
 </ul>
 <p>If neither <code>name</code> or <code>aggregate</code> need to be specified, the mapping can map to the empty object <code>{}</code> or to <code>null</code>.
 - <code>full</code>  - Boolean,
-  - If <code>True</code> (the default), failed lookups in the source will result in "null" values at the source.
+  - If <code>True</code> (the default), failed lookups in the source will result in &ldquo;null&rdquo; values at the source.
   - if <code>False</code>, failed lookups in the source will result in dropping the row from the target.</p>
-<p><em>Important: the "source" resource <strong>must</strong> appear before the "target" resource in the data-package.</em></p>
+<p><em>Important: the &ldquo;source&rdquo; resource <strong>must</strong> appear before the &ldquo;target&rdquo; resource in the data-package.</em></p>
 <p><em>Examples</em>:</p>
 <pre class="highlight"><code class="language-yaml linenums">- run: join
   parameters: 
@@ -986,7 +986,7 @@ This mode is called <em>deduplication</em> mode - The target resource will be cr
 <td>64715810</td>
 </tr>
 <tr>
-<td>...</td>
+<td>&hellip;</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1009,7 +1009,7 @@ This mode is called <em>deduplication</em> mode - The target resource will be cr
 <td>1606600</td>
 </tr>
 <tr>
-<td>...</td>
+<td>&hellip;</td>
 <td></td>
 <td></td>
 </tr>
@@ -1034,7 +1034,7 @@ This mode is called <em>deduplication</em> mode - The target resource will be cr
 <td>64715810</td>
 </tr>
 <tr>
-<td>...</td>
+<td>&hellip;</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1098,7 +1098,7 @@ This mode is called <em>deduplication</em> mode - The target resource will be cr
 <td>12000000</td>
 </tr>
 <tr>
-<td>...</td>
+<td>&hellip;</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1126,7 +1126,7 @@ This mode is called <em>deduplication</em> mode - The target resource will be cr
 <td>Mr. T</td>
 </tr>
 <tr>
-<td>...</td>
+<td>&hellip;</td>
 <td></td>
 <td></td>
 </tr>
@@ -1155,7 +1155,7 @@ This mode is called <em>deduplication</em> mode - The target resource will be cr
 <td>22000000</td>
 </tr>
 <tr>
-<td>...</td>
+<td>&hellip;</td>
 <td></td>
 <td></td>
 <td></td>

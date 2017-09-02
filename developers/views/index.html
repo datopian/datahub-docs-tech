@@ -197,7 +197,7 @@
             <div class="section">
               
                 <h1 id="views">Views</h1>
-<p>Pproducers and consumers of data want to have data presented in tables and graphs -- "views" on the data. They want this for a range of reasons, from simple eyeballing to drawing out key insights.</p>
+<p>Pproducers and consumers of data want to have data presented in tables and graphs &ndash; &ldquo;views&rdquo; on the data. They want this for a range of reasons, from simple eyeballing to drawing out key insights.</p>
 <div class="mermaid">
 graph LR
   data[Your Data] --> table[Table]
@@ -210,7 +210,7 @@ graph LR
 <li>A tool-chain to create these views from the data.</li>
 <li>A descriptive language for specifying views such as tables, graphs, map.</li>
 </ul>
-<p>These requirements are addressed through the introduction of Data Package "Views" and associated tooling.</p>
+<p>These requirements are addressed through the introduction of Data Package &ldquo;Views&rdquo; and associated tooling.</p>
 <div class="mermaid">
 graph LR
 
@@ -261,7 +261,7 @@ graph TD
   vega --render--> html
 </div>
 
-<p><strong>IMPORTANT</strong>: an important "convention" we adopt for the "compiling-in" of data is that resource data should be inlined into an <code>_values</code> attribute. If the data is tabular this attribute should be an array of <em>arrays</em> (not objects).</p>
+<p><strong>IMPORTANT</strong>: an important &ldquo;convention&rdquo; we adopt for the &ldquo;compiling-in&rdquo; of data is that resource data should be inlined into an <code>_values</code> attribute. If the data is tabular this attribute should be an array of <em>arrays</em> (not objects).</p>
 <h2 id="graphs">Graphs</h2>
 <p><strong><em>Figure 2: Conversion paths</em></strong></p>
 <div class="mermaid">
@@ -287,7 +287,7 @@ graph LR
 <li>Second-from-right column: the graphing libraries we can use (which all output to SVG)</li>
 </ul>
 <h2 id="geo-support">Geo support</h2>
-<p><strong>Note</strong>: support for customizing map is limited to JS atm - there is no real map "spec" in JSON yet beyond the trivial version.</p>
+<p><strong>Note</strong>: support for customizing map is limited to JS atm - there is no real map &ldquo;spec&rdquo; in JSON yet beyond the trivial version.</p>
 <p><strong>Note</strong>: vega has some geo support but geo here means full geojson style mapping.</p>
 <div class="mermaid">
 graph LR
