@@ -1,80 +1,129 @@
 # Platform
 
-The DataHub platform has been designed as a set of loosely coupled components, each performing distinct functions related to the platform as a whole.
+The DataHub platform follows a service oriented architecture. It is built from a set of loosely coupled components, each performing distinct functions related to the platform as a whole.
 
-- [Architecture](#architecture)
-- [Domain Model](#domain-model)
-    - [Profile](#profile)
-    - [Package](#package)
+[TOC]
 
-## Architecture
+# Architecture
 
+<p style="text-align: center;">Fig 1: Data Flow through the system</p>
 <div class="mermaid">
-
 graph TD
 
+cli((CLI fa:fa-user))
+auth[Auth Service]
+cli --login--> auth
 
-  cli((CLI fa:fa-user))
-  auth[Auth Service]
-  cli --login--> auth
-  
-	
-	cli --store--> raw[Raw Store API<br>+ Storage]  
-  
-	cli --package-info--> pipeline-store
-  raw --data resource--> pipeline-runner
-  
-  pipeline-store -.generate.-> pipeline-runner
-	
-  pipeline-runner --> package[Package Storage]
-	package --api--> frontend[Frontend]
-  frontend --> user[User fa:fa-user]
-  
+cli --store--> raw[Raw Store API<br>+ Storage]  
 
-  
-  package -.publish.->metastore[MetaStore]
-  pipeline-store -.publish.-> metastore[MetaStore]
-  metastore[MetaStore] --api--> frontend
-  
+cli --package-info--> pipeline-store
+raw --data resource--> pipeline-runner
+
+pipeline-store -.generate.-> pipeline-runner
+
+pipeline-runner --> package[Package Storage]
+package --api--> frontend[Frontend]
+frontend --> user[User fa:fa-user]
+
+package -.publish.->metastore[MetaStore]
+pipeline-store -.publish.-> metastore[MetaStore]
+metastore[MetaStore] --api--> frontend
+</div>
+
+<p style="text-align: center;">Fig 2: Components Perspective - from the Frontend</p>
+<div class="mermaid">
+graph TD
+
+subgraph Web Frontend
+  frontend[Frontend Webapp]
+  browse[Browse & Search]
+  login[Login & Signup]
+  view[Views Renderer]
+  frontend --> browse
+  frontend --> login
+end
+
+subgraph Users and Permissions
+  user[User]
+  permissions[Permissions]
+  authapi[Auth API]
+  authzapi[Authorization API]
+  login --> authapi
+  authapi --> user
+  authzapi --> permissions
+end
+
+subgraph PkgStore
+  bitstore["PkgStore (S3)"]
+  bitstoreapi[PkgStore API<br/>put,get]
+  bitstoreapi --> bitstore
+  browse --> bitstoreapi
+end
+
+subgraph MetaStore
+  metastore["MetaStore (ElasticSearch)"]
+  metaapi[MetaStore API<br/>read,search,import]
+  metaapi --> metastore
+  browse --> metaapi
+end
+
+subgraph CLI
+  cli[CLI]
+end
 </div>
 
 
-* [DataHub-CLI][cli] - Command Line Interface for publishing [Data Packages](#data-package)
-* [Front-end Web Application][web-app] - Core part of platform - Login & Sign-Up and Browse & Search Datasets
-* [Views and Renderer][views] - JS Library responsible for visualization and views on platform
+## Frontend Web Application
 
-### Raw Storage
+Core part of platform - Login & Sign-Up and Browse & Search Datasets
+
+https://github.com/datahq/frontend
+
+### Views and Renderer
+
+JS Library responsible for visualization and views.
+
+See [views][] section for more about Views.
+
+## Assembler
+
+TODO
+
+## Raw Storage
 
 We first save all raw files before sending to pipeline-runner.
 **Pipeline-runner** is a service that runs the data package pipelines. It is used to normalise and modify the data before it is displayed publicly
 
 - We use AWS S3 instance for storing data
 
-### Package Storage
+## Package Storage
 
 We store files after passing pipeline-runner
 
 - We use AWS S3 instance for storing data
 
-
-### BitStore
+## BitStore
 
 We are preserving the data byte by byte.
 
 - We use AWS S3 instance for storing data
 
-
-### MetaStore
+## MetaStore
 
 The MetaStore stores Data Package meta-data along with other management information like publishers, users and permissions.
 
 We use AWS RDS Postgresql database for storing meta-data.
 
-[cli]: /publishers/cli
+## Command Line Interface
+
+The command line interface.
+
+https://github.com/datahq/datahub-cli
+
 [views]: /developers/views
 [web-app]: http://datahub.io/
 
-## Domain model
+# Domain model
 
 There are two main concepts to understand in DataHub domain model - [Profile](#profile) and [Package](#data-package)
 
@@ -100,25 +149,21 @@ subgraph Profile
 end
 </div>
 
-### Profile
+## Profile
 
 Set of an authenticated and authorized entities like publishers and users. They are responsible for publishing, deleting or maintaining data on platform.
 
 **Important:** Users do not have Data Packages, Publishers do. Users are *members* of Publishers.
 
-#### Publisher
+### Publisher
 
 Publisher is an organization which "owns" Data Packages. Publisher may have zero or more Data Packages. Publisher may also have one or more user.
 
-#### User
+### User
 
 User is an authenticated entity, that is member of Publisher organization, that can read, edit, create or delete data packages depending on their permissions.
 
 ### Package
-
-Set of Data Packages published under publisher name.
-
-#### Data Package
 
 A Data Package is a simple way of “packaging” up and describing data so that it can be easily shared and used. You can imagine as collection of data and and it's meta-data ([datapackage.json][datapackage.json]), usually covering some concrete topic Eg: *"Gold Prices"* or *"Population Growth Rate In My country"* etc.
 
