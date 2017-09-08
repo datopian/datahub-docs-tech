@@ -82,6 +82,12 @@
 
     <li class="toctree-l3"><a href="#architecture">Architecture</a></li>
     
+
+    <li class="toctree-l3"><a href="#information-architecture">Information Architecture</a></li>
+    
+
+    <li class="toctree-l3"><a href="#components">Components</a></li>
+    
         <ul>
         
             <li><a class="toctree-l4" href="#frontend-web-application">Frontend Web Application</a></li>
@@ -210,7 +216,9 @@
 <div class="toc">
 <ul>
 <li><a href="#platform">Platform</a></li>
-<li><a href="#architecture">Architecture</a><ul>
+<li><a href="#architecture">Architecture</a></li>
+<li><a href="#information-architecture">Information Architecture</a></li>
+<li><a href="#components">Components</a><ul>
 <li><a href="#frontend-web-application">Frontend Web Application</a><ul>
 <li><a href="#views-and-renderer">Views and Renderer</a></li>
 </ul>
@@ -219,7 +227,10 @@
 <li><a href="#raw-storage">Raw Storage</a></li>
 <li><a href="#package-storage">Package Storage</a></li>
 <li><a href="#bitstore">BitStore</a></li>
-<li><a href="#metastore">MetaStore</a></li>
+<li><a href="#metastore">MetaStore</a><ul>
+<li><a href="#service-architecture">Service architecture</a></li>
+</ul>
+</li>
 <li><a href="#command-line-interface">Command Line Interface</a></li>
 </ul>
 </li>
@@ -303,6 +314,13 @@ subgraph CLI
 end
 </div>
 
+<h1 id="information-architecture">Information Architecture</h1>
+<pre class="highlight"><code class="linenums">datahub.io            # frontend
+api.datahub.io        # API - see API page for structure
+rawstore.datahub.io   # rawstore - raw bitstore
+pkgstore.datahub.io   # pkgstore - package bitstore</code></pre>
+
+<h1 id="components">Components</h1>
 <h2 id="frontend-web-application">Frontend Web Application</h2>
 <p>Core part of platform - Login &amp; Sign-Up and Browse &amp; Search Datasets</p>
 <p><a href="https://github.com/datahq/frontend">https://github.com/datahq/frontend</a></p>
@@ -328,8 +346,24 @@ end
 <li>We use AWS S3 instance for storing data</li>
 </ul>
 <h2 id="metastore">MetaStore</h2>
-<p>The MetaStore stores Data Package meta-data along with other management information like publishers, users and permissions.</p>
-<p>We use AWS RDS Postgresql database for storing meta-data.</p>
+<p>The MetaStore provides an integrated, searchable view over key metadata for end user services and users. Initially this metadata will just be metadata on datasets in the Package Store. In future it may expand to provide a unified to include other related metadata such as pipelines. It also includes summary metadata (or the ability to compute summary data) e.g. the total size of all your packages</p>
+<h3 id="service-architecture">Service architecture</h3>
+<pre class="highlight"><code class="language-mermaid linenums">graph TD
+
+subgraph MetaStore
+metaapi[MetaStore API]
+metadb[MetaStore DB fa:fa-database]
+end
+
+metadb --&gt; metaapi
+
+assembler[Assembler] --should this by via api or direct to DB??--&gt; metadb
+
+metaapi --&gt; frontend[Frontend fa:fa-user]
+metaapi --&gt; cli[CLI fa:fa-user]
+
+frontend -.no dp stuff only access.-&gt; metaapi</code></pre>
+
 <h2 id="command-line-interface">Command Line Interface</h2>
 <p>The command line interface.</p>
 <p><a href="https://github.com/datahq/datahub-cli">https://github.com/datahq/datahub-cli</a></p>
