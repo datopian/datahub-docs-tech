@@ -1,8 +1,15 @@
 # DataHub Documentation
 
-Welcome to the DataHub documentation. Choose the appropriate section and dive right in!
+Welcome to the DataHub documentation.
 
-## Sections
+DataHub is a platform for *people* to **store, share and publish** their data, **collect, inspect and process** it with **powerful tools**, and **discover and use** data shared by others.
 
-* [For developers](developers/): <3 Python, JavaScript and data pipelines? Start here!
+Our focus is on data wranglers and data scientists: those who use automate their work with data using code and command line tools rather than editing it by hand (as, for example, many analysts do in Excel). Think people who use Python vs people who use Excel for data work.
+
+Our goal is to provide simplicity *and* power.
+
+Currently this documentation has two sections:
+
+* [For developers](developers/) -- <3 Python, JavaScript and data pipelines? Start here!
 * [For publishers](publishers/): Want to store your data on DataHub? Start here!
+
