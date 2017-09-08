@@ -73,6 +73,17 @@ end
 </div>
 
 
+# Information Architecture
+
+```
+datahub.io            # frontend
+api.datahub.io        # API - see API page for structure
+rawstore.datahub.io   # rawstore - raw bitstore
+pkgstore.datahub.io   # pkgstore - package bitstore
+```
+
+# Components
+
 ## Frontend Web Application
 
 Core part of platform - Login & Sign-Up and Browse & Search Datasets
@@ -110,9 +121,27 @@ We are preserving the data byte by byte.
 
 ## MetaStore
 
-The MetaStore stores Data Package meta-data along with other management information like publishers, users and permissions.
+The MetaStore provides an integrated, searchable view over key metadata for end user services and users. Initially this metadata will just be metadata on datasets in the Package Store. In future it may expand to provide a unified to include other related metadata such as pipelines. It also includes summary metadata (or the ability to compute summary data) e.g. the total size of all your packages
 
-We use AWS RDS Postgresql database for storing meta-data.
+### Service architecture
+
+```mermaid
+graph TD
+
+subgraph MetaStore
+metaapi[MetaStore API]
+metadb[MetaStore DB fa:fa-database]
+end
+
+metadb --> metaapi
+
+assembler[Assembler] --should this by via api or direct to DB??--> metadb
+
+metaapi --> frontend[Frontend fa:fa-user]
+metaapi --> cli[CLI fa:fa-user]
+
+frontend -.no dp stuff only access.-> metaapi
+```
 
 ## Command Line Interface
 
