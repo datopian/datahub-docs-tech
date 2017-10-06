@@ -31,6 +31,45 @@ graph TD
   
 </div>
 
+## Diagram for upload process
+
+<div class="mermaid">
+graph TD
+
+  CLI --jwt--> rawstore[RawStore API]
+  rawstore --signed urls--> CLI
+  CLI --upload using signed url--> s3[S3 bucket]
+  s3 --success message--> CLI
+  CLI --metadata--> pipe[Pipe Source]
+</div>
+
+## Identity Pipeline
+
+**Context: where this pipeline fits in the system**
+
+<div class="mermaid">
+graph LR
+
+  specstore --shared db--> assembler
+  assembler --identity pipeline--> pkgstore
+  pkgstore --> frontend
+</div>
+
+**Detailed steps**
+
+<div class="mermaid">
+graph LR
+
+  load[Load from RawStore] --> encoding[Encoding Check<br>Add encoding info]
+  encoding --> csvkind[CSV kind check]
+  csvkind --> validate[Validate data]
+  validate --> dump[Dump S3]
+  dump --> pkgstore[Pkg Store fa:fa-database]
+  load -.-> dump
+  validate --> checkoutput[Validation<br>Reports]
+</div>
+
+
 ## Client Perspective
 
 Publishing flow takes the following steps and processes to communicate with DataHub API:
@@ -58,6 +97,8 @@ Metadata Storage API->>Upload Agent CLI: OK / Not OK
 * Upload API - see `POST /source/upload` in *source* section of [API][api]
 * Authentication API - see `GET /auth/check` in *auth* section of [API][api].
 * Authorization API - see `GET /auth/authorize` in *auth* section of [API][api].
+
+
 
 
 See example [code snippet in DataHub CLI][publish-code]
