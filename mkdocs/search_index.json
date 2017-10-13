@@ -202,13 +202,23 @@
         }, 
         {
             "location": "/developers/publish/", 
-            "text": "Publish\n\n\nExplanation of DataHub publishing flow from client and back-end perspectives.\n\n\n\n\ngraph TD\n\n\n  cli((CLI fa:fa-user))\n  auth[Auth Service]\n  cli --login--> auth\n\n\n    cli --store--> raw[Raw Store API\n+ Storage]  \n\n    cli --package-info--> pipeline-store\n  raw --data resource--> pipeline-runner\n\n  pipeline-store -.generate.-> pipeline-runner\n\n  pipeline-runner --> package[Package Storage]\n    package --api--> frontend[Frontend]\n  frontend --> user[User fa:fa-user]\n\n\n\n  package -.publish.->metastore[MetaStore]\n  pipeline-store -.publish.-> metastore[MetaStore]\n  metastore[MetaStore] --api--> frontend\n\n\n\n\n\nClient Perspective\n\n\nPublishing flow takes the following steps and processes to communicate with DataHub API:\n\n\n\nsequenceDiagram\nUpload Agent CLI->>Upload Agent CLI: Check Data Package valid\nUpload Agent CLI-->>Auth(SSO): login\nAuth(SSO)-->>Upload Agent CLI: JWT token\nUpload Agent CLI->>RawStore API: upload using signed url\nRawStore API->>Auth(SSO): Check key / token\nAuth(SSO)->>RawStore API: OK / Not OK\nRawStore API->>Upload Agent CLI: success message\nUpload Agent CLI->>pipeline store: package info\npipeline store->>Upload Agent CLI: OK / Not OK\npipeline store->>pipeline runner: generate\nRawStore API->>pipeline runner: data resource\npipeline runner->>Package Storage: generated\nPackage Storage->>Metadata Storage API: publish\npipeline store->>Metadata Storage API: publish\nMetadata Storage API->>Upload Agent CLI: OK / Not OK\n\n\n\n\n\n\n\n\nUpload API - see \nPOST /source/upload\n in \nsource\n section of \nAPI\n\n\nAuthentication API - see \nGET /auth/check\n in \nauth\n section of \nAPI\n.\n\n\nAuthorization API - see \nGET /auth/authorize\n in \nauth\n section of \nAPI\n.\n\n\n\n\nSee example \ncode snippet in DataHub CLI", 
+            "text": "Publish\n\n\nExplanation of DataHub publishing flow from client and back-end perspectives.\n\n\n\n\ngraph TD\n\n\n  cli((CLI fa:fa-user))\n  auth[Auth Service]\n  cli --login--> auth\n\n\n    cli --store--> raw[Raw Store API\n+ Storage]  \n\n    cli --package-info--> pipeline-store\n  raw --data resource--> pipeline-runner\n\n  pipeline-store -.generate.-> pipeline-runner\n\n  pipeline-runner --> package[Package Storage]\n    package --api--> frontend[Frontend]\n  frontend --> user[User fa:fa-user]\n\n\n\n  package -.publish.->metastore[MetaStore]\n  pipeline-store -.publish.-> metastore[MetaStore]\n  metastore[MetaStore] --api--> frontend\n\n\n\n\n\nDiagram for upload process\n\n\n\ngraph TD\n\n  CLI --jwt--> rawstore[RawStore API]\n  rawstore --signed urls--> CLI\n  CLI --upload using signed url--> s3[S3 bucket]\n  s3 --success message--> CLI\n  CLI --metadata--> pipe[Pipe Source]\n\n\n\n\nIdentity Pipeline\n\n\nContext: where this pipeline fits in the system\n\n\n\ngraph LR\n\n  specstore --shared db--> assembler\n  assembler --identity pipeline--> pkgstore\n  pkgstore --> frontend\n\n\n\n\nDetailed steps\n\n\n\ngraph LR\n\n  load[Load from RawStore] --> encoding[Encoding Check\nAdd encoding info]\n  encoding --> csvkind[CSV kind check]\n  csvkind --> validate[Validate data]\n  validate --> dump[Dump S3]\n  dump --> pkgstore[Pkg Store fa:fa-database]\n  load -.-> dump\n  validate --> checkoutput[Validation\nReports]\n\n\n\n\nClient Perspective\n\n\nPublishing flow takes the following steps and processes to communicate with DataHub API:\n\n\n\nsequenceDiagram\nUpload Agent CLI->>Upload Agent CLI: Check Data Package valid\nUpload Agent CLI-->>Auth(SSO): login\nAuth(SSO)-->>Upload Agent CLI: JWT token\nUpload Agent CLI->>RawStore API: upload using signed url\nRawStore API->>Auth(SSO): Check key / token\nAuth(SSO)->>RawStore API: OK / Not OK\nRawStore API->>Upload Agent CLI: success message\nUpload Agent CLI->>pipeline store: package info\npipeline store->>Upload Agent CLI: OK / Not OK\npipeline store->>pipeline runner: generate\nRawStore API->>pipeline runner: data resource\npipeline runner->>Package Storage: generated\nPackage Storage->>Metadata Storage API: publish\npipeline store->>Metadata Storage API: publish\nMetadata Storage API->>Upload Agent CLI: OK / Not OK\n\n\n\n\n\n\n\n\nUpload API - see \nPOST /source/upload\n in \nsource\n section of \nAPI\n\n\nAuthentication API - see \nGET /auth/check\n in \nauth\n section of \nAPI\n.\n\n\nAuthorization API - see \nGET /auth/authorize\n in \nauth\n section of \nAPI\n.\n\n\n\n\nSee example \ncode snippet in DataHub CLI", 
             "title": "Publish"
         }, 
         {
             "location": "/developers/publish/#publish", 
             "text": "Explanation of DataHub publishing flow from client and back-end perspectives.  \n\ngraph TD\n\n\n  cli((CLI fa:fa-user))\n  auth[Auth Service]\n  cli --login--> auth\n\n\n    cli --store--> raw[Raw Store API + Storage]  \n\n    cli --package-info--> pipeline-store\n  raw --data resource--> pipeline-runner\n\n  pipeline-store -.generate.-> pipeline-runner\n\n  pipeline-runner --> package[Package Storage]\n    package --api--> frontend[Frontend]\n  frontend --> user[User fa:fa-user]\n\n\n\n  package -.publish.->metastore[MetaStore]\n  pipeline-store -.publish.-> metastore[MetaStore]\n  metastore[MetaStore] --api--> frontend", 
             "title": "Publish"
+        }, 
+        {
+            "location": "/developers/publish/#diagram-for-upload-process", 
+            "text": "graph TD\n\n  CLI --jwt--> rawstore[RawStore API]\n  rawstore --signed urls--> CLI\n  CLI --upload using signed url--> s3[S3 bucket]\n  s3 --success message--> CLI\n  CLI --metadata--> pipe[Pipe Source]", 
+            "title": "Diagram for upload process"
+        }, 
+        {
+            "location": "/developers/publish/#identity-pipeline", 
+            "text": "Context: where this pipeline fits in the system  \ngraph LR\n\n  specstore --shared db--> assembler\n  assembler --identity pipeline--> pkgstore\n  pkgstore --> frontend  Detailed steps  \ngraph LR\n\n  load[Load from RawStore] --> encoding[Encoding Check Add encoding info]\n  encoding --> csvkind[CSV kind check]\n  csvkind --> validate[Validate data]\n  validate --> dump[Dump S3]\n  dump --> pkgstore[Pkg Store fa:fa-database]\n  load -.-> dump\n  validate --> checkoutput[Validation Reports]", 
+            "title": "Identity Pipeline"
         }, 
         {
             "location": "/developers/publish/#client-perspective", 
@@ -744,211 +754,6 @@
             "location": "/developers/user-stories/#sell-my-data-through-your-site", 
             "text": "EPIC: As a Publisher i want to sell my data through your site so that I make money and am able to sustain my publishing and my life \u2026", 
             "title": "Sell My Data through your site"
-        }, 
-        {
-            "location": "/publishers/", 
-            "text": "Publishing\n\n\nThis guide is all about how to put your data online using the DataHub.\n\n\nQuickstart\n\n\nAs a new user you want to know quickly how to get going so that you can get your data online as soon as possible.\n\n\nTo put your data online you use our \ndata\n command line tool:\n\n\n\n\nHow do you get the \ndata\n tool? =\n follow the \ninstallation instructions\n\n\nHow do you use the \ndata\n tool? =\n Run \ndata login\n (if your first time) then \ndata push\n\n\n\n\nIn summary:\n\n\n\ngraph TD                                                                                 \nclient[Get the `data` tool]\nlogin[Login - on the command line]\npush[Push data using `data` tool]\n\nclient --> login\nlogin --> push\n\n\n\n\nDesktop app\n: we are  planning a Desktop app as well as the command line tool. If you\nre interested \nlet us know\n.\n\n\nAPI access\n: you can push via an API. However, the process is not yet well documented \n so if you want to use it \nlet us know and we can walk you through it\n.", 
-            "title": "Getting started"
-        }, 
-        {
-            "location": "/publishers/#publishing", 
-            "text": "This guide is all about how to put your data online using the DataHub.", 
-            "title": "Publishing"
-        }, 
-        {
-            "location": "/publishers/#quickstart", 
-            "text": "As a new user you want to know quickly how to get going so that you can get your data online as soon as possible.  To put your data online you use our  data  command line tool:   How do you get the  data  tool? =  follow the  installation instructions  How do you use the  data  tool? =  Run  data login  (if your first time) then  data push   In summary:  \ngraph TD                                                                                 \nclient[Get the `data` tool]\nlogin[Login - on the command line]\npush[Push data using `data` tool]\n\nclient --> login\nlogin --> push  Desktop app : we are  planning a Desktop app as well as the command line tool. If you re interested  let us know .  API access : you can push via an API. However, the process is not yet well documented   so if you want to use it  let us know and we can walk you through it .", 
-            "title": "Quickstart"
-        }, 
-        {
-            "location": "/publishers/core-datasets/", 
-            "text": "Core Datasets\n\n\nImportant, commonly-used datasets as high quality, easy-to-use \n open data packages\n\n\nCore Datasets are important, commonly-used \ncore\n datasets\n like GDP or country codes made available as \nhigh-quality\n, \neasy-to-use\n and \nopen\n \ndata packages\n. Find them online here on the DataHub:\n\n\nhttp://datapackaged.com/core/\n\n\nKey features are:\n\n\n\n\nHigh Quality \n Reliable\n \n sourcing, normalizing and quality checking a set of \nkey reference and indicator datasets such as country codes, currencies, GDP and population\n\n\nStandardized \n Bulk\n \n all datasets provided in a \nstandardized\n form and can be accessed in \nbulk as CSV\n together with a simple \nJSON schema\n\n\nVersioned \n Packaged\n \n all data is in \ndata packages\n and is \nversioned\n using git so all changes are visible and data can be \ncollaboratively maintained\n\n\n\n\nThe \nCore Datasets\n effort is part of the broader \nFrictionless Data initiative\n.\n\n\n\n\n\n\nCore Data Curators\n\n\nThe Core Data Curators curate the core datasets.\n\n\nCuration involves identifying and locating core (public) datasets, then packaging them up as high-quality, reliable, and easy-to-use \ndata packages\n (standardized, structured, open).\n\n\nNew team members wanted:\n We are always seeking volunteers to join the Data Curators team. Get to be part of a crack team and develop and hone your data wrangling skills whilst helping to provide high quality data to the community.\n\n\n\n\nAnyone can contribute\n: details on the \nroles and skills needed below\n.\n\n\nGet involved\n: read more below or jump straight to \nthe sign-up section\n.\n\n\nData Curators Guide\n: can\nt wait to get started as a Data Curator? You can dive straight in and start packaging datasets using the \ncore data curators guide\n.\n\n\n\n\n\n\n\n\n\nWhat Roles and Skills are Needed\n\n\nWe have a variety of roles from identifying new \ncore\n datasets, to collecting and packaging the data, to performing quality control.\n\n\nCore Skills\n \n at least one of these skills is strongly recommended:\n\n\n\n\nData Wrangling Experience\n. Many of our source datasets are not complex (just an Excel file or similar) and can be \nwrangled\n in a Spreadsheet program. What we therefore recommend is at least one of:\n\n\nExperience with a Spreadsheet application such as Excel or (preferably) Google Docs including use of formulas and (desirably) macros (you should at least know how you could quickly convert a cell containing \n2014\n to \n2014-01-01\n across 1000 rows)\n\n\nCoding for data processing (especially scraping) in one or more of python, javascript, bash\n\n\n\n\n\n\nData sleuthing\n - the ability to dig up data on the web (specific desirable skills: you know how to search by filetype in google, you know where the developer tools are in chrome or firefox, you know how to find the URL a form posts to)\n\n\n\n\nDesirable Skills\n (the more the better!):\n\n\n\n\nData vs Metadata: know difference between data and metadata\n\n\nFamiliarity with Git (and Github)\n\n\nFamiliarity with a command line (preferably bash)\n\n\nKnow what JSON is\n\n\nMac or Unix is your default operating system (will make access to relevant tools that much easier)\n\n\nKnowledge of Web APIs and/or HTML\n\n\nUse of curl or similar command line tool for accessing Web APIs or web pages\n\n\nScraping using a command line tool or (even better) by coding yourself\n\n\nKnow what a Data Package and a Tabular Data Package are\n\n\nKnow what a text editor is (e.g. notepad, textmate, vim, emacs, \n) and know how to use it (useful for both working with data and for editing Data Package metadata)\n\n\n\n\n\n\nGet Involved - Sign Up Now!\n\n\nHere\ns what you need to know when you sign up:\n\n\n\n\nTime commitment\n: Members of the team commit to at least 8-16h per month (though this will be an average - if you are especially busy with other things one month and do less that is fine)\n\n\nSchedule\n: There is no schedule so you can contribute at any time that is good for you - evenings, weekeneds, lunch-times etc\n\n\nLocation\n: all activity will be carried out online so you can be based anywhere in the world\n\n\nSkills\n: see above\n\n\n\n\nTo register your interest fill in the following form. Any questions, please \nget in touch directly\n.\n\n\nLoading...", 
-            "title": "Core Datasets"
-        }, 
-        {
-            "location": "/publishers/core-datasets/#core-datasets", 
-            "text": "Important, commonly-used datasets as high quality, easy-to-use   open data packages  Core Datasets are important, commonly-used  core  datasets  like GDP or country codes made available as  high-quality ,  easy-to-use  and  open   data packages . Find them online here on the DataHub:  http://datapackaged.com/core/  Key features are:   High Quality   Reliable    sourcing, normalizing and quality checking a set of  key reference and indicator datasets such as country codes, currencies, GDP and population  Standardized   Bulk    all datasets provided in a  standardized  form and can be accessed in  bulk as CSV  together with a simple  JSON schema  Versioned   Packaged    all data is in  data packages  and is  versioned  using git so all changes are visible and data can be  collaboratively maintained   The  Core Datasets  effort is part of the broader  Frictionless Data initiative .", 
-            "title": "Core Datasets"
-        }, 
-        {
-            "location": "/publishers/core-datasets/#core-data-curators", 
-            "text": "The Core Data Curators curate the core datasets.  Curation involves identifying and locating core (public) datasets, then packaging them up as high-quality, reliable, and easy-to-use  data packages  (standardized, structured, open).  New team members wanted:  We are always seeking volunteers to join the Data Curators team. Get to be part of a crack team and develop and hone your data wrangling skills whilst helping to provide high quality data to the community.   Anyone can contribute : details on the  roles and skills needed below .  Get involved : read more below or jump straight to  the sign-up section .  Data Curators Guide : can t wait to get started as a Data Curator? You can dive straight in and start packaging datasets using the  core data curators guide .", 
-            "title": "Core Data Curators"
-        }, 
-        {
-            "location": "/publishers/core-datasets/#what-roles-and-skills-are-needed", 
-            "text": "We have a variety of roles from identifying new  core  datasets, to collecting and packaging the data, to performing quality control.  Core Skills    at least one of these skills is strongly recommended:   Data Wrangling Experience . Many of our source datasets are not complex (just an Excel file or similar) and can be  wrangled  in a Spreadsheet program. What we therefore recommend is at least one of:  Experience with a Spreadsheet application such as Excel or (preferably) Google Docs including use of formulas and (desirably) macros (you should at least know how you could quickly convert a cell containing  2014  to  2014-01-01  across 1000 rows)  Coding for data processing (especially scraping) in one or more of python, javascript, bash    Data sleuthing  - the ability to dig up data on the web (specific desirable skills: you know how to search by filetype in google, you know where the developer tools are in chrome or firefox, you know how to find the URL a form posts to)   Desirable Skills  (the more the better!):   Data vs Metadata: know difference between data and metadata  Familiarity with Git (and Github)  Familiarity with a command line (preferably bash)  Know what JSON is  Mac or Unix is your default operating system (will make access to relevant tools that much easier)  Knowledge of Web APIs and/or HTML  Use of curl or similar command line tool for accessing Web APIs or web pages  Scraping using a command line tool or (even better) by coding yourself  Know what a Data Package and a Tabular Data Package are  Know what a text editor is (e.g. notepad, textmate, vim, emacs,  ) and know how to use it (useful for both working with data and for editing Data Package metadata)", 
-            "title": "What Roles and Skills are Needed"
-        }, 
-        {
-            "location": "/publishers/core-datasets/#get-involved-sign-up-now", 
-            "text": "Here s what you need to know when you sign up:   Time commitment : Members of the team commit to at least 8-16h per month (though this will be an average - if you are especially busy with other things one month and do less that is fine)  Schedule : There is no schedule so you can contribute at any time that is good for you - evenings, weekeneds, lunch-times etc  Location : all activity will be carried out online so you can be based anywhere in the world  Skills : see above   To register your interest fill in the following form. Any questions, please  get in touch directly .  Loading...", 
-            "title": "Get Involved - Sign Up Now!"
-        }, 
-        {
-            "location": "/publishers/core-data-curators/", 
-            "text": "Core Data Curators Guide\n\n\nThis is a guide for curators of \ncore datasets\n. Curators collect and maintain these important and commonly-used (\u201ccore\u201d) datasets as high-quality, easy-to-use, open \nData Packages\n.\n\n\nQuick Links\n\n\n\n\nDiscussion forum\n - discussion takes place here by default\n\n\nThis is the place to ask questions, get help etc - just open a new topic\n\n\nIntroduction to Core Datasets Project\n\n\nJoin the Core Data Curators Team\n\n\nPackaging Queue (GitHub Issues Tracker)\n\n\nPublish Data Packages Howto on Frictionless Data Site\n\n\n\n\nQuick Start\n\n\n\n\nPlease take 2m to introduce yourself in the \ndiscussion forum\n so that other team members can get to know you\n\n\nRead the contributing guide below so you:\n\n\nunderstand the details of the curator workflow\n\n\ncan work out where you\nd like to contribute\n\n\n\n\n\n\nStop: have you read the contributing guide? The next items only make sense if you have!\n\n\nNow you can dive in with one or both of:\n\n\nResearching: start reviewing the \ncurrent queue\n - add new items, comment on existing ones etc\n\n\nPackaging:  check out the \n\u201cReady to Package\u201d\n section of the queue and assign yourself (drop a comment in the issue claiming it)\n\n\n\n\n\n\n\n\nContributor Guide\n\n\n\n\nFig 1: Overview of the Curation Workflow\n\n\nThere are 2 areas of activity:\n\n\n\n\nPreparing datasets as Core Data Packages - finding them, cleaning them, data-packaging them\n\n\nMaintaining Core Data Packages - keeping them up to date with the source dataset, handling changes, responding to user queries\n\n\n\n\nEach of these has sub-steps which we detail below and you can contribute in any and all of these.\n\n\nKey principles of our approach are that:\n\n\n\n\nWe package data rather than create it \u2013 our focus is to take source data and ensure it is of high quality and in a standard form\n\n\nWe preserve a clean separation between the data source, the data package and this registry \u2013 for example, data packages are stored in git repos hosted separately (preferably github)\n\n\n\n\nPreparing Datasets as Core Data Packages\n\n\nThere are different areas where people can contribute:\n\n\n\n\nResearch\n\n\nPackaging up data\n\n\nQuality assurance\n\n\nFinal Publication into the official core datasets list\n\n\n\n\nOften you will contribute in all 4 by taking a dataset all the way from a suggestion to a fully packaged data package published online.\n\n\n1. Research\n\n\nThis involves researching and selecting datasets as core datasets and adding them to the queue for packaging - no coding or data wrangling skill is needed for this\n\n\n\n\nTo propose a dataset for addition you \nopen an issue in the Registry\n with the details of the proposed dataset.\n\n\nIdentify relevant source or sources for the dataset\n\n\nTo propose a dataset you do not have to know where to get the data from (e.g. you could suggest \u201cUS GDP\u201d as a core dataset without yet knowing where to get the data from)\n\n\nDiscuss with Queue Manager(s) (they will spot your submission and start commenting in the GitHub issue)\n\n\nIf good =\n Shortlist for Packaging - add \nLabel \u201cStatus: Ready to Package\u201d\n\n\n\n\n2. Packaging up data\n\n\nOnce we have a suggested dataset marked as \nready to package\n we can move to packaging it up.\n\n\nHow to package up data is covered in the \ngeneral publishing guide\n.\n\n\n3. Quality Assurance\n\n\nThis involves validating and checking packaged datasets to ensure they are of high quality and ready to publish.\n\n\n\n\nValidate\n the Data Package and \nreview\n the data in the Data Package.\n\n\nIn the review phase, you should be looking at a table with the data you have input before. That will ensure your data package is working without any issues and that it follows the same quality standards that any other package.\n\n\nPost a validation link and a view link in the comments for the issue in the Registry related to your Data Package.\n\n\n\n\n4. Publishing\n\n\nWe have a few extra specific requirements:\n\n\n\n\nAll Data Packages must (ultimately) be stored in a public GitHub repo\n\n\nFirst publish to your own repository\n\n\nThen arrange a move the repository to \ngithub.com/datasets/ organization\n - as the owner of a repository you can initiate a transfer request to github.com/datasets/ which can then be approved\n\n\nAdd to the \ncatalog list\n \nand\n the \ncore list\n \nand\n the associated csv files: \ncatalog-list.csv\n and \ncore-list.csv\n.\n\n\nReload \nhttp://data.okfn.org/data/\n by visiting \nhttp://data.okfn.org/admin/reload/\n\n\nIf you have access, tweet from the @OKFNLabs account a link to the \nhttp://data.okfn.org/data/\n page for the dataset.\n\n\n\n\nMaintaining Data Packages\n\n\nMany data packages package data that changes over time - for example, many time series get updated monthly or daily.\n\n\nWe need people to become the \nmaintainer\n for a given dataset and keep it up to date by regularly adding in the new data.\n\n\nList of datasets needing a maintainer\n\n\nCore Data Assessment Criteria\n\n\nFor a dataset to be designated as \ncore\n it should meet the following criteria:\n\n\n\n\nQuality - the dataset must be well structured\n\n\nRelevance and importance - the focus at present is on indicators and reference data\n\n\nOngoing support - it should have a maintainer\n\n\nOpenness - data should be \nopen data\n and openly licensed in accordance with the \nOpen Definition\n\n\n\n\n\n\nGuide for Managing Curators\n\n\nIntro Email for New Joiners\n\n\nHi,\n\nWe are delighted to welcome you to the Core Data Curators team of crack data curators.\n\nTo kick-off your core data curatorship we invite you to:\n\n1. Introduce yourself in the forum here:\n\n    http://discuss.okfn.org/t/core-data-curators-introductions/145/24\n\n2. Take a look at the Core Data Curators guide:\n\n    http://docs.datahub.io/publishers/core-data-curators\n\nRegards,\n\nXXX", 
-            "title": "Core Data Curators"
-        }, 
-        {
-            "location": "/publishers/core-data-curators/#core-data-curators-guide", 
-            "text": "This is a guide for curators of  core datasets . Curators collect and maintain these important and commonly-used (\u201ccore\u201d) datasets as high-quality, easy-to-use, open  Data Packages .", 
-            "title": "Core Data Curators Guide"
-        }, 
-        {
-            "location": "/publishers/core-data-curators/#quick-links", 
-            "text": "Discussion forum  - discussion takes place here by default  This is the place to ask questions, get help etc - just open a new topic  Introduction to Core Datasets Project  Join the Core Data Curators Team  Packaging Queue (GitHub Issues Tracker)  Publish Data Packages Howto on Frictionless Data Site", 
-            "title": "Quick Links"
-        }, 
-        {
-            "location": "/publishers/core-data-curators/#quick-start", 
-            "text": "Please take 2m to introduce yourself in the  discussion forum  so that other team members can get to know you  Read the contributing guide below so you:  understand the details of the curator workflow  can work out where you d like to contribute    Stop: have you read the contributing guide? The next items only make sense if you have!  Now you can dive in with one or both of:  Researching: start reviewing the  current queue  - add new items, comment on existing ones etc  Packaging:  check out the  \u201cReady to Package\u201d  section of the queue and assign yourself (drop a comment in the issue claiming it)", 
-            "title": "Quick Start"
-        }, 
-        {
-            "location": "/publishers/core-data-curators/#contributor-guide", 
-            "text": "Fig 1: Overview of the Curation Workflow  There are 2 areas of activity:   Preparing datasets as Core Data Packages - finding them, cleaning them, data-packaging them  Maintaining Core Data Packages - keeping them up to date with the source dataset, handling changes, responding to user queries   Each of these has sub-steps which we detail below and you can contribute in any and all of these.  Key principles of our approach are that:   We package data rather than create it \u2013 our focus is to take source data and ensure it is of high quality and in a standard form  We preserve a clean separation between the data source, the data package and this registry \u2013 for example, data packages are stored in git repos hosted separately (preferably github)", 
-            "title": "Contributor Guide"
-        }, 
-        {
-            "location": "/publishers/core-data-curators/#preparing-datasets-as-core-data-packages", 
-            "text": "There are different areas where people can contribute:   Research  Packaging up data  Quality assurance  Final Publication into the official core datasets list   Often you will contribute in all 4 by taking a dataset all the way from a suggestion to a fully packaged data package published online.", 
-            "title": "Preparing Datasets as Core Data Packages"
-        }, 
-        {
-            "location": "/publishers/core-data-curators/#1-research", 
-            "text": "This involves researching and selecting datasets as core datasets and adding them to the queue for packaging - no coding or data wrangling skill is needed for this   To propose a dataset for addition you  open an issue in the Registry  with the details of the proposed dataset.  Identify relevant source or sources for the dataset  To propose a dataset you do not have to know where to get the data from (e.g. you could suggest \u201cUS GDP\u201d as a core dataset without yet knowing where to get the data from)  Discuss with Queue Manager(s) (they will spot your submission and start commenting in the GitHub issue)  If good =  Shortlist for Packaging - add  Label \u201cStatus: Ready to Package\u201d", 
-            "title": "1. Research"
-        }, 
-        {
-            "location": "/publishers/core-data-curators/#2-packaging-up-data", 
-            "text": "Once we have a suggested dataset marked as  ready to package  we can move to packaging it up.  How to package up data is covered in the  general publishing guide .", 
-            "title": "2. Packaging up data"
-        }, 
-        {
-            "location": "/publishers/core-data-curators/#3-quality-assurance", 
-            "text": "This involves validating and checking packaged datasets to ensure they are of high quality and ready to publish.   Validate  the Data Package and  review  the data in the Data Package.  In the review phase, you should be looking at a table with the data you have input before. That will ensure your data package is working without any issues and that it follows the same quality standards that any other package.  Post a validation link and a view link in the comments for the issue in the Registry related to your Data Package.", 
-            "title": "3. Quality Assurance"
-        }, 
-        {
-            "location": "/publishers/core-data-curators/#4-publishing", 
-            "text": "We have a few extra specific requirements:   All Data Packages must (ultimately) be stored in a public GitHub repo  First publish to your own repository  Then arrange a move the repository to  github.com/datasets/ organization  - as the owner of a repository you can initiate a transfer request to github.com/datasets/ which can then be approved  Add to the  catalog list   and  the  core list   and  the associated csv files:  catalog-list.csv  and  core-list.csv .  Reload  http://data.okfn.org/data/  by visiting  http://data.okfn.org/admin/reload/  If you have access, tweet from the @OKFNLabs account a link to the  http://data.okfn.org/data/  page for the dataset.", 
-            "title": "4. Publishing"
-        }, 
-        {
-            "location": "/publishers/core-data-curators/#maintaining-data-packages", 
-            "text": "Many data packages package data that changes over time - for example, many time series get updated monthly or daily.  We need people to become the  maintainer  for a given dataset and keep it up to date by regularly adding in the new data.  List of datasets needing a maintainer", 
-            "title": "Maintaining Data Packages"
-        }, 
-        {
-            "location": "/publishers/core-data-curators/#core-data-assessment-criteria", 
-            "text": "For a dataset to be designated as  core  it should meet the following criteria:   Quality - the dataset must be well structured  Relevance and importance - the focus at present is on indicators and reference data  Ongoing support - it should have a maintainer  Openness - data should be  open data  and openly licensed in accordance with the  Open Definition", 
-            "title": "Core Data Assessment Criteria"
-        }, 
-        {
-            "location": "/publishers/core-data-curators/#guide-for-managing-curators", 
-            "text": "", 
-            "title": "Guide for Managing Curators"
-        }, 
-        {
-            "location": "/publishers/core-data-curators/#intro-email-for-new-joiners", 
-            "text": "Hi,\n\nWe are delighted to welcome you to the Core Data Curators team of crack data curators.\n\nTo kick-off your core data curatorship we invite you to:\n\n1. Introduce yourself in the forum here:\n\n    http://discuss.okfn.org/t/core-data-curators-introductions/145/24\n\n2. Take a look at the Core Data Curators guide:\n\n    http://docs.datahub.io/publishers/core-data-curators\n\nRegards,\n\nXXX", 
-            "title": "Intro Email for New Joiners"
-        }, 
-        {
-            "location": "/publishers/cli/", 
-            "text": "data\n - the DataHub CLI\n\n\n\n\n\n\ndata - the DataHub CLI\n\n\nGetting started\n\n\nInstallation\n\n\nInstalling binaries\n\n\nInstalling via npm\n\n\n\n\n\n\nUsage\n\n\npush\n\n\n\n\n\n\n\n\n\n\nGetting started\n\n\ndata\n is the command-line tool to prepare, push and get data from the DataHub. With \ndata\n you will be able to:\n\n\n\n\nPush data to the DataHub\n\n\nGet data from the DataHub\n\n\nGet information about particular data files and datasets (both on the DataHub and off)\n\n\nValidate your data to ensure its quality\n\n\n\n\nInstallation\n\n\nThere are two options for installation:\n\n\n\n\nInstalling pre-built binaries. These have no dependencies and will work \nout of the box\n\n\nInstall via npm: if you have node (\n= v7) and npm installed you can install via npm\n\n\n\n\nInstalling binaries\n\n\n\n\nGo to the \nreleases page\n\n\nDownload the pre-built binary for your platform (MacOS and LinuxOS x64 at present)\n\n\n\n\nMove the binary into your \n$PATH\n e.g. on Mac you could move to \n/usr/local/bin/\n\n\nmv data-{os-distribution} /usr/local/bin/data\n\n\n\n\n\n\n\nInstalling via npm\n\n\nYou can also install it from \nnpm\n as follows:\n\n\nnpm install -g datahub-cli\n\n\n\nUsage\n\n\nYou can see the latest commands and get help by doing:\n\n\ndata help\n\n\n\npush\n\n\nPutting data online is one command: \npush\n.\n\n\ndata push [FILE-or-DATA-PACKAGE-PATH]\n\n\n\nLogin befor pushing\n: you will need to login (or signup) before pushing:\n\n\ndata login\n\n\n\nThis will carry out login / signup entirely from the command line.", 
-            "title": "CLI"
-        }, 
-        {
-            "location": "/publishers/cli/#data-the-datahub-cli", 
-            "text": "data - the DataHub CLI  Getting started  Installation  Installing binaries  Installing via npm    Usage  push", 
-            "title": "data - the DataHub CLI"
-        }, 
-        {
-            "location": "/publishers/cli/#getting-started", 
-            "text": "data  is the command-line tool to prepare, push and get data from the DataHub. With  data  you will be able to:   Push data to the DataHub  Get data from the DataHub  Get information about particular data files and datasets (both on the DataHub and off)  Validate your data to ensure its quality", 
-            "title": "Getting started"
-        }, 
-        {
-            "location": "/publishers/cli/#installation", 
-            "text": "There are two options for installation:   Installing pre-built binaries. These have no dependencies and will work  out of the box  Install via npm: if you have node ( = v7) and npm installed you can install via npm", 
-            "title": "Installation"
-        }, 
-        {
-            "location": "/publishers/cli/#installing-binaries", 
-            "text": "Go to the  releases page  Download the pre-built binary for your platform (MacOS and LinuxOS x64 at present)   Move the binary into your  $PATH  e.g. on Mac you could move to  /usr/local/bin/  mv data-{os-distribution} /usr/local/bin/data", 
-            "title": "Installing binaries"
-        }, 
-        {
-            "location": "/publishers/cli/#installing-via-npm", 
-            "text": "You can also install it from  npm  as follows:  npm install -g datahub-cli", 
-            "title": "Installing via npm"
-        }, 
-        {
-            "location": "/publishers/cli/#usage", 
-            "text": "You can see the latest commands and get help by doing:  data help", 
-            "title": "Usage"
-        }, 
-        {
-            "location": "/publishers/cli/#push", 
-            "text": "Putting data online is one command:  push .  data push [FILE-or-DATA-PACKAGE-PATH]  Login befor pushing : you will need to login (or signup) before pushing:  data login  This will carry out login / signup entirely from the command line.", 
-            "title": "push"
-        }, 
-        {
-            "location": "/publishers/views/", 
-            "text": "Views\n\n\n\n\n\n\nViews\n\n\nIntroduction\n\n\nFeatures\n\n\nHow it works\n\n\nExamples\n\n\nSimple graph spec\n\n\nVega graphs\n\n\nMaps\n\n\nTables and Transforms\n\n\n\n\n\n\n\n\n\n\nMore Information\n\n\n\n\n\n\nIntroduction\n\n\nProducers and consumers of data want to have data presented in tables and graphs \n \nviews\n on the data. They want this for a range of reasons, from simple eyeballing to drawing out key insights,\n\n\n\ngraph LR\n  data[Your Data] --> table[Table]\n  data --> grap[Graph]\n  data --> geo[Map]\n\n\n\n\nThis guide shows you how you can create beautiful views for your data on the DataHub.\n\n\nFeatures\n\n\n\n\nSimple things are simple: adding a bar chart or line chart is fast and easy \n seconds to do and requiring minimal knowledge. Views are created in a simple declarative syntax\n\n\nPowerful and extensible: complex and powerful graphing is also powerful.\n\n\nReuse: leverage the power of existing specs like [Vega][] (and tools like Vega and Plotly)\n\n\nTransform your data prior to visualization\n\n\nComposable: the views spec is independent but composable with other data package specs (and even usable on its own)\n\n\n\n\nHow it works\n\n\nYou can add a view for your data simply by describing your view in a simple declarative syntax (in JSON) and then adding to the \ndatapackage.json\n for your dataset.\n\n\nFor example, suppose you have data in a csv that looks like this:\n\n\n\n\n\n\n\n\nx\n\n\ny\n\n\nz\n\n\n\n\n\n\n\n\n\n\n1\n\n\n8\n\n\n5\n\n\n\n\n\n\n2\n\n\n9\n\n\n7\n\n\n\n\n\n\n\n\nThen you could describe your view like this:\n\n\n{\n  \ntype\n: \nline\n,\n  \ngroup\n: \nx\n,\n  \nseries\n: [ \ny\n, \nz\n ]\n}\n\n\n\nFinally, you need to connect your view with the underlying data source in the \ndatapackage.json\n\n\n...\n\nresources\n: [{\n    \nname\n: \nmydata\n\n    \npath\n: \nmydata.csv\n,\n    \nschema\n: ... schema for the \n}]\nviews: [{\n    \nname\n: \ngraph-1\n,\n    \ntitle\n: \nMy awesome view\n\n\n    // the data to connect to this view\n    \nresources\n: [\nmydata\n]\n\n    // specType here is optional as simple is the default\n    \nspecType\n: \nsimple\n\n    \nspec\n: {\n        \ntype\n: \nline\n,\n        \ngroup\n: \nx\n,\n        \nseries\n: [ \ny\n, \nz\n ]\n    }\n}}\n\n\n\nTo learn more see the examples live examples below.\n\n\nExamples\n\n\nIn this section, examples of using Data Package views are provided. Each example has a README section with small tutorial.\n\n\nSimple graph spec\n\n\nSimple graph spec is the easiest and quickest way to specify a view in a Data Package. Using simple graph spec publishers can generate graphs, e.g., line and bar charts.\n\n\n\n\nSimple Graph Spec Tutorial\n\n\n\n\nVega graphs\n\n\nPublishers can also describe graphs using Vega specifications:\n\n\n\n\nVega Graph Spec Tutorial - Yields of Barley\n\n\nVega Graph Spec Tutorial - US presidents\n\n\nVega Graph Spec Tutorial - US Airports\n\n\n\n\nMaps\n\n\nAt the moment, we only support \n.geojson\n format:\n\n\n\n\nGeoJSON Tutorial\n\n\n\n\nTables and Transforms\n\n\nIn the following examples, we demonstrate how transforms can be used in Data Package views. Transformed data will be displayed as table views.\n\n\n\n\nFilter \n Formula\n\n\nSample\n\n\nAggregate\n\n\n\n\nMore Information\n\n\n\n\nDetails of how the tooling works are in Views Developer guide\n\n\nViews spec (draft)", 
-            "title": "Views"
-        }, 
-        {
-            "location": "/publishers/views/#views", 
-            "text": "Views  Introduction  Features  How it works  Examples  Simple graph spec  Vega graphs  Maps  Tables and Transforms      More Information", 
-            "title": "Views"
-        }, 
-        {
-            "location": "/publishers/views/#introduction", 
-            "text": "Producers and consumers of data want to have data presented in tables and graphs    views  on the data. They want this for a range of reasons, from simple eyeballing to drawing out key insights,  \ngraph LR\n  data[Your Data] --> table[Table]\n  data --> grap[Graph]\n  data --> geo[Map]  This guide shows you how you can create beautiful views for your data on the DataHub.", 
-            "title": "Introduction"
-        }, 
-        {
-            "location": "/publishers/views/#features", 
-            "text": "Simple things are simple: adding a bar chart or line chart is fast and easy   seconds to do and requiring minimal knowledge. Views are created in a simple declarative syntax  Powerful and extensible: complex and powerful graphing is also powerful.  Reuse: leverage the power of existing specs like [Vega][] (and tools like Vega and Plotly)  Transform your data prior to visualization  Composable: the views spec is independent but composable with other data package specs (and even usable on its own)", 
-            "title": "Features"
-        }, 
-        {
-            "location": "/publishers/views/#how-it-works", 
-            "text": "You can add a view for your data simply by describing your view in a simple declarative syntax (in JSON) and then adding to the  datapackage.json  for your dataset.  For example, suppose you have data in a csv that looks like this:     x  y  z      1  8  5    2  9  7     Then you could describe your view like this:  {\n   type :  line ,\n   group :  x ,\n   series : [  y ,  z  ]\n}  Finally, you need to connect your view with the underlying data source in the  datapackage.json  ... resources : [{\n     name :  mydata \n     path :  mydata.csv ,\n     schema : ... schema for the \n}]\nviews: [{\n     name :  graph-1 ,\n     title :  My awesome view \n\n    // the data to connect to this view\n     resources : [ mydata ]\n\n    // specType here is optional as simple is the default\n     specType :  simple \n     spec : {\n         type :  line ,\n         group :  x ,\n         series : [  y ,  z  ]\n    }\n}}  To learn more see the examples live examples below.", 
-            "title": "How it works"
-        }, 
-        {
-            "location": "/publishers/views/#examples", 
-            "text": "In this section, examples of using Data Package views are provided. Each example has a README section with small tutorial.", 
-            "title": "Examples"
-        }, 
-        {
-            "location": "/publishers/views/#simple-graph-spec", 
-            "text": "Simple graph spec is the easiest and quickest way to specify a view in a Data Package. Using simple graph spec publishers can generate graphs, e.g., line and bar charts.   Simple Graph Spec Tutorial", 
-            "title": "Simple graph spec"
-        }, 
-        {
-            "location": "/publishers/views/#vega-graphs", 
-            "text": "Publishers can also describe graphs using Vega specifications:   Vega Graph Spec Tutorial - Yields of Barley  Vega Graph Spec Tutorial - US presidents  Vega Graph Spec Tutorial - US Airports", 
-            "title": "Vega graphs"
-        }, 
-        {
-            "location": "/publishers/views/#maps", 
-            "text": "At the moment, we only support  .geojson  format:   GeoJSON Tutorial", 
-            "title": "Maps"
-        }, 
-        {
-            "location": "/publishers/views/#tables-and-transforms", 
-            "text": "In the following examples, we demonstrate how transforms can be used in Data Package views. Transformed data will be displayed as table views.   Filter   Formula  Sample  Aggregate", 
-            "title": "Tables and Transforms"
-        }, 
-        {
-            "location": "/publishers/views/#more-information", 
-            "text": "Details of how the tooling works are in Views Developer guide  Views spec (draft)", 
-            "title": "More Information"
         }
     ]
 }
