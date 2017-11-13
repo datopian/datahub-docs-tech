@@ -20,12 +20,6 @@ pages:
   - Views: developers/views.md
   - Views Research: developers/views-research.md
   - User Stories: developers/user-stories.md
-- Publishers:
-  - 'Getting started': publishers/index.md
-  - 'Core Datasets': publishers/core-datasets.md
-  - 'Core Data Curators': publishers/core-data-curators.md
-  - CLI: publishers/cli.md
-  - Views: publishers/views.md
 theme: readthedocs
 markdown_extensions:
   - pymdownx.github
