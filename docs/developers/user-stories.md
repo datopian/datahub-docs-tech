@@ -28,6 +28,171 @@ People = data wranglers = those who use machines (e.g. code, command line tools)
 	* …
 * **Admin**: A person or organization who runs an instance of a DataHub
 
+# Stories v2
+
+## Publishing data
+
+As a Publisher I want to publish a file/dataset and view/share just with a few people (or even just myself)
+
+* ~~"Private" link: /{username}/{uuid}~~
+* I want JSON as well as CSV versions of my data
+* I want a preview
+* I want to be notified clearly if something went wrong and what I can do to fix it.
+
+As a Publisher I want to publish a file/dataset and share publicly with everyone
+
+* Viewable on my profile
+* Public link: nice urls /{username}/{dataset-name}
+
+For the pipeline =>
+
+**Context: where this pipeline fits in the system**
+
+```mermaid
+graph LR
+
+specstore --shared db--> assembler
+assembler --identity pipeline--> pkgstore
+pkgstore --> frontend
+```
+
+**Detailed steps**
+
+```mermaid
+graph LR
+
+load[Load from RawStore] --> encoding[Encoding Check<br>Add encoding info]
+encoding --> csvkind[CSV kind check]
+csvkind --> validate[Validate data]
+validate --> dump[Dump S3]
+dump --> pkgstore[Pkg Store fa:fa-database]
+
+load -.-> dump
+
+validate --> checkoutput[Validation<br>Reports]
+```
+
+## Push Package
+
+### Diagram for upload process
+
+```mermaid
+graph TD
+
+CLI --jwt--> rawstore[RawStore API]
+rawstore --signed urls--> CLI
+CLI --upload using signed url--> s3[S3 bucket]
+s3 --success message--> CLI
+CLI --metadata--> pipe[Pipe Source]
+```
+
+## Push File
+
+Levels:
+
+0. Already have Data Package (?)
+1. Good CSV
+2. Good Excel
+3. Bad data (i.e. has ...)
+3. Something else
+
+```
+data push {file-or-directory}
+```
+
+How does data push work?
+
+```
+# you are pushing the raw file
+# and the extraction to get one or more data tables ...
+# in the background we are creating a data package + pipeline
+data push {file}
+
+Algorithm:
+
+1. Detect type / format
+2. Choose the data (e.g. sheet from excel)
+3. Review the headers
+4. Infer data-types and review
+5. [Add constraints]
+6. Data validation
+7. Upload
+8. Get back a link - view page (or the raw url) e.g. http://datapackaged.com/core/finance-vix
+  * You can view, share, publish, [fork]
+
+1. Detect file type
+ => file extension
+  1. Offer guess
+  2. Probable guess (options?)
+  3. Unknown - tell us
+
+1B. Detect encoding (for CSV)
+
+2. Choose the data
+  1. 1 sheet => ok
+  2. Multiple sheets guess and offer
+  3. Multiple sheets - ask them (which to include)
+
+2B: bad data case - e.g. selecting within table
+
+3. Review the headers
+  * Here is what we found
+  * More than one option for headers - try to reconcile
+  * 
+
+
+### Upload:
+
+* raw file with name a function of the md5 hash
+  * Pros: efficient on space (e.g. same file stored once but means you need to worry about garbage collection?)
+* the pipeline description: description of data and everything else we did [into database]
+
+Then pipeline runs e.g. load into a database or into a data package
+
+* stores output somewhere ...
+
+Viewable online ...
+
+Note:
+data push url # does not store file
+data push file # store in rawstore
+
+### BitStore
+
+/rawstore/ - content addressed storage (md5 or sha hashed)
+/packages/{owner}/{name}/{tag-or-pipeline}
+```
+
+
+Try this for a CSV file
+
+```
+data push mydata.csv
+
+# review headers
+
+# data types ...
+
+
+Upload
+
+* csv file gets stored as blob md5 ...
+* output of the pipeline stored ...
+  * canonical CSV gets generated ...
+```
+
+Data Push directory
+
+```
+data push {directory}
+
+# could just do data push file for each file but ...
+# that could be tedious
+# once I've mapped one file you try reusing that mapping for others ...
+# .data directory that stores the pipeline and the datapackage.json
+```
+
+
 # Stories
 
 ## 1. Get Started
