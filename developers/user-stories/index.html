@@ -107,6 +107,19 @@
     <li class="toctree-l3"><a href="#personas">Personas</a></li>
     
 
+    <li class="toctree-l3"><a href="#stories-v2">Stories v2</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#publishing-data">Publishing data</a></li>
+        
+            <li><a class="toctree-l4" href="#push-package">Push Package</a></li>
+        
+            <li><a class="toctree-l4" href="#push-file">Push File</a></li>
+        
+        </ul>
+    
+
     <li class="toctree-l3"><a href="#stories">Stories</a></li>
     
         <ul>
@@ -199,6 +212,15 @@
 <ul>
 <li><a href="#user-stories">User Stories</a></li>
 <li><a href="#personas">Personas</a></li>
+<li><a href="#stories-v2">Stories v2</a><ul>
+<li><a href="#publishing-data">Publishing data</a></li>
+<li><a href="#push-package">Push Package</a><ul>
+<li><a href="#diagram-for-upload-process">Diagram for upload process</a></li>
+</ul>
+</li>
+<li><a href="#push-file">Push File</a></li>
+</ul>
+</li>
 <li><a href="#stories">Stories</a><ul>
 <li><a href="#1-get-started">1. Get Started</a><ul>
 <li><a href="#1-sign-in-sign-up-done">1. Sign in / Sign up [DONE]</a></li>
@@ -298,6 +320,144 @@
 </li>
 <li><strong>Admin</strong>: A person or organization who runs an instance of a DataHub</li>
 </ul>
+<h1 id="stories-v2">Stories v2</h1>
+<h2 id="publishing-data">Publishing data</h2>
+<p>As a Publisher I want to publish a file/dataset and view/share just with a few people (or even just myself)</p>
+<ul>
+<li><del>&ldquo;Private&rdquo; link: /{username}/{uuid}</del></li>
+<li>I want JSON as well as CSV versions of my data</li>
+<li>I want a preview</li>
+<li>I want to be notified clearly if something went wrong and what I can do to fix it.</li>
+</ul>
+<p>As a Publisher I want to publish a file/dataset and share publicly with everyone</p>
+<ul>
+<li>Viewable on my profile</li>
+<li>Public link: nice urls /{username}/{dataset-name}</li>
+</ul>
+<p>For the pipeline =&gt;</p>
+<p><strong>Context: where this pipeline fits in the system</strong></p>
+<pre class="highlight"><code class="language-mermaid linenums">graph LR
+
+specstore --shared db--&gt; assembler
+assembler --identity pipeline--&gt; pkgstore
+pkgstore --&gt; frontend</code></pre>
+
+<p><strong>Detailed steps</strong></p>
+<pre class="highlight"><code class="language-mermaid linenums">graph LR
+
+load[Load from RawStore] --&gt; encoding[Encoding Check&lt;br&gt;Add encoding info]
+encoding --&gt; csvkind[CSV kind check]
+csvkind --&gt; validate[Validate data]
+validate --&gt; dump[Dump S3]
+dump --&gt; pkgstore[Pkg Store fa:fa-database]
+
+load -.-&gt; dump
+
+validate --&gt; checkoutput[Validation&lt;br&gt;Reports]</code></pre>
+
+<h2 id="push-package">Push Package</h2>
+<h3 id="diagram-for-upload-process">Diagram for upload process</h3>
+<pre class="highlight"><code class="language-mermaid linenums">graph TD
+
+CLI --jwt--&gt; rawstore[RawStore API]
+rawstore --signed urls--&gt; CLI
+CLI --upload using signed url--&gt; s3[S3 bucket]
+s3 --success message--&gt; CLI
+CLI --metadata--&gt; pipe[Pipe Source]</code></pre>
+
+<h2 id="push-file">Push File</h2>
+<p>Levels:</p>
+<ol>
+<li>Already have Data Package (?)</li>
+<li>Good CSV</li>
+<li>Good Excel</li>
+<li>Bad data (i.e. has &hellip;)</li>
+<li>Something else</li>
+</ol>
+<pre class="highlight"><code class="linenums">data push {file-or-directory}</code></pre>
+
+<p>How does data push work?</p>
+<pre class="highlight"><code class="linenums"># you are pushing the raw file
+# and the extraction to get one or more data tables ...
+# in the background we are creating a data package + pipeline
+data push {file}
+
+Algorithm:
+
+1. Detect type / format
+2. Choose the data (e.g. sheet from excel)
+3. Review the headers
+4. Infer data-types and review
+5. [Add constraints]
+6. Data validation
+7. Upload
+8. Get back a link - view page (or the raw url) e.g. http://datapackaged.com/core/finance-vix
+  * You can view, share, publish, [fork]
+
+1. Detect file type
+ =&gt; file extension
+  1. Offer guess
+  2. Probable guess (options?)
+  3. Unknown - tell us
+
+1B. Detect encoding (for CSV)
+
+2. Choose the data
+  1. 1 sheet =&gt; ok
+  2. Multiple sheets guess and offer
+  3. Multiple sheets - ask them (which to include)
+
+2B: bad data case - e.g. selecting within table
+
+3. Review the headers
+  * Here is what we found
+  * More than one option for headers - try to reconcile
+  * 
+
+
+### Upload:
+
+* raw file with name a function of the md5 hash
+  * Pros: efficient on space (e.g. same file stored once but means you need to worry about garbage collection?)
+* the pipeline description: description of data and everything else we did [into database]
+
+Then pipeline runs e.g. load into a database or into a data package
+
+* stores output somewhere ...
+
+Viewable online ...
+
+Note:
+data push url # does not store file
+data push file # store in rawstore
+
+### BitStore
+
+/rawstore/ - content addressed storage (md5 or sha hashed)
+/packages/{owner}/{name}/{tag-or-pipeline}</code></pre>
+
+<p>Try this for a CSV file</p>
+<pre class="highlight"><code class="linenums">data push mydata.csv
+
+# review headers
+
+# data types ...
+
+
+Upload
+
+* csv file gets stored as blob md5 ...
+* output of the pipeline stored ...
+  * canonical CSV gets generated ...</code></pre>
+
+<p>Data Push directory</p>
+<pre class="highlight"><code class="linenums">data push {directory}
+
+# could just do data push file for each file but ...
+# that could be tedious
+# once I've mapped one file you try reusing that mapping for others ...
+# .data directory that stores the pipeline and the datapackage.json</code></pre>
+
 <h1 id="stories">Stories</h1>
 <h2 id="1-get-started">1. Get Started</h2>
 <h3 id="1-sign-in-sign-up-done">1. Sign in / Sign up [DONE]</h3>
