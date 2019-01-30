@@ -10,7 +10,7 @@ https://github.com/datahq/auth#api
 
 ## Rawstore
 
-DataHub microservice for storing blobs i.e. files. It is a lightweight auth wrapper for n S3-compative object store that integrates with the rest of the DataHub stack and especially the auth service.
+DataHub microservice for storing blobs i.e. files. It is a lightweight auth wrapper for n S3-compatible object store that integrates with the rest of the DataHub stack and especially the auth service.
 
 https://github.com/datahq/bitstore#api
 
